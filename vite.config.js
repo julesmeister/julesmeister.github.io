@@ -13,7 +13,7 @@ import rehypePrism from '@mapbox/rehype-prism';
 
 export default defineConfig({
   assetsInclude: ['**/*.glb', '**/*.hdr', '**/*.glsl'],
-  base: '/julesmeister.github.io/',
+  base: '/julesmeister.pages.dev/',
   build: {
     assetsInlineLimit: 1024,
   },

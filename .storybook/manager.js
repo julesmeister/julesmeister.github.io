@@ -6,6 +6,6 @@ addons.setConfig({
     ...themes.dark,
     brandImage: './icon.svg',
     brandTitle: 'Jules Components',
-    brandUrl: 'https://julesmeister.github.io',
+    brandUrl: 'https://julesmeister.pages.dev',
   },
 });
