@@ -5,13 +5,18 @@ import { useInViewport, useWindowSize } from '~/hooks';
 import { startTransition, useEffect, useRef } from 'react';
 import {
   AmbientLight,
+  BufferGeometry,
   DirectionalLight,
+  Euler,
+  Float32BufferAttribute,
+  IcosahedronGeometry,
   LinearSRGBColorSpace,
   Mesh,
   MeshPhongMaterial,
+  OctahedronGeometry,
   PerspectiveCamera,
   Scene,
-  SphereGeometry,
+  TorusKnotGeometry,
   UniformsUtils,
   Vector2,
   WebGLRenderer,
@@ -80,9 +85,43 @@ export const DisplacementSphere = props => {
     };
 
     startTransition(() => {
-      geometry.current = new SphereGeometry(32, 128, 128);
+      // Create a custom geometry by combining vertices of different shapes
+      const ico = new IcosahedronGeometry(15, 1);
+      const oct = new OctahedronGeometry(18, 2);
+      
+      // Combine vertices from both geometries
+      const positions = [];
+      const icoPositions = ico.attributes.position.array;
+      const octPositions = oct.attributes.position.array;
+      
+      // Add icosahedron vertices with a twist
+      for (let i = 0; i < icoPositions.length; i += 3) {
+        const angle = (i / icoPositions.length) * Math.PI * 2;
+        positions.push(
+          icoPositions[i] * Math.cos(angle),
+          icoPositions[i + 1],
+          icoPositions[i + 2] * Math.sin(angle)
+        );
+      }
+      
+      // Add octahedron vertices with offset
+      for (let i = 0; i < octPositions.length; i += 3) {
+        positions.push(
+          octPositions[i] * 0.8,
+          octPositions[i + 1] * 0.8,
+          octPositions[i + 2] * 0.8
+        );
+      }
+      
+      // Create new geometry from combined vertices
+      geometry.current = new BufferGeometry();
+      geometry.current.setAttribute('position', new Float32BufferAttribute(positions, 3));
+      geometry.current.computeVertexNormals();
+      
       sphere.current = new Mesh(geometry.current, material.current);
       sphere.current.position.z = 0;
+      sphere.current.rotation.x = 0.3;
+      sphere.current.rotation.y = 0.2;
       sphere.current.modifier = Math.random();
       scene.current.add(sphere.current);
     });
