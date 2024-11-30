@@ -1,6 +1,6 @@
 import profileImgLarge from '~/assets/profile-large.jpg';
 import profileImgPlaceholder from '~/assets/profile-placeholder.jpg';
-import profileImg from '~/assets/profile.jpg';
+import profileImg from '~/assets/photo_2022-12-26_03-22-53.jpg';
 import { Button } from '~/components/button';
 import { DecoderText } from '~/components/decoder-text';
 import { Divider } from '~/components/divider';
@@ -21,16 +21,13 @@ const ProfileText = ({ visible, titleId }) => (
       <DecoderText text="Hi there" start={visible} delay={500} />
     </Heading>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      I’m Hamish, currently I live in Sydney working as a senior product designer at{' '}
-      <Link href="https://www.qwilr.com">Qwilr</Link>. My projects include UX design, UI
-      animations, and icon illustration. Being comfortable with code allows me to rapidly
-      prototype and validate experiences. If you’re interested in the tools and software I
+      I’m Jules, currently I live in Zamboanga, Philippines working as a Flutterflow developer at{' '}
+      Pure Care Marketing Incorporated. My projects include a Flutterflow app, a cTrader plugin and a Next-React web app. I'm looking to expand my skillset. If you’re interested in the tools and software I
       use check out my <Link href="/uses">uses page</Link>.
     </Text>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      In my spare time I like to practice Brazilian Jiu Jitsu, play video games, and{' '}
-      <Link href="/projects/volkihar-knight">make mods</Link>. I’m always down for hearing
-      about new projects, so feel free to drop me a line.
+      In my leisure time, I indulge in a swimming routine that typically consists of 50 laps per session. I am always open to hearing
+      about new opportunities, so feel free to drop me a line.
     </Text>
   </Fragment>
 );
