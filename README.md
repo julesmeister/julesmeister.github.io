@@ -3,9 +3,15 @@
 </p>
 <h1 align="center">Personal portfolio</h1>
 
-[![Site preview](/public/site-preview.png)](https://hamishw.com)
+> This is a fork of [Hamish Williams' portfolio](https://github.com/HamishMW/portfolio). The original design and implementation was created by Hamish Williams. I've customized it for my personal use while maintaining the original design aesthetic.
 
-My design portfolio to showcase a few projects. Built with [Remix](https://remix.run/), [Three.js](https://threejs.org/), and [Framer Motion](https://www.framer.com/motion/). View the [live site](https://hamishw.com) or check out a live version of the [components storybook](https://storybook.hamishw.com).
+[![Site preview](/public/site-preview.png)](https://julesmeister.pages.dev)
+
+A customized version of Hamish Williams' design portfolio. Built with [Remix](https://remix.run/), [Three.js](https://threejs.org/), and [Framer Motion](https://www.framer.com/motion/). View the [live site](https://julesmeister.pages.dev) or check out a live version of the [components storybook](https://storybook.hamishw.com).
+
+## Credit
+
+The original design and implementation of this portfolio was created by [Hamish Williams](https://github.com/HamishMW). I've modified the content and some functionality while keeping the core design intact. All credit for the design system, animations, and overall aesthetic goes to Hamish.
 
 ## Install & run
 
@@ -29,17 +35,18 @@ npm run dev:storybook
 
 ## Deployment
 
-I've set up the site using Cloudflare for hosting. Deploy the site to Cloudflare Pages:
+The site is deployed using Cloudflare Pages:
 
 ```bash
 npm run deploy
 ```
 
-## Permissions
+## License & Attribution
 
-I'm cool with anyone using the code or parts of the code for their own site, it is open source so people can learn from it and adapt it. However, I would encourage you to modify the theme and components it to make it your own. If you are using the site's design largely unmodified, I'd appreciate being credited as the designer of the website.
-
-I do not give permission to present any of my projects as your own (this is being actively used as my portfolio site and these are my real projects I've worked on).
+This is a fork of Hamish Williams' open-source portfolio. While the code is available for learning and adaptation, please:
+- Credit Hamish Williams as the original designer if you use the design substantially unmodified
+- Do not present the original projects as your own
+- Make the design your own by modifying the theme and components
 
 ## FAQs
 
