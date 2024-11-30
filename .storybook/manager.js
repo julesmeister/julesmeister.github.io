@@ -5,7 +5,7 @@ addons.setConfig({
   theme: {
     ...themes.dark,
     brandImage: './icon.svg',
-    brandTitle: 'Jules Components',
-    brandUrl: 'https://julesmeister.pages.dev',
+    brandTitle: 'Hamish Williams Components',
+    brandUrl: 'https://hamishw.com',
   },
 });
