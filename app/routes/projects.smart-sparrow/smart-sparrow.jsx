@@ -16,12 +16,12 @@ import imageSprDesignSystemDark from '~/assets/spr-design-system-dark.png';
 import imageSprDesignSystemLightLarge from '~/assets/spr-design-system-light-large.png';
 import imageSprDesignSystemLightPlaceholder from '~/assets/spr-design-system-light-placeholder.png';
 import imageSprDesignSystemLight from '~/assets/spr-design-system-light.png';
-import imageSprLessonBuilderDarkLarge from '~/assets/spr-lesson-builder-dark-large.jpg';
-import imageSprLessonBuilderDarkPlaceholder from '~/assets/spr-lesson-builder-dark-placeholder.jpg';
-import imageSprLessonBuilderDark from '~/assets/spr-lesson-builder-dark.jpg';
-import imageSprLessonBuilderLightLarge from '~/assets/spr-lesson-builder-light-large.jpg';
-import imageSprLessonBuilderLightPlaceholder from '~/assets/spr-lesson-builder-light-placeholder.jpg';
-import imageSprLessonBuilderLight from '~/assets/spr-lesson-builder-light.jpg';
+import testmanshipScreenShotDarkLarge from '~/assets/Testmanship-Dark-Large.jpg';
+import testmanshipScreenShotDarkPlaceholder from '~/assets/Testmanship-Dark-Large.jpg';
+import testmanshipScreenShotDark from '~/assets/Testmanship-Dark.jpg';
+import testmanshipScreenShotLightLarge from '~/assets/Testmanship-Light-Large.jpg';
+import testmanshipScreenShotLightPlaceholder from '~/assets/Testmanship-Light-Large.jpg';
+import testmanshipScreenShotLight from '~/assets/Testmanship-Light.jpg';
 import videoSprMotionLarge from '~/assets/spr-motion-large.mp4';
 import videoSprMotionPlaceholder from '~/assets/spr-motion-placeholder.jpg';
 import videoSprMotion from '~/assets/spr-motion.mp4';
@@ -70,14 +70,14 @@ const EarthSection = lazy(() =>
   import('./earth').then(module => ({ default: module.EarthSection }))
 );
 
-const title = 'Designing the future of education';
+const title = 'Testmanship';
 const description =
-  'I worked as the design lead on a major iteration of Smart Sparrow’s product. We took the platform in a bold new direction, focusing on becoming the best tool for learning designers.';
+  'I initially thought of this project as a future SaaS, because I saw a demand when I was studying german language and I thought there was a need for a tool that would help people track their progress in writing and speaking German. ';
 const roles = [
-  'Art Direction',
-  'UX and UI Design',
+  'SaaS Development',
+  'Educational Tool',
   'Front End Development',
-  'Motion Design',
+  'Openrouter',
 ];
 
 export const meta = () => {
@@ -105,7 +105,7 @@ export const SmartSparrow = () => {
         <ProjectHeader
           title={title}
           description={description}
-          url="https://www.smartsparrow.com/"
+          url="https://testmanship.vercel.app/"
           roles={roles}
         />
         <ProjectSection padding="top">
@@ -115,15 +115,15 @@ export const SmartSparrow = () => {
               key={theme}
               srcSet={
                 isDark
-                  ? `${imageSprLessonBuilderDark} 1280w, ${imageSprLessonBuilderDarkLarge} 2560w`
-                  : `${imageSprLessonBuilderLight} 1280w, ${imageSprLessonBuilderLightLarge} 2560w`
+                  ? `${testmanshipScreenShotDark} 1280w, ${testmanshipScreenShotDarkLarge} 2560w`
+                  : `${testmanshipScreenShotLight} 1280w, ${testmanshipScreenShotLightLarge} 2560w`
               }
               width={1280}
               height={800}
               placeholder={
                 isDark
-                  ? imageSprLessonBuilderDarkPlaceholder
-                  : imageSprLessonBuilderLightPlaceholder
+                  ? testmanshipScreenShotDarkPlaceholder
+                  : testmanshipScreenShotLightPlaceholder
               }
               sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 800px, 1000px`}
               alt="The aero lesson builder app dragging an audio component into a screen about plant cells."
@@ -134,13 +134,9 @@ export const SmartSparrow = () => {
           <ProjectTextRow>
             <ProjectSectionHeading>The problem</ProjectSectionHeading>
             <ProjectSectionText>
-              In 2017, Smart Sparrow began a project to build an entirely new platform to
-              from the ground up to serve as the most powerful tool for educators to
-              create online learning experiences. The old platform was built in Flash, and
-              there were a number of user experience problems to solve in the process of
-              moving the platform to Javascript. The primary goals for the project were
-              reducing barriers to collaboration, and making the platform both easier for
-              new users, but with plenty of room to scale for advanced users.
+              I used Openrouter for the AI API and I chose the cheap models to test out this tool. It works for the most part, but it's not perfect. The response sometimes deviates from the prompt and it can sometimes be confusing to the user when the response is not precise.
+
+              I am also doubting myself if I give enough value to reach out to potential customers. 
             </ProjectSectionText>
           </ProjectTextRow>
         </ProjectSection>
