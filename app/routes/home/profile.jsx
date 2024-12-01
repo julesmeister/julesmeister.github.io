@@ -21,9 +21,7 @@ const ProfileText = ({ visible, titleId }) => (
       <DecoderText text="Hi there" start={visible} delay={500} />
     </Heading>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      I’m Jules, currently I live in Zamboanga, Philippines working as a Flutterflow developer at{' '}
-      Pure Care Marketing Incorporated. My projects include a Flutterflow app, a cTrader plugin and a Next-React web app. I'm looking to expand my skillset. If you’re interested in the tools and software I
-      use check out my <Link href="/uses">uses page</Link>.
+      I'm Jules, a Filipino of Chinese descent, currently living in Zamboanga, Philippines, where I work as a Flutterflow developer at Pure Care Marketing Incorporated. Yes, I know what you're thinking - "Japanese text on your website, must be Japanese, right?" Well, sorry to disappoint, but I'm as Filipino as adobo and sinigang! My projects include a Flutterflow app, a cTrader plugin, and a Next-React web app, which I am eager to expand upon. If you're interested in the tools and software I utilize, please feel free to visit my <Link href="/uses">uses page</Link>.
     </Text>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
       In my leisure time, I indulge in a swimming routine that typically consists of 50 laps per session.
