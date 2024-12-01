@@ -3,6 +3,7 @@ export {
   ProjectContainer,
   ProjectBackground,
   ProjectImage,
+  ProjectImageColumns,
   ProjectSectionContent,
   ProjectSectionHeading,
   ProjectSectionText,

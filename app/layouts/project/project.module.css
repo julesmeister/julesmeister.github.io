@@ -437,4 +437,32 @@
       grid-template-columns: 1fr;
     }
   }
+
+  .imageColumns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-l);
+    margin: 0 auto;
+  }
+
+  .imageColumn {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    aspect-ratio: 1;
+    width: 100%;
+  }
+
+  @media (max-width: 1024px) {
+    .imageColumns {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 696px) {
+    .imageColumns {
+      grid-template-columns: 1fr;
+    }
+  }
 }

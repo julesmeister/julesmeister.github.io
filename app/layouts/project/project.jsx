@@ -135,6 +135,16 @@ export const ProjectImage = ({ className, alt, ...rest }) => (
   </div>
 );
 
+export const ProjectImageColumns = ({ images }) => (
+  <div className={styles.imageColumns}>
+    {images.map((image, index) => (
+      <div key={index} className={styles.imageColumn}>
+        <Image reveal alt={image.alt} delay={300} {...image} />
+      </div>
+    ))}
+  </div>
+);
+
 export const ProjectSectionContent = ({ className, width = 'l', ...rest }) => (
   <div
     className={classes(styles.sectionContent, className)}

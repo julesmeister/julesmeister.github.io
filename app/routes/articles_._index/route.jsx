@@ -14,7 +14,7 @@ export function meta() {
   return baseMeta({
     title: 'Articles',
     description:
-      'A collection of technical design and development articles. May contain incoherent ramblings.',
+      'A collection of insights and technical development articles. May contain incoherent ramblings.',
   });
 }
 

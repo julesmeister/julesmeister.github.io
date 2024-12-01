@@ -29,7 +29,7 @@ import styles from './slice.module.css';
 
 const title = 'Equity Stop Plugin with Cooldown for cTrader';
 const description =
-  'This enhanced version offers a streamlined interface with consolidated components and additional features for better trade management. The UI has been optimized by grouping related components together, resulting in a more efficient use of space.';
+  'When I was experimenting with my trading journey, I found that the cTrader plugin for Equity Stop was a bit clunky and need more customization. This enhanced version offers additional features for better trade management. I have designed it specifically for the use of martingale trading, hence the "+" and "-" buttons for doubling and halving the lot size and the "Stop Loss" and "Take Profit" fields. The UI has been optimized by grouping related components together, resulting in a more efficient use of space.';
 const roles = ['cTrader', 'Plugin', 'C#'];
 
 export const meta = () => {
@@ -70,9 +70,9 @@ export const Slice = () => {
         <ProjectSection>
           <ProjectSectionColumns centered className={styles.columns}>
             <div className={styles.imagesText}>
-              <ProjectSectionHeading>New Features</ProjectSectionHeading>
+              <ProjectSectionHeading>Enhanced Features</ProjectSectionHeading>
               <ProjectSectionText>
-                It's been a pain to switch lot size with cTrader, so I tweaked the plugin to make it easier to do so. When stops are hit, the plugin will automatically cooldown depending on the timer set. This will suspend the user from overtrading and give them a chance to relax their emotions before making yet another trade.
+                It's been a pain to switch lot sizes with cTrader, so I tweaked the plugin to make it easier to do so. When stops are hit, the plugin will automatically cooldown depending on the timer set. This will suspend the user from overtrading and give them a chance to relax their emotions before making yet another trade.
               </ProjectSectionText>
               <ProjectSectionText>
                 Furthermore, each trade executed via this plugin will automatically have stop loss/take profit assigned in accordance with the user's predefined settings.

@@ -1,8 +1,5 @@
 import backgroundSprLarge from '~/assets/spr-background-large.jpg';
 import backgroundSprPlaceholder from '~/assets/spr-background-placeholder.jpg';
-import imageSprBackgroundVolcanismLarge from '~/assets/spr-background-volcanism-large.jpg';
-import imageSprBackgroundVolcanismPlaceholder from '~/assets/spr-background-volcanism-placeholder.jpg';
-import imageSprBackgroundVolcanism from '~/assets/spr-background-volcanism.jpg';
 import backgroundSpr from '~/assets/spr-background.jpg';
 import testChallengeDarkLarge from '~/assets/Test-Dark.jpg';
 import testChallengeDarkPlaceholder from '~/assets/Test-Dark.jpg';
@@ -41,20 +38,14 @@ import {
   ProjectTextRow,
 } from '~/layouts/project';
 import { baseMeta } from '~/utils/meta';
-import { Suspense, lazy, useMemo } from 'react';
 import { media } from '~/utils/style';
-import styles from './smart-sparrow.module.css';
-
-const Earth = lazy(() => import('./earth').then(module => ({ default: module.Earth })));
-const EarthSection = lazy(() =>
-  import('./earth').then(module => ({ default: module.EarthSection }))
-);
+import styles from './testmanship.module.css';
 
 const title = 'Testmanship';
 const description =
   'I initially thought of this project as a future SaaS, because I saw a demand when I was studying german language and I thought there was a need for a tool that would help people track their progress in writing and speaking German. ';
 const roles = [
-  'SaaS Development',
+  'Supabase',
   'Next.js',
   'React',
   'Openrouter AI',
