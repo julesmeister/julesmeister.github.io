@@ -37,6 +37,7 @@ import {
   ProjectSectionText,
   ProjectTextRow,
 } from '~/layouts/project';
+import { List, ListItem } from '~/components/list';
 import { baseMeta } from '~/utils/meta';
 import { media } from '~/utils/style';
 import styles from './testmanship.module.css';
@@ -142,7 +143,15 @@ export const Testmanship = () => {
             <ProjectTextRow>
               <ProjectSectionHeading>Taking A Test</ProjectSectionHeading>
               <ProjectSectionText>
-                There are two types of taking a test: practice mode and exam mode. Practice test allows the user to use AI as a guide to help them know if there's anything they need to improve on their writing. It also gives them suggestions on what to write next if they've been idle for 20 seconds so they don't get stuck. Exam mode only allows the user to take a test without AI assistance and see their evaluation when time is up or when they complete the word count threshold.
+                There are two types of taking a test: 
+                <List>
+                  <ListItem>
+                  Practice mode allows the user to use AI as a guide to help them know if there's anything they need to improve on their writing. It also gives them suggestions on what to write next if they've been idle for 20 seconds so they don't get stuck.
+                  </ListItem>
+                  <ListItem>
+                  Exam mode only allows the user to take a test without AI assistance and see their evaluation when time is up or when they complete the word count threshold.
+                  </ListItem>
+                  </List> 
               </ProjectSectionText>
             </ProjectTextRow>
           </ProjectSectionContent>
