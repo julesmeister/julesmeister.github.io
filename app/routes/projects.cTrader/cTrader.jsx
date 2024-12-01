@@ -26,6 +26,7 @@ import { Fragment } from 'react';
 import { media } from '~/utils/style';
 import { baseMeta } from '~/utils/meta';
 import styles from './cTrader.module.css';
+import { List, ListItem } from '~/components/list';
 
 const title = 'Equity Stop Plugin with Cooldown for cTrader';
 const description =
@@ -79,12 +80,14 @@ export const Slice = () => {
           <ProjectSectionColumns centered className={styles.columns}>
             <div className={styles.imagesText}>
               <ProjectSectionHeading>Enhanced Features</ProjectSectionHeading>
-              <ProjectSectionText>
-                It's been a pain to switch lot sizes with cTrader, so I tweaked the plugin to make it easier to do so. When stops are hit, the plugin will automatically cooldown depending on the timer set. This will suspend the user from overtrading and give them a chance to relax their emotions before making yet another trade.
-              </ProjectSectionText>
-              <ProjectSectionText>
-                Furthermore, each trade executed via this plugin will automatically have stop loss/take profit assigned in accordance with the user's predefined settings.
-              </ProjectSectionText>
+              <List>
+                <ListItem>The plugin behind is Acronew's, the plugin in front is my own built on top of his.</ListItem>
+                <ListItem>It's been a pain to switch lot sizes with cTrader, so I tweaked the plugin to make it easier to do so. 
+                  </ListItem>
+                  <ListItem>When stops are hit, the plugin will automatically cooldown depending on the timer set. This will suspend the user from overtrading and give them a chance to relax their emotions before making yet another trade.</ListItem>
+                <ListItem>Furthermore, each trade executed via this plugin will automatically have stop loss/take profit assigned in accordance with the user's predefined settings.
+                </ListItem>
+              </List>
             </div>
             <div className={styles.sidebarImages}>
               <Image

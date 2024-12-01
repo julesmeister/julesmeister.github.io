@@ -49,6 +49,7 @@ const roles = [
   'Next.js',
   'React',
   'Openrouter AI',
+  'Vercel',
 ];
 
 export const meta = () => {
