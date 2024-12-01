@@ -55,9 +55,9 @@ const description =
   'I initially thought of this project as a future SaaS, because I saw a demand when I was studying german language and I thought there was a need for a tool that would help people track their progress in writing and speaking German. ';
 const roles = [
   'SaaS Development',
-  'Educational Tool',
-  'Front End Development',
-  'Openrouter',
+  'Next.js',
+  'React',
+  'Openrouter AI',
 ];
 
 export const meta = () => {

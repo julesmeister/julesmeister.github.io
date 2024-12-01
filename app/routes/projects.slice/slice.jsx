@@ -30,7 +30,7 @@ import styles from './slice.module.css';
 const title = 'Equity Stop Plugin with Cooldown for cTrader';
 const description =
   'This enhanced version offers a streamlined interface with consolidated components and additional features for better trade management. The UI has been optimized by grouping related components together, resulting in a more efficient use of space.';
-const roles = ['cTrader', 'Plugin', 'Trading Platform'];
+const roles = ['cTrader', 'Plugin', 'C#'];
 
 export const meta = () => {
   return baseMeta({ title, description, prefix: 'Projects' });
@@ -70,7 +70,7 @@ export const Slice = () => {
         <ProjectSection>
           <ProjectSectionColumns centered className={styles.columns}>
             <div className={styles.imagesText}>
-              <ProjectSectionHeading>Changes</ProjectSectionHeading>
+              <ProjectSectionHeading>New Features</ProjectSectionHeading>
               <ProjectSectionText>
                 It's been a pain to switch lot size with cTrader, so I tweaked the plugin to make it easier to do so. When stops are hit, the plugin will automatically cooldown depending on the timer set. This will suspend the user from overtrading and give them a chance to relax their emotions before making yet another trade.
               </ProjectSectionText>
