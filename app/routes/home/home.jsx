@@ -1,12 +1,12 @@
-import gamestackTexture2Large from '~/assets/gamestack-list-large.jpg';
-import gamestackTexture2Placeholder from '~/assets/gamestack-list-placeholder.jpg';
-import gamestackTexture2 from '~/assets/gamestack-list.jpg';
-import gamestackTextureLarge from '~/assets/Lotel.jpg';
-import gamestackTexturePlaceholder from '~/assets/Lotel.jpg';
-import gamestackTexture from '~/assets/Lotel.jpg';
-import sliceTextureLarge from '~/assets/slice-app-large.jpg';
-import sliceTexturePlaceholder from '~/assets/slice-app-placeholder.jpg';
-import sliceTexture from '~/assets/slice-app.jpg';
+import lotelScreenShot2Large from '~/assets/Lotel-Home.jpg';
+import lotelScreenShot2Placeholder from '~/assets/Lotel-Home.jpg';
+import lotelScreenShot2 from '~/assets/Lotel-Home.jpg';
+import lotelScreenShotLarge from '~/assets/Lotel-Remittance.jpg';
+import lotelScreenShotPlaceholder from '~/assets/Lotel-Remittance.jpg';
+import lotelScreenShot from '~/assets/Lotel-Remittance.jpg';
+import cTraderScreenShotLarge from '~/assets/cTrader.png';
+import cTraderScreenShotPlaceholder from '~/assets/cTrader.png';
+import cTraderScreenShot from '~/assets/cTrader.png';
 import testmanshipScreenShotLarge from '~/assets/Testmanship-Dark.jpg';
 import testmanshipScreenShotPlaceholder from '~/assets/Testmanship-Dark.jpg';
 import testmanshipScreenShot from '~/assets/Testmanship-Light.jpg';
@@ -148,10 +148,10 @@ export const Home = () => {
         title="Testmanship"
         description="Testmanship is a sophisticated web application designed to help language learners track their writing progress and assess their preparedness across different CEFR (Common European Framework of Reference for Languages) levels."
         buttonText="View project"
-        buttonLink="/projects/smart-sparrow"
+        buttonLink="/projects/testmanship"
         model={{
           type: 'laptop',
-          alt: 'Smart Sparrow lesson builder',
+          alt: 'Testmanship Language Learning Hub',
           textures: [
             {
               srcSet: `${testmanshipScreenShot} 1280w, ${testmanshipScreenShotLarge} 2560w`,
@@ -169,18 +169,18 @@ export const Home = () => {
         title="Lotel"
         description="Comprehensive hospitality management system for encoding and monitoring various aspects of hotel operations, including sales, billing, payroll, and key performance metrics"
         buttonText="View project"
-        buttonLink="https://gamestack.hamishw.com"
+        buttonLink="/projects/lotel"
         model={{
           type: 'phone',
-          alt: 'App login screen',
+          alt: 'Lotel hospitality management system',
           textures: [
             {
-              srcSet: `${gamestackTexture} 375w, ${gamestackTextureLarge} 750w`,
-              placeholder: gamestackTexturePlaceholder,
+              srcSet: `${lotelScreenShot} 375w, ${lotelScreenShotLarge} 750w`,
+              placeholder: lotelScreenShotPlaceholder,
             },
             {
-              srcSet: `${gamestackTexture2} 375w, ${gamestackTexture2Large} 750w`,
-              placeholder: gamestackTexture2Placeholder,
+              srcSet: `${lotelScreenShot2} 375w, ${lotelScreenShot2Large} 750w`,
+              placeholder: lotelScreenShot2Placeholder,
             },
           ],
         }}
@@ -190,17 +190,17 @@ export const Home = () => {
         sectionRef={projectThree}
         visible={visibleSections.includes(projectThree.current)}
         index={3}
-        title="Biomedical image collaboration"
-        description="Increasing the amount of collaboration in Slice, an app for biomedical imaging"
+        title="Enhanced Equity Stop with Cooldown for cTrader"
+        description="A sophisticated modification of Acronew's Equity Stop with advanced features and improved UI."
         buttonText="View project"
         buttonLink="/projects/slice"
         model={{
           type: 'laptop',
-          alt: 'Annotating a biomedical image in the Slice app',
+          alt: 'A sophisticated modification of Acronew\'s Equity Stop with advanced features and improved UI.',
           textures: [
             {
-              srcSet: `${sliceTexture} 800w, ${sliceTextureLarge} 1920w`,
-              placeholder: sliceTexturePlaceholder,
+              srcSet: `${cTraderScreenShot} 800w, ${cTraderScreenShotLarge} 1920w`,
+              placeholder: cTraderScreenShotPlaceholder,
             },
           ],
         }}
