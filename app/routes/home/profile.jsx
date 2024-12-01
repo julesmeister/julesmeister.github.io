@@ -26,9 +26,10 @@ const ProfileText = ({ visible, titleId }) => (
       use check out my <Link href="/uses">uses page</Link>.
     </Text>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      In my leisure time, I indulge in a swimming routine that typically consists of 50 laps per session. I am always open to hearing
-      about new opportunities, so feel free to drop me a line.
+      In my leisure time, I indulge in a swimming routine that typically consists of 50 laps per session.
     </Text>
+    <Text className={styles.description} data-visible={visible} size="l" as="p"> I am always open to hearing
+    about new opportunities, so feel free to drop me a line.</Text>
   </Fragment>
 );
 
