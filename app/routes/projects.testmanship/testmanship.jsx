@@ -82,7 +82,7 @@ export const Testmanship = () => {
         <ProjectSection padding="top">
           <ProjectSectionContent>
             <ProjectImage
-              raised
+              className={styles.themeImage}
               key={theme}
               srcSet={
                 isDark
@@ -112,6 +112,7 @@ export const Testmanship = () => {
         <ProjectSection light={isDark}>
           <ProjectSectionContent>
             <Image
+              className={styles.themeImage}
               key={theme}
               srcSet={
                 isDark
@@ -119,7 +120,7 @@ export const Testmanship = () => {
                   : `${testChallengeLight} 1024w, ${testChallengeLightLarge} 2048w`
               }
               width={1024}
-              hright={800}
+              height={800}
               placeholder={
                 isDark
                   ? testChallengeDarkPlaceholder
@@ -148,8 +149,8 @@ export const Testmanship = () => {
         <ProjectSection>
           <ProjectSectionContent>
             <Image
-              raised
               key={theme}
+              className={styles.themeImage}
               srcSet={
                 isDark
                   ? `${challengeGeneratorDark} 1280w, ${challengeGeneratorDarkLarge} 2560w`

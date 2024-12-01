@@ -42,3 +42,13 @@
     top: -5%;
   }
 }
+
+.themeImage img {
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.themeImage img:hover {
+  transform: translateY(-4px);
+}

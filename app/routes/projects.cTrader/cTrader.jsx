@@ -25,7 +25,7 @@ import {
 import { Fragment } from 'react';
 import { media } from '~/utils/style';
 import { baseMeta } from '~/utils/meta';
-import styles from './slice.module.css';
+import styles from './cTrader.module.css';
 
 const title = 'Equity Stop Plugin with Cooldown for cTrader';
 const description =
@@ -57,14 +57,22 @@ export const Slice = () => {
         />
         <ProjectSection padding="top">
           <ProjectSectionContent>
-            <ProjectImage
-              srcSet={`${cTraderScreenShot} 800w, ${cTraderScreenShotLarge} 1920w`}
-              width={800}
-              height={500}
-              placeholder={cTraderScreenShotPlaceholder}
-              alt="The Slice web application showing a selected user annotation."
-              sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 90vw, 80vw`}
-            />
+            <div className={styles.themeImage}>
+              <div className={styles.imageWrapper}>
+                <ProjectImage
+                  srcSet={`${cTraderScreenShot} 800w, ${cTraderScreenShotLarge} 1920w`}
+                  width={800}
+                  height={500}
+                  placeholder={cTraderScreenShotPlaceholder}
+                  alt="Enhanced Equity Stop plugin interface showing lot size controls and cooldown features"
+                  sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 90vw, 80vw`}
+                />
+              </div>
+            </div>
+            <ProjectSectionText>
+              <div className={styles.imageCaption}>
+                "The plugin I'm referring to is on the right below the order panel."
+              </div></ProjectSectionText>
           </ProjectSectionContent>
         </ProjectSection>
         <ProjectSection>

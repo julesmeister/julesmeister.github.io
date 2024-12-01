@@ -110,3 +110,30 @@
     top: -5%;
   }
 }
+
+.themeImage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-l);
+}
+
+.themeImage img,
+.themeImage > div > img {
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.themeImage img:hover,
+.themeImage > div > img:hover {
+  transform: translateY(-4px);
+}
+
+.imageCaption {
+  font-size: var(--font-size-s);
+  color: var(--color-text-light);
+  text-align: center;
+  margin-top: var(--space-s);
+}

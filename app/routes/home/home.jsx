@@ -193,7 +193,7 @@ export const Home = () => {
         title="Enhanced Equity Stop with Cooldown for cTrader"
         description="A sophisticated modification of Acronew's Equity Stop with advanced features and improved UI."
         buttonText="View project"
-        buttonLink="/projects/slice"
+        buttonLink="/projects/cTrader"
         model={{
           type: 'laptop',
           alt: 'A sophisticated modification of Acronew\'s Equity Stop with advanced features and improved UI.',
