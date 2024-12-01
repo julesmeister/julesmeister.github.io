@@ -46,8 +46,26 @@ export const meta = () => {
   });
 };
 
+const ProjectCounter = ({ current, total, visible }) => (
+  <div style={{
+    position: 'fixed',
+    top: '20px',
+    right: visible ? '20px' : '-120px',
+    background: 'rgba(0, 0, 0, 0.8)',
+    color: 'white',
+    padding: '8px 12px',
+    borderRadius: '20px',
+    fontSize: '14px',
+    zIndex: 1000,
+    transition: 'right 0.3s ease-in-out',
+  }}>
+    Project {current}/{total}
+  </div>
+);
+
 export const Home = () => {
   const [visibleSections, setVisibleSections] = useState([]);
+  const [currentProject, setCurrentProject] = useState(0);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
   const intro = useRef();
   const projectOne = useRef();
@@ -57,6 +75,21 @@ export const Home = () => {
 
   useEffect(() => {
     const sections = [intro, projectOne, projectTwo, projectThree, details];
+
+    const projectObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          const section = entry.target;
+          if (entry.isIntersecting) {
+            if (section === projectOne.current) setCurrentProject(1);
+            else if (section === projectTwo.current) setCurrentProject(2);
+            else if (section === projectThree.current) setCurrentProject(3);
+            else if (section === intro.current || section === details.current) setCurrentProject(0);
+          }
+        });
+      },
+      { rootMargin: '-50% 0px -50% 0px' }
+    );
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -80,7 +113,10 @@ export const Home = () => {
     );
 
     sections.forEach(section => {
-      sectionObserver.observe(section.current);
+      if (section.current) {
+        sectionObserver.observe(section.current);
+        projectObserver.observe(section.current);
+      }
     });
 
     indicatorObserver.observe(intro.current);
@@ -88,11 +124,17 @@ export const Home = () => {
     return () => {
       sectionObserver.disconnect();
       indicatorObserver.disconnect();
+      projectObserver.disconnect();
     };
   }, [visibleSections]);
 
   return (
     <div className={styles.home}>
+      <ProjectCounter 
+        current={currentProject} 
+        total={3} 
+        visible={currentProject > 0}
+      />
       <Intro
         id="intro"
         sectionRef={intro}
@@ -126,7 +168,7 @@ export const Home = () => {
         index={2}
         title="Lotel"
         description="Comprehensive hospitality management system for encoding and monitoring various aspects of hotel operations, including sales, billing, payroll, and key performance metrics"
-        buttonText="View website"
+        buttonText="View project"
         buttonLink="https://gamestack.hamishw.com"
         model={{
           type: 'phone',

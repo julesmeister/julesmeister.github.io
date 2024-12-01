@@ -134,7 +134,7 @@ export const SmartSparrow = () => {
           <ProjectTextRow>
             <ProjectSectionHeading>The problem</ProjectSectionHeading>
             <ProjectSectionText>
-              I used Openrouter for the AI API and I chose the cheap models to test out this tool. It works for the most part, but it's not perfect. The response sometimes deviates from the prompt and it can sometimes be confusing to the user when the response is not precise. It has also been a roadblock that Stripe is not a supported payment gateway in the Philippines.
+              I utilized Openrouter for the AI API and selected cost-effective models to test this tool's efficacy. While it generally performs well, there are instances where the response strays from the prompt, leading to potential user confusion. Additionally, the lack of support for Stripe as a payment gateway in the Philippines has proven to be a significant obstacle.
             </ProjectSectionText>
           </ProjectTextRow>
         </ProjectSection>
