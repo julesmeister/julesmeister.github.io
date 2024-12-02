@@ -49,6 +49,8 @@ const roles = [
   'Supabase',
   'Next.js',
   'React',
+  'shadcn/ui',
+  'Tailwind',
   'Openrouter AI',
   'Vercel',
 ];
