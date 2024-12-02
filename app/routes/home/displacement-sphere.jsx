@@ -72,7 +72,10 @@ export const DisplacementSphere = props => {
 
     scene.current = new Scene();
 
-    material.current = new MeshPhongMaterial();
+    material.current = new MeshPhongMaterial({
+      color: theme === 'light' ? 'oklch(45.33% 0.19 284.82)' : 'oklch(45.33% 0.19 284.82)',
+      shininess: 10,
+    });
     material.current.onBeforeCompile = shader => {
       uniforms.current = UniformsUtils.merge([
         shader.uniforms,
@@ -133,8 +136,8 @@ export const DisplacementSphere = props => {
   }, []);
 
   useEffect(() => {
-    const dirLight = new DirectionalLight(0xffffff, theme === 'light' ? 1.8 : 2.0);
-    const ambientLight = new AmbientLight(0xffffff, theme === 'light' ? 2.7 : 0.4);
+    const dirLight = new DirectionalLight(0xffffff, theme === 'light' ? 2.0 : 2.5);
+    const ambientLight = new AmbientLight(0xffffff, theme === 'light' ? 2.0 : 0.5);
 
     dirLight.position.z = 200;
     dirLight.position.x = 100;
