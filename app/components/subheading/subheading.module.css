@@ -1,0 +1,9 @@
+@layer components {
+  .subheading[data-level] {
+    font-weight: var(--fontWeightRegular);
+    font-size: var(--fontSizeBodyXS);
+    line-height: var(--lineHeightBody);
+    color: rgb(var(--rgbText) / 0.7);
+    letter-spacing: 0;
+  }
+}

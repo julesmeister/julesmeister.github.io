@@ -6,6 +6,7 @@ import { Heading } from '~/components/heading';
 import { Icon } from '~/components/icon';
 import { Input } from '~/components/input';
 import { Section } from '~/components/section';
+import { SubHeading } from '~/components/subheading';
 import { Text } from '~/components/text';
 import { tokens } from '~/components/theme-provider/theme';
 import { Transition } from '~/components/transition';
@@ -85,19 +86,15 @@ export const Contact = () => {
             >
               Send me a message
             </Heading>
-            <Heading
-              className={styles.title}
+            <SubHeading
+              className={`${styles.title} ${styles.subtitle}`}
               data-status={status}
-              level={6}
-              as="h6"
               style={getDelay(tokens.base.durationXS, initDelay, 0.3)}
             >
               This will open your email client with a pre-filled message.
               If you'd rather send an email directly, you can reach me at{' '}
-              
-                {YOUR_EMAIL}
-              
-            </Heading>
+              <b>{YOUR_EMAIL}</b>
+            </SubHeading>
             <Divider
               className={styles.divider}
               data-status={status}

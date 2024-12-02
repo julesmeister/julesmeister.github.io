@@ -57,6 +57,11 @@
   }
 }
 
+.subtitle.title {
+  margin-top: calc(-1 * var(--spaceXL));
+  margin-bottom: var(--spaceXL);
+}
+
 .divider {
   margin-bottom: var(--space3XL);
   transition-property: opacity;
