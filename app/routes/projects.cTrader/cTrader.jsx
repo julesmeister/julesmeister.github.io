@@ -1,4 +1,3 @@
-
 import cTraderScreenShotLarge from '~/assets/cTrader.png';
 import cTraderScreenShotPlaceholder from '~/assets/cTrader.png';
 import cTraderScreenShot from '~/assets/cTrader.png';
@@ -10,6 +9,7 @@ import sliceSidebarLayersPlaceholder from '~/assets/Equity-Stop-Old.png';
 import sliceSidebarLayers from '~/assets/Equity-Stop-Old.png';
 import { Footer } from '~/components/footer';
 import { Image } from '~/components/image';
+import { Icon } from '~/components/icon';
 import {
   ProjectBackground,
   ProjectContainer,
@@ -58,22 +58,23 @@ export const Slice = () => {
         />
         <ProjectSection padding="top">
           <ProjectSectionContent>
-            <div className={styles.themeImage}>
-              <div className={styles.imageWrapper}>
-                <ProjectImage
-                  srcSet={`${cTraderScreenShot} 800w, ${cTraderScreenShotLarge} 1920w`}
-                  width={800}
-                  height={500}
-                  placeholder={cTraderScreenShotPlaceholder}
-                  alt="Enhanced Equity Stop plugin interface showing lot size controls and cooldown features"
-                  sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 90vw, 80vw`}
-                />
-              </div>
+            <ProjectImage
+              className={styles.themeImage}
+              srcSet={`${cTraderScreenShot} 800w, ${cTraderScreenShotLarge} 1920w`}
+              width={800}
+              height={500}
+              placeholder={cTraderScreenShotPlaceholder}
+              alt="Enhanced Equity Stop plugin interface showing lot size controls and cooldown features"
+              sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 90vw, 80vw`}
+            />
+            <div className={styles.captionWrapper}>
+              <span className={styles.captionContent}>
+                <Icon icon="link" className={styles.captionIcon} />
+                <span className={styles.imageCaption}>
+                  "The plugin I'm referring to is on the right, below the order panel."
+                </span>
+              </span>
             </div>
-            <ProjectSectionText>
-              <div className={styles.imageCaption}>
-                "The plugin I'm referring to is on the right below the order panel."
-              </div></ProjectSectionText>
           </ProjectSectionContent>
         </ProjectSection>
         <ProjectSection>
@@ -83,8 +84,8 @@ export const Slice = () => {
               <List>
                 <ListItem>The plugin behind is Acronew's, the plugin in front is my own built on top of his.</ListItem>
                 <ListItem>It's been a pain to switch lot sizes with cTrader, so I tweaked the plugin to make it easier to do so. 
-                  </ListItem>
-                  <ListItem>When stops are hit, the plugin will automatically cooldown depending on the timer set. This will suspend the user from overtrading and give them a chance to relax their emotions before making yet another trade.</ListItem>
+                </ListItem>
+                <ListItem>When stops are hit, the plugin will automatically cooldown depending on the timer set. This will suspend the user from overtrading and give them a chance to relax their emotions before making yet another trade.</ListItem>
                 <ListItem>Furthermore, each trade executed via this plugin will automatically have stop loss/take profit assigned in accordance with the user's predefined settings.
                 </ListItem>
               </List>
