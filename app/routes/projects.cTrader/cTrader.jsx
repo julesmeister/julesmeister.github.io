@@ -22,7 +22,7 @@ import {
   ProjectSectionText,
   ProjectTextRow,
 } from '~/layouts/project';
-import { Fragment } from 'react';
+import { Fragment, useRef, useState, useEffect } from 'react';
 import { media } from '~/utils/style';
 import { baseMeta } from '~/utils/meta';
 import styles from './cTrader.module.css';
@@ -38,6 +38,61 @@ export const meta = () => {
 };
 
 export const Slice = () => {
+  const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
+
+  // Create refs for each section
+  const introSection = useRef();
+  const featuresSection = useRef();
+
+  const sections = [introSection, featuresSection];
+
+  useEffect(() => {
+    // Initialize sections observer only when refs are ready
+    if (!sections.every(section => section.current)) return;
+
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const section = entry.target;
+            const sectionIndex = sections.findIndex(s => s.current === section);
+
+            if (sectionIndex !== -1) {
+              setCurrentSectionIndex(sectionIndex);
+            }
+          }
+        });
+      },
+      { 
+        rootMargin: '-20% 0px -20% 0px',
+        threshold: [0, 0.25, 0.5, 0.75, 1] 
+      }
+    );
+
+    sections.forEach(section => {
+      if (section.current) {
+        sectionObserver.observe(section.current);
+      }
+    });
+
+    return () => sectionObserver.disconnect();
+  }, [sections]);
+
+  useEffect(() => {
+    const handleSectionNav = (event) => {
+      const direction = event.detail;
+      const newIndex = direction === 'up' ? currentSectionIndex - 1 : currentSectionIndex + 1;
+      
+      if (newIndex >= 0 && newIndex < sections.length) {
+        setCurrentSectionIndex(newIndex);
+        sections[newIndex].current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    };
+
+    window.addEventListener('navigate-section', handleSectionNav);
+    return () => window.removeEventListener('navigate-section', handleSectionNav);
+  }, [currentSectionIndex, sections]);
+
   return (
     <Fragment>
       <ProjectContainer className={styles.slice}>
@@ -56,7 +111,7 @@ export const Slice = () => {
           linkLabel="View on GitHub"
           roles={roles}
         />
-        <ProjectSection padding="top">
+        <ProjectSection padding="top" ref={introSection}>
           <ProjectSectionContent>
             <ProjectImage
               className={styles.themeImage}
@@ -77,7 +132,7 @@ export const Slice = () => {
             </div>
           </ProjectSectionContent>
         </ProjectSection>
-        <ProjectSection>
+        <ProjectSection ref={featuresSection}>
           <ProjectSectionColumns centered className={styles.columns}>
             <div className={styles.imagesText}>
               <ProjectSectionHeading>Enhanced Features</ProjectSectionHeading>

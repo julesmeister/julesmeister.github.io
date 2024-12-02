@@ -41,6 +41,7 @@ import { List, ListItem } from '~/components/list';
 import { baseMeta } from '~/utils/meta';
 import { media } from '~/utils/style';
 import styles from './testmanship.module.css';
+import { useState, useEffect, useRef } from 'react';
 
 const title = 'Testmanship';
 const description =
@@ -63,6 +64,62 @@ export const Testmanship = () => {
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === 'dark';
   const themes = ['dark', 'light'];
+  const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
+
+  // Create refs for each section
+  const introSection = useRef();
+  const problemSection = useRef();
+  const testSection = useRef();
+  const challengeSection = useRef();
+
+  const sections = [introSection, problemSection, testSection, challengeSection];
+
+  useEffect(() => {
+    // Initialize sections observer only when refs are ready
+    if (!sections.every(section => section.current)) return;
+
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const section = entry.target;
+            const sectionIndex = sections.findIndex(s => s.current === section);
+
+            if (sectionIndex !== -1) {
+              setCurrentSectionIndex(sectionIndex);
+            }
+          }
+        });
+      },
+      { 
+        rootMargin: '-20% 0px -20% 0px',
+        threshold: [0, 0.25, 0.5, 0.75, 1] 
+      }
+    );
+
+    sections.forEach(section => {
+      if (section.current) {
+        sectionObserver.observe(section.current);
+      }
+    });
+
+    return () => sectionObserver.disconnect();
+  }, [sections]);
+
+  useEffect(() => {
+    const handleSectionNav = (event) => {
+      const direction = event.detail;
+      const newIndex = direction === 'up' ? currentSectionIndex - 1 : currentSectionIndex + 1;
+      
+      if (newIndex >= 0 && newIndex < sections.length) {
+        setCurrentSectionIndex(newIndex);
+        sections[newIndex].current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    };
+
+    window.addEventListener('navigate-section', handleSectionNav);
+    return () => window.removeEventListener('navigate-section', handleSectionNav);
+  }, [currentSectionIndex, sections]);
 
   const handleThemeChange = index => {
     toggleTheme(themes[index]);
@@ -83,7 +140,7 @@ export const Testmanship = () => {
           url="https://testmanship.vercel.app/"
           roles={roles}
         />
-        <ProjectSection padding="top">
+        <ProjectSection padding="top" ref={introSection}>
           <ProjectSectionContent>
             <ProjectImage
               className={styles.themeImage}
@@ -105,7 +162,7 @@ export const Testmanship = () => {
             />
           </ProjectSectionContent>
         </ProjectSection>
-        <ProjectSection>
+        <ProjectSection ref={problemSection}>
           <ProjectTextRow>
             <ProjectSectionHeading>The problem</ProjectSectionHeading>
             <ProjectSectionText>
@@ -113,7 +170,7 @@ export const Testmanship = () => {
             </ProjectSectionText>
           </ProjectTextRow>
         </ProjectSection>
-        <ProjectSection light={isDark}>
+        <ProjectSection light={isDark} ref={testSection}>
           <ProjectSectionContent>
             <Image
               className={styles.themeImage}
@@ -158,7 +215,7 @@ export const Testmanship = () => {
             </ProjectTextRow>
           </ProjectSectionContent>
         </ProjectSection>
-        <ProjectSection>
+        <ProjectSection ref={challengeSection}>
           <ProjectSectionContent>
             <Image
               key={theme}
