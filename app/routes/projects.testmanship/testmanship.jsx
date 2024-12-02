@@ -42,10 +42,11 @@ import { baseMeta } from '~/utils/meta';
 import { media } from '~/utils/style';
 import styles from './testmanship.module.css';
 import { useState, useEffect, useRef } from 'react';
+import { Icon } from '~/components/icon';
 
 const title = 'Testmanship';
 const description =
-  'I initially thought of this project as a future SaaS, because I saw a demand when I was studying german language and I thought there was a need for a tool that would help people track their progress in writing and speaking German. ';
+  'I initially thought of this project as a future SaaS, because I saw a demand when I was studying german language and I thought there was a need for a tool that would help people track their progress in writing and speaking German. This web app is basically an AI wrapper as well as a repository for practice tests.';
 const roles = [
   'Supabase',
   'Next.js',
@@ -160,6 +161,14 @@ export const Testmanship = () => {
               sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 800px, 1000px`}
               alt="The aero lesson builder app dragging an audio component into a screen about plant cells."
             />
+            <div className={styles.captionWrapper}>
+              <span className={styles.captionContent}>
+                <Icon icon="link" className={styles.captionIcon} />
+                <span className={styles.imageCaption}>
+                  "Upon completing challenges, users are presented with an exercise on their dashboard tailored to their identified weak points, facilitating targeted learning and improvement."
+              </span>
+              </span>
+            </div>
           </ProjectSectionContent>
         </ProjectSection>
         <ProjectSection ref={problemSection}>
