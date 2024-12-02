@@ -13,6 +13,12 @@ import challengeGeneratorDark from '~/assets/Challenge-Generator-Dark.png';
 import challengeGeneratorLightLarge from '~/assets/Challenge-Generator.png';
 import challengeGeneratorLightPlaceholder from '~/assets/Challenge-Generator.png';
 import challengeGeneratorLight from '~/assets/Challenge-Generator.png';
+import writingComparisonDarkLarge from '~/assets/Writing-Comparison-Dark.png';
+import writingComparisonDarkPlaceholder from '~/assets/Writing-Comparison-Dark.png';
+import writingComparisonDark from '~/assets/Writing-Comparison-Dark.png';
+import writingComparisonLightLarge from '~/assets/Writing-Comparison.png';
+import writingComparisonLightPlaceholder from '~/assets/Writing-Comparison.png';
+import writingComparisonLight from '~/assets/Writing-Comparison.png';
 import testmanshipScreenShotDarkLarge from '~/assets/Testmanship-Dark-Large.jpg';
 import testmanshipScreenShotDarkPlaceholder from '~/assets/Testmanship-Dark-Large.jpg';
 import testmanshipScreenShotDark from '~/assets/Testmanship-Dark.jpg';
@@ -72,8 +78,9 @@ export const Testmanship = () => {
   const problemSection = useRef();
   const testSection = useRef();
   const challengeSection = useRef();
+  const comparisonSection = useRef();
 
-  const sections = [introSection, problemSection, testSection, challengeSection];
+  const sections = [introSection, problemSection, testSection, challengeSection, comparisonSection];
 
   useEffect(() => {
     // Initialize sections observer only when refs are ready
@@ -248,6 +255,35 @@ export const Testmanship = () => {
               <ProjectSectionHeading>Challenge Generator</ProjectSectionHeading>
               <ProjectSectionText>
               The challenge generator is utilized to create practice tests when the user doesn't see a specific challenge they prefer to write about in the challenge selection area. Users can either manually create a challenge by typing it themselves or leverage the AI to generate one for them. 
+              </ProjectSectionText>
+            </ProjectTextRow>
+          </ProjectSectionContent>
+        </ProjectSection>
+
+        <ProjectSection ref={comparisonSection}>
+          <ProjectSectionContent>
+            <Image
+              key={theme}
+              className={styles.themeImage}
+              srcSet={
+                isDark
+                  ? `${writingComparisonDark} 1280w, ${writingComparisonDarkLarge} 2560w`
+                  : `${writingComparisonLight} 1280w, ${writingComparisonLightLarge} 2560w`
+              }
+              width={1280}
+              height={800}
+              placeholder={
+                isDark
+                  ? writingComparisonDarkPlaceholder
+                  : writingComparisonLightPlaceholder
+              }
+              alt="The homepage of the aero design system docs website linking to principles and components."
+              sizes="100vw"
+            />
+            <ProjectTextRow>
+              <ProjectSectionHeading>Writing Comparison with AI</ProjectSectionHeading>
+              <ProjectSectionText>
+              Upon completing a writing challenge, users can review their own writing alongside the AI's generated content. This allows them to identify areas for improvement and refine their writing skills.
               </ProjectSectionText>
             </ProjectTextRow>
           </ProjectSectionContent>
