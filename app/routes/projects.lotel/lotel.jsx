@@ -49,7 +49,7 @@ export const Slice = () => {
   const featuresSection = useRef();
   const whySection = useRef();
 
-  const sections = [introSection, featuresSection, whySection];
+  const sections = [introSection, whySection];
 
   useEffect(() => {
     // Initialize sections observer only when refs are ready
@@ -144,35 +144,7 @@ export const Slice = () => {
             />
           </ProjectSectionContent>
         </ProjectSection>
-        <ProjectSection ref={featuresSection}>
-          <ProjectSectionContent>
-            <ProjectImageColumns
-              images={[
-                {
-                  srcSet: `${lotelHome} 800w, ${lotelHomeLarge} 1920w`,
-                  width: 800,
-                  height: 500,
-                  placeholder: lotelHomePlaceholder,
-                  alt: 'The Slice web application showing a selected user annotation.',
-                },
-                {
-                  srcSet: `${lotelMart} 800w, ${lotelMartLarge} 1920w`,
-                  width: 800,
-                  height: 500,
-                  placeholder: lotelMartPlaceholder,
-                  alt: 'The Slice web application showing a selected user annotation.',
-                },
-                {
-                  srcSet: `${lotelTransactions} 800w, ${lotelTransactionsLarge} 1920w`,
-                  width: 800,
-                  height: 500,
-                  placeholder: lotelTransactionsPlaceholder,
-                  alt: 'The Slice web application showing a selected user annotation.',
-                },
-              ]}
-            />
-          </ProjectSectionContent>
-        </ProjectSection>
+    
         <ProjectSection ref={whySection}>
           <ProjectSectionColumns centered className={styles.columns}>
             <div className={styles.imagesText}>
