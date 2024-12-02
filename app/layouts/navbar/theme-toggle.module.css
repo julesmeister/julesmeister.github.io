@@ -94,4 +94,85 @@
       }
     }
   }
+
+  .container {
+    --offset: -12px;
+    --inset: calc(var(--spaceOuter) - var(--offset));
+    position: fixed;
+    z-index: var(--zIndex4);
+    top: var(--inset);
+    right: var(--inset);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spaceS);
+    transform: translate3d(0, 0, 0);
+
+    @media (--mediaMobile), (--mediaMobileLS) {
+      &:not([data-mobile='true']) {
+        display: none;
+      }
+    }
+
+    &[data-mobile='true'] {
+      --offset: var(--spaceXS);
+      --inset: calc(var(--spaceXL) - var(--offset));
+      top: unset;
+      bottom: var(--inset);
+    }
+  }
+
+  .navContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spaceXS);
+    align-items: center;
+    width: 100%;
+  }
+
+  .navButton {
+    margin: 0;
+    position: relative;
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  .toggle {
+    margin: 0;
+    position: relative;
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  .circle {
+    fill: currentColor;
+    transform: scale(0.4);
+    transition: transform var(--durationL) var(--bezierFastoutSlowin);
+
+    &[data-mask='true'] {
+      transform: scale(1);
+      fill: white;
+    }
+  }
+
+  .mask {
+    fill: black;
+    transform-origin: 19px 20px;
+  }
+
+  .path {
+    stroke: currentColor;
+    stroke-width: 4px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke-dashoffset var(--durationL) var(--bezierFastoutSlowin);
+  }
+
+  .svg {
+    --spacing: var(--spaceXXS);
+
+    margin: var(--spacing);
+    width: calc(100% - var(--spacing) * 2);
+    height: calc(100% - var(--spacing) * 2);
+  }
 }

@@ -1,0 +1,60 @@
+.sectionNav {
+  position: fixed !important;
+  bottom: var(--space-l) !important;
+  right: var(--space-l) !important;
+  display: flex !important;
+  flex-direction: column;
+  gap: var(--space-s);
+  z-index: 99999 !important;
+  pointer-events: all !important;
+  background: transparent !important;
+}
+
+.navButton {
+  width: 44px !important;
+  height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgb(var(--rgbBackground)) !important;
+  border: 2px solid rgb(var(--rgbText)) !important;
+  border-radius: 50% !important;
+  color: rgb(var(--rgbText)) !important;
+  transition: all 0.2s ease !important;
+  opacity: 0.9 !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.navButton:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  background: rgb(var(--rgbText)) !important;
+  color: rgb(var(--rgbBackground)) !important;
+}
+
+.navButton:disabled {
+  opacity: 0.3;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.upIcon {
+  transform: rotate(-90deg);
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.downIcon {
+  transform: rotate(90deg);
+  width: 24px !important;
+  height: 24px !important;
+}
+
+@media (--mediaMobile) {
+  .sectionNav {
+    bottom: var(--space-m) !important;
+    right: var(--space-m) !important;
+  }
+}

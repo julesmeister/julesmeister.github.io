@@ -67,15 +67,62 @@ export const Home = () => {
   const [visibleSections, setVisibleSections] = useState([]);
   const [currentProject, setCurrentProject] = useState(0);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
+  const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
   const intro = useRef();
   const projectOne = useRef();
   const projectTwo = useRef();
   const projectThree = useRef();
   const details = useRef();
 
-  useEffect(() => {
-    const sections = [intro, projectOne, projectTwo, projectThree, details];
+  const sections = [intro, projectOne, projectTwo, projectThree, details];
 
+  useEffect(() => {
+    // Initialize sections observer only when refs are ready
+    if (!sections.every(section => section.current)) return;
+
+    const sectionObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const section = entry.target;
+            const sectionIndex = sections.findIndex(s => s.current === section);
+            console.log('Section in view:', {
+              sectionIndex,
+              id: section.id,
+              isIntersecting: entry.isIntersecting,
+              intersectionRatio: entry.intersectionRatio
+            });
+
+            // Don't unobserve - we want to keep tracking all sections
+            if (visibleSections.includes(section)) return;
+            
+            setVisibleSections(prevSections => [...prevSections, section]);
+
+            if (sectionIndex !== -1) {
+              setCurrentSectionIndex(sectionIndex);
+            }
+          }
+        });
+      },
+      { 
+        rootMargin: '-20% 0px -20% 0px',
+        threshold: [0, 0.25, 0.5, 0.75, 1] 
+      }
+    );
+
+    // Observe all sections
+    sections.forEach(section => {
+      if (section.current) {
+        sectionObserver.observe(section.current);
+      }
+    });
+
+    return () => {
+      sectionObserver.disconnect();
+    };
+  }, [sections]);
+
+  useEffect(() => {
     const projectObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
@@ -91,20 +138,6 @@ export const Home = () => {
       { rootMargin: '-50% 0px -50% 0px' }
     );
 
-    const sectionObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const section = entry.target;
-            observer.unobserve(section);
-            if (visibleSections.includes(section)) return;
-            setVisibleSections(prevSections => [...prevSections, section]);
-          }
-        });
-      },
-      { rootMargin: '0px 0px -10% 0px', threshold: 0.1 }
-    );
-
     const indicatorObserver = new IntersectionObserver(
       ([entry]) => {
         setScrollIndicatorHidden(!entry.isIntersecting);
@@ -114,7 +147,6 @@ export const Home = () => {
 
     sections.forEach(section => {
       if (section.current) {
-        sectionObserver.observe(section.current);
         projectObserver.observe(section.current);
       }
     });
@@ -122,95 +154,111 @@ export const Home = () => {
     indicatorObserver.observe(intro.current);
 
     return () => {
-      sectionObserver.disconnect();
-      indicatorObserver.disconnect();
       projectObserver.disconnect();
+      indicatorObserver.disconnect();
     };
   }, [visibleSections]);
 
+  useEffect(() => {
+    const handleSectionNav = (event) => {
+      const direction = event.detail;
+      const newIndex = direction === 'up' ? currentSectionIndex - 1 : currentSectionIndex + 1;
+      
+      if (newIndex >= 0 && newIndex < sections.length) {
+        setCurrentSectionIndex(newIndex);
+        sections[newIndex].current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    };
+
+    window.addEventListener('navigate-section', handleSectionNav);
+    return () => window.removeEventListener('navigate-section', handleSectionNav);
+  }, [currentSectionIndex, sections]);
+
   return (
-    <div className={styles.home}>
-      <ProjectCounter 
-        current={currentProject} 
-        total={3} 
-        visible={currentProject > 0}
-      />
-      <Intro
-        id="intro"
-        sectionRef={intro}
-        scrollIndicatorHidden={scrollIndicatorHidden}
-      />
-      <ProjectSummary
-        id="project-1"
-        sectionRef={projectOne}
-        visible={visibleSections.includes(projectOne.current)}
-        index={1}
-        title="Testmanship"
-        description="Testmanship is a sophisticated web application designed to help language learners track their writing progress and assess their preparedness across different CEFR (Common European Framework of Reference for Languages) levels."
-        buttonText="View project"
-        buttonLink="/projects/testmanship"
-        model={{
-          type: 'laptop',
-          alt: 'Testmanship Language Learning Hub',
-          textures: [
-            {
-              srcSet: `${testmanshipScreenShot} 1280w, ${testmanshipScreenShotLarge} 2560w`,
-              placeholder: testmanshipScreenShotPlaceholder,
-            },
-          ],
-        }}
-      />
-      <ProjectSummary
-        id="project-2"
-        alternate
-        sectionRef={projectTwo}
-        visible={visibleSections.includes(projectTwo.current)}
-        index={2}
-        title="Lotel"
-        description="Comprehensive hospitality management system for encoding and monitoring various aspects of hotel operations, including sales, billing, payroll, and key performance metrics"
-        buttonText="View project"
-        buttonLink="/projects/lotel"
-        model={{
-          type: 'phone',
-          alt: 'Lotel hospitality management system',
-          textures: [
-            {
-              srcSet: `${lotelScreenShot} 375w, ${lotelScreenShotLarge} 750w`,
-              placeholder: lotelScreenShotPlaceholder,
-            },
-            {
-              srcSet: `${lotelScreenShot2} 375w, ${lotelScreenShot2Large} 750w`,
-              placeholder: lotelScreenShot2Placeholder,
-            },
-          ],
-        }}
-      />
-      <ProjectSummary
-        id="project-3"
-        sectionRef={projectThree}
-        visible={visibleSections.includes(projectThree.current)}
-        index={3}
-        title="Enhanced Equity Stop with Cooldown for cTrader"
-        description="A sophisticated modification of Acronew's Equity Stop with advanced features and improved UI."
-        buttonText="View project"
-        buttonLink="/projects/cTrader"
-        model={{
-          type: 'laptop',
-          alt: 'A sophisticated modification of Acronew\'s Equity Stop with advanced features and improved UI.',
-          textures: [
-            {
-              srcSet: `${cTraderScreenShot} 800w, ${cTraderScreenShotLarge} 1920w`,
-              placeholder: cTraderScreenShotPlaceholder,
-            },
-          ],
-        }}
-      />
-      <Profile
-        sectionRef={details}
-        visible={visibleSections.includes(details.current)}
-        id="details"
-      />
-      <Footer />
-    </div>
+    <>
+      <div className={styles.home}>
+        <ProjectCounter 
+          current={currentProject} 
+          total={3} 
+          visible={currentProject > 0}
+        />
+        <Intro
+          id="intro"
+          sectionRef={intro}
+          scrollIndicatorHidden={scrollIndicatorHidden}
+        />
+        <ProjectSummary
+          id="project-1"
+          sectionRef={projectOne}
+          visible={visibleSections.includes(projectOne.current)}
+          index={1}
+          title="Testmanship"
+          description="Testmanship is a sophisticated web application designed to help language learners track their writing progress and assess their preparedness across different CEFR (Common European Framework of Reference for Languages) levels."
+          buttonText="View project"
+          buttonLink="/projects/testmanship"
+          model={{
+            type: 'laptop',
+            alt: 'Testmanship Language Learning Hub',
+            textures: [
+              {
+                srcSet: `${testmanshipScreenShot} 1280w, ${testmanshipScreenShotLarge} 2560w`,
+                placeholder: testmanshipScreenShotPlaceholder,
+              },
+            ],
+          }}
+        />
+        <ProjectSummary
+          id="project-2"
+          alternate
+          sectionRef={projectTwo}
+          visible={visibleSections.includes(projectTwo.current)}
+          index={2}
+          title="Lotel"
+          description="Comprehensive hospitality management system for encoding and monitoring various aspects of hotel operations, including sales, billing, payroll, and key performance metrics"
+          buttonText="View project"
+          buttonLink="/projects/lotel"
+          model={{
+            type: 'phone',
+            alt: 'Lotel hospitality management system',
+            textures: [
+              {
+                srcSet: `${lotelScreenShot} 375w, ${lotelScreenShotLarge} 750w`,
+                placeholder: lotelScreenShotPlaceholder,
+              },
+              {
+                srcSet: `${lotelScreenShot2} 375w, ${lotelScreenShot2Large} 750w`,
+                placeholder: lotelScreenShot2Placeholder,
+              },
+            ],
+          }}
+        />
+        <ProjectSummary
+          id="project-3"
+          sectionRef={projectThree}
+          visible={visibleSections.includes(projectThree.current)}
+          index={3}
+          title="Enhanced Equity Stop with Cooldown for cTrader"
+          description="A sophisticated modification of Acronew's Equity Stop with advanced features and improved UI."
+          buttonText="View project"
+          buttonLink="/projects/cTrader"
+          model={{
+            type: 'laptop',
+            alt: 'A sophisticated modification of Acronew\'s Equity Stop with advanced features and improved UI.',
+            textures: [
+              {
+                srcSet: `${cTraderScreenShot} 800w, ${cTraderScreenShotLarge} 1920w`,
+                placeholder: cTraderScreenShotPlaceholder,
+              },
+            ],
+          }}
+        />
+        <Profile
+          sectionRef={details}
+          visible={visibleSections.includes(details.current)}
+          id="details"
+        />
+        <Footer />
+      </div>
+    </>
   );
 };
