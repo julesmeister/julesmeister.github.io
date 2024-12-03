@@ -113,6 +113,9 @@ export const Slice = () => {
           title={title}
           description={description}
           url="https://lotel-7ac21u.flutterflow.app/"
+          linkLabel="Visit website"
+          secondaryUrl="https://github.com/julesmeister/lotel"
+          secondaryLinkLabel="View on Github"
           roles={roles}
         />
         <ProjectSection padding="top" ref={introSection}>

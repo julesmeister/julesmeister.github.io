@@ -17,6 +17,8 @@ export function ProjectHeader({
   description,
   linkLabel = 'Visit website',
   url,
+  secondaryLinkLabel,
+  secondaryUrl,
   roles,
   className,
 }) {
@@ -34,15 +36,28 @@ export function ProjectHeader({
             {description}
           </Text>
           {!!url && (
-            <Button
-              secondary
-              iconHoverShift
-              className={styles.linkButton}
-              icon="chevron-right"
-              href={url}
-            >
-              {linkLabel}
-            </Button>
+            <>
+              <Button
+                secondary
+                iconHoverShift
+                className={styles.linkButton}
+                icon="chevron-right"
+                href={url}
+              >
+                {linkLabel}
+              </Button>
+              {!!secondaryUrl && (
+                <Button
+                  secondary
+                  iconHoverShift
+                  className={styles.linkButton}
+                  icon="chevron-right"
+                  href={secondaryUrl}
+                >
+                  {secondaryLinkLabel}
+                </Button>
+              )}
+            </>
           )}
         </div>
         {!!roles?.length && (

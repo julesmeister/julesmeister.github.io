@@ -146,6 +146,9 @@ export const Testmanship = () => {
           title={title}
           description={description}
           url="https://testmanship.vercel.app/"
+          linkLabel="View website"
+          secondaryUrl="https://github.com/julesmeister/testmanship"
+          secondaryLinkLabel="View on Github"
           roles={roles}
         />
         <ProjectSection padding="top" ref={introSection}>
