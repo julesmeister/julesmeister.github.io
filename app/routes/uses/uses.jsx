@@ -46,8 +46,9 @@ export const Uses = () => {
                   <ListItem>
                     As a non-designer, I don't pretend to have the skills of a seasoned
                     designer. I actually grabbed this portfolio design from GitHub where
-                    I stumbled upon the work of Hamish Williams.</ListItem>
-                    <ListItem>I did tweak some things here and there and you'll see the difference once you visit his portfolio.</ListItem>
+                    I stumbled upon the work of Hamish Williams, his portfolio.
+                  </ListItem>
+                    <ListItem>I did tweak some things here and there and you'll see the difference once you visit <Link href="https://hamishw.com" target="_blank">his portfolio.</Link></ListItem>
                     <ListItem>My intention is to have a
                     presentable portfolio and not market design skills. I do not have the
                     intention to apply for design positions but if the employer demands it
