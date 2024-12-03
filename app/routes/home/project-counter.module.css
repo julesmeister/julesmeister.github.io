@@ -1,0 +1,20 @@
+.counter {
+  --offset: var(--spaceXS);
+  --inset: calc(var(--spaceXL) - var(--offset));
+
+  position: fixed;
+  z-index: var(--zIndex4);
+  bottom: var(--inset);
+  right: var(--inset);
+  background: var(--colorBackgroundLight);
+  color: var(--colorTextTitle);
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  transform: translate3d(0, 0, 0);
+  transition: transform var(--durationM) var(--bezierFastoutSlowin);
+}
+
+.counter[data-visible='false'] {
+  transform: translate3d(120px, 0, 0);
+}

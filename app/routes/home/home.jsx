@@ -18,6 +18,7 @@ import { ProjectSummary } from './project-summary';
 import { useEffect, useRef, useState } from 'react';
 import config from '~/config.json';
 import styles from './home.module.css';
+import projectCounterStyles from './project-counter.module.css';
 
 // Prefetch draco decoader wasm
 export const links = () => {
@@ -47,18 +48,7 @@ export const meta = () => {
 };
 
 const ProjectCounter = ({ current, total, visible }) => (
-  <div style={{
-    position: 'fixed',
-    top: '20px',
-    right: visible ? '20px' : '-120px',
-    background: 'rgba(0, 0, 0, 0.8)',
-    color: 'white',
-    padding: '8px 12px',
-    borderRadius: '20px',
-    fontSize: '14px',
-    zIndex: 1000,
-    transition: 'right 0.3s ease-in-out',
-  }}>
+  <div className={projectCounterStyles.counter} data-visible={visible}>
     Project {current}/{total}
   </div>
 );
