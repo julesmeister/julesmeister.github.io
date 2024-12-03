@@ -15,6 +15,7 @@ import remittanceReportPlaceholder from '~/assets/Remittance-Report.png';
 import remittanceReport from '~/assets/Remittance-Report.png';
 import { Footer } from '~/components/footer';
 import { Image } from '~/components/image';
+import { Icon } from '~/components/icon';
 import {
   ProjectBackground,
   ProjectContainer,
@@ -145,6 +146,14 @@ export const Slice = () => {
                 },
               ]}
             />
+            <div className={styles.captionWrapper}>
+              <span className={styles.captionContent}>
+                <Icon icon="link" className={styles.captionIcon} />
+                <span className={styles.imageCaption}>
+                  "The dashboard, the POS, and the transactions page."
+                </span>
+              </span>
+            </div>
           </ProjectSectionContent>
         </ProjectSection>
     
