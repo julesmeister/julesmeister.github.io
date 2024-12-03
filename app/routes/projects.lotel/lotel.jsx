@@ -35,7 +35,7 @@ import styles from './lotel.module.css';
 const title = 'Lotel Android App';
 const description =
   'I rebuilt this project using Flutterflow and Firebase, migrating it from a desktop Electron app with a Vue frontend. I have onboarded our staff and co-owners, who use the app on their Android phones to monitor hotels\' performance. It has been in production for over a year and is still used actively today. A limited demo mode is available upon request.';
-const roles = ['Android', 'Flutterflow', 'Firebase'];
+const roles = ['Android', 'Flutterflow', 'Firebase', 'No-Code'];
 
 export const meta = () => {
   return baseMeta({ title, description, prefix: 'Projects' });
