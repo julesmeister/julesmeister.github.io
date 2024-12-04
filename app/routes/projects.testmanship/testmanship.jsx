@@ -169,7 +169,7 @@ export const Testmanship = () => {
                   : testmanshipScreenShotLightPlaceholder
               }
               sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 800px, 1000px`}
-              alt="The aero lesson builder app dragging an audio component into a screen about plant cells."
+              alt="Testmanship dashboard showing a student's progress"
             />
             <div className={styles.captionWrapper}>
               <span className={styles.captionContent}>
@@ -206,7 +206,7 @@ export const Testmanship = () => {
                   ? testChallengeDarkPlaceholder
                   : testChallengeLightPlaceholder
               }
-              alt={`A set of ${theme} themed components for the aero design system`}
+              alt={`Taking a practice test in Testmanship`}
               sizes="100vw"
             />
             <ProjectTextRow>
@@ -251,7 +251,7 @@ export const Testmanship = () => {
                   ? challengeGeneratorDarkPlaceholder
                   : challengeGeneratorLightPlaceholder
               }
-              alt="The homepage of the aero design system docs website linking to principles and components."
+              alt={`The challenge generator is utilized to create practice tests when the user doesn't see a specific challenge they prefer to write about in the challenge selection area. Users can either manually create a challenge by typing it themselves or leverage the AI to generate one for them.`}
               sizes="100vw"
             />
             <ProjectTextRow>
@@ -280,7 +280,7 @@ export const Testmanship = () => {
                   ? writingComparisonDarkPlaceholder
                   : writingComparisonLightPlaceholder
               }
-              alt="The homepage of the aero design system docs website linking to principles and components."
+              alt="How it looks when a user reviews their writing from a challenge they just completed."
               sizes="100vw"
             />
             <ProjectTextRow>

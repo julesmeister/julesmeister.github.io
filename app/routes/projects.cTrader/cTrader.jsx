@@ -93,6 +93,19 @@ export const Slice = () => {
     return () => window.removeEventListener('navigate-section', handleSectionNav);
   }, [currentSectionIndex, sections]);
 
+  const sidebarImages = [
+    {
+      src: { small: sliceSidebarLayers, large: sliceSidebarLayersLarge },
+      placeholder: sliceSidebarLayersPlaceholder,
+      alt: "The old look created by Acronew."
+    },
+    {
+      src: { small: equityStopNew, large: equityStopNewLarge },
+      placeholder: equityStopNewPlaceholder,
+      alt: "The new enhanced look created by me."
+    }
+  ];
+
   return (
     <Fragment>
       <ProjectContainer className={styles.slice}>
@@ -146,24 +159,18 @@ export const Slice = () => {
               </List>
             </div>
             <div className={styles.sidebarImages}>
-              <Image
-                className={styles.sidebarImage}
-                srcSet={`${sliceSidebarLayers} 350w, ${sliceSidebarLayersLarge} 700w`}
-                width={350}
-                height={750}
-                placeholder={sliceSidebarLayersPlaceholder}
-                alt="The layers sidebar design, now with user profiles."
-                sizes={`(max-width: ${media.mobile}px) 200px, 343px`}
-              />
-              <Image
-                className={styles.sidebarImage}
-                srcSet={`${equityStopNew} 350w, ${equityStopNewLarge} 700w`}
-                width={350}
-                height={750}
-                placeholder={equityStopNewPlaceholder}
-                alt="Multiple user annotations on a shared layer."
-                sizes={`(max-width: ${media.mobile}px) 200px, 343px`}
-              />
+              {sidebarImages.map((img, index) => (
+                <Image
+                  key={index}
+                  className={styles.sidebarImage}
+                  srcSet={`${img.src.small} 350w, ${img.src.large} 700w`}
+                  width={350}
+                  height={750}
+                  placeholder={img.placeholder}
+                  alt={img.alt}
+                  sizes={`(max-width: ${media.mobile}px) 200px, 343px`}
+                />
+              ))}
             </div>
           </ProjectSectionColumns>
         </ProjectSection>

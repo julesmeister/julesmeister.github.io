@@ -99,6 +99,43 @@ export const Slice = () => {
     return () => window.removeEventListener('navigate-section', handleSectionNav);
   }, [currentSectionIndex, sections]);
 
+  const images = [
+    {
+      src: { small: lotelHome, large: lotelHomeLarge },
+      placeholder: lotelHomePlaceholder,
+      name: 'Home'
+    },
+    {
+      src: { small: lotelMart, large: lotelMartLarge },
+      placeholder: lotelMartPlaceholder,
+      name: 'Mart'
+    },
+    {
+      src: { small: lotelTransactions, large: lotelTransactionsLarge },
+      placeholder: lotelTransactionsPlaceholder,
+      name: 'Transactions'
+    }
+  ].map(img => ({
+    srcSet: `${img.src.small} 800w, ${img.src.large} 1920w`,
+    width: 800,
+    height: 500,
+    placeholder: img.placeholder,
+    alt: `Lotel: ${img.name} page of the app.`
+  }));
+
+  const sidebarImages = [
+    {
+      src: { small: remittanceReport, large: remittanceReportLarge },
+      placeholder: remittanceReportPlaceholder,
+      alt: "Loted: Remittance report generated in PDF format."
+    },
+    {
+      src: { small: lotelRemittance, large: lotelRemittanceLarge },
+      placeholder: lotelRemittancePlaceholder,
+      alt: "Loted: Remittance page of the app."
+    }
+  ];
+
   return (
     <Fragment>
       <ProjectContainer className={styles.slice}>
@@ -122,29 +159,7 @@ export const Slice = () => {
         <ProjectSection padding="top" ref={introSection}>
           <ProjectSectionContent>
             <ProjectImageColumns
-              images={[
-                {
-                  srcSet: `${lotelHome} 800w, ${lotelHomeLarge} 1920w`,
-                  width: 800,
-                  height: 500,
-                  placeholder: lotelHomePlaceholder,
-                  alt: 'The Slice web application showing a selected user annotation.',
-                },
-                {
-                  srcSet: `${lotelMart} 800w, ${lotelMartLarge} 1920w`,
-                  width: 800,
-                  height: 500,
-                  placeholder: lotelMartPlaceholder,
-                  alt: 'The Slice web application showing a selected user annotation.',
-                },
-                {
-                  srcSet: `${lotelTransactions} 800w, ${lotelTransactionsLarge} 1920w`,
-                  width: 800,
-                  height: 500,
-                  placeholder: lotelTransactionsPlaceholder,
-                  alt: 'The Slice web application showing a selected user annotation.',
-                },
-              ]}
+              images={images}
             />
             <div className={styles.captionWrapper}>
               <span className={styles.captionContent}>
@@ -169,25 +184,18 @@ export const Slice = () => {
               </ProjectSectionText>
             </div>
             <div className={styles.sidebarImages}>
-            <Image
-                className={styles.sidebarImage}
-                srcSet={`${remittanceReport} 350w, ${remittanceReportLarge} 700w`}
-                width={350}
-                height={750}
-                placeholder={remittanceReportPlaceholder}
-                alt="Multiple user annotations on a shared layer."
-                sizes={`(max-width: ${media.mobile}px) 200px, 343px`}
-              />
-              <Image
-                className={styles.sidebarImage}
-                srcSet={`${lotelRemittance} 350w, ${lotelRemittanceLarge} 700w`}
-                width={350}
-                height={750}
-                placeholder={lotelRemittancePlaceholder}
-                alt="The layers sidebar design, now with user profiles."
-                sizes={`(max-width: ${media.mobile}px) 200px, 343px`}
-              />
-              
+              {sidebarImages.map((img, index) => (
+                <Image
+                  key={index}
+                  className={styles.sidebarImage}
+                  srcSet={`${img.src.small} 350w, ${img.src.large} 700w`}
+                  width={350}
+                  height={750}
+                  placeholder={img.placeholder}
+                  alt={img.alt}
+                  sizes={`(max-width: ${media.mobile}px) 200px, 343px`}
+                />
+              ))}
             </div>
           </ProjectSectionColumns>
         </ProjectSection>
