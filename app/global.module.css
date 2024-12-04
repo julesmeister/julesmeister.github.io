@@ -39,6 +39,16 @@
     color: var(--black);
   }
 
+  :global(::selection) {
+    background: oklch(45.33% 0.19 284.82);
+    color: white;
+  }
+
+  :global(::-moz-selection) {
+    background: oklch(45.33% 0.19 284.82);
+    color: white;
+  }
+
   :global(:focus) {
     outline: 4px solid var(--text);
     outline-offset: 4px;
