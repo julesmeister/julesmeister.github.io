@@ -85,8 +85,16 @@ export const Testmanship = () => {
   const testSection = useRef();
   const challengeSection = useRef();
   const comparisonSection = useRef();
+  const exercisesSection = useRef();
 
-  const sections = [introSection, problemSection, testSection, challengeSection, comparisonSection];
+  const sections = [
+    introSection,
+    problemSection,
+    testSection,
+    challengeSection,
+    comparisonSection,
+    exercisesSection,
+  ];
 
   useEffect(() => {
     // Initialize sections observer only when refs are ready
@@ -298,7 +306,7 @@ export const Testmanship = () => {
           </ProjectSectionContent>
         </ProjectSection>
 
-        <ProjectSection ref={comparisonSection}>
+        <ProjectSection ref={exercisesSection}>
           <ProjectSectionContent>
             <Image
               key={theme}
