@@ -25,6 +25,12 @@ import testmanshipScreenShotDark from '~/assets/Testmanship-Dark.jpg';
 import testmanshipScreenShotLightLarge from '~/assets/Testmanship-Light-Large.jpg';
 import testmanshipScreenShotLightPlaceholder from '~/assets/Testmanship-Light-Large.jpg';
 import testmanshipScreenShotLight from '~/assets/Testmanship-Light.jpg';
+import testExercisesDarkLarge from '~/assets/test-exercises-dark.png';
+import testExercisesDarkPlaceholder from '~/assets/test-exercises-dark.png';
+import testExercisesDark from '~/assets/test-exercises-dark.png';
+import testExercisesLightLarge from '~/assets/test-exercises.png';
+import testExercisesLightPlaceholder from '~/assets/test-exercises.png';
+import testExercisesLight from '~/assets/test-exercises.png';
 
 import { Footer } from '~/components/footer';
 import { Image } from '~/components/image';
@@ -287,6 +293,35 @@ export const Testmanship = () => {
               <ProjectSectionHeading>Writing Comparison with AI</ProjectSectionHeading>
               <ProjectSectionText>
               Upon completing a writing challenge, users can review their own writing alongside the AI's generated content. This allows them to identify areas for improvement and refine their writing skills.
+              </ProjectSectionText>
+            </ProjectTextRow>
+          </ProjectSectionContent>
+        </ProjectSection>
+
+        <ProjectSection ref={comparisonSection}>
+          <ProjectSectionContent>
+            <Image
+              key={theme}
+              className={styles.themeImage}
+              srcSet={
+                isDark
+                  ? `${testExercisesDark} 1280w, ${testExercisesDarkLarge} 2560w`
+                  : `${testExercisesLight} 1280w, ${testExercisesLightLarge} 2560w`
+              }
+              width={1280}
+              height={800}
+              placeholder={
+                isDark
+                  ? testExercisesDarkPlaceholder
+                  : testExercisesLightPlaceholder
+              }
+              alt="How it looks when a user reviews their writing from a challenge they just completed."
+              sizes="100vw"
+            />
+            <ProjectTextRow>
+              <ProjectSectionHeading>Exercises</ProjectSectionHeading>
+              <ProjectSectionText>
+                This interactive section features a comprehensive set of carefully designed exercises that allow users to demonstrate and validate their understanding of the language. Through hands-on practice and real-world challenges, users can test their knowledge, improve their skills, and track their progress as they master various language concepts.
               </ProjectSectionText>
             </ProjectTextRow>
           </ProjectSectionContent>
