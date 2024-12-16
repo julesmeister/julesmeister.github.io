@@ -80,6 +80,7 @@ export const Testmanship = () => {
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
 
   // Create refs for each section
+  const headerSection = useRef();
   const introSection = useRef();
   const problemSection = useRef();
   const testSection = useRef();
@@ -88,6 +89,7 @@ export const Testmanship = () => {
   const exercisesSection = useRef();
 
   const sections = [
+    headerSection,
     introSection,
     problemSection,
     testSection,
@@ -164,6 +166,7 @@ export const Testmanship = () => {
           secondaryUrl="https://github.com/julesmeister/testmanship"
           secondaryLinkLabel="View on Github"
           roles={roles}
+          ref={headerSection}
         />
         <ProjectSection padding="top" ref={introSection}>
           <ProjectSectionContent>

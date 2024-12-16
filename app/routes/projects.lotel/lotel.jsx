@@ -46,11 +46,16 @@ export const Slice = () => {
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
 
   // Create refs for each section
+  const headerSection = useRef();
   const introSection = useRef();
   const featuresSection = useRef();
   const whySection = useRef();
 
-  const sections = [introSection, whySection];
+  const sections = [
+    headerSection,
+    introSection,
+    whySection,
+  ];
 
   useEffect(() => {
     // Initialize sections observer only when refs are ready
@@ -155,6 +160,7 @@ export const Slice = () => {
           secondaryUrl="https://github.com/julesmeister/lotel"
           secondaryLinkLabel="View on Github"
           roles={roles}
+          ref={headerSection}
         />
         <ProjectSection padding="top" ref={introSection}>
           <ProjectSectionContent>

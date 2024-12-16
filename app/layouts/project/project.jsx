@@ -12,7 +12,7 @@ import styles from './project.module.css';
 
 const initDelay = 300;
 
-export function ProjectHeader({
+export const ProjectHeader = forwardRef(({
   title,
   description,
   linkLabel = 'Visit website',
@@ -21,9 +21,9 @@ export function ProjectHeader({
   secondaryUrl,
   roles,
   className,
-}) {
+}, ref) => {
   return (
-    <Section className={classes(styles.header, className)} as="section">
+    <Section className={classes(styles.header, className)} as="section" ref={ref}>
       <div
         className={styles.headerContent}
         style={cssProps({ initDelay: numToMs(initDelay) })}
@@ -76,7 +76,7 @@ export function ProjectHeader({
       </div>
     </Section>
   );
-}
+});
 
 export const ProjectContainer = ({ className, ...rest }) => (
   <article className={classes(styles.project, className)} {...rest} />
