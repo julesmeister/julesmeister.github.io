@@ -132,7 +132,7 @@ export const Uses = () => {
                   </TableRow>
                   <TableRow>
                     <TableHeadCell>Mouse</TableHeadCell>
-                    <TableCell>A4Tech Tstyler</TableCell>
+                    <TableCell>Logitech Lift Vertical Ergonomic Mouse</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableHeadCell>Laptop</TableHeadCell>
