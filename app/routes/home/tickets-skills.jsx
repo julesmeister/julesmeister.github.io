@@ -254,7 +254,7 @@ export const TicketsSkills = props => {
         <div
           className={styles.container}
           ref={containerRef}
-          style={{ position: 'absolute', width: '50%', height: '15%', right: 0, top: 50 }}
+          style={{ position: 'absolute', width: '50%', height: '15%', right: 0}}
         >
           <canvas
             aria-hidden
