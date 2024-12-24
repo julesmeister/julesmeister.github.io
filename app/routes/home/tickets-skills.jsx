@@ -158,15 +158,24 @@ export const TicketsSkills = props => {
       context.restore();
     };
 
+    const containerStyle = {
+      position: 'absolute',
+      width: '50%',
+      height: '15%',
+      right: 0,
+      top: '0px', // Set desired initial position
+      zIndex: 1,
+    };
+
+    // Apply the style to the container
+    containerRef.current.style.cssText = `position: ${containerStyle.position}; width: ${containerStyle.width}; height: ${containerStyle.height}; right: ${containerStyle.right}; top: ${containerStyle.top}; z-index: ${containerStyle.zIndex};`;
+
     const animate = () => {
       context.clearRect(0, 0, width, height);
 
       // Update spread progress with smooth transition
       const targetProgress = isHovering ? 1 : 0;
       spreadProgress.current += (targetProgress - spreadProgress.current) * 0.1;
-
-      // Set z-index based on hover state
-      containerRef.current.style.zIndex = isHovering ? 10 : 1;
 
       // Draw tickets in a scattered pile or circle based on hover state
       skills.forEach((skill, index) => {
@@ -176,11 +185,11 @@ export const TicketsSkills = props => {
         // Calculate angles for both states
         const defaultAngle = (Math.PI / 6) * (index - skills.length / 2);
         const fullCircleAngle = (2 * Math.PI * index) / skills.length - Math.PI / 2;
-        
+
         // Interpolate between the two angles based on spread progress
         const currentAngle = defaultAngle * (1 - spreadProgress.current) + 
                            fullCircleAngle * spreadProgress.current;
-        
+
         // Adjust radius based on spread progress
         const defaultRadius = 20 * index;
         const spreadRadius = Math.min(width, height) * 0.25; // Consistent radius when spread
@@ -189,7 +198,7 @@ export const TicketsSkills = props => {
 
         const x = centerX + Math.cos(currentAngle) * currentRadius;
         const y = centerY + Math.sin(currentAngle) * currentRadius;
-        
+
         // Rotate tickets to face outward when spread
         const defaultRotation = defaultAngle * 0.5;
         const spreadRotation = currentAngle + Math.PI / 2;
@@ -198,8 +207,8 @@ export const TicketsSkills = props => {
 
         // Scale up slightly when spread
         const scale = 1 + (spreadProgress.current * 0.2);
-        
-        drawTicket(x, y, skill, colors[index], currentRotation, scale, index);
+
+        drawTicket(x, y, skill, colors[index], currentRotation, scale);
       });
 
       animationFrameRef.current = requestAnimationFrame(animate);
@@ -229,9 +238,6 @@ export const TicketsSkills = props => {
       const { width, height } = containerRef.current.getBoundingClientRect();
       const devicePixelRatio = window.devicePixelRatio || 1;
 
-      // Set the top position of the container based on the height
-      containerRef.current.style.top = `${height / 200}px`; // Adjust this value as needed
-
       canvas.width = width * devicePixelRatio;
       canvas.height = height * devicePixelRatio;
       canvas.style.width = `${width}px`;
@@ -257,7 +263,6 @@ export const TicketsSkills = props => {
         <div
           className={styles.container}
           ref={containerRef}
-          style={{ position: 'absolute', width: '50%', height: '15%', right: 0 }}
         >
           <canvas
             aria-hidden
