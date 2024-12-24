@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useTheme } from '~/components/theme-provider';
 import { Transition } from '~/components/transition';
-import styles from './displacement-sphere.module.css';
+import styles from './tickets-skills.module.css';
 
 const skills = [
   'React',
@@ -21,7 +21,7 @@ const colors = [
   '#20b2aa', // Light Sea Green
 ];
 
-export const DisplacementSphere = props => {
+export const TicketsSkills = props => {
   const { theme } = useTheme();
   const canvasRef = useRef();
   const containerRef = useRef();
@@ -74,7 +74,7 @@ export const DisplacementSphere = props => {
       context.quadraticCurveTo(perforationOffset, ticketHeight - perforationOffset, perforationOffset, ticketHeight - cornerRadius - perforationOffset);
       context.lineTo(perforationOffset, cornerRadius + perforationOffset);
       context.quadraticCurveTo(perforationOffset, perforationOffset, cornerRadius + perforationOffset, perforationOffset);
-      context.strokeStyle = theme === 'light' ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.5)';
+      context.strokeStyle = theme === 'light' ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.3)';
       context.lineWidth = 2;
       context.stroke();
       context.setLineDash([]); // Reset dash pattern
@@ -122,7 +122,7 @@ export const DisplacementSphere = props => {
       context.lineTo(ticketWidth - perforationOffset, ticketHeight - cornerRadius - perforationOffset);
       context.quadraticCurveTo(ticketWidth - perforationOffset, ticketHeight - perforationOffset, ticketWidth - cornerRadius - perforationOffset, ticketHeight - perforationOffset);
       context.lineTo(ticketWidth - stubWidth + perforationOffset, ticketHeight - perforationOffset);
-      context.strokeStyle = theme === 'light' ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.5)';
+      context.strokeStyle = theme === 'light' ? 'rgba(0,0,0,0.9)' : 'rgba(255,255,255,0.9)';
       context.lineWidth = 2;
       context.stroke();
       context.setLineDash([]); // Reset dash pattern
@@ -164,6 +164,9 @@ export const DisplacementSphere = props => {
       // Update spread progress with smooth transition
       const targetProgress = isHovering ? 1 : 0;
       spreadProgress.current += (targetProgress - spreadProgress.current) * 0.1;
+
+      // Set z-index based on hover state
+      containerRef.current.style.zIndex = isHovering ? 10 : 1;
 
       // Draw tickets in a scattered pile or circle based on hover state
       skills.forEach((skill, index) => {
