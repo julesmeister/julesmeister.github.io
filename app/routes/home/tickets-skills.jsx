@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useTheme } from '~/components/theme-provider';
-import { Transition } from '~/components/transition';
 import styles from './tickets-skills.module.css';
 
 const skills = [
@@ -21,15 +20,18 @@ const colors = [
   '#20b2aa', // Light Sea Green
 ];
 
-export const TicketsSkills = props => {
+export const TicketsSkills = () => {
   const { theme } = useTheme();
   const canvasRef = useRef();
   const containerRef = useRef();
   const [isHovering, setIsHovering] = useState(false);
   const animationFrameRef = useRef();
   const spreadProgress = useRef(0);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
+    if (!canvasRef.current || !containerRef.current) return;
+
     const canvas = canvasRef.current;
     const context = canvas.getContext('2d');
     const { width, height } = canvas;
@@ -158,24 +160,21 @@ export const TicketsSkills = props => {
       context.restore();
     };
 
-    const containerStyle = {
-      position: 'absolute',
-      width: '50%',
-      height: '15%',
-      right: 0,
-      top: '0px', // Set desired initial position
-      zIndex: 1,
-    };
-
-    // Apply the style to the container
-    containerRef.current.style.cssText = `position: ${containerStyle.position}; width: ${containerStyle.width}; height: ${containerStyle.height}; right: ${containerStyle.right}; top: ${containerStyle.top}; z-index: ${containerStyle.zIndex};`;
+    let animateRef; // Reference to store the animate function
 
     const animate = () => {
+      if (!canvas || !context) return;
+      
       context.clearRect(0, 0, width, height);
 
       // Update spread progress with smooth transition
       const targetProgress = isHovering ? 1 : 0;
       spreadProgress.current += (targetProgress - spreadProgress.current) * 0.1;
+
+      // Set z-index based on hover state
+      if (containerRef.current) {
+        containerRef.current.style.zIndex = isHovering ? 10 : 1;
+      }
 
       // Draw tickets in a scattered pile or circle based on hover state
       skills.forEach((skill, index) => {
@@ -185,11 +184,11 @@ export const TicketsSkills = props => {
         // Calculate angles for both states
         const defaultAngle = (Math.PI / 6) * (index - skills.length / 2);
         const fullCircleAngle = (2 * Math.PI * index) / skills.length - Math.PI / 2;
-
+        
         // Interpolate between the two angles based on spread progress
         const currentAngle = defaultAngle * (1 - spreadProgress.current) + 
                            fullCircleAngle * spreadProgress.current;
-
+        
         // Adjust radius based on spread progress
         const defaultRadius = 20 * index;
         const spreadRadius = Math.min(width, height) * 0.25; // Consistent radius when spread
@@ -198,7 +197,7 @@ export const TicketsSkills = props => {
 
         const x = centerX + Math.cos(currentAngle) * currentRadius;
         const y = centerY + Math.sin(currentAngle) * currentRadius;
-
+        
         // Rotate tickets to face outward when spread
         const defaultRotation = defaultAngle * 0.5;
         const spreadRotation = currentAngle + Math.PI / 2;
@@ -207,12 +206,36 @@ export const TicketsSkills = props => {
 
         // Scale up slightly when spread
         const scale = 1 + (spreadProgress.current * 0.2);
-
-        drawTicket(x, y, skill, colors[index], currentRotation, scale);
+        
+        drawTicket(x, y, skill, colors[index], currentRotation, scale, index);
       });
 
       animationFrameRef.current = requestAnimationFrame(animate);
     };
+
+    animateRef = animate; // Store the reference
+
+    const resizeCanvas = () => {
+      if (!containerRef.current) return;
+      
+      const { width, height } = containerRef.current.getBoundingClientRect();
+      const devicePixelRatio = window.devicePixelRatio || 1;
+
+      canvas.width = width * devicePixelRatio;
+      canvas.height = height * devicePixelRatio;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      context.scale(devicePixelRatio, devicePixelRatio);
+      
+      // Force a redraw after resize using the stored reference
+      if (isInitialized && animateRef) {
+        animateRef();
+      }
+    };
+
+    // Initialize canvas size immediately
+    resizeCanvas();
+    setIsInitialized(true);
 
     const handleMouseMove = (event) => {
       const rect = canvas.getBoundingClientRect();
@@ -234,45 +257,46 @@ export const TicketsSkills = props => {
     canvas.addEventListener('mousemove', handleMouseMove);
     canvas.addEventListener('mouseleave', () => setIsHovering(false));
     
-    const resizeCanvas = () => {
-      const { width, height } = containerRef.current.getBoundingClientRect();
-      const devicePixelRatio = window.devicePixelRatio || 1;
-
-      canvas.width = width * devicePixelRatio;
-      canvas.height = height * devicePixelRatio;
-      canvas.style.width = `${width}px`;
-      canvas.style.height = `${height}px`;
-      context.scale(devicePixelRatio, devicePixelRatio);
-    };
+    // Start animation only after initialization
+    if (isInitialized) {
+      animate();
+    }
 
     window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-    animate();
 
     return () => {
+      window.removeEventListener('resize', resizeCanvas);
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
       canvas.removeEventListener('mousemove', handleMouseMove);
       canvas.removeEventListener('mouseleave', () => setIsHovering(false));
-      window.removeEventListener('resize', resizeCanvas);
-      cancelAnimationFrame(animationFrameRef.current);
     };
-  }, [theme, isHovering]);
+  }, [theme, isHovering, isInitialized]);
 
   return (
-    <Transition in timeout={3000} nodeRef={canvasRef}>
-      {({ visible, nodeRef }) => (
-        <div
-          className={styles.container}
-          ref={containerRef}
-        >
-          <canvas
-            aria-hidden
-            className={styles.canvas}
-            data-visible={visible}
-            ref={nodeRef}
-            {...props}
-          />
-        </div>
-      )}
-    </Transition>
+    <div
+      className={styles.container}
+      ref={containerRef}
+      style={{ 
+        position: 'absolute',
+        width: '50%',
+        height: '15%',
+        right: 0,
+        top: '50px',
+        transform: 'translateY(0)',
+        willChange: 'transform',
+      }}
+    >
+      <canvas
+        aria-hidden
+        className={styles.canvas}
+        ref={canvasRef}
+        style={{ 
+          opacity: isInitialized ? 1 : 0,
+          transition: 'opacity 0.5s ease-in-out',
+        }}
+      />
+    </div>
   );
 };

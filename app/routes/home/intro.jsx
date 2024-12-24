@@ -12,7 +12,9 @@ import { cssProps } from '~/utils/style';
 import config from '~/config.json';
 import { useHydrated } from '~/hooks/useHydrated';
 import styles from './intro.module.css';
-import { TicketsSkills } from './tickets-skills';
+const TicketsSkills = lazy(() =>
+  import('./tickets-skills').then(module => ({ default: module.TicketsSkills }))
+);
 
 export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
   const { theme } = useTheme();
