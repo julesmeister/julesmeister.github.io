@@ -229,6 +229,9 @@ export const TicketsSkills = props => {
       const { width, height } = containerRef.current.getBoundingClientRect();
       const devicePixelRatio = window.devicePixelRatio || 1;
 
+      // Set the top position of the container based on the height
+      containerRef.current.style.top = `${height / 200}px`; // Adjust this value as needed
+
       canvas.width = width * devicePixelRatio;
       canvas.height = height * devicePixelRatio;
       canvas.style.width = `${width}px`;
@@ -254,7 +257,7 @@ export const TicketsSkills = props => {
         <div
           className={styles.container}
           ref={containerRef}
-          style={{ position: 'absolute', width: '50%', height: '15%', right: 0}}
+          style={{ position: 'absolute', width: '50%', height: '15%', right: 0 }}
         >
           <canvas
             aria-hidden
