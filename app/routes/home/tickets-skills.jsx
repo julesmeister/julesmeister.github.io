@@ -24,9 +24,8 @@ export const TicketsSkills = () => {
   const { theme } = useTheme();
   const canvasRef = useRef();
   const containerRef = useRef();
-  const [isHovering, setIsHovering] = useState(false);
   const animationFrameRef = useRef();
-  const spreadProgress = useRef(0);
+  const [mouseY, setMouseY] = useState(null);
   const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
@@ -36,7 +35,7 @@ export const TicketsSkills = () => {
     const context = canvas.getContext('2d');
     const { width, height } = canvas;
 
-    const drawTicket = (x, y, text, color, rotation, scale, index) => {
+    const drawTicket = (x, y, text, color, rotation, scale = 1, zIndex = 0, ticketIndex) => {
       context.save();
       context.translate(x, y);
       context.rotate(rotation);
@@ -103,7 +102,7 @@ export const TicketsSkills = () => {
       context.fill();
 
       // Draw faint numbers on the stub
-      const ticketNumber = (index + 1).toString().padStart(3, '0'); // Generate ticket number
+      const ticketNumber = (ticketIndex + 1).toString().padStart(3, '0'); // Generate ticket number
       context.globalAlpha = 0.3; // Faint color
       context.fillStyle = theme === 'light' ? '#000' : '#fff';
       context.font = 'bold 16px "SF Pro Display", system-ui';
@@ -167,53 +166,144 @@ export const TicketsSkills = () => {
       
       context.clearRect(0, 0, width, height);
 
-      // Update spread progress with smooth transition
-      const targetProgress = isHovering ? 1 : 0;
-      spreadProgress.current += (targetProgress - spreadProgress.current) * 0.1;
-
-      // Set z-index based on hover state
-      if (containerRef.current) {
-        containerRef.current.style.zIndex = isHovering ? 10 : 1;
+      // Initialize animateRef.current if not exists
+      if (!animateRef.current) {
+        animateRef.current = {
+          isHovered: false,
+          isAnimating: false
+        };
       }
 
-      // Draw tickets in a scattered pile or circle based on hover state
-      skills.forEach((skill, index) => {
+      // Initialize animation states if not exists
+      if (!animateRef.current.states) {
+        animateRef.current.states = skills.map((_, index) => ({
+          currentAngle: (Math.PI / 6) * (index - skills.length / 2),
+          currentRadius: 20 * index
+        }));
+      }
+
+      // Track if animation is complete
+      let isAnimationComplete = true;
+
+      // Calculate which ticket should be highlighted based on mouse position
+      const containerHeight = canvas.height;
+      const sectionHeight = containerHeight / skills.length;
+      const activeIndex = mouseY !== null ? Math.floor(mouseY / sectionHeight) : null;
+      
+      // Update hover state
+      const newHoverState = mouseY !== null;
+      if (newHoverState !== animateRef.current.isHovered) {
+        animateRef.current.isHovered = newHoverState;
+        animateRef.current.isAnimating = true;
+      }
+
+      // First, draw all non-active tickets from back to front
+      [...skills].reverse().forEach((skill, idx) => {
+        const index = skills.length - 1 - idx; // Convert back to original index
+
         const centerX = width / 2;
         const centerY = height / 2;
         
-        // Calculate angles for both states
+        // Target values for hovered state
+        const hoveredAngle = (2 * Math.PI / skills.length) * index;
+        const hoveredRadius = 100;
+        
+        // Default values for non-hovered state
         const defaultAngle = (Math.PI / 6) * (index - skills.length / 2);
-        const fullCircleAngle = (2 * Math.PI * index) / skills.length - Math.PI / 2;
-        
-        // Interpolate between the two angles based on spread progress
-        const currentAngle = defaultAngle * (1 - spreadProgress.current) + 
-                           fullCircleAngle * spreadProgress.current;
-        
-        // Adjust radius based on spread progress
         const defaultRadius = 20 * index;
-        const spreadRadius = Math.min(width, height) * 0.25; // Consistent radius when spread
-        const currentRadius = defaultRadius * (1 - spreadProgress.current) + 
-                            spreadRadius * spreadProgress.current;
 
-        const x = centerX + Math.cos(currentAngle) * currentRadius;
-        const y = centerY + Math.sin(currentAngle) * currentRadius;
+        // Lerp factor - adjust this value to control animation speed
+        const lerpFactor = 0.15; // Slowed down a bit for smoother animation
         
-        // Rotate tickets to face outward when spread
-        const defaultRotation = defaultAngle * 0.5;
-        const spreadRotation = currentAngle + Math.PI / 2;
-        const currentRotation = defaultRotation * (1 - spreadProgress.current) + 
-                              spreadRotation * spreadProgress.current;
+        // Get current state
+        const state = animateRef.current.states[index];
+        
+        // Calculate target values based on current hover state
+        const targetAngle = animateRef.current.isHovered ? hoveredAngle : defaultAngle;
+        const targetRadius = animateRef.current.isHovered ? hoveredRadius : defaultRadius;
+        
+        // Lerp function
+        const lerp = (start, end, t) => start + (end - start) * t;
+        
+        // Always update positions when animating
+        if (animateRef.current.isAnimating) {
+          // Update current values
+          state.currentAngle = lerp(state.currentAngle, targetAngle, lerpFactor);
+          state.currentRadius = lerp(state.currentRadius, targetRadius, lerpFactor);
+          
+          // Check if this item is still animating
+          const isAngleComplete = Math.abs(state.currentAngle - targetAngle) < 0.01;
+          const isRadiusComplete = Math.abs(state.currentRadius - targetRadius) < 0.1;
+          isAnimationComplete = isAnimationComplete && isAngleComplete && isRadiusComplete;
+        }
+        
+        const x = centerX + Math.cos(state.currentAngle) * state.currentRadius;
+        const y = centerY + Math.sin(state.currentAngle) * state.currentRadius;
+        
+        const baseRotation = state.currentAngle;
 
-        // Scale up slightly when spread
-        const scale = 1 + (spreadProgress.current * 0.2);
+        // Calculate fade based on distance from active
+        const distanceFromActive = activeIndex !== null ? Math.abs(index - activeIndex) : null;
+        const fadeAmount = distanceFromActive !== null ? Math.max(0.3, 1 - distanceFromActive * 0.2) : 1;
         
-        drawTicket(x, y, skill, colors[index], currentRotation, scale, index);
+        context.save();
+        context.globalAlpha = fadeAmount;
+        drawTicket(x, y, skill, colors[index], baseRotation, 1, index, index);
+        context.restore();
       });
+
+      // Stop animation if complete
+      if (isAnimationComplete && animateRef.current.isAnimating) {
+        animateRef.current.isAnimating = false;
+      }
 
       animationFrameRef.current = requestAnimationFrame(animate);
     };
 
     animateRef = animate; // Store the reference
+
+    const handleMouseMove = (event) => {
+      if (!animateRef.current?.isAnimating) {  
+        const rect = canvas.getBoundingClientRect();
+        const relativeY = (event.clientY - rect.top) * (canvas.height / rect.height);
+        
+        // Calculate the vertical range where tickets are visible
+        const ticketSpacing = 40; 
+        const totalTicketHeight = ticketSpacing * (skills.length - 1);
+        const verticalPadding = 20; 
+        
+        // Calculate the bounds of the interactive area
+        const minY = height / 2 - totalTicketHeight / 2 - verticalPadding;
+        const maxY = height / 2 + totalTicketHeight / 2 + verticalPadding;
+        
+        // Only set mouseY if within the valid range and state would actually change
+        if (relativeY >= minY && relativeY <= maxY) {
+          // Normalize the position relative to the ticket area
+          const normalizedY = (relativeY - minY) / (maxY - minY) * canvas.height;
+          
+          // Only update if the hover state would change
+          if (mouseY === null) {
+            setMouseY(normalizedY);
+          }
+        } else if (mouseY !== null) {
+          setMouseY(null);
+        }
+      }
+    };
+
+    const handleMouseLeave = () => {
+      if (mouseY !== null) {
+        // Force animation state when leaving
+        if (animateRef.current) {
+          animateRef.current.isHovered = false;
+          animateRef.current.isAnimating = true;
+        }
+        setMouseY(null);
+      }
+    };
+
+    canvas.addEventListener('mousemove', handleMouseMove);
+    canvas.addEventListener('mouseleave', handleMouseLeave);
 
     const resizeCanvas = () => {
       if (!containerRef.current) return;
@@ -237,42 +327,17 @@ export const TicketsSkills = () => {
     resizeCanvas();
     setIsInitialized(true);
 
-    const handleMouseMove = (event) => {
-      const rect = canvas.getBoundingClientRect();
-      const mouseX = (event.clientX - rect.left) * (canvas.width / rect.width);
-      const mouseY = (event.clientY - rect.top) * (canvas.height / rect.height);
-      
-      // Check if mouse is in the general ticket area
-      const centerX = width / 2;
-      const centerY = height / 2;
-      const dx = mouseX - centerX;
-      const dy = mouseY - centerY;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-      
-      // Adjust this radius based on your layout
-      const interactionRadius = Math.min(width, height) * 0.3;
-      setIsHovering(distance < interactionRadius);
-    };
-
-    canvas.addEventListener('mousemove', handleMouseMove);
-    canvas.addEventListener('mouseleave', () => setIsHovering(false));
-    
-    // Start animation only after initialization
-    if (isInitialized) {
-      animate();
-    }
-
     window.addEventListener('resize', resizeCanvas);
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
+      window.removeEventListener('resize', resizeCanvas);
       canvas.removeEventListener('mousemove', handleMouseMove);
-      canvas.removeEventListener('mouseleave', () => setIsHovering(false));
+      canvas.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, [theme, isHovering, isInitialized]);
+  }, [theme, isInitialized, mouseY]);
 
   return (
     <div
@@ -283,7 +348,7 @@ export const TicketsSkills = () => {
         width: '50%',
         height: '15%',
         right: 0,
-        top: '50px',
+        top: '0px',
         transform: 'translateY(0)',
         willChange: 'transform',
       }}
