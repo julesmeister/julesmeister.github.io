@@ -106,13 +106,11 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
                   </div>
                 </Heading>
               </header>
-              {isHydrated && (
                 <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100vh' }}>
                   <Suspense>
                     <TicketsSkills />
                   </Suspense>
                 </div>
-              )}
             </div>
             <RouterLink
               href="/#project-1"

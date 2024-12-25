@@ -186,7 +186,7 @@ export const TicketsSkills = () => {
 
         animateRef.current = {
           states: skills.map((_, index) => ({
-            pathPosition: index * ((width < 768 ? 20 : 50) / skills.length), // Reduce spacing between tickets
+            pathPosition: index * ((width < 768 ? 20 : 30) / skills.length), // Reduce spacing between tickets
             speed: 1, // Base speed for the train
           })),
           pathPoints: points,
