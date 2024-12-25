@@ -112,33 +112,35 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
                   </Suspense>
                 </div>
             </div>
-            <RouterLink
-              href="/#project-1"
-              className={styles.scrollIndicator}
-              data-status={status}
-              data-hidden={scrollIndicatorHidden}
-              onClick={handleScrollClick}
-            >
-              <VisuallyHidden>Scroll to projects</VisuallyHidden>
-            </RouterLink>
-            <RouterLink
-              href="/#project-1"
-              className={styles.mobileScrollIndicator}
-              data-status={status}
-              data-hidden={scrollIndicatorHidden}
-              onClick={handleScrollClick}
-            >
-              <VisuallyHidden>Scroll to projects</VisuallyHidden>
-              <svg
-                aria-hidden
-                stroke="currentColor"
-                width="43"
-                height="15"
-                viewBox="0 0 43 15"
-              >
-                <path d="M1 1l20.5 12L42 1" strokeWidth="2" fill="none" />
-              </svg>
-            </RouterLink>
+           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+             <RouterLink
+               href="/#project-1"
+               className={styles.scrollIndicator}
+               data-status={status}
+               data-hidden={scrollIndicatorHidden}
+               onClick={handleScrollClick}
+             >
+               <VisuallyHidden>Scroll to projects</VisuallyHidden>
+             </RouterLink>
+             <RouterLink
+               href="/#project-1"
+               className={styles.mobileScrollIndicator}
+               data-status={status}
+               data-hidden={scrollIndicatorHidden}
+               onClick={handleScrollClick}
+             >
+               <VisuallyHidden>Scroll to projects</VisuallyHidden>
+               <svg
+                 aria-hidden
+                 stroke="currentColor"
+                 width="43"
+                 height="15"
+                 viewBox="0 0 43 15"
+               >
+                 <path d="M1 1l20.5 12L42 1" strokeWidth="2" fill="none" />
+               </svg>
+             </RouterLink>
+           </div>
           </div>
         )}
       </Transition>
