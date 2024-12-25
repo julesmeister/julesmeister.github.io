@@ -29,6 +29,25 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
   const scrollToHash = useScrollToHash();
   const isHydrated = useHydrated();
 
+  const [divHeight, setDivHeight] = useState('100vh');
+
+  useEffect(() => {
+    const updateHeight = () => {
+      if (typeof window !== 'undefined') {
+        setDivHeight(window.innerWidth < 768 ? '50vh' : '100vh');
+      }
+    };
+    updateHeight(); // Set initial height
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', updateHeight);
+    }
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('resize', updateHeight);
+      }
+    };
+  }, []);
+
   useInterval(
     () => {
       const index = (disciplineIndex + 1) % disciplines.length;
@@ -106,7 +125,7 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
                   </div>
                 </Heading>
               </header>
-                <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100vh' }}>
+                <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: divHeight }}>
                   <Suspense>
                     <TicketsSkills />
                   </Suspense>
