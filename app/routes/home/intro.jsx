@@ -47,6 +47,9 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
   const handleScrollClick = event => {
     event.preventDefault();
     scrollToHash(event.currentTarget.href);
+
+    // Dispatch the custom event to navigate sections
+    window.dispatchEvent(new CustomEvent('navigate-section', { detail: 'down' }));
   };
 
   return (
@@ -121,7 +124,7 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
               </Heading>
             </header>
 
-            <RouterLink
+            {/* <RouterLink
               href="/#project-1"
               className={styles.scrollIndicator}
               data-status={status}
@@ -147,7 +150,7 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
               >
                 <path d="M1 1l20.5 12L42 1" strokeWidth="2" fill="none" />
               </svg>
-            </RouterLink>
+            </RouterLink> */}
           </>
         )}
       </Transition>

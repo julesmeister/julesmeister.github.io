@@ -393,18 +393,18 @@ export const TicketsSkills = () => {
       const baseY = height / 2;
       const clusterRadius = 100;
 
-      skills.forEach((skill, index) => {
-        const randomAngle = Math.random() * Math.PI * 2;
-        const randomDistance = Math.random() * (clusterRadius - 20) + 20;
-        const randomRotation = (Math.random() - 0.5) * Math.PI;
+      // skills.forEach((skill, index) => {
+      //   const randomAngle = Math.random() * Math.PI * 2;
+      //   const randomDistance = Math.random() * (clusterRadius - 20) + 20;
+      //   const randomRotation = (Math.random() - 0.5) * Math.PI;
         
-        const x = baseX + Math.cos(randomAngle) * randomDistance;
-        const y = baseY + Math.sin(randomAngle) * randomDistance;
+      //   const x = baseX + Math.cos(randomAngle) * randomDistance;
+      //   const y = baseY + Math.sin(randomAngle) * randomDistance;
         
-        const randomScale = 0.6 + Math.random() * 0.4;
+      //   const randomScale = 0.6 + Math.random() * 0.4;
         
-        drawTicket(x, y, skill, colors[index], randomRotation, randomScale, index, index);
-      });
+      //   drawTicket(x, y, skill, colors[index], randomRotation, randomScale, index, index);
+      // });
     }
 
     return () => {
