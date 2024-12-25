@@ -240,17 +240,24 @@ export const TicketsSkills = () => {
     const resizeCanvas = () => {
       if (!containerRef.current) return;
       
-      const { width, height } = containerRef.current.getBoundingClientRect();
+      const { width: containerWidth, height: containerHeight } = containerRef.current.getBoundingClientRect();
       const devicePixelRatio = window.devicePixelRatio || 1;
 
-      canvas.width = width * devicePixelRatio;
-      canvas.height = height * devicePixelRatio;
-      canvas.style.width = `${width}px`;
-      canvas.style.height = `${height}px`;
-      context.scale(devicePixelRatio, devicePixelRatio);
+      // Set the canvas size in pixels
+      canvas.width = containerWidth * devicePixelRatio;
+      canvas.height = containerHeight * devicePixelRatio;
+
+      // Set the display size
+      canvas.style.width = `${containerWidth}px`;
+      canvas.style.height = `${containerHeight}px`;
+
+      // Scale the context to handle high DPI displays
+      context.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
       
       // Force a redraw after resize using the stored reference
       if (isInitialized && animateRef) {
+        // Reset animation states to recalculate positions based on new dimensions
+        animateRef.current = null;
         animateRef();
       }
     };
@@ -281,6 +288,7 @@ export const TicketsSkills = () => {
         height: '100%',
         overflow: 'visible',
         willChange: 'transform',
+        transform: 'translateZ(0)',
       }}
     >
       <canvas
