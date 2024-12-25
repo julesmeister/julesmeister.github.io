@@ -61,9 +61,9 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
     >
       <Transition in key={theme} timeout={3000}>
         {({ visible, status }) => (
-          <>
-            <div className={styles.container} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '2rem', flexWrap: 'wrap', width: '100%', maxWidth: '1200px', margin: '0 auto' }}>
-              <header className={styles.text} style={{ flex: '1 1 40%', minWidth: '300px' }}>
+          <div className={styles.content} style={{ width: '100%', maxWidth: '100%' }}>
+            <div style={{ position: 'relative', minHeight: '100vh', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+              <header className={styles.text}>
                 <h1 className={styles.name} data-visible={visible} id={titleId}>
                   <DecoderText text={config.name} delay={500} />
                 </h1>
@@ -106,8 +106,8 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
                   </div>
                 </Heading>
               </header>
-              {isHydrated && window.innerWidth > 768 && (
-                <div style={{ flex: '1 1 40%', minWidth: '300px', maxWidth: '800px', display: 'flex', alignItems: 'center' }}>
+              {isHydrated && (
+                <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100vh' }}>
                   <Suspense>
                     <TicketsSkills />
                   </Suspense>
@@ -115,7 +115,7 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
               )}
             </div>
             <RouterLink
-              to="/#project-1"
+              href="/#project-1"
               className={styles.scrollIndicator}
               data-status={status}
               data-hidden={scrollIndicatorHidden}
@@ -124,7 +124,7 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
               <VisuallyHidden>Scroll to projects</VisuallyHidden>
             </RouterLink>
             <RouterLink
-              to="/#project-1"
+              href="/#project-1"
               className={styles.mobileScrollIndicator}
               data-status={status}
               data-hidden={scrollIndicatorHidden}
@@ -141,7 +141,7 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
                 <path d="M1 1l20.5 12L42 1" strokeWidth="2" fill="none" />
               </svg>
             </RouterLink>
-          </>
+          </div>
         )}
       </Transition>
     </Section>

@@ -29,7 +29,13 @@ export const TicketsSkills = () => {
   const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
-    if (!canvasRef.current || !containerRef.current) return;
+    if (!canvasRef.current || !containerRef.current) {
+      console.error('Canvas or container ref is not defined:', {
+        canvas: canvasRef.current,
+        container: containerRef.current,
+      });
+      return;
+    }
 
     const canvas = canvasRef.current;
     const context = canvas.getContext('2d');
@@ -166,144 +172,70 @@ export const TicketsSkills = () => {
       
       context.clearRect(0, 0, width, height);
 
-      // Initialize animateRef.current if not exists
-      if (!animateRef.current) {
+      // Initialize animation states if not exists
+      if (!animateRef.current?.states) {
+        // Calculate initial path points
+        const numPoints = 100; // Number of points in the path
+        const points = [];
+        for (let i = 0; i < numPoints; i++) {
+          points.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+          });
+        }
+
         animateRef.current = {
-          isHovered: false,
-          isAnimating: false
+          states: skills.map((_, index) => ({
+            pathPosition: index * (20 / skills.length), // Reduce spacing between tickets
+            speed: 1, // Base speed for the train
+          })),
+          pathPoints: points,
+          pathProgress: 0
         };
       }
 
-      // Initialize animation states if not exists
-      if (!animateRef.current.states) {
-        animateRef.current.states = skills.map((_, index) => ({
-          currentAngle: (Math.PI / 6) * (index - skills.length / 2),
-          currentRadius: 20 * index
-        }));
+      const states = animateRef.current.states;
+      const points = animateRef.current.pathPoints;
+
+      // Update path progress
+      animateRef.current.pathProgress += 0.05; // Controls train speed
+      if (animateRef.current.pathProgress >= 100) {
+        animateRef.current.pathProgress = 0;
       }
 
-      // Track if animation is complete
-      let isAnimationComplete = true;
-
-      // Calculate which ticket should be highlighted based on mouse position
-      const containerHeight = canvas.height;
-      const sectionHeight = containerHeight / skills.length;
-      const activeIndex = mouseY !== null ? Math.floor(mouseY / sectionHeight) : null;
-      
-      // Update hover state
-      const newHoverState = mouseY !== null;
-      if (newHoverState !== animateRef.current.isHovered) {
-        animateRef.current.isHovered = newHoverState;
-        animateRef.current.isAnimating = true;
-      }
-
-      // First, draw all non-active tickets from back to front
-      [...skills].reverse().forEach((skill, idx) => {
-        const index = skills.length - 1 - idx; // Convert back to original index
-
-        const centerX = width / 2;
+      // Function to get position along the curved path
+      const getPositionAlongPath = (progress) => {
+        progress = progress % 100;
         const centerY = height / 2;
-        
-        // Target values for hovered state
-        const hoveredAngle = (2 * Math.PI / skills.length) * index;
-        const hoveredRadius = 100;
-        
-        // Default values for non-hovered state
-        const defaultAngle = (Math.PI / 6) * (index - skills.length / 2);
-        const defaultRadius = 20 * index;
+        const amplitude = height / 4; // Height of the wave
+        const frequency = 2 * Math.PI / width; // How many waves across the screen
 
-        // Lerp factor - adjust this value to control animation speed
-        const lerpFactor = 0.15; // Slowed down a bit for smoother animation
-        
-        // Get current state
-        const state = animateRef.current.states[index];
-        
-        // Calculate target values based on current hover state
-        const targetAngle = animateRef.current.isHovered ? hoveredAngle : defaultAngle;
-        const targetRadius = animateRef.current.isHovered ? hoveredRadius : defaultRadius;
-        
-        // Lerp function
-        const lerp = (start, end, t) => start + (end - start) * t;
-        
-        // Always update positions when animating
-        if (animateRef.current.isAnimating) {
-          // Update current values
-          state.currentAngle = lerp(state.currentAngle, targetAngle, lerpFactor);
-          state.currentRadius = lerp(state.currentRadius, targetRadius, lerpFactor);
-          
-          // Check if this item is still animating
-          const isAngleComplete = Math.abs(state.currentAngle - targetAngle) < 0.01;
-          const isRadiusComplete = Math.abs(state.currentRadius - targetRadius) < 0.1;
-          isAnimationComplete = isAnimationComplete && isAngleComplete && isRadiusComplete;
-        }
-        
-        const x = centerX + Math.cos(state.currentAngle) * state.currentRadius;
-        const y = centerY + Math.sin(state.currentAngle) * state.currentRadius;
-        
-        const baseRotation = state.currentAngle;
+        const x = (progress / 100) * width * 2 - width; // Move from left to right
+        const y = centerY + Math.sin(x * frequency) * amplitude;
 
-        // Calculate fade based on distance from active
-        const distanceFromActive = activeIndex !== null ? Math.abs(index - activeIndex) : null;
-        const fadeAmount = distanceFromActive !== null ? Math.max(0.3, 1 - distanceFromActive * 0.2) : 1;
-        
+        return { x: (x + width * 2) % width, y };
+      };
+
+      // Draw tickets along the path
+      states.forEach((state, index) => {
+        const position = (animateRef.current.pathProgress + state.pathPosition) % 100;
+        const { x, y } = getPositionAlongPath(position);
+
+        // Calculate rotation based on the path direction
+        const nextPos = getPositionAlongPath(position + 1);
+        const angle = Math.atan2(nextPos.y - y, nextPos.x - x);
+
+        // Draw ticket
         context.save();
-        context.globalAlpha = fadeAmount;
-        drawTicket(x, y, skill, colors[index], baseRotation, 0.8, index, index);
+        context.globalAlpha = 1;
+        drawTicket(x, y, skills[index], colors[index], angle, 0.8, index, index);
         context.restore();
       });
-
-      // Stop animation if complete
-      if (isAnimationComplete && animateRef.current.isAnimating) {
-        animateRef.current.isAnimating = false;
-      }
 
       animationFrameRef.current = requestAnimationFrame(animate);
     };
 
     animateRef = animate; // Store the reference
-
-    const handleMouseMove = (event) => {
-      if (!animateRef.current?.isAnimating) {  
-        const rect = canvas.getBoundingClientRect();
-        const relativeY = (event.clientY - rect.top) * (canvas.height / rect.height);
-        
-        // Calculate the vertical range where tickets are visible
-        const ticketSpacing = 40; 
-        const totalTicketHeight = ticketSpacing * (skills.length - 1);
-        const verticalPadding = 20; 
-        
-        // Calculate the bounds of the interactive area
-        const minY = height / 2 - totalTicketHeight / 2 - verticalPadding;
-        const maxY = height / 2 + totalTicketHeight / 2 + verticalPadding;
-        
-        // Only set mouseY if within the valid range and state would actually change
-        if (relativeY >= minY && relativeY <= maxY) {
-          // Normalize the position relative to the ticket area
-          const normalizedY = (relativeY - minY) / (maxY - minY) * canvas.height;
-          
-          // Only update if the hover state would change
-          if (mouseY === null) {
-            setMouseY(normalizedY);
-          }
-        } else if (mouseY !== null) {
-          setMouseY(null);
-        }
-      }
-    };
-
-    const handleMouseLeave = () => {
-      if (mouseY !== null) {
-        // Force animation state when leaving
-        if (animateRef.current) {
-          animateRef.current.isHovered = false;
-          animateRef.current.isAnimating = true;
-        }
-        setMouseY(null);
-      }
-    };
-
-    canvas.addEventListener('mousemove', handleMouseMove);
-    canvas.addEventListener('mouseleave', handleMouseLeave);
 
     const resizeCanvas = () => {
       if (!containerRef.current) return;
@@ -334,27 +266,21 @@ export const TicketsSkills = () => {
         cancelAnimationFrame(animationFrameRef.current);
       }
       window.removeEventListener('resize', resizeCanvas);
-      canvas.removeEventListener('mousemove', handleMouseMove);
-      canvas.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, [theme, isInitialized, mouseY]);
+  }, [theme, isInitialized]);
 
   return (
     <div
       className={styles.container}
       ref={containerRef}
       style={{ 
-        position: 'relative',
+        position: 'absolute',
+        top: 0,
+        left: 0,
         width: '100%',
         height: '100%',
-        aspectRatio: '4/3',
-        maxHeight: '1000px',
-        minHeight: '1000px',
-        margin: '0 auto',
         overflow: 'visible',
         willChange: 'transform',
-        display: 'flex',
-        alignItems: 'center',
       }}
     >
       <canvas
@@ -366,7 +292,6 @@ export const TicketsSkills = () => {
           transition: 'opacity 0.5s ease-in-out',
           width: '100%',
           height: '100%',
-          marginTop: '-100px', /* Adjust this value as needed */
         }}
       />
     </div>
