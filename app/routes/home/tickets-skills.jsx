@@ -186,7 +186,7 @@ export const TicketsSkills = () => {
 
         animateRef.current = {
           states: skills.map((_, index) => ({
-            pathPosition: index * (20 / skills.length), // Reduce spacing between tickets
+            pathPosition: index * ((width < 768 ? 20 : 50) / skills.length), // Reduce spacing between tickets
             speed: 1, // Base speed for the train
           })),
           pathPoints: points,
@@ -207,7 +207,7 @@ export const TicketsSkills = () => {
       const getPositionAlongPath = (progress) => {
         progress = progress % 100;
         const centerY = height / 2;
-        const amplitude = height / 4; // Height of the wave
+        const amplitude = height / (width < 768 ? 4 : 6); // Adjust amplitude based on screen width
         const frequency = 2 * Math.PI / width; // How many waves across the screen
 
         const x = (progress / 100) * width * 2 - width; // Move from left to right
