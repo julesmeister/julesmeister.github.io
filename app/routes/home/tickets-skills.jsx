@@ -248,7 +248,7 @@ export const TicketsSkills = () => {
         
         context.save();
         context.globalAlpha = fadeAmount;
-        drawTicket(x, y, skill, colors[index], baseRotation, 1, index, index);
+        drawTicket(x, y, skill, colors[index], baseRotation, 0.8, index, index);
         context.restore();
       });
 
@@ -344,13 +344,17 @@ export const TicketsSkills = () => {
       className={styles.container}
       ref={containerRef}
       style={{ 
-        position: 'absolute',
-        width: '50%',
-        height: '15%',
-        right: 0,
-        top: '0px',
-        transform: 'translateY(0)',
+        position: 'relative',
+        width: '100%',
+        height: '100%',
+        aspectRatio: '4/3',
+        maxHeight: '1000px',
+        minHeight: '1000px',
+        margin: '0 auto',
+        overflow: 'visible',
         willChange: 'transform',
+        display: 'flex',
+        alignItems: 'center',
       }}
     >
       <canvas
@@ -360,6 +364,9 @@ export const TicketsSkills = () => {
         style={{ 
           opacity: isInitialized ? 1 : 0,
           transition: 'opacity 0.5s ease-in-out',
+          width: '100%',
+          height: '100%',
+          marginTop: '-100px', /* Adjust this value as needed */
         }}
       />
     </div>

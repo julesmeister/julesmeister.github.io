@@ -62,54 +62,58 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
       <Transition in key={theme} timeout={3000}>
         {({ visible, status }) => (
           <>
-            {isHydrated && (
-              <Suspense>
-                <TicketsSkills />
-              </Suspense>
-            )}
-            <header className={styles.text}>
-              <h1 className={styles.name} data-visible={visible} id={titleId}>
-                <DecoderText text={config.name} delay={500} />
-              </h1>
-              <Heading level={0} as="h2" className={styles.title}>
-                <VisuallyHidden className={styles.label}>
-                  {`${config.role} + ${introLabel}`}
-                </VisuallyHidden>
-                <span aria-hidden className={styles.row}>
-                  <span
-                    className={styles.word}
-                    data-status={status}
-                    style={cssProps({ delay: tokens.base.durationXS })}
-                  >
-                    {config.role}
-                  </span>
-                  <span className={styles.line} data-status={status} />
-                </span>
-                <div className={styles.row}>
-                  {disciplines.map(item => (
-                    <Transition
-                      unmount
-                      in={item === currentDiscipline}
-                      timeout={{ enter: 3000, exit: 2000 }}
-                      key={item}
+            <div className={styles.container} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '2rem', flexWrap: 'wrap', width: '100%', maxWidth: '1200px', margin: '0 auto' }}>
+              <header className={styles.text} style={{ flex: '1 1 40%', minWidth: '300px' }}>
+                <h1 className={styles.name} data-visible={visible} id={titleId}>
+                  <DecoderText text={config.name} delay={500} />
+                </h1>
+                <Heading level={0} as="h2" className={styles.title}>
+                  <VisuallyHidden className={styles.label}>
+                    {`${config.role} + ${introLabel}`}
+                  </VisuallyHidden>
+                  <span aria-hidden className={styles.row}>
+                    <span
+                      className={styles.word}
+                      data-status={status}
+                      style={cssProps({ delay: tokens.base.durationXS })}
                     >
-                      {({ status, nodeRef }) => (
-                        <span
-                          aria-hidden
-                          ref={nodeRef}
-                          className={styles.word}
-                          data-plus={true}
-                          data-status={status}
-                          style={cssProps({ delay: tokens.base.durationL })}
-                        >
-                          {item}
-                        </span>
-                      )}
-                    </Transition>
-                  ))}
+                      {config.role}
+                    </span>
+                    <span className={styles.line} data-status={status} />
+                  </span>
+                  <div className={styles.row}>
+                    {disciplines.map(item => (
+                      <Transition
+                        unmount
+                        in={item === currentDiscipline}
+                        timeout={{ enter: 3000, exit: 2000 }}
+                        key={item}
+                      >
+                        {({ status, nodeRef }) => (
+                          <span
+                            aria-hidden
+                            ref={nodeRef}
+                            className={styles.word}
+                            data-plus={true}
+                            data-status={status}
+                            style={cssProps({ delay: tokens.base.durationL })}
+                          >
+                            {item}
+                          </span>
+                        )}
+                      </Transition>
+                    ))}
+                  </div>
+                </Heading>
+              </header>
+              {isHydrated && window.innerWidth > 768 && (
+                <div style={{ flex: '1 1 40%', minWidth: '300px', maxWidth: '800px', display: 'flex', alignItems: 'center' }}>
+                  <Suspense>
+                    <TicketsSkills />
+                  </Suspense>
                 </div>
-              </Heading>
-            </header>
+              )}
+            </div>
             <RouterLink
               to="/#project-1"
               className={styles.scrollIndicator}
