@@ -61,87 +61,94 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
     >
       <Transition in key={theme} timeout={3000}>
         {({ visible, status }) => (
-          <div className={styles.content} style={{ width: '100%', maxWidth: '100%' }}>
-            <div style={{ position: 'relative', minHeight: '100vh', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-              <header className={styles.text}>
-                <h1 className={styles.name} data-visible={visible} id={titleId}>
-                  <DecoderText text={config.name} delay={500} />
-                </h1>
-                <Heading level={0} as="h2" className={styles.title}>
-                  <VisuallyHidden className={styles.label}>
-                    {`${config.role} + ${introLabel}`}
-                  </VisuallyHidden>
-                  <span aria-hidden className={styles.row}>
-                    <span
-                      className={styles.word}
-                      data-status={status}
-                      style={cssProps({ delay: tokens.base.durationXS })}
-                    >
-                      {config.role}
-                    </span>
-                    <span className={styles.line} data-status={status} />
+          <>
+            {isHydrated && (
+              <div
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100vh',
+                }}
+              >
+                <Suspense>
+                  <TicketsSkills />
+                </Suspense>
+              </div>
+            )}
+            <header className={styles.text}>
+              <h1 className={styles.name} data-visible={visible} id={titleId}>
+                <DecoderText text={config.name} delay={500} />
+              </h1>
+              <Heading level={0} as="h2" className={styles.title}>
+                <VisuallyHidden className={styles.label}>
+                  {`${config.role} + ${introLabel}`}
+                </VisuallyHidden>
+                <span aria-hidden className={styles.row}>
+                  <span
+                    className={styles.word}
+                    data-status={status}
+                    style={cssProps({ delay: tokens.base.durationXS })}
+                  >
+                    {config.role}
                   </span>
-                  <div className={styles.row}>
-                    {disciplines.map(item => (
-                      <Transition
-                        unmount
-                        in={item === currentDiscipline}
-                        timeout={{ enter: 3000, exit: 2000 }}
-                        key={item}
-                      >
-                        {({ status, nodeRef }) => (
-                          <span
-                            aria-hidden
-                            ref={nodeRef}
-                            className={styles.word}
-                            data-plus={true}
-                            data-status={status}
-                            style={cssProps({ delay: tokens.base.durationL })}
-                          >
-                            {item}
-                          </span>
-                        )}
-                      </Transition>
-                    ))}
-                  </div>
-                </Heading>
-              </header>
-                <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100vh' }}>
-                  <Suspense>
-                    <TicketsSkills />
-                  </Suspense>
+                  <span className={styles.line} data-status={status} />
+                </span>
+                <div className={styles.row}>
+                  {disciplines.map(item => (
+                    <Transition
+                      unmount
+                      in={item === currentDiscipline}
+                      timeout={{ enter: 3000, exit: 2000 }}
+                      key={item}
+                    >
+                      {({ status, nodeRef }) => (
+                        <span
+                          aria-hidden
+                          ref={nodeRef}
+                          className={styles.word}
+                          data-plus={true}
+                          data-status={status}
+                          style={cssProps({ delay: tokens.base.durationL })}
+                        >
+                          {item}
+                        </span>
+                      )}
+                    </Transition>
+                  ))}
                 </div>
-            </div>
-           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-             <RouterLink
-               href="/#project-1"
-               className={styles.scrollIndicator}
-               data-status={status}
-               data-hidden={scrollIndicatorHidden}
-               onClick={handleScrollClick}
-             >
-               <VisuallyHidden>Scroll to projects</VisuallyHidden>
-             </RouterLink>
-             <RouterLink
-               href="/#project-1"
-               className={styles.mobileScrollIndicator}
-               data-status={status}
-               data-hidden={scrollIndicatorHidden}
-               onClick={handleScrollClick}
-             >
-               <VisuallyHidden>Scroll to projects</VisuallyHidden>
-               <svg
-                 aria-hidden
-                 stroke="currentColor"
-                 width="43"
-                 height="15"
-                 viewBox="0 0 43 15"
-               >
-                 <path d="M1 1l20.5 12L42 1" strokeWidth="2" fill="none" />
-               </svg>
-             </RouterLink>
-           </div>
-          </div>
+              </Heading>
+            </header>
+
+            <RouterLink
+              href="/#project-1"
+              className={styles.scrollIndicator}
+              data-status={status}
+              data-hidden={scrollIndicatorHidden}
+              onClick={handleScrollClick}
+            >
+              <VisuallyHidden>Scroll to projects</VisuallyHidden>
+            </RouterLink>
+            <RouterLink
+              href="/#project-1"
+              className={styles.mobileScrollIndicator}
+              data-status={status}
+              data-hidden={scrollIndicatorHidden}
+              onClick={handleScrollClick}
+            >
+              <VisuallyHidden>Scroll to projects</VisuallyHidden>
+              <svg
+                aria-hidden
+                stroke="currentColor"
+                width="43"
+                height="15"
+                viewBox="0 0 43 15"
+              >
+                <path d="M1 1l20.5 12L42 1" strokeWidth="2" fill="none" />
+              </svg>
+            </RouterLink>
+          </>
         )}
       </Transition>
     </Section>
