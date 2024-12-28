@@ -124,7 +124,7 @@ export const Uses = () => {
                   </TableRow>
                   <TableRow>
                     <TableHeadCell>Monitor</TableHeadCell>
-                    <TableCell>Gamdias Atlas 24" Curve HD24C</TableCell>
+                    <TableCell>Gamdias Atlas 24" Curve HD24C and Nvision QS34G1 Ultra Wide</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableHeadCell>Keyboard</TableHeadCell>
