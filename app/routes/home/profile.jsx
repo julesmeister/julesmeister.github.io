@@ -24,7 +24,7 @@ const ProfileText = ({ visible, titleId }) => (
       I'm Jules, a Filipino of Chinese descent, currently living in Zamboanga, Philippines, where I work as a Flutterflow developer at Pure Care Marketing Incorporated. Yes, I know what you're thinking - "Japanese text on your website, must be Japanese, right?" Well, sorry to disappoint, but I'm as Filipino as adobo and sinigang! My projects include a Flutterflow app, a cTrader plugin, and a Next-React web app, which I am eager to expand upon. If you're interested in the tools and software I utilize, please feel free to visit my <Link href="/uses">uses page</Link>.
     </Text>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      In my leisure time, I indulge in a swimming routine that typically consists of 50 laps per session.
+      When I'm not coding, you can find me pumping iron at the gym.
     </Text>
     <Text className={styles.description} data-visible={visible} size="l" as="p"> I am always open to hearing
     about new opportunities, so feel free to drop me a line.</Text>
