@@ -10,6 +10,7 @@ import cTraderScreenShot from '~/assets/cTrader.png';
 import testmanshipScreenShotLarge from '~/assets/Testmanship-Dark.jpg';
 import testmanshipScreenShotPlaceholder from '~/assets/Testmanship-Dark.jpg';
 import testmanshipScreenShot from '~/assets/Testmanship-Light.jpg';
+import airlineCrewSchedulingScreenShot from '~/assets/Airline-Crew-Scheduling.png';
 import { Footer } from '~/components/footer';
 import { baseMeta } from '~/utils/meta';
 import { Intro } from './intro';
@@ -62,9 +63,10 @@ export const Home = () => {
   const projectOne = useRef();
   const projectTwo = useRef();
   const projectThree = useRef();
+  const projectFour = useRef();
   const details = useRef();
 
-  const sections = [intro, projectOne, projectTwo, projectThree, details];
+  const sections = [intro, projectOne, projectTwo, projectThree, projectFour, details];
 
   useEffect(() => {
     // Initialize sections observer only when refs are ready
@@ -80,12 +82,12 @@ export const Home = () => {
               sectionIndex,
               id: section.id,
               isIntersecting: entry.isIntersecting,
-              intersectionRatio: entry.intersectionRatio
+              intersectionRatio: entry.intersectionRatio,
             });
 
             // Don't unobserve - we want to keep tracking all sections
             if (visibleSections.includes(section)) return;
-            
+
             setVisibleSections(prevSections => [...prevSections, section]);
 
             if (sectionIndex !== -1) {
@@ -94,9 +96,9 @@ export const Home = () => {
           }
         });
       },
-      { 
+      {
         rootMargin: '-20% 0px -20% 0px',
-        threshold: [0, 0.25, 0.5, 0.75, 1] 
+        threshold: [0, 0.25, 0.5, 0.75, 1],
       }
     );
 
@@ -114,14 +116,19 @@ export const Home = () => {
 
   useEffect(() => {
     const projectObserver = new IntersectionObserver(
-      (entries) => {
+      entries => {
         entries.forEach(entry => {
           const section = entry.target;
           if (entry.isIntersecting) {
-            if (section === projectOne.current) setCurrentProject(1);
-            else if (section === projectTwo.current) setCurrentProject(2);
-            else if (section === projectThree.current) setCurrentProject(3);
-            else if (section === intro.current || section === details.current) setCurrentProject(0);
+            if (section === intro.current || section === details.current)
+              setCurrentProject(0);
+            else {
+              for (let i = 1; i < sections.length - 1; i++) {
+                if (section === sections[i].current) {
+                  setCurrentProject(i);
+                }
+              }
+            }
           }
         });
       },
@@ -150,13 +157,17 @@ export const Home = () => {
   }, [visibleSections]);
 
   useEffect(() => {
-    const handleSectionNav = (event) => {
+    const handleSectionNav = event => {
       const direction = event.detail;
-      const newIndex = direction === 'up' ? currentSectionIndex - 1 : currentSectionIndex + 1;
-      
+      const newIndex =
+        direction === 'up' ? currentSectionIndex - 1 : currentSectionIndex + 1;
+
       if (newIndex >= 0 && newIndex < sections.length) {
         setCurrentSectionIndex(newIndex);
-        sections[newIndex].current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        sections[newIndex].current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        });
       }
     };
 
@@ -167,13 +178,10 @@ export const Home = () => {
   return (
     <>
       <div className={styles.home}>
-        <ProjectCounter 
-          current={currentProject} 
-          total={3} 
-          visible={currentProject > 0}
-        />
+        <ProjectCounter current={currentProject} total={4} visible={currentProject > 0} />
         <Intro
           id="intro"
+          index={0}
           sectionRef={intro}
           scrollIndicatorHidden={scrollIndicatorHidden}
         />
@@ -182,6 +190,26 @@ export const Home = () => {
           sectionRef={projectOne}
           visible={visibleSections.includes(projectOne.current)}
           index={1}
+          title="Airline Crew Scheduling"
+          description="Airline Crew Scheduling is a Salesforce LWC component designed to help airline companies manage their crew scheduling processes. It allows users to create and manage flight schedules, assign crew members to flights."
+          buttonText="View project"
+          buttonLink="/projects/airlineCrewScheduling"
+          model={{
+            type: 'laptop',
+            alt: 'Airline Crew Scheduling',
+            textures: [
+              {
+                srcSet: `${airlineCrewSchedulingScreenShot} 1280w, ${airlineCrewSchedulingScreenShot} 2560w`,
+                placeholder: airlineCrewSchedulingScreenShot,
+              },
+            ],
+          }}
+        />
+        <ProjectSummary
+          id="project-2"
+          sectionRef={projectTwo}
+          visible={visibleSections.includes(projectTwo.current)}
+          index={2}
           title="Testmanship"
           description="Testmanship is a sophisticated web application designed to help language learners track their writing progress and assess their preparedness across different CEFR (Common European Framework of Reference for Languages) levels."
           buttonText="View project"
@@ -198,11 +226,11 @@ export const Home = () => {
           }}
         />
         <ProjectSummary
-          id="project-2"
+          id="project-3"
           alternate
-          sectionRef={projectTwo}
-          visible={visibleSections.includes(projectTwo.current)}
-          index={2}
+          sectionRef={projectThree}
+          visible={visibleSections.includes(projectThree.current)}
+          index={3}
           title="Lotel"
           description="Comprehensive hospitality management system for encoding and monitoring various aspects of hotel operations, including sales, billing, payroll, and key performance metrics"
           buttonText="View project"
@@ -223,17 +251,17 @@ export const Home = () => {
           }}
         />
         <ProjectSummary
-          id="project-3"
-          sectionRef={projectThree}
-          visible={visibleSections.includes(projectThree.current)}
-          index={3}
+          id="project-4"
+          sectionRef={projectFour}
+          visible={visibleSections.includes(projectFour.current)}
+          index={4}
           title="Enhanced Equity Stop with Cooldown for cTrader"
           description="A sophisticated modification of Acronew's Equity Stop with advanced features and improved UI."
           buttonText="View project"
           buttonLink="/projects/cTrader"
           model={{
             type: 'laptop',
-            alt: 'A sophisticated modification of Acronew\'s Equity Stop with advanced features and improved UI.',
+            alt: "A sophisticated modification of Acronew's Equity Stop with advanced features and improved UI.",
             textures: [
               {
                 srcSet: `${cTraderScreenShot} 800w, ${cTraderScreenShotLarge} 1920w`,
