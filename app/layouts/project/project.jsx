@@ -6,77 +6,110 @@ import { Text } from '~/components/text';
 import { tokens } from '~/components/theme-provider/theme';
 import { Transition } from '~/components/transition';
 import { useParallax } from '~/hooks';
-import { forwardRef, useRef } from 'react';
+import { forwardRef, useRef, useState } from 'react';
 import { classes, cssProps, msToNum, numToMs } from '~/utils/style';
 import styles from './project.module.css';
+import { Modal } from '~/components/Modal/Modal';
 
 const initDelay = 300;
 
-export const ProjectHeader = forwardRef(({
-  title,
-  description,
-  linkLabel = 'Visit website',
-  url,
-  secondaryLinkLabel,
-  secondaryUrl,
-  roles,
-  className,
-}, ref) => {
-  return (
-    <Section className={classes(styles.header, className)} as="section" ref={ref}>
-      <div
-        className={styles.headerContent}
-        style={cssProps({ initDelay: numToMs(initDelay) })}
-      >
-        <div className={styles.details}>
-          <Heading className={styles.title} level={2} as="h1">
-            {title}
-          </Heading>
-          <Text className={styles.description} size="xl" as="p">
-            {description}
-          </Text>
-          {!!url && (
-            <>
-              <Button
-                secondary
-                iconHoverShift
-                className={styles.linkButton}
-                icon="chevron-right"
-                href={url}
-              >
-                {linkLabel}
-              </Button>
-              {!!secondaryUrl && (
+export const ProjectHeader = forwardRef(
+  (
+    {
+      title,
+      description,
+      linkLabel = 'Visit website',
+      url,
+      secondaryLinkLabel,
+      secondaryUrl,
+      pdfLinkLabel,
+      pdfUrl,
+      roles,
+      className,
+    },
+    ref
+  ) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    return (
+      <Section className={classes(styles.header, className)} as="section" ref={ref}>
+        <div
+          className={styles.headerContent}
+          style={cssProps({ initDelay: numToMs(initDelay) })}
+        >
+          <div className={styles.details}>
+            <Heading className={styles.title} level={2} as="h1">
+              {title}
+            </Heading>
+            <Text className={styles.description} size="xl" as="p">
+              {description}
+            </Text>
+            {!!url && (
+              <>
                 <Button
                   secondary
                   iconHoverShift
                   className={styles.linkButton}
                   icon="chevron-right"
-                  href={secondaryUrl}
+                  href={url}
                 >
-                  {secondaryLinkLabel}
+                  {linkLabel}
                 </Button>
-              )}
-            </>
+                {!!secondaryUrl && (
+                  <>
+                    <Button
+                      secondary
+                      iconHoverShift
+                      className={styles.linkButton}
+                      icon="chevron-right"
+                      href={secondaryUrl}
+                    >
+                      {secondaryLinkLabel}
+                    </Button>
+                  </>
+                )}
+                {!!pdfUrl && (
+                  <>
+                    <Button
+                      secondary
+                      iconHoverShift
+                      className={styles.linkButton}
+                      icon="chevron-right"
+                      onClick={() => setIsModalOpen(true)}
+                    >
+                      {pdfLinkLabel}
+                    </Button>
+
+                    <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+                      <iframe
+                        src={pdfUrl}
+                        style={{ width: '100vh', height: '80vh', border: 'none' }}
+                        title="PDF"
+                      />
+                    </Modal>
+                  </>
+                )}
+              </>
+            )}
+          </div>
+          {!!roles?.length && (
+            <ul className={styles.meta}>
+              {roles?.map((role, index) => (
+                <li
+                  className={styles.metaItem}
+                  style={cssProps({ delay: numToMs(initDelay + 300 + index * 140) })}
+                  key={role}
+                >
+                  <Text secondary>{role}</Text>
+                </li>
+              ))}
+            </ul>
           )}
         </div>
-        {!!roles?.length && (
-          <ul className={styles.meta}>
-            {roles?.map((role, index) => (
-              <li
-                className={styles.metaItem}
-                style={cssProps({ delay: numToMs(initDelay + 300 + index * 140) })}
-                key={role}
-              >
-                <Text secondary>{role}</Text>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-    </Section>
-  );
-});
+      </Section>
+    );
+  }
+);
 
 export const ProjectContainer = ({ className, ...rest }) => (
   <article className={classes(styles.project, className)} {...rest} />

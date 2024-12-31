@@ -4,6 +4,8 @@ import backgroundSpr from '~/assets/Airline-Crew-Scheduling.png';
 import airlineCrews from '~/assets/acs-crews.png';
 import airlineCrewSchedulingTimeline from '~/assets/acs-timeline.png';
 import airlineCrewSchedulingNewAssignment from '~/assets/acs-new-assignment.png';
+import udemyCertificate from '~/assets/UC-0f64e9d6-3334-4a59-aec6-56dd7a7204de.pdf';
+
 
 import { Footer } from '~/components/footer';
 import { Image } from '~/components/image';
@@ -129,6 +131,8 @@ export const Airline = () => {
           description={description}
           url="https://github.com/julesmeister/Airline-Crew-Scheduling-App"
           linkLabel="View on Github"
+          pdfUrl={udemyCertificate}
+          pdfLinkLabel="View Udemy Certificate"
           roles={roles}
           ref={headerSection}
         />
