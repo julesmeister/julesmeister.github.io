@@ -259,7 +259,7 @@ export const Airline = () => {
                 features of LWC like the lightning-tree-grid component. I was able to just
                 use a simple list and it worked great. Although now that I've mentioned
                 it, I'm planning to use the lightning-tree-grid component for another
-                feature just to demonstrate how it works.
+                project in the future just to demonstrate how it works.
                 <br />
                 <br />
                 But there's also a challenge here where I have to make these boxes
