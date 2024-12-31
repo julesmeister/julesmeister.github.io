@@ -209,7 +209,7 @@ export const Airline = () => {
               The main struggle was to make sure the assignment boxes were aligned with the timeline. Another struggle was that the width of each box had to be calculated based on the duration of the flight.<br/><br/>
               And man, debugging in Salesforce is a whole different beast compared to React. There are so many limitations on building things in Salesforce.
 <br/><br/>
-              But hey, we made it work! We found some workarounds and practices that are way more suitable for making those features happen anyway. This project was a great learning experience for me, indeed. 
+              But hey, I made it work! I found some workarounds and practices that are way more suitable for making those features happen anyway. This project was a great learning experience for me, indeed. 
 
               <br/><br/>
               Next up, I'm thinking of adding maps to this project so users can see where the flights are headed. That'd be a sick feature to add, right? I'll be breaking that component out from the main timeline component, but I'll be using pub/sub to allow the two components to communicate to each other.
