@@ -36,13 +36,8 @@ import { javascript } from 'react-syntax-highlighter/dist/cjs/languages/prism';
 
 const title = 'Airline Crew Scheduling';
 const description =
-  'I built this project to demonstrate some skills using Lightning Web Components just right after I finished the Udemy course on how to Pass PD1. There\'s only two Custom Objects I created, Crew and Crew Assignments. ';
-const roles = [
-  'Lightning Web Components',
-  'Apex Class',
-  'Flows',
-  'Salesforce',
-];
+  "This is just a very basic project about scheduling crews for flights. The user can create flight assignments and assign crews to them. I built this project to demonstrate some skills using Lightning Web Components just right after I finished the Udemy course on how to Pass PD1. There's only two Custom Objects I created, Crew and Crew Assignments, or could be called Flight Assignments if you want. ";
+const roles = ['Lightning Web Components', 'Apex Class', 'Flows', 'Salesforce'];
 
 export const meta = () => {
   return baseMeta({ title, description, prefix: 'Projects' });
@@ -67,8 +62,8 @@ export const Airline = () => {
     introSection,
     newAssignmentSection,
     problemSection,
-    crewsSection, 
-    codeSection
+    crewsSection,
+    codeSection,
   ];
 
   useEffect(() => {
@@ -76,7 +71,7 @@ export const Airline = () => {
     if (!sections.every(section => section.current)) return;
 
     const sectionObserver = new IntersectionObserver(
-      (entries) => {
+      entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             const section = entry.target;
@@ -88,9 +83,9 @@ export const Airline = () => {
           }
         });
       },
-      { 
+      {
         rootMargin: '-20% 0px -20% 0px',
-        threshold: [0, 0.25, 0.5, 0.75, 1] 
+        threshold: [0, 0.25, 0.5, 0.75, 1],
       }
     );
 
@@ -104,13 +99,17 @@ export const Airline = () => {
   }, [sections]);
 
   useEffect(() => {
-    const handleSectionNav = (event) => {
+    const handleSectionNav = event => {
       const direction = event.detail;
-      const newIndex = direction === 'up' ? currentSectionIndex - 1 : currentSectionIndex + 1;
-      
+      const newIndex =
+        direction === 'up' ? currentSectionIndex - 1 : currentSectionIndex + 1;
+
       if (newIndex >= 0 && newIndex < sections.length) {
         setCurrentSectionIndex(newIndex);
-        sections[newIndex].current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        sections[newIndex].current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        });
       }
     };
 
@@ -154,9 +153,7 @@ export const Airline = () => {
               width={1280}
               height={800}
               placeholder={
-                isDark
-                  ? airlineCrewSchedulingTimeline
-                  : airlineCrewSchedulingTimeline
+                isDark ? airlineCrewSchedulingTimeline : airlineCrewSchedulingTimeline
               }
               sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 800px, 1000px`}
               alt="These are the assignment boxes or flight schedules"
@@ -165,8 +162,9 @@ export const Airline = () => {
               <span className={styles.captionContent}>
                 <Icon icon="link" className={styles.captionIcon} />
                 <span className={styles.imageCaption}>
-                  "Crews who are available for flight assignments can be dropped in one of these assignment boxes."
-              </span>
+                  "Crews who are available for flight assignments can be dropped in one of
+                  these assignment boxes."
+                </span>
               </span>
             </div>
           </ProjectSectionContent>
@@ -195,8 +193,10 @@ export const Airline = () => {
               <span className={styles.captionContent}>
                 <Icon icon="link" className={styles.captionIcon} />
                 <span className={styles.imageCaption}>
-                  "Quite simply how those crew assignments are created. I managed to squeeze this create button between the previous and next buttons. The crew members can also be set here instead of dragging them in."
-              </span>
+                  "Quite simply how those crew assignments are created. I managed to
+                  squeeze this create button between the previous and next buttons. The
+                  crew members can also be set here instead of dragging them in."
+                </span>
               </span>
             </div>
           </ProjectSectionContent>
@@ -205,14 +205,28 @@ export const Airline = () => {
           <ProjectTextRow>
             <ProjectSectionHeading>The Challenge</ProjectSectionHeading>
             <ProjectSectionText>
-              This timeline was the hardest part to design. It took me a couple of days to wrap my head around how to make the CSS dynamic in LWC.<br/><br/>
-              The main struggle was to make sure the assignment boxes were aligned with the timeline. Another struggle was that the width of each box had to be calculated based on the duration of the flight.<br/><br/>
-              And man, debugging in Salesforce is a whole different beast compared to React. There are so many limitations on building things in Salesforce.
-<br/><br/>
-              But hey, I made it work! I found some workarounds and practices that are way more suitable for making those features happen anyway. This project was a great learning experience for me, indeed. 
-
-              <br/><br/>
-              Next up, I'm thinking of adding maps to this project so users can see where the flights are headed. That'd be a sick feature to add, right? I'll be breaking that component out from the main timeline component, but I'll be using pub/sub to allow the two components to communicate to each other.
+              This timeline was the hardest part to design. It took me a couple of days to
+              wrap my head around how to make the CSS dynamic. Probably spent more time designing than just throwing around some lightning components. Only LWC is the easy part because it doesn't require much CSS.
+              <br />
+              <br />
+              The main struggle was to make sure the assignment boxes were aligned with
+              the timeline. Another struggle was that the width of each box had to be
+              calculated based on the duration of the flight.
+              <br />
+              <br />
+              And man, debugging in Salesforce is a whole different beast compared to
+              React. There are so many limitations on building things in Salesforce.
+              <br />
+              <br />
+              But hey, I made it work! I found some workarounds and practices that are way
+              more suitable for making those features happen anyway. This project was a
+              great learning experience for me, indeed.
+              <br />
+              <br />
+              Next up, I'm thinking of adding maps to this project so users can see where
+              the flights are headed. That'd be a sick feature to add, right? I'll be
+              breaking that component out from the main timeline component, but I'll be
+              using pub/sub to allow the two components to communicate to each other.
             </ProjectSectionText>
           </ProjectTextRow>
         </ProjectSection>
@@ -230,32 +244,42 @@ export const Airline = () => {
                   sizes={`(max-width: ${media.mobile}px) 312px, (max-width: ${media.tablet}px) 408px, 514px`}
                 />
               </div>
-             
             </div>
             <div className={styles.gridText}>
               <ProjectSectionHeading>Crews</ProjectSectionHeading>
               <ProjectSectionText>
-                Crews can be either a Pilot or a Flight Attendant. The reason why I separated them into two types is because I need to know which one is which because the number of Pilots and Flight Attendants required for a flight must be different. 
-                
-                <br/><br/>
-                This was much easier to design because it's only a list and some basic fetching of data. I was able to get away with not using any of the complex features of LWC like the lightning-tree-grid component. I was able to just use a simple list and it worked great. Although now that I've mentioned it, I'm planning to use the lightning-tree-grid component for another feature just to demonstrate how it works.
-
-                <br/><br/>
-                But there's also a challenge here where I have to make these boxes draggable and drop them in the timeline, on the assignment boxes to be exact. 
+                Crews can be either a Pilot or a Flight Attendant. The reason why I
+                separated them into two types is because I need to know which one is which
+                because the number of Pilots and Flight Attendants required for a flight
+                must be different.
+                <br />
+                <br />
+                This was much easier to design because it's only a list and some basic
+                fetching of data. I was able to get away with not using any of the complex
+                features of LWC like the lightning-tree-grid component. I was able to just
+                use a simple list and it worked great. Although now that I've mentioned
+                it, I'm planning to use the lightning-tree-grid component for another
+                feature just to demonstrate how it works.
+                <br />
+                <br />
+                But there's also a challenge here where I have to make these boxes
+                draggable and drop them in the timeline, on the assignment boxes to be
+                exact.
               </ProjectSectionText>
             </div>
           </ProjectSectionContent>
         </ProjectSection>
         <ProjectSection padding="top" ref={codeSection}>
-          <ProjectSectionContent >
-            
+          <ProjectSectionContent>
             <div>
               <ProjectSectionHeading>Custom Attributes</ProjectSectionHeading>
               <ProjectSectionText>
-                Surprisingly, I was also able to add custom attributes to Crew Assignments. Fields that weren't part of the Crew Assignment object.
+                Surprisingly, I was also able to add custom attributes to Crew
+                Assignments. Fields that weren't part of the Crew Assignment object.
               </ProjectSectionText>
-<br/><br/>
-              
+              <br />
+              <br />
+
               <div className={styles.codeWrapper}>
                 <SyntaxHighlighter
                   language="javascript"
