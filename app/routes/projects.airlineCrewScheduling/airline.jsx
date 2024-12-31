@@ -5,7 +5,7 @@ import airlineCrews from '~/assets/acs-crews.png';
 import airlineCrewSchedulingTimeline from '~/assets/acs-timeline.png';
 import airlineCrewSchedulingNewAssignment from '~/assets/acs-new-assignment.png';
 import udemyCertificate from '~/assets/UC-0f64e9d6-3334-4a59-aec6-56dd7a7204de.pdf';
-
+import assignmentsCode from './createAssignments.txt?raw';
 
 import { Footer } from '~/components/footer';
 import { Image } from '~/components/image';
@@ -30,6 +30,9 @@ import { media } from '~/utils/style';
 import styles from './airline.module.css';
 import { useState, useEffect, useRef } from 'react';
 import { Icon } from '~/components/icon';
+import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { javascript } from 'react-syntax-highlighter/dist/cjs/languages/prism';
 
 const title = 'Airline Crew Scheduling';
 const description =
@@ -57,13 +60,15 @@ export const Airline = () => {
   const problemSection = useRef();
   const crewsSection = useRef();
   const newAssignmentSection = useRef();
+  const codeSection = useRef();
 
   const sections = [
     headerSection,
     introSection,
     newAssignmentSection,
     problemSection,
-    crewsSection,
+    crewsSection, 
+    codeSection
   ];
 
   useEffect(() => {
@@ -238,6 +243,33 @@ export const Airline = () => {
                 <br/><br/>
                 But there's also a challenge here where I have to make these boxes draggable and drop them in the timeline, on the assignment boxes to be exact. 
               </ProjectSectionText>
+            </div>
+          </ProjectSectionContent>
+        </ProjectSection>
+        <ProjectSection padding="top" ref={codeSection}>
+          <ProjectSectionContent >
+            
+            <div>
+              <ProjectSectionHeading>Custom Attributes</ProjectSectionHeading>
+              <ProjectSectionText>
+                Surprisingly, I was also able to add custom attributes to Crew Assignments. Fields that weren't part of the Crew Assignment object.
+              </ProjectSectionText>
+<br/><br/>
+              
+              <div className={styles.codeWrapper}>
+                <SyntaxHighlighter
+                  language="javascript"
+                  style={vscDarkPlus}
+                  customStyle={{
+                    borderRadius: '8px',
+                    padding: '1.5em',
+                    fontSize: '0.9em',
+                  }}
+                  showLineNumbers={true}
+                >
+                  {assignmentsCode}
+                </SyntaxHighlighter>
+              </div>
             </div>
           </ProjectSectionContent>
         </ProjectSection>

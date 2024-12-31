@@ -1,0 +1,55 @@
+// Wire the assignments data
+   @wire(getAssignments, { dateTimeVar: '$currentDate' })
+   wiredAssignments({ error, data }) {
+       this.generateTimeSlots();
+   
+       if (data) {
+           this.assignments = data.map(assignment => {
+               const departureDate = new Date(assignment.Departure__c);
+               const arrivalDate = new Date(assignment.Arrival__c);
+               const formattedDepartureTime = departureDate.toLocaleString('en-US', {
+                   hour: 'numeric',
+                   minute: 'numeric',
+                   hour12: true
+               });
+               const formattedArrivalTime = arrivalDate.toLocaleString('en-US', {
+                   hour: 'numeric',
+                   minute: 'numeric',
+                   hour12: true
+               });
+   
+               // Each hour has 1 slot which is 100px wide
+               // calculate total of formattedDepartureTime and formattedArrivalTime
+               // to get the width of the div
+   
+               // departure date
+               const hours = departureDate.getHours();
+               const minutes = departureDate.getMinutes();
+   
+               // Calculate total hours from midnight
+               const totalHoursFromMidnight = hours + (minutes / 60); // Convert minutes to a fraction of an hour
+   
+               // Calculate total hours
+               const totalHours = (arrivalDate - departureDate) / (1000 * 60 * 60); // Total hours
+               const totalWidth = totalHours * 100; // 100px for every hour
+               const widthStyle = `max-width: ${totalWidth}px;`;
+               const marginLeft = `margin-left: ${totalHoursFromMidnight * 100}px;`;
+               const flightInfoStyle = widthStyle + marginLeft;
+               const crew = assignment.Crew__r ? this.availableCrew.find(c => c.Id === assignment.Crew__r.Id) : null;
+               console.log(crew);
+               return {
+                   ...assignment,
+                   formattedDepartureTime,
+                   formattedArrivalTime,
+                   flightInfoStyle,
+                   crew
+               };
+           });
+           this.error = undefined;
+   
+       } else if (error) {
+           this.error = error;
+           this.assignments = [];
+           this.handleError(error);
+       }
+   }

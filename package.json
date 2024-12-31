@@ -28,6 +28,7 @@
     "miniflare": "^3.20231030.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-syntax-highlighter": "^15.6.1",
     "rehype-img-size": "^1.0.1",
     "rehype-slug": "^6.0.0",
     "three": "^0.161.0",
