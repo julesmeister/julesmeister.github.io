@@ -1,1 +1,1 @@
-export { Testmanship as default, meta } from './testmanship';
+export { Airline as default, meta } from './airline';
