@@ -6,7 +6,7 @@ import airlineCrewSchedulingTimeline from '~/assets/acs-timeline.png';
 import airlineCrewSchedulingNewAssignment from '~/assets/acs-new-assignment.png';
 import udemyCertificate from '~/assets/UC-0f64e9d6-3334-4a59-aec6-56dd7a7204de.pdf';
 import assignmentsCode from './createAssignments.txt?raw';
-
+import availabilityTriggerCode from './availabilityTrigger.txt?raw';
 import { Footer } from '~/components/footer';
 import { Image } from '~/components/image';
 import { Link } from '~/components/link';
@@ -37,7 +37,7 @@ import { javascript } from 'react-syntax-highlighter/dist/cjs/languages/prism';
 const title = 'Airline Crew Scheduling';
 const description =
   "This is just a very basic project about scheduling crews for flights. The user can create flight assignments and assign crews to them. I built this project to demonstrate some skills using Lightning Web Components just right after I finished the Udemy course on how to Pass PD1. There's only two Custom Objects I created, Crew and Crew Assignments, or could be called Flight Assignments if you want. ";
-const roles = ['Lightning Web Components', 'Apex Class', 'Flows', 'Salesforce'];
+const roles = ['Lightning Web Components', 'Apex Classes', 'Apex Triggers', 'Salesforce'];
 
 export const meta = () => {
   return baseMeta({ title, description, prefix: 'Projects' });
@@ -56,6 +56,7 @@ export const Airline = () => {
   const crewsSection = useRef();
   const newAssignmentSection = useRef();
   const codeSection = useRef();
+  const triggerSection = useRef();
 
   const sections = [
     headerSection,
@@ -64,6 +65,7 @@ export const Airline = () => {
     problemSection,
     crewsSection,
     codeSection,
+    triggerSection,
   ];
 
   useEffect(() => {
@@ -292,6 +294,34 @@ export const Airline = () => {
                   showLineNumbers={true}
                 >
                   {assignmentsCode}
+                </SyntaxHighlighter>
+              </div>
+            </div>
+          </ProjectSectionContent>
+        </ProjectSection>
+        <ProjectSection padding="top" ref={triggerSection}>
+          <ProjectSectionContent>
+            <div>
+              <ProjectSectionHeading>Trigger</ProjectSectionHeading>
+              <ProjectSectionText>
+                The crew's availability is updated whenever a crew is assigned or removed
+                from a flight simply by the use of Apex Triggers.
+              </ProjectSectionText>
+              <br />
+              <br />
+
+              <div className={styles.codeWrapper}>
+                <SyntaxHighlighter
+                  language="javascript"
+                  style={vscDarkPlus}
+                  customStyle={{
+                    borderRadius: '8px',
+                    padding: '1.5em',
+                    fontSize: '0.9em',
+                  }}
+                  showLineNumbers={true}
+                >
+                  {availabilityTriggerCode}
                 </SyntaxHighlighter>
               </div>
             </div>
