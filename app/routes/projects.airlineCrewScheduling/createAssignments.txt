@@ -1,7 +1,8 @@
 // Wire the assignments data
 @wire(getAssignments, { dateTimeVar: '$currentDate' })
-wiredAssignments({ error, data }) {
-    this.generateTimeSlots();
+wiredAssignments(result) {
+    this.wiredAssignmentsResult = result;
+    const { data, error } = result;
 
     if (data) {
         this.assignments = data.map(assignment => {
