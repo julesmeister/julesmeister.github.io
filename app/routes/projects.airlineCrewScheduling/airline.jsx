@@ -4,6 +4,7 @@ import backgroundSpr from '~/assets/Airline-Crew-Scheduling.png';
 import airlineCrews from '~/assets/acs-crews.png';
 import airlineCrewSchedulingTimeline from '~/assets/acs-timeline.png';
 import airlineCrewSchedulingNewAssignment from '~/assets/acs-new-assignment.png';
+import flightMap from '~/assets/flight-map.png';
 import udemyCertificate from '~/assets/UC-0f64e9d6-3334-4a59-aec6-56dd7a7204de.pdf';
 import assignmentsCode from './createAssignments.txt?raw';
 import availabilityTriggerCode from './availabilityTrigger.txt?raw';
@@ -57,6 +58,7 @@ export const Airline = () => {
   const newAssignmentSection = useRef();
   const codeSection = useRef();
   const triggerSection = useRef();
+  const flightMapSection = useRef();
 
   const sections = [
     headerSection,
@@ -66,6 +68,7 @@ export const Airline = () => {
     crewsSection,
     codeSection,
     triggerSection,
+    flightMapSection,
   ];
 
   useEffect(() => {
@@ -164,8 +167,7 @@ export const Airline = () => {
               <span className={styles.captionContent}>
                 <Icon icon="link" className={styles.captionIcon} />
                 <span className={styles.imageCaption}>
-                  "Crews who are available for flight assignments can be dropped in one of
-                  these assignment boxes."
+                  "Crews who are available for flight assignments are dropped in these assignment boxes."
                 </span>
               </span>
             </div>
@@ -324,6 +326,36 @@ export const Airline = () => {
                   {availabilityTriggerCode}
                 </SyntaxHighlighter>
               </div>
+            </div>
+          </ProjectSectionContent>
+        </ProjectSection>
+        <ProjectSection padding="top" ref={flightMapSection}>
+          <ProjectSectionContent>
+            <ProjectImage
+              className={styles.themeImage}
+              key={theme}
+              srcSet={
+                isDark
+                  ? `${flightMap} 1280w, ${flightMap} 2560w`
+                  : `${flightMap} 1280w, ${flightMap} 2560w`
+              }
+              width={1280}
+              height={800}
+              placeholder={
+                isDark
+                  ? flightMap
+                  : flightMap
+              }
+              sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 800px, 1000px`}
+              alt="This is how those assignment boxes are created"
+            />
+            <div className={styles.captionWrapper}>
+              <span className={styles.captionContent}>
+                <Icon icon="link" className={styles.captionIcon} />
+                <span className={styles.imageCaption}>
+                  "Now the flight map is here. Where origin and destination are on a separate LWC component from the scheduling timeline."
+                </span>
+              </span>
             </div>
           </ProjectSectionContent>
         </ProjectSection>
