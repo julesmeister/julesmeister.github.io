@@ -167,7 +167,7 @@ export const Airline = () => {
               <span className={styles.captionContent}>
                 <Icon icon="link" className={styles.captionIcon} />
                 <span className={styles.imageCaption}>
-                  "Crews who are available for flight assignments are dropped in these assignment boxes."
+                  "Crews who are available for flight assignments are dropped in these assignment boxes. A crew can also be removed from the assignment by clicking the 'X' button."
                 </span>
               </span>
             </div>
@@ -353,7 +353,10 @@ export const Airline = () => {
               <span className={styles.captionContent}>
                 <Icon icon="link" className={styles.captionIcon} />
                 <span className={styles.imageCaption}>
-                  "Now the flight map is here. Where origin and destination are on a separate LWC component from the scheduling timeline."
+                  "Flight Map is a map that visualizes the origin and destination
+                  of each flight. It's a separate LWC component from the
+                  scheduling timeline, and yet they are connected by way of
+                  pub/sub communication."
                 </span>
               </span>
             </div>
