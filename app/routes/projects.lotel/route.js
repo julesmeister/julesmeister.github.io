@@ -1,1 +1,1 @@
-export { Slice as default, meta } from './lotel';
+export { Lotel as default, meta } from './lotel';

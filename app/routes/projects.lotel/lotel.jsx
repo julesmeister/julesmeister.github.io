@@ -42,7 +42,7 @@ export const meta = () => {
   return baseMeta({ title, description, prefix: 'Projects' });
 };
 
-export const Slice = () => {
+export const Lotel = () => {
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
 
   // Create refs for each section
