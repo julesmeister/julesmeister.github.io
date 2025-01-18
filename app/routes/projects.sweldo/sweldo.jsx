@@ -162,10 +162,10 @@ export const Sweldo = () => {
           <ProjectTextRow>
             <ProjectSectionHeading>The problem</ProjectSectionHeading>
             <ProjectSectionText>
-              This is very intensive with database queries, so I opted to split my usage into two databases. Firestore and Supabase. It is really a pain to work with but it's the only way to go given the constraints of the projects I'm working on.
+              This is very intensive with database queries, so I opted to split my usage into two databases. Firestore and Supabase. It is a pain to work with two databases but it's the only way to go given the constraints of the projects I'm working on.
               <br></br>
               <br></br>
-
+              I'm afraid I can't share the link to the actual app because the information is sensitive. I don't want other people to alter the data especially for this project.
             </ProjectSectionText>
           </ProjectTextRow>
         </ProjectSection>
