@@ -180,7 +180,7 @@ export const Home = () => {
   return (
     <>
       <div className={styles.home}>
-        <ProjectCounter current={currentProject} total={4} visible={currentProject > 0} />
+        <ProjectCounter current={currentProject} total={sections.length - 2} visible={currentProject > 0} />
         <Intro
           id="intro"
           index={0}
@@ -193,7 +193,7 @@ export const Home = () => {
           visible={visibleSections.includes(projectOne.current)}
           index={1}
           title="Sweldo"
-          description="Sweldo stands for Salary in Filipino. It's a web system that allows an excel upload of employee data to be processed and then displayed in a user-friendly format. The app was built using Flutterflow and Firebase and Supabase."
+          description="Sweldo stands for Salary in Filipino. It's a web system that allows an excel upload of employees' attendance data to be processed and then displayed in a user-friendly format. The app was built using Flutterflow and Firebase and Supabase."
           buttonText="View project"
           buttonLink="/projects/sweldo"
           model={{
