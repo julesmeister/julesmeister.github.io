@@ -194,7 +194,7 @@ export const Sweldo = () => {
               <span className={styles.captionContent}>
                 <Icon icon="link" className={styles.captionIcon} />
                 <span className={styles.imageCaption}>
-                  "Once the generation is summarized for each employee, it can be downloaded as a PDF."
+                  "Once the pay slips are generated for each employee, it can be downloaded as a PDF."
                 </span>
               </span>
             </div>
