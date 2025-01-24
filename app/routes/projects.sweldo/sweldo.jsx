@@ -4,7 +4,7 @@ import sweldoHome from '~/assets/Sweldo-Home-Cut.png';
 import sweldoPDFLarge from '~/assets/PDF-Sweldo.png';
 import sweldoPDFPlaceholder from '~/assets/PDF-Sweldo.png';
 import sweldoPDF from '~/assets/PDF-Sweldo.png';
-
+import attendanceEditor from '~/assets/attendance-editor.png';
 import { Footer } from '~/components/footer';
 import { Image } from '~/components/image';
 import { Icon } from '~/components/icon'; 
@@ -49,13 +49,14 @@ export const Sweldo = () => {
   const introSection = useRef();
   const problemSection = useRef();
   const pdfSection = useRef();
-  const exercisesSection = useRef();
+  const attendanceSection = useRef();
 
   const sections = [
     headerSection,
     introSection,
     problemSection,
     pdfSection,
+    attendanceSection,
   ];
 
   useEffect(() => {
@@ -197,6 +198,33 @@ export const Sweldo = () => {
                   "Once the pay slips are generated for each employee, it can be downloaded as a PDF."
                 </span>
               </span>
+            </div>
+          </ProjectSectionContent>
+        </ProjectSection>
+        <ProjectSection padding="top" ref={attendanceSection}>
+          <ProjectSectionContent className={styles.grid}>
+            <div className={styles.gridImage}>
+              <div className={styles.gridBackground}>
+                <Image
+                  srcSet={`${attendanceEditor} 440w, ${attendanceEditor} 880w`}
+                  width={440}
+                  height={790}
+                  placeholder={attendanceEditor}
+                  alt=""
+                  role="presentation"
+                  sizes={`(max-width: ${media.mobile}px) 312px, (max-width: ${media.tablet}px) 408px, 514px`}
+                />
+              </div>
+            </div>
+            <div className={styles.gridText}>
+              <ProjectSectionHeading>Attendance Editor</ProjectSectionHeading>
+              <ProjectSectionText>
+                Not all attendance data from the biometric scanner is reliable. It's possible that some data is missing or incorrect or the employee forgot to clock in or out. This allows HR to correct the data.
+
+                <br></br>
+                <br></br>
+                This also takes into account the holiday of that day, leave of absence of the employee and other calculations needed to calculate the employee's pay of that particular day
+              </ProjectSectionText>
             </div>
           </ProjectSectionContent>
         </ProjectSection>
