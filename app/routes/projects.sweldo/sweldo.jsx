@@ -1,13 +1,11 @@
-import sweldoHomeLarge from '~/assets/Sweldo-Home-Cut.png';
-import sweldoHomePlaceholder from '~/assets/Sweldo-Home-Cut.png';
-import sweldoHome from '~/assets/Sweldo-Home-Cut.png';
-import sweldoPDFLarge from '~/assets/PDF-Sweldo.png';
-import sweldoPDFPlaceholder from '~/assets/PDF-Sweldo.png';
-import sweldoPDF from '~/assets/PDF-Sweldo.png';
-import attendanceEditor from '~/assets/attendance-editor.png';
+import sweldoHome from '~/assets/sweldo-nextron.png';
 import { Footer } from '~/components/footer';
 import { Image } from '~/components/image';
 import { Icon } from '~/components/icon'; 
+import wl20 from '~/assets/wl-20.jpg';	
+import editAttendance from '~/assets/edit-attendance.png';
+import settings from '~/assets/settings-sweldo.png';
+import summaryPayroll from '~/assets/summary-payroll.png';
 import { SegmentedControl, SegmentedControlOption } from '~/components/segmented-control';
 import { ThemeProvider, useTheme } from '~/components/theme-provider';
 
@@ -29,10 +27,10 @@ import { media } from '~/utils/style';
 import { baseMeta } from '~/utils/meta';
 import styles from './sweldo.module.css';
 
-const title = 'Sweldo Salary System';
+const title = 'Sweldo Salary System (Windows and MacOS)';
 const description =
-  'We use the ZKTeco biometric scanner to capture attendance. This app allows the upload of time sheet data and has a dashboard to track employee performance.';
-const roles = ['Supabase', 'Flutterflow', 'Firebase', 'No-Code'];
+  'We use the ZKTeco biometric scanner to capture attendance. This app allows the upload of time sheet data and has a dashboard to track employee performance. This offers similar features to the previous version but with a more modern look and feel and is now offline-based. It no longer has online capabilities, but it is several times faster and more stable.';
+const roles = ['CSV', 'Nextron', 'React', 'Electron'];
 
 export const meta = () => {
   return baseMeta({ title, description, prefix: 'Projects' });
@@ -45,11 +43,12 @@ export const Sweldo = () => {
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
 
   // Create refs for each section
-  const headerSection = useRef();
-  const introSection = useRef();
-  const problemSection = useRef();
-  const pdfSection = useRef();
-  const attendanceSection = useRef();
+  const headerSection = useRef(); // Header section
+  const introSection = useRef(); // Introduction section
+  const problemSection = useRef(); // Problem statement section
+  const pdfSection = useRef(); // PDF download section
+  const attendanceSection = useRef(); // Attendance data section
+  const payrollSummarySection = useRef(); // Payroll summary section
 
   const sections = [
     headerSection,
@@ -57,6 +56,7 @@ export const Sweldo = () => {
     problemSection,
     pdfSection,
     attendanceSection,
+    payrollSummarySection,
   ];
 
   useEffect(() => {
@@ -113,11 +113,11 @@ export const Sweldo = () => {
     <Fragment>
       <ProjectContainer className={styles.slice}>
         <ProjectBackground
-          src={sweldoHomeLarge}
-          srcSet={`${sweldoHomeLarge} 1280w, ${sweldoHomeLarge} 2560w`}
+          src={sweldoHome}
+          srcSet={`${sweldoHome} 1280w, ${sweldoHome} 2560w`}
           width={1280}
           height={800}
-          placeholder={sweldoHomeLarge}
+          placeholder={sweldoHome}
           opacity={0.8}
         />
         <ProjectHeader
@@ -128,6 +128,33 @@ export const Sweldo = () => {
           roles={roles}
           ref={headerSection}
         />
+        <ProjectSection padding="top" ref={attendanceSection}>
+          <ProjectSectionContent className={styles.grid}>
+            <div className={styles.gridImage}>
+              <div className={styles.gridBackground}>
+                <Image
+                  srcSet={`${wl20} 440w, ${wl20} 880w`}
+                  width={440}
+                  height={790}
+                  placeholder={wl20}
+                  alt=""
+                  role="presentation"
+                  sizes={`(max-width: ${media.mobile}px) 312px, (max-width: ${media.tablet}px) 408px, 514px`}
+                />
+              </div>
+            </div>
+            <div className={styles.gridText}>
+              <ProjectSectionHeading>ZKTeco Biometric Scanner</ProjectSectionHeading>
+              <ProjectSectionText>
+                Not all attendance data from the biometric scanner is reliable. It's possible that some data is missing or incorrect or the employee forgot to clock in or out.
+
+                <br></br>
+                <br></br>
+                This scanner exports the data in an xls file. I have a script that parses everything and organizes all the data into CSV files. My app aims to make it easier to visualize the data and make it more user-friendly. Any post-processing of the data is done in the app.
+              </ProjectSectionText>
+            </div>
+          </ProjectSectionContent>
+        </ProjectSection>
         <ProjectSection padding="top" ref={introSection}>
           <ProjectSectionContent>
           <ProjectImage
@@ -135,15 +162,15 @@ export const Sweldo = () => {
               key={theme}
               srcSet={
                 isDark
-                  ? `${sweldoHomeLarge} 1280w, ${sweldoHomeLarge} 2560w`
-                  : `${sweldoHomeLarge} 1280w, ${sweldoHomeLarge} 2560w`
+                  ? `${editAttendance} 1280w, ${editAttendance} 2560w`
+                  : `${editAttendance} 1280w, ${editAttendance} 2560w`
               }
               width={1280}
               height={800}
               placeholder={
                 isDark
-                  ? sweldoHomePlaceholder
-                  : sweldoHomePlaceholder
+                  ? sweldoHome
+                  : sweldoHome
               }
               sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 800px, 1000px`}
               alt="Sweldo Time Sheet"
@@ -152,7 +179,7 @@ export const Sweldo = () => {
               <span className={styles.captionContent}>
                 <Icon icon="link" className={styles.captionIcon} />
                 <span className={styles.imageCaption}>
-                  "Time Sheet shows the time in and out of each employee. With this, their summary can be easily calculated. Don't worry, none of the data on the sidebar is real. It's just a mockup to show the flow of the app."
+                  "Time Sheet shows the time in and out of each employee. With this, their summary can be easily calculated. As you can see, the data is editable. Absences do not include weekends and holidays."
                 </span>
               </span>
             </div>
@@ -163,10 +190,10 @@ export const Sweldo = () => {
           <ProjectTextRow>
             <ProjectSectionHeading>The problem</ProjectSectionHeading>
             <ProjectSectionText>
-              This is very intensive with database queries, so I opted to split my usage into two databases. Firestore and Supabase. It is a pain to work with two databases but it's the only way to go given the constraints of the projects I'm working on.
+              I am not aware of any post-processing system that can handle the data from the biometric scanner apart from the xls file. It is not user-friendly and it is not easy to understand. Hence, I decided to create my own app to make it easier to understand and modify any data that might need to be changed.
               <br></br>
               <br></br>
-              I'm afraid I can't share the link to the actual app because the information is sensitive. I don't want other people to alter the data especially for this project.
+              The xls file alone do not have computations for the pay of each employee. It only has the data that is needed to be computed. It also does not account for the holiday of that day, leave of absence of the employee and other calculations needed to calculate the employee's pay of that particular day or cash advances.
             </ProjectSectionText>
           </ProjectTextRow>
         </ProjectSection>
@@ -178,15 +205,15 @@ export const Sweldo = () => {
               key={theme}
               srcSet={
                 isDark
-                  ? `${sweldoPDFPlaceholder} 1280w, ${sweldoPDFLarge} 2560w`
-                  : `${sweldoPDFPlaceholder} 1280w, ${sweldoPDFLarge} 2560w`
+                  ? `${settings} 1280w, ${settings} 2560w`
+                  : `${settings} 1280w, ${settings} 2560w`
               }
               width={1280}
               height={800}
               placeholder={
                 isDark
-                  ? sweldoPDFPlaceholder
-                  : sweldoPDFPlaceholder
+                  ? settings
+                  : settings
               }
               sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 800px, 1000px`}
               alt="Sweldo Time Sheet"
@@ -195,36 +222,39 @@ export const Sweldo = () => {
               <span className={styles.captionContent}>
                 <Icon icon="link" className={styles.captionIcon} />
                 <span className={styles.imageCaption}>
-                  "Once the pay slips are generated for each employee, it can be downloaded as a PDF."
+                  "This is the settings page. It allows the user to configure the app to their liking. It also allows the user to make schedules for each employee type like in the image above. It also allows the HR to modify deductions for things like late, undertime, and overtime."
                 </span>
               </span>
             </div>
           </ProjectSectionContent>
         </ProjectSection>
-        <ProjectSection padding="top" ref={attendanceSection}>
-          <ProjectSectionContent className={styles.grid}>
-            <div className={styles.gridImage}>
-              <div className={styles.gridBackground}>
-                <Image
-                  srcSet={`${attendanceEditor} 440w, ${attendanceEditor} 880w`}
-                  width={440}
-                  height={790}
-                  placeholder={attendanceEditor}
-                  alt=""
-                  role="presentation"
-                  sizes={`(max-width: ${media.mobile}px) 312px, (max-width: ${media.tablet}px) 408px, 514px`}
-                />
-              </div>
-            </div>
-            <div className={styles.gridText}>
-              <ProjectSectionHeading>Attendance Editor</ProjectSectionHeading>
-              <ProjectSectionText>
-                Not all attendance data from the biometric scanner is reliable. It's possible that some data is missing or incorrect or the employee forgot to clock in or out. This allows HR to correct the data.
-
-                <br></br>
-                <br></br>
-                This also takes into account the holiday of that day, leave of absence of the employee and other calculations needed to calculate the employee's pay of that particular day
-              </ProjectSectionText>
+       <ProjectSection padding="top" ref={payrollSummarySection}>
+          <ProjectSectionContent>
+          <ProjectImage
+              className={styles.themeImage}
+              key={theme}
+              srcSet={
+                isDark
+                  ? `${summaryPayroll} 1280w, ${summaryPayroll} 2560w`
+                  : `${summaryPayroll} 1280w, ${summaryPayroll} 2560w`
+              }
+              width={1280}
+              height={800}
+              placeholder={
+                isDark
+                  ? summaryPayroll
+                  : summaryPayroll
+              }
+              sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 800px, 1000px`}
+              alt="Sweldo Time Sheet"
+            />
+            <div className={styles.captionWrapper}>
+              <span className={styles.captionContent}>
+                <Icon icon="link" className={styles.captionIcon} />
+                <span className={styles.imageCaption}>
+                  "This is the summary payroll page. It shows the total pay of each employee. It also shows the total deductions and the net pay of each employee."
+                </span>
+              </span>
             </div>
           </ProjectSectionContent>
         </ProjectSection>

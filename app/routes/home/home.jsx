@@ -12,6 +12,7 @@ import testmanshipScreenShotPlaceholder from '~/assets/Testmanship-Dark.jpg';
 import testmanshipScreenShot from '~/assets/Testmanship-Light.jpg';
 import airlineCrewSchedulingScreenShot from '~/assets/Airline-Crew-Scheduling.png';
 import sweldoScreenShot from '~/assets/Sweldo-Home-Cut.png';
+import sweldoNextron from '~/assets/sweldo-nextron.png';
 import { Footer } from '~/components/footer';
 import { baseMeta } from '~/utils/meta';
 import { Intro } from './intro';
@@ -66,9 +67,10 @@ export const Home = () => {
   const projectThree = useRef();
   const projectFour = useRef();
   const projectFive = useRef();
+  const projectSix = useRef();
   const details = useRef();
 
-  const sections = [intro, projectOne, projectTwo, projectThree, projectFour, projectFive, details];
+  const sections = [intro, projectOne, projectTwo, projectThree, projectFour, projectFive, projectSix, details];
 
   useEffect(() => {
     // Initialize sections observer only when refs are ready
@@ -192,13 +194,33 @@ export const Home = () => {
           sectionRef={projectOne}
           visible={visibleSections.includes(projectOne.current)}
           index={1}
-          title="Sweldo"
-          description="Sweldo stands for Salary in Filipino. It's a web system that allows an excel upload of employees' attendance data to be processed and then displayed in a user-friendly format. The app was built using Flutterflow and Firebase and Supabase."
+          title="Sweldo (Nextron Version)"
+          description="The latest version of Sweldo built using Nextron, offering enhanced features and performance."
           buttonText="View project"
           buttonLink="/projects/sweldo"
           model={{
             type: 'laptop',
-            alt: 'Sweldo salary system',
+            alt: 'Nextron Sweldo salary system',
+            textures: [
+              {
+                srcSet: `${sweldoNextron} 1280w, ${sweldoNextron} 2560w`,
+                placeholder: sweldoNextron,
+              },
+            ],
+          }}
+        />
+        <ProjectSummary
+          id="project-2"
+          sectionRef={projectTwo}
+          visible={visibleSections.includes(projectTwo.current)}
+          index={2}
+          title="Sweldo (Old Version)"
+          description="Sweldo stands for Salary in Filipino. It's a web system that allows an excel upload of employees' attendance data to be processed and then displayed in a user-friendly format. The app was built using Flutterflow and Firebase and Supabase."
+          buttonText="View project"
+          buttonLink="/projects/sweldo-old"
+          model={{
+            type: 'laptop',
+            alt: 'Old Sweldo salary system',
             textures: [
               {
                 srcSet: `${sweldoScreenShot} 1280w, ${sweldoScreenShot} 2560w`,
@@ -208,10 +230,10 @@ export const Home = () => {
           }}
         />
         <ProjectSummary
-          id="project-2"
-          sectionRef={projectTwo}
-          visible={visibleSections.includes(projectTwo.current)}
-          index={1}
+          id="project-3"
+          sectionRef={projectThree}
+          visible={visibleSections.includes(projectThree.current)}
+          index={3}
           title="Airline Crew Scheduling"
           description="Airline Crew Scheduling is a Salesforce LWC component designed to help airline companies manage their crew scheduling processes. It allows users to create and manage flight schedules, assign crew members to flights."
           buttonText="View project"
@@ -228,10 +250,10 @@ export const Home = () => {
           }}
         />
         <ProjectSummary
-          id="project-3"
-          sectionRef={projectThree}
-          visible={visibleSections.includes(projectThree.current)}
-          index={2}
+          id="project-4"
+          sectionRef={projectFour}
+          visible={visibleSections.includes(projectFour.current)}
+          index={4}
           title="Testmanship"
           description="Testmanship is a sophisticated web application designed to help language learners track their writing progress and assess their preparedness across different CEFR (Common European Framework of Reference for Languages) levels."
           buttonText="View project"
@@ -248,11 +270,10 @@ export const Home = () => {
           }}
         />
         <ProjectSummary
-          id="project-4"
-          alternate
-          sectionRef={projectFour}
-          visible={visibleSections.includes(projectFour.current)}
-          index={3}
+          id="project-5"
+          sectionRef={projectFive}
+          visible={visibleSections.includes(projectFive.current)}
+          index={5}
           title="Lotel"
           description="Comprehensive hospitality management system for encoding and monitoring various aspects of hotel operations, including sales, billing, payroll, and key performance metrics"
           buttonText="View project"
@@ -273,10 +294,10 @@ export const Home = () => {
           }}
         />
         <ProjectSummary
-          id="project-5"
-          sectionRef={projectFive}
-          visible={visibleSections.includes(projectFive.current)}
-          index={4}
+          id="project-6"
+          sectionRef={projectSix}
+          visible={visibleSections.includes(projectSix.current)}
+          index={6}
           title="Enhanced Equity Stop with Cooldown for cTrader"
           description="A sophisticated modification of Acronew's Equity Stop with advanced features and improved UI."
           buttonText="View project"
