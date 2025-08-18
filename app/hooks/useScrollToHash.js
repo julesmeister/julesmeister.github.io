@@ -13,6 +13,11 @@ export function useScrollToHash() {
       const id = hash.split('#')[1];
       const targetElement = document.getElementById(id);
 
+      if (!targetElement) {
+        onDone?.();
+        return;
+      }
+
       targetElement.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
 
       const handleScroll = () => {
