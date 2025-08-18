@@ -11,6 +11,7 @@ import {
 } from '@remix-run/react';
 import { createCookieSessionStorage, json } from '@remix-run/cloudflare';
 import { ThemeProvider, themeStyles } from '~/components/theme-provider';
+import { ViewProvider } from '~/contexts/view-context';
 import GothamBook from '~/assets/fonts/gotham-book.woff2';
 import GothamMedium from '~/assets/fonts/gotham-medium.woff2';
 import { useEffect } from 'react';
@@ -118,19 +119,21 @@ export default function App() {
       </head>
       <body data-theme={theme}>
         <ThemeProvider theme={theme} toggleTheme={toggleTheme}>
-          <Progress />
-          <VisuallyHidden showOnFocus as="a" className={styles.skip} href="#main-content">
-            Skip to main content
-          </VisuallyHidden>
-          <Navbar />
-          <main
-            id="main-content"
-            className={styles.container}
-            tabIndex={-1}
-            data-loading={state === 'loading'}
-          >
-            <Outlet />
-          </main>
+          <ViewProvider>
+            <Progress />
+            <VisuallyHidden showOnFocus as="a" className={styles.skip} href="#main-content">
+              Skip to main content
+            </VisuallyHidden>
+            <Navbar />
+            <main
+              id="main-content"
+              className={styles.container}
+              tabIndex={-1}
+              data-loading={state === 'loading'}
+            >
+              <Outlet />
+            </main>
+          </ViewProvider>
         </ThemeProvider>
         <ScrollRestoration />
         <Scripts />

@@ -135,6 +135,35 @@
     position: relative;
     width: 48px !important;
     height: 48px !important;
+    
+    &::after {
+      content: '';
+      transition-property: opacity, color, background;
+      transition-duration: var(--durationM);
+      transition-timing-function: var(--bezierFastoutSlowin);
+      background: color-mix(in lab, var(--text) 0%, transparent);
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        100% calc(100% - 8px),
+        calc(100% - 8px) 100%,
+        0 100%
+      );
+    }
+
+    &:hover::after {
+      background: color-mix(in lab, var(--text) 10%, transparent);
+    }
+    
+    &[data-active='true'] {
+      &::after {
+        background: var(--primary);
+      }
+      color: var(--background);
+    }
   }
 
   .toggle {

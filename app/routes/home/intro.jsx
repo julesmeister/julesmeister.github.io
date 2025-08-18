@@ -121,6 +121,17 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
                     </Transition>
                   ))}
                 </div>
+                <div className={styles.carouselDots} data-status={status}>
+                  {disciplines.map((_, index) => (
+                    <button
+                      key={index}
+                      className={styles.dot}
+                      data-active={index === disciplineIndex}
+                      onClick={() => setDisciplineIndex(index)}
+                      aria-label={`Switch to ${disciplines[index]}`}
+                    />
+                  ))}
+                </div>
               </Heading>
             </header>
 

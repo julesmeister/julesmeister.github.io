@@ -13,11 +13,16 @@ import testmanshipScreenShot from '~/assets/Testmanship-Light.jpg';
 import airlineCrewSchedulingScreenShot from '~/assets/Airline-Crew-Scheduling.png';
 import sweldoScreenShot from '~/assets/Sweldo-Home-Cut.png';
 import sweldoNextron from '~/assets/sweldo-nextron.png';
+import orbitAndChillScreenShot from '~/assets/orbitandchill/photo_1_2025-08-18_18-13-46.jpg';
+import orbitAndChillScreenShot2 from '~/assets/orbitandchill/photo_3_2025-08-18_18-13-46.jpg';
 import { Footer } from '~/components/footer';
 import { baseMeta } from '~/utils/meta';
 import { Intro } from './intro';
 import { Profile } from './profile';
 import { ProjectSummary } from './project-summary';
+import { ProjectGrid } from './project-grid';
+import { projectsData } from './projects-data';
+import { useViewMode } from '~/contexts/view-context';
 import { useEffect, useRef, useState } from 'react';
 import config from '~/config.json';
 import styles from './home.module.css';
@@ -61,6 +66,7 @@ export const Home = () => {
   const [currentProject, setCurrentProject] = useState(0);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
+  const { viewMode } = useViewMode();
   const intro = useRef();
   const projectOne = useRef();
   const projectTwo = useRef();
@@ -68,9 +74,10 @@ export const Home = () => {
   const projectFour = useRef();
   const projectFive = useRef();
   const projectSix = useRef();
+  const projectSeven = useRef();
   const details = useRef();
 
-  const sections = [intro, projectOne, projectTwo, projectThree, projectFour, projectFive, projectSix, details];
+  const sections = [intro, projectOne, projectTwo, projectThree, projectFour, projectFive, projectSix, projectSeven, details];
 
   useEffect(() => {
     // Initialize sections observer only when refs are ready
@@ -189,11 +196,41 @@ export const Home = () => {
           sectionRef={intro}
           scrollIndicatorHidden={scrollIndicatorHidden}
         />
-        <ProjectSummary
+        
+        
+        {/* Conditional rendering based on view mode */}
+        {viewMode === 'scroll' ? (
+          // Original scroll view
+          <>
+            <ProjectSummary
           id="project-1"
           sectionRef={projectOne}
           visible={visibleSections.includes(projectOne.current)}
           index={1}
+          title="Orbit and Chill"
+          description="A modern astrology platform combining precise natal chart generation with community engagement. Built with Next.js 15, TypeScript, and Tailwind CSS."
+          buttonText="View project"
+          buttonLink="/projects/orbitandchill"
+          model={{
+            type: 'laptop',
+            alt: 'Orbit and Chill astrology platform',
+            textures: [
+              {
+                srcSet: `${orbitAndChillScreenShot} 1280w, ${orbitAndChillScreenShot} 2560w`,
+                placeholder: orbitAndChillScreenShot,
+              },
+              {
+                srcSet: `${orbitAndChillScreenShot2} 1280w, ${orbitAndChillScreenShot2} 2560w`,
+                placeholder: orbitAndChillScreenShot2,
+              },
+            ],
+          }}
+        />
+        <ProjectSummary
+          id="project-2"
+          sectionRef={projectTwo}
+          visible={visibleSections.includes(projectTwo.current)}
+          index={2}
           title="Sweldo (Nextron Version)"
           description="The latest version of Sweldo built using Nextron, offering enhanced features and performance."
           buttonText="View project"
@@ -210,10 +247,10 @@ export const Home = () => {
           }}
         />
         <ProjectSummary
-          id="project-2"
-          sectionRef={projectTwo}
-          visible={visibleSections.includes(projectTwo.current)}
-          index={2}
+          id="project-3"
+          sectionRef={projectThree}
+          visible={visibleSections.includes(projectThree.current)}
+          index={3}
           title="Sweldo (Old Version)"
           description="Sweldo stands for Salary in Filipino. It's a web system that allows an excel upload of employees' attendance data to be processed and then displayed in a user-friendly format. The app was built using Flutterflow and Firebase and Supabase."
           buttonText="View project"
@@ -230,10 +267,10 @@ export const Home = () => {
           }}
         />
         <ProjectSummary
-          id="project-3"
-          sectionRef={projectThree}
-          visible={visibleSections.includes(projectThree.current)}
-          index={3}
+          id="project-4"
+          sectionRef={projectFour}
+          visible={visibleSections.includes(projectFour.current)}
+          index={4}
           title="Airline Crew Scheduling"
           description="Airline Crew Scheduling is a Salesforce LWC component designed to help airline companies manage their crew scheduling processes. It allows users to create and manage flight schedules, assign crew members to flights."
           buttonText="View project"
@@ -250,10 +287,10 @@ export const Home = () => {
           }}
         />
         <ProjectSummary
-          id="project-4"
-          sectionRef={projectFour}
-          visible={visibleSections.includes(projectFour.current)}
-          index={4}
+          id="project-5"
+          sectionRef={projectFive}
+          visible={visibleSections.includes(projectFive.current)}
+          index={5}
           title="Testmanship"
           description="Testmanship is a sophisticated web application designed to help language learners track their writing progress and assess their preparedness across different CEFR (Common European Framework of Reference for Languages) levels."
           buttonText="View project"
@@ -270,10 +307,10 @@ export const Home = () => {
           }}
         />
         <ProjectSummary
-          id="project-5"
-          sectionRef={projectFive}
-          visible={visibleSections.includes(projectFive.current)}
-          index={5}
+          id="project-6"
+          sectionRef={projectSix}
+          visible={visibleSections.includes(projectSix.current)}
+          index={6}
           title="Lotel"
           description="Comprehensive hospitality management system for encoding and monitoring various aspects of hotel operations, including sales, billing, payroll, and key performance metrics"
           buttonText="View project"
@@ -294,10 +331,10 @@ export const Home = () => {
           }}
         />
         <ProjectSummary
-          id="project-6"
-          sectionRef={projectSix}
-          visible={visibleSections.includes(projectSix.current)}
-          index={6}
+          id="project-7"
+          sectionRef={projectSeven}
+          visible={visibleSections.includes(projectSeven.current)}
+          index={7}
           title="Enhanced Equity Stop with Cooldown for cTrader"
           description="A sophisticated modification of Acronew's Equity Stop with advanced features and improved UI."
           buttonText="View project"
@@ -313,6 +350,12 @@ export const Home = () => {
             ],
           }}
         />
+          </>
+        ) : (
+          // Grid view
+          <ProjectGrid projects={projectsData} />
+        )}
+        
         <Profile
           sectionRef={details}
           visible={visibleSections.includes(details.current)}
