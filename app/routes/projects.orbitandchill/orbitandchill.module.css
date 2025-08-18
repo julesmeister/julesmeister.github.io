@@ -534,3 +534,32 @@
     }
   }
 }
+
+/* Natal Chart Styles */
+.natalChartContainer {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+  padding: 0 20px;
+}
+
+.natalChart {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px color-mix(in lab, var(--text) 10%, transparent);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px color-mix(in lab, var(--text) 15%, transparent);
+  }
+  
+  @media (--mediaTablet) {
+    border-radius: 8px;
+  }
+  
+  @media (--mediaMobile) {
+    border-radius: 6px;
+    margin: 40px 0;
+  }
+}

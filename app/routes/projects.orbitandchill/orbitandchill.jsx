@@ -1,4 +1,5 @@
 import electionalImg from '~/assets/orbitandchill/electional.png';
+import natalChartImg from '~/assets/orbitandchill/Screenshot 2025-08-18 195310.png';
 import photo1 from '~/assets/orbitandchill/photo_1_2025-08-18_18-13-46.jpg';
 import photo3 from '~/assets/orbitandchill/photo_3_2025-08-18_18-13-46.jpg';
 import photo4 from '~/assets/orbitandchill/photo_4_2025-08-18_18-13-46.jpg';
@@ -218,13 +219,13 @@ export const OrbitAndChill = () => {
                       width={600}
                       height={400}
                       placeholder={photo5}
-                      alt="Generate and visualize your personalized natal chart"
+                      alt="Explore matrix destiny chart with numerological calculations"
                       sizes="(max-width: 768px) 90vw, 45vw"
                     />
                   </div>
                   <div className={styles.timelineContent}>
-                    <h3>Generate Chart</h3>
-                    <p>Create your personalized natal chart with professional-grade precision. Get detailed interpretations and discover the cosmic influences shaping your personality.</p>
+                    <h3>Matrix Destiny</h3>
+                    <p>Explore matrix destiny charts using numerological calculations based on your birth date. This alternative system reveals life patterns and spiritual insights through sacred number combinations.</p>
                   </div>
                 </div>
               </div>
@@ -296,6 +297,29 @@ export const OrbitAndChill = () => {
           </ProjectSectionContent>
         </ProjectSection>
     
+        <ProjectSection>
+          <ProjectSectionContent>
+            <ProjectSectionHeading>Natal Chart Generation</ProjectSectionHeading>
+            <ProjectSectionText>
+              At the heart of Orbit and Chill is our professional-grade natal chart generator. This comprehensive astrological chart maps the exact positions of celestial bodies at the moment of birth, providing deep insights into personality traits, life patterns, and cosmic influences.
+            </ProjectSectionText>
+            <div className={styles.natalChartContainer}>
+              <Image
+                className={styles.natalChart}
+                srcSet={`${natalChartImg} 800w, ${natalChartImg} 1600w`}
+                width={800}
+                height={600}
+                placeholder={natalChartImg}
+                alt="Professional natal chart showing planetary positions, houses, and astrological aspects"
+                sizes="(max-width: 768px) 95vw, 80vw"
+              />
+            </div>
+            <ProjectSectionText>
+              Each natal chart includes detailed planetary placements, house positions, and aspect patterns, calculated with ±1 arcminute precision using advanced astronomical algorithms. The interactive visualization allows users to explore their cosmic blueprint and understand the astrological influences that shape their lives.
+            </ProjectSectionText>
+          </ProjectSectionContent>
+        </ProjectSection>
+        
         <ProjectSection ref={whySection}>
           <ProjectSectionColumns centered className={styles.columns}>
             <div className={styles.imagesText}>
