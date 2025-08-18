@@ -337,7 +337,7 @@
 
 .carouselDots {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 8px;
   margin-top: var(--spaceM);
   opacity: 0;
@@ -356,7 +356,7 @@
 .dot {
   width: 8px;
   height: 8px;
-  border-radius: 50%;
+  border-radius: 0;
   border: none;
   background: color-mix(in lab, var(--text) 25%, transparent);
   cursor: pointer;
