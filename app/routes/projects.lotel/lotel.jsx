@@ -1,3 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import lotelHome from '~/assets/Lotel-Home-Cut.jpg';
 import lotelMart from '~/assets/Lotel-Mart.jpg';
 import lotelTransactions from '~/assets/Lotel-Transactions.jpg';

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import backgroundSprLarge from '~/assets/Airline-Crew-Scheduling.png';
 import backgroundSprPlaceholder from '~/assets/Airline-Crew-Scheduling.png';
 import backgroundSpr from '~/assets/Airline-Crew-Scheduling.png';

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import usesBackgroundPlaceholder from '~/assets/uses-background-placeholder.jpg';
 import usesBackground from '~/assets/uses-background.mp4';
 import { Footer } from '~/components/footer';

@@ -10,7 +10,12 @@
       "Bash(git restore:*)",
       "WebSearch",
       "Bash(npm install:*)",
-      "Bash(npm uninstall:*)"
+      "Bash(npm uninstall:*)",
+      "Bash(NODE_OPTIONS=\"--max-old-space-size=1024\" npx tsc --noEmit --skipLibCheck)",
+      "Bash(NODE_OPTIONS=\"--max-old-space-size=1024\" npx typescript --version)",
+      "Bash(npm run build:*)",
+      "Bash(NODE_OPTIONS=\"--max-old-space-size=1024\" npx eslint --ext .ts,.tsx app/ --quiet)",
+      "Bash(NODE_OPTIONS=\"--max-old-space-size=1024\" npx eslint --ext .js,.jsx,.ts,.tsx app/ --quiet)"
     ],
     "deny": [],
     "ask": []

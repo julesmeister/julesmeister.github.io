@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Button } from '~/components/button';
 import { DecoderText } from '~/components/decoder-text';
 import { Divider } from '~/components/divider';

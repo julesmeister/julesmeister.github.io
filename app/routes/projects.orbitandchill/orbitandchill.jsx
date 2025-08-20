@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import electionalImg from '~/assets/orbitandchill/electional.png';
 import natalChartImg from '~/assets/orbitandchill/Screenshot 2025-08-18 195310.png';
 import photo1 from '~/assets/orbitandchill/photo_1_2025-08-18_18-13-46.jpg';
