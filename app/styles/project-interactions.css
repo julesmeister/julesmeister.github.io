@@ -1,0 +1,110 @@
+/* Shared Project Interactive Styles */
+
+/* Interactive Image Wrappers */
+.timelineImageWrapper,
+.featureImageWrapper,
+.sidebarImageWrapper,
+.themeImageWrapper,
+.natalChartContainer {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.timelineImageWrapper:hover,
+.featureImageWrapper:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+.sidebarImageWrapper:hover,
+.themeImageWrapper:hover {
+  transform: scale(1.05);
+}
+
+.themeImageWrapper:hover {
+  transform: scale(1.02);
+}
+
+.sidebarImageWrapper,
+.themeImageWrapper {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Magnifier */
+.magnifier {
+  position: fixed;
+  width: 180px;
+  height: 180px;
+  border: 3px solid var(--color-primary, #fff);
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: auto 600%;
+  pointer-events: none;
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  transition: opacity 0.2s ease;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+}
+
+/* Modal Styles */
+.modalImageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-m, 1rem);
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.modalImage {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.modalCaption {
+  color: var(--color-text-light, rgba(255, 255, 255, 0.7));
+  font-size: var(--font-size-s, 0.875rem);
+  text-align: center;
+  margin: 0;
+  padding: 0 var(--space-m, 1rem);
+}
+
+/* Interactive states for specific project elements */
+.interactive-timeline .timelineImage:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 30px 60px color-mix(in lab, var(--text) 15%, transparent);
+}
+
+.interactive-feature .featureImageWrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px color-mix(in lab, var(--text) 12%, transparent);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .magnifier {
+    width: 120px;
+    height: 120px;
+    border: 2px solid var(--color-primary, #fff);
+  }
+  
+  .modalImageContainer {
+    gap: var(--space-s, 0.5rem);
+    max-width: 95vw;
+    max-height: 95vh;
+  }
+  
+  .modalImage {
+    max-height: 70vh;
+    border-radius: 6px;
+  }
+  
+  .modalCaption {
+    font-size: var(--font-size-xs, 0.75rem);
+    padding: 0 var(--space-s, 0.5rem);
+  }
+}

@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/no-unescaped-entities */
 import sweldoHome from '~/assets/sweldo-nextron.png';
 import { Footer } from '~/components/footer';
 import { Image } from '~/components/image';
@@ -37,9 +39,8 @@ export const meta = () => {
 };
 
 export const Sweldo = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
   const isDark = theme === 'dark';
-  const themes = ['dark', 'light'];
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
 
   // Create refs for each section

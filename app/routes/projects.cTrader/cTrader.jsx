@@ -1,15 +1,15 @@
-import cTraderScreenShotLarge from '~/assets/cTrader.png';
-import cTraderScreenShotPlaceholder from '~/assets/cTrader.png';
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import cTraderScreenShot from '~/assets/cTrader.png';
-import equityStopNewLarge from '~/assets/equity-stop-order-cooldown.png';
-import equityStopNewPlaceholder from '~/assets/equity-stop-order-cooldown.png';
 import equityStopNew from '~/assets/equity-stop-order-cooldown.png';
-import sliceSidebarLayersLarge from '~/assets/Equity-Stop-Old.png';
-import sliceSidebarLayersPlaceholder from '~/assets/Equity-Stop-Old.png';
-import sliceSidebarLayers from '~/assets/Equity-Stop-Old.png';
-import { Footer } from '~/components/footer';
+import equityStopOld from '~/assets/Equity-Stop-Old.png';
+
+import { Fragment, useState } from 'react';
 import { Image } from '~/components/image';
 import { Icon } from '~/components/icon';
+import { Footer } from '~/components/footer';
+import { Modal } from '~/components/Modal/Modal';
 import {
   ProjectBackground,
   ProjectContainer,
@@ -20,121 +20,89 @@ import {
   ProjectSectionContent,
   ProjectSectionHeading,
   ProjectSectionText,
-  ProjectTextRow,
 } from '~/layouts/project';
-import { Fragment, useRef, useState, useEffect } from 'react';
-import { media } from '~/utils/style';
-import { baseMeta } from '~/utils/meta';
-import styles from './cTrader.module.css';
+import { createProjectMeta } from '~/components/project-template';
+import { useProjectPage } from '~/hooks/use-project-page';
+import { useMagnifier } from '~/hooks/use-magnifier';
+import { createImageVariants } from '~/utils/project-helpers';
 import { List, ListItem } from '~/components/list';
+import { media } from '~/utils/style';
+import styles from './cTrader.module.css';
 
-const title = 'Equity Stop Plugin with Cooldown for cTrader';
-const description =
-  'When I was experimenting with my trading journey, I found that the cTrader plugin for Equity Stop was a bit clunky and need more customization. This enhanced version offers additional features for better trade management. I have designed it specifically for the use of martingale trading, hence the "+" and "-" buttons for doubling and halving the lot size and the "Stop Loss" and "Take Profit" fields. The UI has been optimized by grouping related components together, resulting in a more efficient use of space.';
-const roles = ['cTrader', 'Plugin', 'C#'];
-
-export const meta = () => {
-  return baseMeta({ title, description, prefix: 'Projects' });
+// Project configuration
+const projectConfig = {
+  title: 'Equity Stop Plugin with Cooldown for cTrader',
+  description: 'When I was experimenting with my trading journey, I found that the cTrader plugin for Equity Stop was a bit clunky and need more customization. This enhanced version offers additional features for better trade management. I have designed it specifically for the use of martingale trading, hence the "+" and "-" buttons for doubling and halving the lot size and the "Stop Loss" and "Take Profit" fields. The UI has been optimized by grouping related components together, resulting in a more efficient use of space.',
+  roles: ['cTrader', 'Plugin', 'C#'],
+  url: 'https://github.com/julesmeister/Equity-Stop-w--Cooldown-cTrader',
+  linkLabel: 'View on GitHub',
+  backgroundImage: cTraderScreenShot,
+  sectionNames: ['header', 'intro', 'features']
 };
 
+// Sidebar comparison images
+const sidebarImages = [
+  { src: equityStopOld, alt: 'The old look created by Acronew.' },
+  { src: equityStopNew, alt: 'The new enhanced look created by me.' }
+];
+
+export const meta = createProjectMeta(projectConfig.title, projectConfig.description);
+
 export const Slice = () => {
-  const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const { magnifier, showMagnifier, hideMagnifier, updateMagnifier } = useMagnifier();
+  const { sectionRefs } = useProjectPage(projectConfig.sectionNames);
 
-  // Create refs for each section
-  const introSection = useRef();
-  const featuresSection = useRef();
+  const handleImageClick = (imageSrc, alt) => {
+    setSelectedImage({ src: imageSrc, alt });
+  };
 
-  const sections = [introSection, featuresSection];
+  const handleMouseMove = (e, imageSrc) => {
+    updateMagnifier(e, imageSrc);
+  };
 
-  useEffect(() => {
-    // Initialize sections observer only when refs are ready
-    if (!sections.every(section => section.current)) return;
+  const handleMouseLeave = () => {
+    hideMagnifier();
+  };
 
-    const sectionObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const section = entry.target;
-            const sectionIndex = sections.findIndex(s => s.current === section);
-
-            if (sectionIndex !== -1) {
-              setCurrentSectionIndex(sectionIndex);
-            }
-          }
-        });
-      },
-      { 
-        rootMargin: '-20% 0px -20% 0px',
-        threshold: [0, 0.25, 0.5, 0.75, 1] 
-      }
-    );
-
-    sections.forEach(section => {
-      if (section.current) {
-        sectionObserver.observe(section.current);
-      }
-    });
-
-    return () => sectionObserver.disconnect();
-  }, [sections]);
-
-  useEffect(() => {
-    const handleSectionNav = (event) => {
-      const direction = event.detail;
-      const newIndex = direction === 'up' ? currentSectionIndex - 1 : currentSectionIndex + 1;
-      
-      if (newIndex >= 0 && newIndex < sections.length) {
-        setCurrentSectionIndex(newIndex);
-        sections[newIndex].current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    };
-
-    window.addEventListener('navigate-section', handleSectionNav);
-    return () => window.removeEventListener('navigate-section', handleSectionNav);
-  }, [currentSectionIndex, sections]);
-
-  const sidebarImages = [
-    {
-      src: { small: sliceSidebarLayers, large: sliceSidebarLayersLarge },
-      placeholder: sliceSidebarLayersPlaceholder,
-      alt: "The old look created by Acronew."
-    },
-    {
-      src: { small: equityStopNew, large: equityStopNewLarge },
-      placeholder: equityStopNewPlaceholder,
-      alt: "The new enhanced look created by me."
-    }
-  ];
+  const handleMouseEnter = (e, imageSrc) => {
+    showMagnifier(e, imageSrc);
+  };
 
   return (
     <Fragment>
       <ProjectContainer className={styles.slice}>
         <ProjectBackground
-          src={cTraderScreenShotLarge}
-          srcSet={`${cTraderScreenShotLarge} 1280w, ${cTraderScreenShotLarge} 2560w`}
+          src={projectConfig.backgroundImage}
+          srcSet={`${projectConfig.backgroundImage} 1280w, ${projectConfig.backgroundImage} 2560w`}
           width={1280}
           height={800}
-          placeholder={cTraderScreenShotLarge}
+          placeholder={projectConfig.backgroundImage}
           opacity={0.8}
         />
         <ProjectHeader
-          title={title}
-          description={description}
-          url="https://github.com/julesmeister/Equity-Stop-w--Cooldown-cTrader"
-          linkLabel="View on GitHub"
-          roles={roles}
+          title={projectConfig.title}
+          description={projectConfig.description}
+          url={projectConfig.url}
+          linkLabel={projectConfig.linkLabel}
+          roles={projectConfig.roles}
+          ref={sectionRefs.header}
         />
-        <ProjectSection padding="top" ref={introSection}>
+        <ProjectSection padding="top" ref={sectionRefs.intro}>
           <ProjectSectionContent>
-            <ProjectImage
-              className={styles.themeImage}
-              srcSet={`${cTraderScreenShot} 800w, ${cTraderScreenShotLarge} 1920w`}
-              width={800}
-              height={500}
-              placeholder={cTraderScreenShotPlaceholder}
-              alt="Enhanced Equity Stop plugin interface showing lot size controls and cooldown features"
-              sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 90vw, 80vw`}
-            />
+            <div 
+              className={styles.themeImageWrapper}
+              onClick={() => handleImageClick(cTraderScreenShot, "Enhanced Equity Stop plugin interface showing lot size controls and cooldown features")}
+              onMouseMove={(e) => handleMouseMove(e, cTraderScreenShot)}
+              onMouseEnter={(e) => handleMouseEnter(e, cTraderScreenShot)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <ProjectImage
+                className={styles.themeImage}
+                {...createImageVariants(cTraderScreenShot, "Enhanced Equity Stop plugin interface showing lot size controls and cooldown features", { width: 800, height: 500 })}
+                sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 90vw, 80vw`}
+              />
+            </div>
             <div className={styles.captionWrapper}>
               <span className={styles.captionContent}>
                 <Icon icon="link" className={styles.captionIcon} />
@@ -145,7 +113,7 @@ export const Slice = () => {
             </div>
           </ProjectSectionContent>
         </ProjectSection>
-        <ProjectSection ref={featuresSection}>
+        <ProjectSection ref={sectionRefs.features}>
           <ProjectSectionColumns centered className={styles.columns}>
             <div className={styles.imagesText}>
               <ProjectSectionHeading>Enhanced Features</ProjectSectionHeading>
@@ -160,21 +128,53 @@ export const Slice = () => {
             </div>
             <div className={styles.sidebarImages}>
               {sidebarImages.map((img, index) => (
-                <Image
+                <div 
                   key={index}
-                  className={styles.sidebarImage}
-                  srcSet={`${img.src.small} 350w, ${img.src.large} 700w`}
-                  width={350}
-                  height={750}
-                  placeholder={img.placeholder}
-                  alt={img.alt}
-                  sizes={`(max-width: ${media.mobile}px) 200px, 343px`}
-                />
+                  className={styles.sidebarImageWrapper}
+                  onClick={() => handleImageClick(img.src, img.alt)}
+                  onMouseMove={(e) => handleMouseMove(e, img.src)}
+                  onMouseEnter={(e) => handleMouseEnter(e, img.src)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <Image
+                    className={styles.sidebarImage}
+                    {...createImageVariants(img.src, img.alt, { width: 350, height: 750 })}
+                    sizes={`(max-width: ${media.mobile}px) 200px, 343px`}
+                  />
+                </div>
               ))}
             </div>
           </ProjectSectionColumns>
         </ProjectSection>
       </ProjectContainer>
+
+      {/* Magnifier */}
+      {magnifier.isVisible && (
+        <div
+          className={styles.magnifier}
+          style={{
+            left: magnifier.x,
+            top: magnifier.y,
+            backgroundImage: `url(${magnifier.currentImage})`,
+            backgroundPosition: `${magnifier.backgroundX}% ${magnifier.backgroundY}%`,
+          }}
+        />
+      )}
+
+      {/* Modal for full-size images */}
+      {selectedImage && (
+        <Modal isOpen={!!selectedImage} onClose={() => setSelectedImage(null)}>
+          <div className={styles.modalImageContainer}>
+            <Image
+              src={selectedImage.src}
+              alt={selectedImage.alt}
+              className={styles.modalImage}
+            />
+            <p className={styles.modalCaption}>{selectedImage.alt}</p>
+          </div>
+        </Modal>
+      )}
+      
       <Footer />
     </Fragment>
   );

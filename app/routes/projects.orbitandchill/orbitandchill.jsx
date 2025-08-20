@@ -6,234 +6,137 @@ import photo4 from '~/assets/orbitandchill/photo_4_2025-08-18_18-13-46.jpg';
 import photo5 from '~/assets/orbitandchill/photo_5_2025-08-18_18-13-46.jpg';
 import photo6 from '~/assets/orbitandchill/photo_6_2025-08-18_18-13-46.jpg';
 import photo7 from '~/assets/orbitandchill/photo_7_2025-08-18_18-13-46.jpg';
-import { Footer } from '~/components/footer';
+
+import { Fragment, useState } from 'react';
 import { Image } from '~/components/image';
-import { Icon } from '~/components/icon';
+import { Footer } from '~/components/footer';
+import { Modal } from '~/components/Modal/Modal';
 import {
   ProjectBackground,
   ProjectContainer,
   ProjectHeader,
-  ProjectImage,
   ProjectSection,
   ProjectSectionColumns,
   ProjectSectionContent,
   ProjectSectionHeading,
   ProjectSectionText,
-  ProjectImageColumns,
 } from '~/layouts/project';
-import { Fragment, useRef, useState, useEffect } from 'react';
+import { createProjectMeta } from '~/components/project-template';
+import { useProjectPage } from '~/hooks/use-project-page';
+import { useMagnifier } from '~/hooks/use-magnifier';
+import { createImageVariants, createTimelineStep, createFeatureCard } from '~/utils/project-helpers';
 import { media } from '~/utils/style';
-import { baseMeta } from '~/utils/meta';
 import styles from './orbitandchill.module.css';
 
-const title = 'Orbit and Chill';
-const description =
-  'A modern astrology platform combining precise natal chart generation with community engagement. Built with Next.js 15, TypeScript, and Tailwind CSS, featuring free natal chart generation, location search, user persistence, and a comprehensive forum system with threaded discussions.';
-const roles = ['Next.js', 'TypeScript', 'TurboDB', 'Astrology'];
-
-export const meta = () => {
-  return baseMeta({ title, description, prefix: 'Projects' });
+// Project configuration
+const projectConfig = {
+  title: 'Orbit and Chill',
+  description: 'A modern astrology platform combining precise natal chart generation with community engagement. Built with Next.js 15, TypeScript, and Tailwind CSS, featuring free natal chart generation, location search, user persistence, and a comprehensive forum system with threaded discussions.',
+  roles: ['Next.js', 'TypeScript', 'TurboDB', 'Astrology'],
+  url: 'https://orbitandchill.com',
+  linkLabel: 'Visit website',
+  secondaryUrl: 'https://github.com/julesmeister/orbit-and-chill',
+  secondaryLinkLabel: 'View on Github',
+  backgroundImage: photo1,
+  sectionNames: ['header', 'intro', 'features', 'natal-chart', 'tech-stack']
 };
 
+// Timeline steps data
+const timelineSteps = [
+  createTimelineStep(1, photo7, 'Explore Tools', 'Start with our free natal chart calculator and comprehensive astrology toolkit. Access powerful features designed for both beginners and experienced practitioners.'),
+  createTimelineStep(2, photo1, 'Learn & Connect', 'Access featured articles and cosmic wisdom from astrology experts. Join our vibrant community to discuss insights and share your astrological journey.'),
+  createTimelineStep(3, photo5, 'Matrix Destiny', 'Explore matrix destiny charts using numerological calculations based on your birth date. This alternative system reveals life patterns and spiritual insights through sacred number combinations.')
+];
+
+// Advanced features data
+const advancedFeatures = [
+  createFeatureCard(4, photo6, 'Chart Interpretation', 'Unlock deep insights with comprehensive personality analysis, stellium details, and astrological meanings'),
+  createFeatureCard(5, photo4, 'Community Discussions', 'Connect with fellow astrology enthusiasts, share insights, and explore cosmic wisdom together'),
+  createFeatureCard(6, photo3, 'Optimal Timing', 'Make decisions with confidence using 24-hour planetary schedules and electional astrology guidance')
+];
+
+// Sidebar images for tech stack section
+const sidebarImages = [
+  { src: electionalImg, alt: 'Orbit and Chill: Electional astrology calendar for planning optimal timing of events' },
+  { src: photo5, alt: 'Orbit and Chill: Detailed natal chart with birth information and sharing capabilities' }
+];
+
+export const meta = createProjectMeta(projectConfig.title, projectConfig.description);
+
 export const OrbitAndChill = () => {
-  const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const { magnifier, showMagnifier, hideMagnifier, updateMagnifier } = useMagnifier();
+  const { sectionRefs } = useProjectPage(projectConfig.sectionNames);
 
-  const headerSection = useRef();
-  const introSection = useRef();
-  const featuresSection = useRef();
-  const whySection = useRef();
+  const handleImageClick = (imageSrc, alt) => {
+    setSelectedImage({ src: imageSrc, alt });
+  };
 
-  const sections = [
-    headerSection,
-    introSection,
-    featuresSection,
-    whySection,
-  ];
+  const handleMouseMove = (e, imageSrc) => {
+    updateMagnifier(e, imageSrc);
+  };
 
-  useEffect(() => {
-    if (!sections.every(section => section.current)) return;
+  const handleMouseLeave = () => {
+    hideMagnifier();
+  };
 
-    const sectionObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const section = entry.target;
-            const sectionIndex = sections.findIndex(s => s.current === section);
-
-            if (sectionIndex !== -1) {
-              setCurrentSectionIndex(sectionIndex);
-            }
-          }
-        });
-      },
-      { 
-        rootMargin: '-20% 0px -20% 0px',
-        threshold: [0, 0.25, 0.5, 0.75, 1] 
-      }
-    );
-
-    sections.forEach(section => {
-      if (section.current) {
-        sectionObserver.observe(section.current);
-      }
-    });
-
-    return () => sectionObserver.disconnect();
-  }, [sections]);
-
-  useEffect(() => {
-    const handleSectionNav = (event) => {
-      const direction = event.detail;
-      const newIndex = direction === 'up' ? currentSectionIndex - 1 : currentSectionIndex + 1;
-      
-      if (newIndex >= 0 && newIndex < sections.length) {
-        setCurrentSectionIndex(newIndex);
-        sections[newIndex].current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    };
-
-    window.addEventListener('navigate-section', handleSectionNav);
-    return () => window.removeEventListener('navigate-section', handleSectionNav);
-  }, [currentSectionIndex, sections]);
-
-  const mainImages = [
-    {
-      src: photo7,
-      alt: 'Orbit and Chill: Main landing page with free natal chart calculator and astrology tools'
-    },
-    {
-      src: photo1,
-      alt: 'Orbit and Chill: Homepage featuring astrology blog and featured articles'
-    },
-    {
-      src: photo5,
-      alt: 'Orbit and Chill: Interactive natal chart wheel with detailed astrological placements'
-    }
-  ].map(img => ({
-    srcSet: `${img.src} 800w, ${img.src} 1920w`,
-    width: 800,
-    height: 500,
-    placeholder: img.src,
-    alt: img.alt
-  }));
-
-  const featureImages = [
-    {
-      src: photo6,
-      alt: 'Orbit and Chill: Comprehensive chart interpretation with personality analysis and stellium details'
-    },
-    {
-      src: photo4,
-      alt: 'Orbit and Chill: Community forum with astrological discussions and categorized topics'
-    },
-    {
-      src: photo3,
-      alt: 'Orbit and Chill: 24-hour planetary schedule showing day and night hours for optimal timing'
-    }
-  ].map(img => ({
-    srcSet: `${img.src} 800w, ${img.src} 1920w`,
-    width: 800,
-    height: 500,
-    placeholder: img.src,
-    alt: img.alt
-  }));
-
-  const sidebarImages = [
-    {
-      src: electionalImg,
-      alt: 'Orbit and Chill: Electional astrology calendar for planning optimal timing of events'
-    },
-    {
-      src: photo5,
-      alt: 'Orbit and Chill: Detailed natal chart with birth information and sharing capabilities'
-    }
-  ];
+  const handleMouseEnter = (e, imageSrc) => {
+    showMagnifier(e, imageSrc);
+  };
 
   return (
     <Fragment>
       <ProjectContainer className={styles.orbitandchill}>
         <ProjectBackground
-          src={photo1}
-          srcSet={`${photo1} 1280w, ${photo1} 2560w`}
+          src={projectConfig.backgroundImage}
+          srcSet={`${projectConfig.backgroundImage} 1280w, ${projectConfig.backgroundImage} 2560w`}
           width={1280}
           height={800}
-          placeholder={photo1}
+          placeholder={projectConfig.backgroundImage}
           opacity={0.8}
         />
         <ProjectHeader
-          title={title}
-          description={description}
-          url="https://orbitandchill.com"
-          linkLabel="Visit website"
-          secondaryUrl="https://github.com/julesmeister/orbit-and-chill"
-          secondaryLinkLabel="View on Github"
-          roles={roles}
-          ref={headerSection}
+          title={projectConfig.title}
+          description={projectConfig.description}
+          url={projectConfig.url}
+          linkLabel={projectConfig.linkLabel}
+          secondaryUrl={projectConfig.secondaryUrl}
+          secondaryLinkLabel={projectConfig.secondaryLinkLabel}
+          roles={projectConfig.roles}
+          ref={sectionRefs.header}
         />
         
-        <ProjectSection padding="top" ref={introSection}>
+        <ProjectSection padding="top" ref={sectionRefs.intro}>
           <ProjectSectionContent>
             <div className={styles.timelineContainer}>
               <div className={styles.timelineSteps}>
-                <div className={styles.timelineStep} data-step="1">
-                  <div className={styles.timelineImage}>
-                    <div className={styles.stepNumber}>1</div>
-                    <Image
-                      srcSet={`${photo7} 600w, ${photo7} 1200w`}
-                      width={600}
-                      height={400}
-                      placeholder={photo7}
-                      alt="Start your cosmic journey with free natal chart tools"
-                      sizes="(max-width: 768px) 90vw, 45vw"
-                    />
+                {timelineSteps.map((step, index) => (
+                  <div key={index} className={styles.timelineStep} data-step={step.stepNumber}>
+                    <div 
+                      className={styles.timelineImage}
+                      onClick={() => handleImageClick(step.image, step.title)}
+                      onMouseMove={(e) => handleMouseMove(e, step.image)}
+                      onMouseEnter={(e) => handleMouseEnter(e, step.image)}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      <div className={styles.stepNumber}>{step.stepNumber}</div>
+                      <Image
+                        {...createImageVariants(step.image, step.title, { width: 600, height: 400 })}
+                        sizes="(max-width: 768px) 90vw, 45vw"
+                      />
+                    </div>
+                    <div className={styles.timelineContent}>
+                      <h3>{step.title}</h3>
+                      <p>{step.description}</p>
+                    </div>
                   </div>
-                  <div className={styles.timelineContent}>
-                    <h3>Explore Tools</h3>
-                    <p>Start with our free natal chart calculator and comprehensive astrology toolkit. Access powerful features designed for both beginners and experienced practitioners.</p>
-                  </div>
-                </div>
-                
-                <div className={styles.timelineStep} data-step="2">
-                  <div className={styles.timelineImage}>
-                    <div className={styles.stepNumber}>2</div>
-                    <Image
-                      srcSet={`${photo1} 600w, ${photo1} 1200w`}
-                      width={600}
-                      height={400}
-                      placeholder={photo1}
-                      alt="Explore featured astrology articles and cosmic insights"
-                      sizes="(max-width: 768px) 90vw, 45vw"
-                    />
-                  </div>
-                  <div className={styles.timelineContent}>
-                    <h3>Learn & Connect</h3>
-                    <p>Access featured articles and cosmic wisdom from astrology experts. Join our vibrant community to discuss insights and share your astrological journey.</p>
-                  </div>
-                </div>
-                
-                <div className={styles.timelineStep} data-step="3">
-                  <div className={styles.timelineImage}>
-                    <div className={styles.stepNumber}>3</div>
-                    <Image
-                      srcSet={`${photo5} 600w, ${photo5} 1200w`}
-                      width={600}
-                      height={400}
-                      placeholder={photo5}
-                      alt="Explore matrix destiny chart with numerological calculations"
-                      sizes="(max-width: 768px) 90vw, 45vw"
-                    />
-                  </div>
-                  <div className={styles.timelineContent}>
-                    <h3>Matrix Destiny</h3>
-                    <p>Explore matrix destiny charts using numerological calculations based on your birth date. This alternative system reveals life patterns and spiritual insights through sacred number combinations.</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </ProjectSectionContent>
         </ProjectSection>
 
-        <ProjectSection ref={featuresSection}>
+        <ProjectSection ref={sectionRefs.features}>
           <ProjectSectionContent>
             <ProjectSectionHeading>Advanced Features</ProjectSectionHeading>
             <ProjectSectionText>
@@ -242,13 +145,15 @@ export const OrbitAndChill = () => {
             <div className={styles.featureFlow}>
               <div className={styles.featureCard} data-feature="interpretation">
                 <div className={styles.featureNumber}>4</div>
-                <div className={styles.featureImageWrapper}>
+                <div 
+                  className={styles.featureImageWrapper}
+                  onClick={() => handleImageClick(photo6, "Chart Interpretation")}
+                  onMouseMove={(e) => handleMouseMove(e, photo6)}
+                  onMouseEnter={(e) => handleMouseEnter(e, photo6)}
+                  onMouseLeave={handleMouseLeave}
+                >
                   <Image
-                    srcSet={`${photo6} 500w, ${photo6} 1000w`}
-                    width={500}
-                    height={350}
-                    placeholder={photo6}
-                    alt="Comprehensive chart interpretation with personality analysis"
+                    {...createImageVariants(photo6, "Chart Interpretation", { width: 500, height: 350 })}
                     sizes="(max-width: 768px) 85vw, 40vw"
                   />
                 </div>
@@ -260,13 +165,15 @@ export const OrbitAndChill = () => {
               
               <div className={styles.featureCard} data-feature="community">
                 <div className={styles.featureNumber}>5</div>
-                <div className={styles.featureImageWrapper}>
+                <div 
+                  className={styles.featureImageWrapper}
+                  onClick={() => handleImageClick(photo4, "Community Discussions")}
+                  onMouseMove={(e) => handleMouseMove(e, photo4)}
+                  onMouseEnter={(e) => handleMouseEnter(e, photo4)}
+                  onMouseLeave={handleMouseLeave}
+                >
                   <Image
-                    srcSet={`${photo4} 500w, ${photo4} 1000w`}
-                    width={500}
-                    height={350}
-                    placeholder={photo4}
-                    alt="Join vibrant astrological discussions and community"
+                    {...createImageVariants(photo4, "Community Discussions", { width: 500, height: 350 })}
                     sizes="(max-width: 768px) 85vw, 40vw"
                   />
                 </div>
@@ -278,13 +185,15 @@ export const OrbitAndChill = () => {
               
               <div className={styles.featureCard} data-feature="timing">
                 <div className={styles.featureNumber}>6</div>
-                <div className={styles.featureImageWrapper}>
+                <div 
+                  className={styles.featureImageWrapper}
+                  onClick={() => handleImageClick(photo3, "Optimal Timing")}
+                  onMouseMove={(e) => handleMouseMove(e, photo3)}
+                  onMouseEnter={(e) => handleMouseEnter(e, photo3)}
+                  onMouseLeave={handleMouseLeave}
+                >
                   <Image
-                    srcSet={`${photo3} 500w, ${photo3} 1000w`}
-                    width={500}
-                    height={350}
-                    placeholder={photo3}
-                    alt="24-hour planetary schedule for optimal timing"
+                    {...createImageVariants(photo3, "Optimal Timing", { width: 500, height: 350 })}
                     sizes="(max-width: 768px) 85vw, 40vw"
                   />
                 </div>
@@ -297,20 +206,19 @@ export const OrbitAndChill = () => {
           </ProjectSectionContent>
         </ProjectSection>
     
-        <ProjectSection>
+        <ProjectSection ref={sectionRefs['natal-chart']}>
           <ProjectSectionContent>
             <ProjectSectionHeading>Natal Chart Generation</ProjectSectionHeading>
             <ProjectSectionText>
               At the heart of Orbit and Chill is our professional-grade natal chart generator. This comprehensive astrological chart maps the exact positions of celestial bodies at the moment of birth, providing deep insights into personality traits, life patterns, and cosmic influences.
             </ProjectSectionText>
-            <div className={styles.natalChartContainer}>
+            <div 
+              className={styles.natalChartContainer}
+              onClick={() => handleImageClick(natalChartImg, "Professional natal chart showing planetary positions, houses, and astrological aspects")}
+            >
               <Image
                 className={styles.natalChart}
-                srcSet={`${natalChartImg} 800w, ${natalChartImg} 1600w`}
-                width={800}
-                height={600}
-                placeholder={natalChartImg}
-                alt="Professional natal chart showing planetary positions, houses, and astrological aspects"
+                {...createImageVariants(natalChartImg, "Professional natal chart showing planetary positions, houses, and astrological aspects", { width: 800, height: 600 })}
                 sizes="(max-width: 768px) 95vw, 80vw"
               />
             </div>
@@ -320,7 +228,7 @@ export const OrbitAndChill = () => {
           </ProjectSectionContent>
         </ProjectSection>
         
-        <ProjectSection ref={whySection}>
+        <ProjectSection ref={sectionRefs['tech-stack']}>
           <ProjectSectionColumns centered className={styles.columns}>
             <div className={styles.imagesText}>
               <ProjectSectionHeading>Technology Stack</ProjectSectionHeading>
@@ -333,21 +241,54 @@ export const OrbitAndChill = () => {
             </div>
             <div className={styles.sidebarImages}>
               {sidebarImages.map((img, index) => (
-                <Image
+                <div 
                   key={index}
-                  className={styles.sidebarImage}
-                  srcSet={`${img.src} 350w, ${img.src} 700w`}
-                  width={350}
-                  height={750}
-                  placeholder={img.src}
-                  alt={img.alt}
-                  sizes={`(max-width: ${media.mobile}px) 200px, 343px`}
-                />
+                  className={styles.sidebarImageWrapper}
+                  onClick={() => handleImageClick(img.src, img.alt)}
+                  onMouseMove={(e) => handleMouseMove(e, img.src)}
+                  onMouseEnter={(e) => handleMouseEnter(e, img.src)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <Image
+                    className={styles.sidebarImage}
+                    {...createImageVariants(img.src, img.alt, { width: 350, height: 750 })}
+                    sizes={`(max-width: ${media.mobile}px) 200px, 343px`}
+                  />
+                </div>
               ))}
             </div>
           </ProjectSectionColumns>
         </ProjectSection>
       </ProjectContainer>
+
+
+      {/* Magnifier */}
+      {magnifier.isVisible && (
+        <div
+          className={styles.magnifier}
+          style={{
+            left: magnifier.x,
+            top: magnifier.y,
+            backgroundImage: `url(${magnifier.currentImage})`,
+            backgroundPosition: `${magnifier.backgroundX}% ${magnifier.backgroundY}%`,
+          }}
+        />
+      )}
+
+      {/* Modal for full-size images */}
+      {selectedImage && (
+        <Modal isOpen={!!selectedImage} onClose={() => setSelectedImage(null)}>
+          <div className={styles.modalImageContainer}>
+            <Image
+              src={selectedImage.src}
+              alt={selectedImage.alt}
+              className={styles.modalImage}
+            />
+            <p className={styles.modalCaption}>{selectedImage.alt}</p>
+          </div>
+        </Modal>
+      )}
+      
       <Footer />
     </Fragment>
   );

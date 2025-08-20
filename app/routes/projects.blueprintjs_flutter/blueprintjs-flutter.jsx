@@ -1,298 +1,139 @@
-import homeLarge from '~/assets/blueprintjs_flutter/home.png';
-import homePlaceholder from '~/assets/blueprintjs_flutter/home.png';
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+// Import all images using the new utility
+import homeDesktop from '~/assets/blueprintjs_flutter/home-desktop.png';
 import home from '~/assets/blueprintjs_flutter/home.png';
-import cardsLarge from '~/assets/blueprintjs_flutter/cards.png';
-import cardsPlaceholder from '~/assets/blueprintjs_flutter/cards.png';
 import cards from '~/assets/blueprintjs_flutter/cards.png';
-import colorsLarge from '~/assets/blueprintjs_flutter/colors.png';
-import colorsPlaceholder from '~/assets/blueprintjs_flutter/colors.png';
 import colors from '~/assets/blueprintjs_flutter/colors.png';
-import dialogLarge from '~/assets/blueprintjs_flutter/dialog.png';
-import dialogPlaceholder from '~/assets/blueprintjs_flutter/dialog.png';
 import dialog from '~/assets/blueprintjs_flutter/dialog.png';
-import form1Large from '~/assets/blueprintjs_flutter/form1.png';
-import form1Placeholder from '~/assets/blueprintjs_flutter/form1.png';
 import form1 from '~/assets/blueprintjs_flutter/form1.png';
-import form2Large from '~/assets/blueprintjs_flutter/form2.png';
-import form2Placeholder from '~/assets/blueprintjs_flutter/form2.png';
 import form2 from '~/assets/blueprintjs_flutter/form2.png';
-import popoversLarge from '~/assets/blueprintjs_flutter/popovers.png';
-import popoversPlaceholder from '~/assets/blueprintjs_flutter/popovers.png';
 import popovers from '~/assets/blueprintjs_flutter/popovers.png';
-import progressBarsLarge from '~/assets/blueprintjs_flutter/progress-bars.png';
-import progressBarsPlaceholder from '~/assets/blueprintjs_flutter/progress-bars.png';
 import progressBars from '~/assets/blueprintjs_flutter/progress-bars.png';
-import tableLarge from '~/assets/blueprintjs_flutter/table.png';
-import tablePlaceholder from '~/assets/blueprintjs_flutter/table.png';
 import table from '~/assets/blueprintjs_flutter/table.png';
-import tagsLarge from '~/assets/blueprintjs_flutter/tags.png';
-import tagsPlaceholder from '~/assets/blueprintjs_flutter/tags.png';
 import tags from '~/assets/blueprintjs_flutter/tags.png';
-import treeLarge from '~/assets/blueprintjs_flutter/tree.png';
-import treePlaceholder from '~/assets/blueprintjs_flutter/tree.png';
 import tree from '~/assets/blueprintjs_flutter/tree.png';
-import navbarLarge from '~/assets/blueprintjs_flutter/navbar.png';
-import navbarPlaceholder from '~/assets/blueprintjs_flutter/navbar.png';
 import navbar from '~/assets/blueprintjs_flutter/navbar.png';
-import { Footer } from '~/components/footer';
+
+import { Fragment, useState } from 'react';
 import { Image } from '~/components/image';
 import { Icon } from '~/components/icon';
+import { Modal } from '~/components/Modal/Modal';
 import {
   ProjectBackground,
   ProjectContainer,
   ProjectHeader,
-  ProjectImage,
   ProjectSection,
   ProjectSectionColumns,
   ProjectSectionContent,
   ProjectSectionHeading,
   ProjectSectionText,
-  ProjectImageColumns,
 } from '~/layouts/project';
-import { Fragment, useRef, useState, useEffect } from 'react';
-import { media } from '~/utils/style';
-import { baseMeta } from '~/utils/meta';
+import { ProjectTemplate, createProjectMeta } from '~/components/project-template';
+import { useProjectPage } from '~/hooks/use-project-page';
+import { useMagnifier } from '~/hooks/use-magnifier';
+import { createImageVariants, createTimelineStep } from '~/utils/project-helpers';
 import styles from './blueprintjs-flutter.module.css';
 
-const title = 'Blueprint Flutter Components';
-const description =
-  'A comprehensive Flutter implementation of the Blueprint.js design system. This open-source library recreates Blueprint\'s core components and design language for Flutter applications, featuring 26+ components with pixel-perfect design fidelity and faithful Blueprint.js interactions.';
-const roles = ['Flutter', 'Dart', 'Custom Components', 'Open Source'];
-
-export const meta = () => {
-  return baseMeta({ title, description, prefix: 'Projects' });
+// Project configuration
+const projectConfig = {
+  title: 'Blueprint Flutter Components',
+  description: 'A comprehensive Flutter implementation of the Blueprint.js design system. This open-source library recreates Blueprint\'s core components and design language for Flutter applications, featuring 26+ components with pixel-perfect design fidelity and faithful Blueprint.js interactions.',
+  roles: ['Flutter', 'Dart', 'Custom Components', 'Open Source'],
+  url: 'https://github.com/julesmeister/blueprintjs_flutter',
+  linkLabel: 'View on GitHub',
+  backgroundImage: homeDesktop,
+  sectionNames: ['header', 'intro', 'components', 'features']
 };
 
+// Timeline data with images
+const timelineSteps = [
+  createTimelineStep(1, home, 'Explore Components', 'Start with our comprehensive library of 26+ Flutter components that faithfully recreate the Blueprint.js design system. Each component maintains pixel-perfect styling and interactions.'),
+  createTimelineStep(2, cards, 'Interactive Elements', 'Build engaging interfaces with interactive cards, buttons, and navigation components. All components support intent-based theming and Flutter best practices.'),
+  createTimelineStep(3, form1, 'Form Controls', 'Create powerful forms with Blueprint\'s signature input fields, checkboxes, radio buttons, and select dropdowns, all with consistent styling and validation states.')
+];
+
+// Sidebar images for the last section
+const sidebarImages = [
+  { src: colors, alt: 'Blueprint Flutter: Complete color palette and theme system with Blueprint.js fidelity.' },
+  { src: table, alt: 'Blueprint Flutter: Data tables with sorting, selection, and perfect alignment.' }
+];
+
+export const meta = createProjectMeta(projectConfig.title, projectConfig.description);
+
 export const BlueprintjsFlutter = () => {
-  const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
   const [selectedImage, setSelectedImage] = useState(null);
-  const [magnifier, setMagnifier] = useState({
-    isVisible: false,
-    x: 0,
-    y: 0,
-    backgroundX: 0,
-    backgroundY: 0,
-    currentImage: null
-  });
-
-  const headerSection = useRef();
-  const introSection = useRef();
-  const componentsSection = useRef();
-  const featuresSection = useRef();
-
-  const sections = [
-    headerSection,
-    introSection,
-    componentsSection,
-    featuresSection,
-  ];
-
-  useEffect(() => {
-    if (!sections.every(section => section.current)) return;
-
-    const sectionObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const section = entry.target;
-            const sectionIndex = sections.findIndex(s => s.current === section);
-
-            if (sectionIndex !== -1) {
-              setCurrentSectionIndex(sectionIndex);
-            }
-          }
-        });
-      },
-      { 
-        rootMargin: '-20% 0px -20% 0px',
-        threshold: [0, 0.25, 0.5, 0.75, 1] 
-      }
-    );
-
-    sections.forEach(section => {
-      if (section.current) {
-        sectionObserver.observe(section.current);
-      }
-    });
-
-    return () => sectionObserver.disconnect();
-  }, [sections]);
-
-  useEffect(() => {
-    const handleSectionNav = (event) => {
-      const direction = event.detail;
-      const newIndex = direction === 'up' ? currentSectionIndex - 1 : currentSectionIndex + 1;
-      
-      if (newIndex >= 0 && newIndex < sections.length) {
-        setCurrentSectionIndex(newIndex);
-        sections[newIndex].current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    };
-
-    window.addEventListener('navigate-section', handleSectionNav);
-    return () => window.removeEventListener('navigate-section', handleSectionNav);
-  }, [currentSectionIndex, sections]);
-
-  const sidebarImages = [
-    {
-      src: colorsLarge,
-      alt: "Blueprint Flutter: Complete color palette and theme system with Blueprint.js fidelity."
-    },
-    {
-      src: tableLarge,
-      alt: "Blueprint Flutter: Data tables with sorting, selection, and perfect alignment."
-    }
-  ];
+  const { magnifier, showMagnifier, hideMagnifier, updateMagnifier } = useMagnifier();
+  const { sectionRefs } = useProjectPage(projectConfig.sectionNames);
 
   const handleImageClick = (imageSrc, alt) => {
     setSelectedImage({ src: imageSrc, alt });
   };
 
-  const handleCloseModal = () => {
-    setSelectedImage(null);
-  };
-
-  const handleMouseMove = (e, imageSrc, largeImageSrc = null) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    const backgroundX = (x / rect.width) * 100;
-    const backgroundY = (y / rect.height) * 100;
-    
-    // Use the large version for magnification if available
-    const magnifyImage = largeImageSrc || imageSrc;
-    
-    setMagnifier({
-      isVisible: true,
-      x: e.clientX,
-      y: e.clientY,
-      backgroundX,
-      backgroundY,
-      currentImage: magnifyImage
-    });
+  const handleMouseMove = (e, imageSrc) => {
+    updateMagnifier(e, imageSrc);
   };
 
   const handleMouseLeave = () => {
-    setMagnifier(prev => ({ ...prev, isVisible: false }));
+    hideMagnifier();
   };
 
-  useEffect(() => {
-    const handleEscape = (e) => {
-      if (e.key === 'Escape') {
-        setSelectedImage(null);
-      }
-    };
-
-    if (selectedImage) {
-      document.addEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'hidden';
-    }
-
-    return () => {
-      document.removeEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'unset';
-    };
-  }, [selectedImage]);
+  const handleMouseEnter = (e, imageSrc) => {
+    showMagnifier(e, imageSrc);
+  };
 
   return (
     <Fragment>
       <ProjectContainer className={styles.blueprintFlutter}>
         <ProjectBackground
-          src={homeLarge}
-          srcSet={`${homeLarge} 1280w, ${homeLarge} 2560w`}
+          src={projectConfig.backgroundImage}
+          srcSet={`${projectConfig.backgroundImage} 1280w, ${projectConfig.backgroundImage} 2560w`}
           width={1280}
           height={800}
-          placeholder={homePlaceholder}
+          placeholder={projectConfig.backgroundImage}
           opacity={0.8}
         />
         <ProjectHeader
-          title={title}
-          description={description}
-          url="https://github.com/julesmeister/blueprintjs_flutter"
-          linkLabel="View on GitHub"
-          roles={roles}
-          ref={headerSection}
+          title={projectConfig.title}
+          description={projectConfig.description}
+          url={projectConfig.url}
+          linkLabel={projectConfig.linkLabel}
+          roles={projectConfig.roles}
+          ref={sectionRefs.header}
         />
         
-        <ProjectSection padding="top" ref={introSection}>
+        <ProjectSection padding="top" ref={sectionRefs.intro}>
           <ProjectSectionContent>
             <div className={styles.timelineContainer}>
               <div className={styles.timelineSteps}>
-                <div className={styles.timelineStep} data-step="1">
-                  <div className={styles.stepNumber}>1</div>
-                  <div 
-                    className={styles.timelineImage} 
-                    onClick={() => handleImageClick(home, "Comprehensive component gallery with 26+ Flutter components")}
-                    onMouseMove={(e) => handleMouseMove(e, home, home)}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <Image
-                      srcSet={`${home} 600w, ${home} 1200w`}
-                      width={600}
-                      height={400}
-                      placeholder={home}
-                      alt="Comprehensive component gallery with 26+ Flutter components"
-                      sizes="(max-width: 768px) 90vw, 45vw"
-                    />
+                {timelineSteps.map((step, index) => (
+                  <div key={index} className={styles.timelineStep} data-step={step.stepNumber}>
+                    <div className={styles.stepNumber}>{step.stepNumber}</div>
+                    <div 
+                      className={styles.timelineImage} 
+                      onClick={() => handleImageClick(step.image, step.title)}
+                      onMouseMove={(e) => handleMouseMove(e, step.image)}
+                      onMouseEnter={(e) => handleMouseEnter(e, step.image)}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      <Image
+                        {...createImageVariants(step.image, step.title, { width: 600, height: 400 })}
+                        sizes="(max-width: 768px) 90vw, 45vw"
+                      />
+                    </div>
+                    <div className={styles.timelineContent}>
+                      <h3>{step.title}</h3>
+                      <p>{step.description}</p>
+                    </div>
                   </div>
-                  <div className={styles.timelineContent}>
-                    <h3>Explore Components</h3>
-                    <p>Start with our comprehensive library of 26+ Flutter components that faithfully recreate the Blueprint.js design system. Each component maintains pixel-perfect styling and interactions.</p>
-                  </div>
-                </div>
-                
-                <div className={styles.timelineStep} data-step="2">
-                  <div className={styles.stepNumber}>2</div>
-                  <div 
-                    className={styles.timelineImage} 
-                    onClick={() => handleImageClick(cards, "Interactive cards with elevation, hover effects, and Blueprint styling")}
-                    onMouseMove={(e) => handleMouseMove(e, cards, cards)}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <Image
-                      srcSet={`${cards} 600w, ${cards} 1200w`}
-                      width={600}
-                      height={400}
-                      placeholder={cards}
-                      alt="Interactive cards with elevation, hover effects, and Blueprint styling"
-                      sizes="(max-width: 768px) 90vw, 45vw"
-                    />
-                  </div>
-                  <div className={styles.timelineContent}>
-                    <h3>Interactive Elements</h3>
-                    <p>Build engaging interfaces with interactive cards, buttons, and navigation components. All components support intent-based theming and Flutter best practices.</p>
-                  </div>
-                </div>
-                
-                <div className={styles.timelineStep} data-step="3">
-                  <div className={styles.stepNumber}>3</div>
-                  <div 
-                    className={styles.timelineImage} 
-                    onClick={() => handleImageClick(form1, "Form controls with input fields, checkboxes, and select components")}
-                    onMouseMove={(e) => handleMouseMove(e, form1, form1)}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <Image
-                      srcSet={`${form1} 600w, ${form1} 1200w`}
-                      width={600}
-                      height={400}
-                      placeholder={form1}
-                      alt="Form controls with input fields, checkboxes, and select components"
-                      sizes="(max-width: 768px) 90vw, 45vw"
-                    />
-                  </div>
-                  <div className={styles.timelineContent}>
-                    <h3>Form Controls</h3>
-                    <p>Create powerful forms with Blueprint's signature input fields, checkboxes, radio buttons, and select dropdowns, all with consistent styling and validation states.</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </ProjectSectionContent>
         </ProjectSection>
 
-        <ProjectSection ref={componentsSection}>
+        <ProjectSection ref={sectionRefs.components}>
           <ProjectSectionContent>
             <ProjectSectionHeading>Advanced Components</ProjectSectionHeading>
             <ProjectSectionText>
@@ -302,17 +143,14 @@ export const BlueprintjsFlutter = () => {
               <div className={styles.featureCard} data-feature="dialogs">
                 <div className={styles.featureNumber}>4</div>
                 <div 
-                  className={styles.featureImageWrapper} 
+                  className={styles.featureImageWrapper}
                   onClick={() => handleImageClick(dialog, "Modal dialogs with perfect header alignment and Blueprint styling")}
-                  onMouseMove={(e) => handleMouseMove(e, dialog, dialog)}
+                  onMouseMove={(e) => handleMouseMove(e, dialog)}
+                  onMouseEnter={(e) => handleMouseEnter(e, dialog)}
                   onMouseLeave={handleMouseLeave}
                 >
                   <Image
-                    srcSet={`${dialog} 500w, ${dialog} 1000w`}
-                    width={500}
-                    height={350}
-                    placeholder={dialog}
-                    alt="Modal dialogs with perfect header alignment and Blueprint styling"
+                    {...createImageVariants(dialog, "Modal dialogs with perfect header alignment and Blueprint styling", { width: 500, height: 350 })}
                     sizes="(max-width: 768px) 85vw, 40vw"
                   />
                 </div>
@@ -325,17 +163,14 @@ export const BlueprintjsFlutter = () => {
               <div className={styles.featureCard} data-feature="data">
                 <div className={styles.featureNumber}>5</div>
                 <div 
-                  className={styles.featureImageWrapper} 
+                  className={styles.featureImageWrapper}
                   onClick={() => handleImageClick(table, "Data tables with sorting, selection, and perfect alignment")}
-                  onMouseMove={(e) => handleMouseMove(e, table, table)}
+                  onMouseMove={(e) => handleMouseMove(e, table)}
+                  onMouseEnter={(e) => handleMouseEnter(e, table)}
                   onMouseLeave={handleMouseLeave}
                 >
                   <Image
-                    srcSet={`${table} 500w, ${table} 1000w`}
-                    width={500}
-                    height={350}
-                    placeholder={table}
-                    alt="Data tables with sorting, selection, and perfect alignment"
+                    {...createImageVariants(table, "Data tables with sorting, selection, and perfect alignment", { width: 500, height: 350 })}
                     sizes="(max-width: 768px) 85vw, 40vw"
                   />
                 </div>
@@ -348,17 +183,14 @@ export const BlueprintjsFlutter = () => {
               <div className={styles.featureCard} data-feature="navigation">
                 <div className={styles.featureNumber}>6</div>
                 <div 
-                  className={styles.featureImageWrapper} 
+                  className={styles.featureImageWrapper}
                   onClick={() => handleImageClick(navbar, "Navigation bars with groups, alignments, and Blueprint styling")}
-                  onMouseMove={(e) => handleMouseMove(e, navbar, navbar)}
+                  onMouseMove={(e) => handleMouseMove(e, navbar)}
+                  onMouseEnter={(e) => handleMouseEnter(e, navbar)}
                   onMouseLeave={handleMouseLeave}
                 >
                   <Image
-                    srcSet={`${navbar} 500w, ${navbar} 1000w`}
-                    width={500}
-                    height={350}
-                    placeholder={navbar}
-                    alt="Navigation bars with groups, alignments, and Blueprint styling"
+                    {...createImageVariants(navbar, "Navigation bars with groups, alignments, and Blueprint styling", { width: 500, height: 350 })}
                     sizes="(max-width: 768px) 85vw, 40vw"
                   />
                 </div>
@@ -370,8 +202,8 @@ export const BlueprintjsFlutter = () => {
             </div>
           </ProjectSectionContent>
         </ProjectSection>
-    
-        <ProjectSection ref={featuresSection}>
+
+        <ProjectSection ref={sectionRefs.features}>
           <ProjectSectionColumns centered className={styles.columns}>
             <div className={styles.imagesText}>
               <ProjectSectionHeading>Design System Fidelity</ProjectSectionHeading>
@@ -386,19 +218,16 @@ export const BlueprintjsFlutter = () => {
               {sidebarImages.map((img, index) => (
                 <div 
                   key={index} 
-                  className={styles.sidebarImageWrapper} 
+                  className={styles.sidebarImageWrapper}
                   onClick={() => handleImageClick(img.src, img.alt)}
-                  onMouseMove={(e) => handleMouseMove(e, img.src, img.src)}
+                  onMouseMove={(e) => handleMouseMove(e, img.src)}
+                  onMouseEnter={(e) => handleMouseEnter(e, img.src)}
                   onMouseLeave={handleMouseLeave}
                 >
                   <Image
                     className={styles.sidebarImage}
-                    srcSet={`${img.src} 350w, ${img.src} 700w`}
-                    width={350}
-                    height={750}
-                    placeholder={img.src}
-                    alt={img.alt}
-                    sizes={`(max-width: ${media.mobile}px) 200px, 343px`}
+                    {...createImageVariants(img.src, img.alt, { width: 350, height: 750 })}
+                    sizes="(max-width: 768px) 200px, 343px"
                   />
                 </div>
               ))}
@@ -406,40 +235,33 @@ export const BlueprintjsFlutter = () => {
           </ProjectSectionColumns>
         </ProjectSection>
       </ProjectContainer>
-      
-      {/* Image Modal */}
+
+      {/* Magnifier */}
+      {magnifier.isVisible && (
+        <div
+          className={styles.magnifier}
+          style={{
+            left: magnifier.x,
+            top: magnifier.y,
+            backgroundImage: `url(${magnifier.currentImage})`,
+            backgroundPosition: `${magnifier.backgroundX}% ${magnifier.backgroundY}%`,
+          }}
+        />
+      )}
+
+      {/* Modal for full-size images */}
       {selectedImage && (
-        <div className={styles.modal} onClick={handleCloseModal}>
-          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-            <button className={styles.closeButton} onClick={handleCloseModal}>
-              ×
-            </button>
+        <Modal isOpen={!!selectedImage} onClose={() => setSelectedImage(null)}>
+          <div className={styles.modalImageContainer}>
             <Image
               src={selectedImage.src}
               alt={selectedImage.alt}
-              width={1200}
-              height={800}
               className={styles.modalImage}
             />
             <p className={styles.modalCaption}>{selectedImage.alt}</p>
           </div>
-        </div>
+        </Modal>
       )}
-      
-      {/* Magnifying Glass */}
-      {magnifier.isVisible && (
-        <div 
-          className={styles.magnifier}
-          style={{
-            left: magnifier.x - 90,
-            top: magnifier.y - 90,
-            backgroundImage: `url(${magnifier.currentImage})`,
-            backgroundPosition: `${magnifier.backgroundX}% ${magnifier.backgroundY}%`
-          }}
-        />
-      )}
-      
-      <Footer />
     </Fragment>
   );
 };
