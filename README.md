@@ -9,6 +9,42 @@
 
 A customized version of Hamish Williams' design portfolio. Built with [Remix](https://remix.run/), [Three.js](https://threejs.org/), and [Framer Motion](https://www.framer.com/motion/). View the [live site](https://julesmeister.pages.dev) or check out a live version of the [components storybook](https://storybook.hamishw.com).
 
+## Project Structure
+
+```
+app/
+├── components/           # Reusable UI components
+│   ├── button/
+│   ├── model/           # 3D model components
+│   ├── carousel/
+│   └── ...
+├── routes/              # Remix route components
+│   ├── home/
+│   │   ├── home.jsx           # Main home page (refactored)
+│   │   ├── projects-data.js   # Centralized project data
+│   │   ├── project-summary.jsx
+│   │   └── project-grid.jsx
+│   ├── projects.*/      # Individual project pages
+│   └── ...
+├── hooks/               # Custom React hooks
+│   ├── use-home-page.js      # Home page logic hook
+│   ├── useScrollToHash.js
+│   └── ...
+├── utils/               # Utility functions
+│   ├── intersection-observers.js  # Reusable observer factories
+│   ├── ref-management.js         # Dynamic ref utilities
+│   ├── navigation.js            # Navigation handlers
+│   ├── home-observers.js        # Home-specific observer logic
+│   ├── three.js                 # Three.js utilities
+│   └── ...
+├── contexts/            # React contexts
+│   └── view-context.jsx      # View mode switching
+└── assets/              # Static assets
+    ├── blueprintjs_flutter/  # Blueprint Flutter project assets
+    ├── orbitandchill/       # Orbit and Chill project assets
+    └── ...
+```
+
 ## Credit
 
 The original design and implementation of this portfolio was created by [Hamish Williams](https://github.com/HamishMW). I've modified the content and some functionality while keeping the core design intact. All credit for the design system, animations, and overall aesthetic goes to Hamish.
