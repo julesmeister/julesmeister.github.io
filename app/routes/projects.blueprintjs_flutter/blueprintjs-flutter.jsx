@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -9,6 +10,7 @@ import colors from '~/assets/blueprintjs_flutter/colors.png';
 import dialog from '~/assets/blueprintjs_flutter/dialog.png';
 import form1 from '~/assets/blueprintjs_flutter/form1.png';
 import form2 from '~/assets/blueprintjs_flutter/form2.png';
+// eslint-disable-next-line no-unused-vars
 import popovers from '~/assets/blueprintjs_flutter/popovers.png';
 import progressBars from '~/assets/blueprintjs_flutter/progress-bars.png';
 import table from '~/assets/blueprintjs_flutter/table.png';

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
 import sweldoHomeLarge from '~/assets/Sweldo-Home-Cut.png';
 import sweldoHomePlaceholder from '~/assets/Sweldo-Home-Cut.png';
