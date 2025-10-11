@@ -1,6 +1,6 @@
 import config from '~/config.json';
 
-const { name, url, twitter } = config;
+const { name, url, twitter, disciplines } = config;
 const defaultOgImage = `${url}/social-image.png`;
 
 export function baseMeta({
@@ -10,10 +10,12 @@ export function baseMeta({
   ogImage = defaultOgImage,
 }) {
   const titleText = [prefix, title].filter(Boolean).join(' | ');
+  const keywords = `${name}, ${disciplines.join(', ')}, full-stack developer, web developer, mobile developer, portfolio, UI/UX, TypeScript, JavaScript, Next.js, Expo, Flutter, FlutterFlow`;
 
   return [
     { title: titleText },
     { name: 'description', content: description },
+    { name: 'keywords', content: keywords },
     { name: 'author', content: name },
     { property: 'og:image', content: ogImage },
     { property: 'og:image:alt', content: 'Banner for the site' },

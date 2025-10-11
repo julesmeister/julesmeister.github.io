@@ -13,36 +13,96 @@ A customized version of Hamish Williams' design portfolio. Built with [Remix](ht
 
 ```
 app/
-├── components/           # Reusable UI components
-│   ├── button/
-│   ├── model/           # 3D model components
-│   ├── carousel/
+├── components/              # Reusable UI components
+│   ├── button/             # Button component with variants
+│   ├── carousel/           # Image carousel
+│   ├── code/               # Code snippet display
+│   ├── decoder-text/       # Animated text decoder effect
+│   ├── divider/            # Section divider
+│   ├── footer/             # Site footer
+│   ├── heading/            # Typography headings
+│   ├── icon/               # Icon system
+│   ├── image/              # Optimized image component
+│   ├── input/              # Form inputs and text areas
+│   ├── link/               # Navigation links
+│   ├── list/               # List components
+│   ├── loader/             # Loading indicators
+│   ├── Modal/              # Modal dialog
+│   ├── model/              # 3D model viewer with device frames
+│   ├── monogram/           # Logo/monogram component
+│   ├── progress/           # Progress indicators
+│   ├── project-template/   # Shared project page template
+│   ├── section/            # Page section wrapper
+│   ├── segmented-control/  # Segmented control (view switcher)
+│   ├── subheading/         # Section subheadings
+│   ├── table/              # Data tables
+│   ├── text/               # Text components
+│   ├── theme-provider/     # Theme context and utilities
+│   ├── transition/         # Page transition animations
+│   └── visually-hidden/    # Screen reader accessibility
+│
+├── routes/                 # Remix route components
+│   ├── home/              # Home page
+│   │   ├── home.jsx              # Main page component
+│   │   ├── intro.jsx             # Hero section
+│   │   ├── profile.jsx           # About/profile section
+│   │   ├── project-summary.jsx   # Scroll view project cards
+│   │   ├── project-grid.jsx      # Grid view project cards
+│   │   ├── projects-data.js      # Centralized project data
+│   │   ├── section-nav.jsx       # Navigation between sections
+│   │   ├── tickets-skills.jsx    # Skills/tech stack display
+│   │   └── *.module.css          # Component styles
+│   │
+│   ├── articles/          # Blog/articles section
+│   │   └── _index/
+│   │
+│   ├── contact/           # Contact form
+│   │
+│   ├── uses/              # Tech stack/tools page
+│   │
+│   └── projects.*/        # Individual project pages
+│       ├── projects.airlineCrewScheduling/
+│       ├── projects.blueprintjs_flutter/
+│       ├── projects.cTrader/
+│       ├── projects.lotel/
+│       ├── projects.orbitandchill/
+│       ├── projects.sweldo/
+│       └── projects.testmanship/
+│
+├── hooks/                 # Custom React hooks
+│   ├── use-home-page.js          # Home page scroll/view logic
+│   ├── use-project-page.js       # Project page logic
+│   ├── use-magnifier.js          # Image magnifier functionality
+│   ├── useScrollToHash.js        # Hash navigation
+│   ├── useInViewport.js          # Viewport intersection
+│   ├── useParallax.js            # Parallax effects
+│   ├── useFormInput.js           # Form input handling
+│   ├── useWindowSize.js          # Responsive utilities
 │   └── ...
-├── routes/              # Remix route components
-│   ├── home/
-│   │   ├── home.jsx           # Main home page (refactored)
-│   │   ├── projects-data.js   # Centralized project data
-│   │   ├── project-summary.jsx
-│   │   └── project-grid.jsx
-│   ├── projects.*/      # Individual project pages
-│   └── ...
-├── hooks/               # Custom React hooks
-│   ├── use-home-page.js      # Home page logic hook
-│   ├── useScrollToHash.js
-│   └── ...
-├── utils/               # Utility functions
+│
+├── utils/                 # Utility functions
 │   ├── intersection-observers.js  # Reusable observer factories
 │   ├── ref-management.js         # Dynamic ref utilities
-│   ├── navigation.js            # Navigation handlers
-│   ├── home-observers.js        # Home-specific observer logic
-│   ├── three.js                 # Three.js utilities
+│   ├── navigation.js             # Navigation handlers
+│   ├── home-observers.js         # Home-specific observer logic
+│   ├── project-helpers.js        # Project page utilities
+│   ├── three.js                  # Three.js utilities
+│   ├── image.js                  # Image processing
+│   ├── image-imports.js          # Dynamic image imports
+│   ├── meta.js                   # SEO meta tags
+│   ├── mdx.js                    # MDX processing
 │   └── ...
-├── contexts/            # React contexts
-│   └── view-context.jsx      # View mode switching
-└── assets/              # Static assets
-    ├── blueprintjs_flutter/  # Blueprint Flutter project assets
-    ├── orbitandchill/       # Orbit and Chill project assets
-    └── ...
+│
+├── contexts/              # React contexts
+│   └── view-context.jsx          # View mode switching (grid/scroll)
+│
+├── assets/                # Static assets
+│   ├── blueprintjs_flutter/      # Blueprint Flutter project assets
+│   ├── orbitandchill/            # Orbit and Chill project assets
+│   └── fonts/                    # Custom fonts
+│
+├── config.json            # Site configuration
+└── global.module.css      # Global styles
 ```
 
 ## Credit

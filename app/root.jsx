@@ -101,6 +101,20 @@ export default function App() {
     );
   }, []);
 
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: config.name,
+    url: config.url,
+    jobTitle: 'Full-Stack Developer',
+    description: 'Full-stack developer specializing in React, Flutter, React Native, and Salesforce',
+    knowsAbout: config.disciplines,
+    sameAs: [
+      `https://github.com/${config.github}`,
+      `https://linkedin.com/in/${config.linkedin}`,
+    ],
+  };
+
   return (
     <html lang="en">
       <head>
@@ -111,6 +125,10 @@ export default function App() {
         <meta
           name="color-scheme"
           content={theme === 'light' ? 'light dark' : 'dark light'}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
         <style dangerouslySetInnerHTML={{ __html: themeStyles }} />
         <Meta />

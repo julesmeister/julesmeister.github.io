@@ -132,6 +132,12 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   box-shadow: 0 4px 12px color-mix(in lab, var(--accent) 40%, transparent);
+  transition: all 0.3s ease;
+
+  .projectCard:hover & {
+    background: var(--background);
+    color: var(--accent);
+  }
 }
 
 .cardContent {
@@ -174,17 +180,24 @@
   border-radius: 12px;
   font-size: 0.75rem;
   font-weight: 500;
-  
+  transition: all 0.3s ease;
+
   .regular & {
     background: color-mix(in lab, var(--textBody) 8%, transparent);
     color: var(--textBody);
     border: 1px solid color-mix(in lab, var(--textBody) 15%, transparent);
   }
-  
+
   .featured & {
     background: color-mix(in lab, var(--accent) 10%, transparent);
     color: var(--accent);
     border: 1px solid color-mix(in lab, var(--accent) 20%, transparent);
+  }
+
+  .projectCard:hover.featured & {
+    background: var(--background);
+    color: var(--accent);
+    border-color: var(--background);
   }
 }
 

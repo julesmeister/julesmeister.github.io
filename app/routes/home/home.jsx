@@ -34,7 +34,7 @@ export const links = () => {
 export const meta = () => {
   return baseMeta({
     title: 'Developer + React',
-    description: `Design portfolio of ${config.name} — a developer working on web & mobile apps.`,
+    description: `${config.name} — Full-stack developer specializing in React, Flutter, React Native, and Salesforce. Explore my portfolio featuring modern web & mobile applications including Orbit and Chill (Next.js 15 astrology platform), Blueprint.js Flutter, and enterprise solutions. Expert in TypeScript, responsive design, and 3D web experiences.`,
   });
 };
 
