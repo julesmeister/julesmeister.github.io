@@ -36,7 +36,7 @@ import styles from './testmanshipwebv2.module.css';
 // Project configuration
 const projectConfig = {
   title: 'Testmanship Web V2',
-  description: 'A modern German language learning platform built with Next.js 15, featuring AI-powered flashcards with spaced-repetition algorithms, comprehensive writing exercises with 165+ prompts, live voice sessions for real-time practice, and a powerful teacher dashboard for monitoring student progress across CEFR levels A1-C2.',
+  description: 'A modern German language learning platform built with Next.js 15, featuring spaced-repetition flashcards across 24 vocabulary categories, comprehensive writing exercises with 165+ prompts, live voice sessions for real-time practice, and a powerful teacher dashboard for monitoring student progress across CEFR levels A1-C2.',
   roles: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Firebase', 'Framer Motion'],
   url: 'https://github.com/julesmeister/testmanship-web-v2',
   linkLabel: 'View on GitHub',

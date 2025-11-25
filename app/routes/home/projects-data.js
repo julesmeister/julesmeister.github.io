@@ -37,7 +37,8 @@ export const projectsData = [
   {
     id: 'testmanshipwebv2',
     title: 'Testmanship Web V2',
-    description: 'Modern German language learning platform featuring AI-powered flashcards with spaced-repetition, comprehensive writing exercises, live voice sessions, and a teacher dashboard for managing students. Built with Next.js 15, TypeScript, and Tailwind CSS 4.',
+    description:
+      'Modern German language learning platform featuring spaced-repetition flashcards, comprehensive writing exercises with 165+ prompts, live voice sessions, and a teacher dashboard for managing students. Built with Next.js 15, TypeScript, and Tailwind CSS 4.',
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Firebase'],
     image: testmanshipWebV2Hero,
     link: '/projects/testmanshipwebv2',
@@ -48,19 +49,20 @@ export const projectsData = [
       textures: [
         {
           srcSet: `${testmanshipWebV2Hero} 1280w, ${testmanshipWebV2Hero} 2560w`,
-          placeholder: testmanshipWebV2Hero
+          placeholder: testmanshipWebV2Hero,
         },
         {
           srcSet: `${testmanshipWebV2Dashboard} 1280w, ${testmanshipWebV2Dashboard} 2560w`,
-          placeholder: testmanshipWebV2Dashboard
-        }
-      ]
-    }
+          placeholder: testmanshipWebV2Dashboard,
+        },
+      ],
+    },
   },
   {
     id: 'orbitandchillmobile',
     title: 'Orbit and Chill Mobile',
-    description: 'Professional-grade Android astrology app built with Jetpack Compose and Kotlin. Features accurate natal charts with 15 celestial bodies, synastry compatibility analysis, and Matrix of Destiny divination.',
+    description:
+      'Professional-grade Android astrology app built with Jetpack Compose and Kotlin. Features accurate natal charts with 15 celestial bodies, synastry compatibility analysis, and Matrix of Destiny divination.',
     technologies: ['Jetpack Compose', 'Kotlin', 'Android'],
     image: orbitAndChillMobileScreenShot,
     link: '/projects/orbitandchillmobile',
@@ -71,23 +73,24 @@ export const projectsData = [
       textures: [
         {
           srcSet: `${orbitAndChillMobileScreenShot} 375w, ${orbitAndChillMobileScreenShot} 750w`,
-          placeholder: orbitAndChillMobileScreenShot
+          placeholder: orbitAndChillMobileScreenShot,
         },
         {
           srcSet: `${orbitAndChillMobileScreenShot2} 375w, ${orbitAndChillMobileScreenShot2} 750w`,
-          placeholder: orbitAndChillMobileScreenShot2
-        }
-      ]
-    }
+          placeholder: orbitAndChillMobileScreenShot2,
+        },
+      ],
+    },
   },
   {
     id: 'blueprintjs-flutter',
     title: 'Blueprint Flutter Components',
-    description: 'A comprehensive Flutter implementation of the Blueprint.js design system with 26+ components. Features pixel-perfect design fidelity, complete color palette, and faithful Blueprint.js interactions.',
+    description:
+      'A comprehensive Flutter implementation of the Blueprint.js design system with 26+ components. Features pixel-perfect design fidelity, complete color palette, and faithful Blueprint.js interactions.',
     technologies: ['Flutter', 'Dart', 'Custom Components'],
     image: blueprintFlutterScreenShot,
     link: '/projects/blueprintjs_flutter',
-    featured: true,
+    featured: false,
     // Scroll view specific properties
     scrollView: {
       modelType: 'laptop',
@@ -96,20 +99,21 @@ export const projectsData = [
         {
           srcSet: `${blueprintFlutterScreenShot} 1280w, ${blueprintFlutterScreenShot} 2560w`,
           placeholder: blueprintFlutterScreenShot,
-          sizes: '(max-width: 768px) 80vw, 50vw'
+          sizes: '(max-width: 768px) 80vw, 50vw',
         },
         {
           srcSet: `${blueprintFlutterScreenShotCards} 1280w, ${blueprintFlutterScreenShotCards} 2560w`,
           placeholder: blueprintFlutterScreenShotCards,
-          sizes: '(max-width: 768px) 80vw, 50vw'
-        }
-      ]
-    }
+          sizes: '(max-width: 768px) 80vw, 50vw',
+        },
+      ],
+    },
   },
   {
     id: 'orbitandchill',
     title: 'Orbit and Chill',
-    description: 'A modern astrology platform combining precise natal chart generation with community engagement. Built with Next.js 15, TypeScript, and Tailwind CSS.',
+    description:
+      'A modern astrology platform combining precise natal chart generation with community engagement. Built with Next.js 15, TypeScript, and Tailwind CSS.',
     technologies: ['Next.js', 'TypeScript', 'TurboDB'],
     image: orbitAndChillScreenShot,
     link: '/projects/orbitandchill',
@@ -120,19 +124,20 @@ export const projectsData = [
       textures: [
         {
           srcSet: `${orbitAndChillScreenShot} 1280w, ${orbitAndChillScreenShot} 2560w`,
-          placeholder: orbitAndChillScreenShot
+          placeholder: orbitAndChillScreenShot,
         },
         {
           srcSet: `${orbitAndChillScreenShot2} 1280w, ${orbitAndChillScreenShot2} 2560w`,
-          placeholder: orbitAndChillScreenShot2
-        }
-      ]
-    }
+          placeholder: orbitAndChillScreenShot2,
+        },
+      ],
+    },
   },
   {
     id: 'sweldo',
     title: 'Sweldo (Nextron Version)',
-    description: 'The latest version of Sweldo built using Nextron, offering enhanced features and performance.',
+    description:
+      'The latest version of Sweldo built using Nextron, offering enhanced features and performance.',
     technologies: ['Nextron', 'Electron', 'React'],
     image: sweldoNextron,
     link: '/projects/sweldo',
@@ -142,15 +147,16 @@ export const projectsData = [
       textures: [
         {
           srcSet: `${sweldoNextron} 1280w, ${sweldoNextron} 2560w`,
-          placeholder: sweldoNextron
-        }
-      ]
-    }
+          placeholder: sweldoNextron,
+        },
+      ],
+    },
   },
   {
     id: 'sweldo-old',
     title: 'Sweldo (Old Version)',
-    description: 'Sweldo stands for Salary in Filipino. It\'s a web system that allows an excel upload of employees\' attendance data to be processed and then displayed in a user-friendly format. The app was built using Flutterflow and Firebase and Supabase.',
+    description:
+      "Sweldo stands for Salary in Filipino. It's a web system that allows an excel upload of employees' attendance data to be processed and then displayed in a user-friendly format. The app was built using Flutterflow and Firebase and Supabase.",
     technologies: ['Flutterflow', 'Firebase', 'Supabase'],
     image: sweldoScreenShot,
     link: '/projects/sweldo-old',
@@ -160,15 +166,16 @@ export const projectsData = [
       textures: [
         {
           srcSet: `${sweldoScreenShot} 1280w, ${sweldoScreenShot} 2560w`,
-          placeholder: sweldoScreenShot
-        }
-      ]
-    }
+          placeholder: sweldoScreenShot,
+        },
+      ],
+    },
   },
   {
     id: 'airline',
     title: 'Airline Crew Scheduling',
-    description: 'Airline Crew Scheduling is a Salesforce LWC component designed to help airline companies manage their crew scheduling processes. It allows users to create and manage flight schedules, assign crew members to flights.',
+    description:
+      'Airline Crew Scheduling is a Salesforce LWC component designed to help airline companies manage their crew scheduling processes. It allows users to create and manage flight schedules, assign crew members to flights.',
     technologies: ['Salesforce', 'LWC', 'JavaScript'],
     image: airlineCrewSchedulingScreenShot,
     link: '/projects/airlineCrewScheduling',
@@ -178,15 +185,16 @@ export const projectsData = [
       textures: [
         {
           srcSet: `${airlineCrewSchedulingScreenShot} 1280w, ${airlineCrewSchedulingScreenShot} 2560w`,
-          placeholder: airlineCrewSchedulingScreenShot
-        }
-      ]
-    }
+          placeholder: airlineCrewSchedulingScreenShot,
+        },
+      ],
+    },
   },
   {
     id: 'testmanship',
     title: 'Testmanship',
-    description: 'Testmanship is a sophisticated web application designed to help language learners track their writing progress and assess their preparedness across different CEFR (Common European Framework of Reference for Languages) levels.',
+    description:
+      'Testmanship is a sophisticated web application designed to help language learners track their writing progress and assess their preparedness across different CEFR (Common European Framework of Reference for Languages) levels.',
     technologies: ['Next.js', 'AI', 'Supabase'],
     image: testmanshipScreenShot,
     link: '/projects/testmanship',
@@ -196,15 +204,16 @@ export const projectsData = [
       textures: [
         {
           srcSet: `${testmanshipScreenShot} 1280w, ${testmanshipScreenShotLarge} 2560w`,
-          placeholder: testmanshipScreenShotPlaceholder
-        }
-      ]
-    }
+          placeholder: testmanshipScreenShotPlaceholder,
+        },
+      ],
+    },
   },
   {
     id: 'lotel',
     title: 'Lotel',
-    description: 'Comprehensive hospitality management system for encoding and monitoring various aspects of hotel operations, including sales, billing, payroll, and key performance metrics',
+    description:
+      'Comprehensive hospitality management system for encoding and monitoring various aspects of hotel operations, including sales, billing, payroll, and key performance metrics',
     technologies: ['Flutterflow', 'Firebase'],
     image: lotelScreenShot,
     link: '/projects/lotel',
@@ -214,31 +223,32 @@ export const projectsData = [
       textures: [
         {
           srcSet: `${lotelScreenShot} 375w, ${lotelScreenShotLarge} 750w`,
-          placeholder: lotelScreenShotPlaceholder
+          placeholder: lotelScreenShotPlaceholder,
         },
         {
           srcSet: `${lotelScreenShot2} 375w, ${lotelScreenShot2Large} 750w`,
-          placeholder: lotelScreenShot2Placeholder
-        }
-      ]
-    }
+          placeholder: lotelScreenShot2Placeholder,
+        },
+      ],
+    },
   },
   {
     id: 'ctrader',
     title: 'Enhanced Equity Stop with Cooldown for cTrader',
-    description: 'A sophisticated modification of Acronew\'s Equity Stop with advanced features and improved UI.',
+    description:
+      "A sophisticated modification of Acronew's Equity Stop with advanced features and improved UI.",
     technologies: ['C#', 'cTrader', 'Trading'],
     image: cTraderScreenShot,
     link: '/projects/cTrader',
     scrollView: {
       modelType: 'laptop',
-      alt: 'A sophisticated modification of Acronew\'s Equity Stop with advanced features and improved UI.',
+      alt: "A sophisticated modification of Acronew's Equity Stop with advanced features and improved UI.",
       textures: [
         {
           srcSet: `${cTraderScreenShot} 800w, ${cTraderScreenShotLarge} 1920w`,
-          placeholder: cTraderScreenShotPlaceholder
-        }
-      ]
-    }
-  }
+          placeholder: cTraderScreenShotPlaceholder,
+        },
+      ],
+    },
+  },
 ];
