@@ -14,6 +14,10 @@ import orbitAndChillMobileScreenShot2 from '~/assets/orbitandchill_mobile/synast
 import sweldoNextron from '~/assets/sweldo-nextron.png';
 import sweldoScreenShot from '~/assets/Sweldo-Home-Cut.png';
 
+// Testmanship Web V2 assets
+import testmanshipWebV2Hero from '~/assets/testmanship_web_v2/hero.png';
+import testmanshipWebV2Dashboard from '~/assets/testmanship_web_v2/student-dashboard.png';
+
 // Other project assets
 import airlineCrewSchedulingScreenShot from '~/assets/Airline-Crew-Scheduling.png';
 import testmanshipScreenShot from '~/assets/Testmanship-Light.jpg';
@@ -152,6 +156,29 @@ export const projectsData = [
         {
           srcSet: `${airlineCrewSchedulingScreenShot} 1280w, ${airlineCrewSchedulingScreenShot} 2560w`,
           placeholder: airlineCrewSchedulingScreenShot
+        }
+      ]
+    }
+  },
+  {
+    id: 'testmanshipwebv2',
+    title: 'Testmanship Web V2',
+    description: 'Modern German language learning platform featuring AI-powered flashcards with spaced-repetition, comprehensive writing exercises, live voice sessions, and a teacher dashboard for managing students. Built with Next.js 15, TypeScript, and Tailwind CSS 4.',
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Firebase'],
+    image: testmanshipWebV2Hero,
+    link: '/projects/testmanshipwebv2',
+    featured: true,
+    scrollView: {
+      modelType: 'laptop',
+      alt: 'Testmanship Web V2 German Learning Platform',
+      textures: [
+        {
+          srcSet: `${testmanshipWebV2Hero} 1280w, ${testmanshipWebV2Hero} 2560w`,
+          placeholder: testmanshipWebV2Hero
+        },
+        {
+          srcSet: `${testmanshipWebV2Dashboard} 1280w, ${testmanshipWebV2Dashboard} 2560w`,
+          placeholder: testmanshipWebV2Dashboard
         }
       ]
     }
