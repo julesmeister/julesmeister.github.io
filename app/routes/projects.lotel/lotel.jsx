@@ -125,10 +125,10 @@ export const Lotel = () => {
         <ProjectSection padding="top" ref={sectionRefs.intro}>
           <ProjectSectionContent>
             <div className={styles.timelineContainer}>
-              <div className={styles.timelineSteps}>
+              <div className={styles.timelineStepsHorizontal}>
                 {timelineSteps.map((step, index) => (
-                  <div key={index} className={styles.timelineStep} data-step={step.stepNumber}>
-                    <div 
+                  <div key={index} className={styles.timelineStepHorizontal} data-step={step.stepNumber}>
+                    <div
                       className={styles.timelineImage}
                       onClick={() => handleImageClick(step.image, step.title)}
                       onMouseMove={(e) => handleMouseMove(e, step.image)}
@@ -158,10 +158,10 @@ export const Lotel = () => {
             <ProjectSectionText>
               Lotel combines powerful no-code development with production-ready hotel management capabilities. Built with Flutterflow and Firebase, the app delivers comprehensive POS functionality, real-time analytics, and automated reporting for efficient hotel operations.
             </ProjectSectionText>
-            <div className={styles.featureFlow}>
-              <div className={styles.featureCard} data-feature="remittance">
+            <div className={styles.featureFlowHorizontal}>
+              <div className={styles.featureCardHorizontal} data-feature="remittance">
                 <div className={styles.featureNumber}>4</div>
-                <div 
+                <div
                   className={styles.featureImageWrapper}
                   onClick={() => handleImageClick(lotelRemittance, "Remittance Management")}
                   onMouseMove={(e) => handleMouseMove(e, lotelRemittance)}
@@ -178,10 +178,10 @@ export const Lotel = () => {
                   <p>Streamline daily cash flow with automated remittance tracking and comprehensive financial summaries</p>
                 </div>
               </div>
-              
-              <div className={styles.featureCard} data-feature="reports">
+
+              <div className={styles.featureCardHorizontal} data-feature="reports">
                 <div className={styles.featureNumber}>5</div>
-                <div 
+                <div
                   className={styles.featureImageWrapper}
                   onClick={() => handleImageClick(remittanceReport, "PDF Report Generation")}
                   onMouseMove={(e) => handleMouseMove(e, remittanceReport)}

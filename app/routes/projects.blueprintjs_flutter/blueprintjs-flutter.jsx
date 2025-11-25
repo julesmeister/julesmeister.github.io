@@ -108,12 +108,12 @@ export const BlueprintjsFlutter = () => {
         <ProjectSection padding="top" ref={sectionRefs.intro}>
           <ProjectSectionContent>
             <div className={styles.timelineContainer}>
-              <div className={styles.timelineSteps}>
+              <div className={styles.timelineStepsHorizontal}>
                 {timelineSteps.map((step, index) => (
-                  <div key={index} className={styles.timelineStep} data-step={step.stepNumber}>
+                  <div key={index} className={styles.timelineStepHorizontal} data-step={step.stepNumber}>
                     <div className={styles.stepNumber}>{step.stepNumber}</div>
-                    <div 
-                      className={styles.timelineImage} 
+                    <div
+                      className={styles.timelineImage}
                       onClick={() => handleImageClick(step.image, step.title)}
                       onMouseMove={(e) => handleMouseMove(e, step.image)}
                       onMouseEnter={(e) => handleMouseEnter(e, step.image)}
@@ -141,10 +141,10 @@ export const BlueprintjsFlutter = () => {
             <ProjectSectionText>
               Blueprint Flutter Components combines faithful design reproduction with Flutter's powerful widget system. Each component maintains Blueprint's visual identity while following Flutter best practices for state management, animations, and accessibility.
             </ProjectSectionText>
-            <div className={styles.featureFlow}>
-              <div className={styles.featureCard} data-feature="dialogs">
+            <div className={styles.featureFlowHorizontal}>
+              <div className={styles.featureCardHorizontal} data-feature="dialogs">
                 <div className={styles.featureNumber}>4</div>
-                <div 
+                <div
                   className={styles.featureImageWrapper}
                   onClick={() => handleImageClick(dialog, "Modal dialogs with perfect header alignment and Blueprint styling")}
                   onMouseMove={(e) => handleMouseMove(e, dialog)}
@@ -161,10 +161,10 @@ export const BlueprintjsFlutter = () => {
                   <p>Professional modal dialogs with perfect header alignment, customizable actions, and intent-based styling</p>
                 </div>
               </div>
-              
-              <div className={styles.featureCard} data-feature="data">
+
+              <div className={styles.featureCardHorizontal} data-feature="data">
                 <div className={styles.featureNumber}>5</div>
-                <div 
+                <div
                   className={styles.featureImageWrapper}
                   onClick={() => handleImageClick(table, "Data tables with sorting, selection, and perfect alignment")}
                   onMouseMove={(e) => handleMouseMove(e, table)}
@@ -181,10 +181,10 @@ export const BlueprintjsFlutter = () => {
                   <p>Complex data tables with sorting, selection, tree views, and perfectly aligned headers and cells</p>
                 </div>
               </div>
-              
-              <div className={styles.featureCard} data-feature="navigation">
+
+              <div className={styles.featureCardHorizontal} data-feature="navigation">
                 <div className={styles.featureNumber}>6</div>
-                <div 
+                <div
                   className={styles.featureImageWrapper}
                   onClick={() => handleImageClick(navbar, "Navigation bars with groups, alignments, and Blueprint styling")}
                   onMouseMove={(e) => handleMouseMove(e, navbar)}

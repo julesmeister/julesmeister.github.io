@@ -1,101 +1,40 @@
 @import '../../styles/project-interactions.css';
 @import '../../styles/project-layouts.css';
+@import '../../styles/project-modern-layout.css';
 
 .blueprintFlutter {
   --primary-color: #137cbd;
   --secondary-color: #0e5a8a;
 }
 
-/* Interactive Timeline Styles */
-.timelineContainer {
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
-  margin: 60px auto;
-  padding: 0 20px;
-}
-
-.timelineSteps {
-  position: relative;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  min-height: 450px;
-  z-index: 2;
-  gap: 40px;
-}
-
-.timelineStep {
-  position: relative;
-  width: 30%;
-  max-width: 350px;
-  opacity: 0;
-  transform: translateY(50px);
-  animation: fadeInUp 0.8s ease-out forwards;
-  padding: 25px 20px 0 20px;
-  
+/* Blueprint-specific timeline customizations */
+.timelineStepHorizontal {
   &[data-step="1"] {
     animation-delay: 1s;
     margin-top: 60px;
   }
-  
+
   &[data-step="2"] {
     animation-delay: 1.3s;
     margin-top: 20px;
   }
-  
+
   &[data-step="3"] {
     animation-delay: 1.6s;
     margin-top: 40px;
   }
 }
 
-.stepNumber {
-  position: absolute;
-  top: -30px;
-  left: -30px;
-  width: 60px;
-  height: 60px;
-  background: var(--accent);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: white;
-  border: 4px solid var(--background);
-  box-shadow: 0 10px 30px color-mix(in lab, var(--accent) 40%, transparent);
-  z-index: 15;
-  opacity: 0;
-  transform: scale(0.8);
-  animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-}
-
-.timelineStep[data-step="1"] .stepNumber {
+.timelineStepHorizontal[data-step="1"] .stepNumber {
   animation-delay: 1.5s;
 }
 
-.timelineStep[data-step="2"] .stepNumber {
+.timelineStepHorizontal[data-step="2"] .stepNumber {
   animation-delay: 1.8s;
 }
 
-.timelineStep[data-step="3"] .stepNumber {
+.timelineStepHorizontal[data-step="3"] .stepNumber {
   animation-delay: 2.1s;
-}
-
-@keyframes popIn {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .timelineImage {
@@ -152,165 +91,36 @@
   }
 }
 
-/* Feature Flow Styles */
-.featureFlow {
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-  margin: 60px 0;
-  position: relative;
-}
-
-.featureCard {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  position: relative;
-  opacity: 0;
-  transform: translateX(-50px);
-  animation: slideInLeft 0.8s ease-out forwards;
-  
+/* Blueprint-specific feature card customizations */
+.featureCardHorizontal {
   &[data-feature="dialogs"] {
     animation-delay: 0.2s;
   }
-  
+
   &[data-feature="data"] {
     animation-delay: 0.4s;
-    flex-direction: row-reverse;
-    transform: translateX(50px);
-    animation-name: slideInRight;
-    
-    & .featureNumber {
-      left: -50px;
-    }
   }
-  
+
   &[data-feature="navigation"] {
     animation-delay: 0.6s;
   }
-  
-  @media (--mediaTablet) {
-    flex-direction: column;
-    text-align: center;
-    gap: 30px;
-    transform: translateY(30px);
-    animation-name: slideInUp;
-    
-    &[data-feature="data"] {
-      flex-direction: column;
-      transform: translateY(30px);
-      animation-name: slideInUp;
-    }
-  }
 }
 
-@keyframes slideInLeft {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.featureNumber {
-  position: absolute;
-  left: -70px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 60px;
-  height: 60px;
-  background: var(--accent);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: white;
-  border: 4px solid var(--background);
-  box-shadow: 0 8px 20px color-mix(in lab, var(--accent) 30%, transparent);
-  opacity: 0;
-  transform: translateY(-50%) scale(0.8);
-  animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-  z-index: 15;
-  
-  @media (--mediaTablet) {
-    position: static;
-    transform: scale(0.8);
-    margin: 0 auto 20px;
-    
-    &.featureNumber {
-      animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-    }
-  }
-}
-
-.featureCard[data-feature="data"] .featureNumber {
-  right: -70px;
-  left: auto;
-}
-
-.featureCard[data-feature="dialogs"] .featureNumber {
+.featureCardHorizontal[data-feature="dialogs"] .featureNumber {
   animation-delay: 0.7s;
 }
 
-.featureCard[data-feature="data"] .featureNumber {
+.featureCardHorizontal[data-feature="data"] .featureNumber {
   animation-delay: 0.9s;
 }
 
-.featureCard[data-feature="navigation"] .featureNumber {
+.featureCardHorizontal[data-feature="navigation"] .featureNumber {
   animation-delay: 1.1s;
 }
 
+/* Blueprint-specific image wrapper customizations */
 .featureImageWrapper {
-  flex: 0 0 45%;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 15px 30px color-mix(in lab, var(--text) 8%, transparent);
-  transition: all 0.3s ease;
   cursor: crosshair;
-  position: relative;
-  
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 25px 50px color-mix(in lab, var(--text) 12%, transparent);
-  }
-  
-  @media (--mediaTablet) {
-    flex: none;
-    width: 100%;
-    max-width: 400px;
-  }
-}
-
-.featureContent {
-  flex: 1;
-  
-  & h4 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--textTitle);
-    margin-bottom: 16px;
-  }
-  
-  & p {
-    font-size: 1rem;
-    color: var(--textLight);
-    line-height: 1.7;
-  }
 }
 
 /* Project-specific overrides for shared layout styles */
@@ -330,66 +140,6 @@
 
   &:last-child {
     opacity: 1;
-  }
-}
-
-@media (--mediaTablet) {
-  .timelineSteps {
-    flex-direction: column;
-    gap: 50px;
-    min-height: auto;
-    align-items: center;
-  }
-  
-  .timelineStep {
-    width: 100%;
-    max-width: 400px;
-    padding: 20px 15px 0 15px;
-    
-    &[data-step="1"],
-    &[data-step="2"],
-    &[data-step="3"] {
-      margin-top: 0;
-    }
-  }
-  
-  .timelineContent {
-    & p {
-      max-width: 320px;
-    }
-  }
-}
-
-@media (--mediaMobile) {
-  .timelineContainer {
-    padding: 0 10px;
-  }
-  
-  .timelineStep {
-    padding: 15px 10px 0 10px;
-    max-width: 320px;
-  }
-  
-  .stepNumber {
-    top: -20px;
-    left: -20px;
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
-    border: 3px solid var(--background);
-  }
-  
-  .timelineContent {
-    margin-top: 20px;
-    
-    & h3 {
-      font-size: 1rem;
-    }
-    
-    & p {
-      font-size: 0.8rem;
-      max-width: 260px;
-    }
   }
 }
 
