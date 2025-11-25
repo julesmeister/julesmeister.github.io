@@ -1,8 +1,37 @@
 /* Modern Timeline & Feature Card Layout - Shared Styles */
 /* Used by: Blueprint Flutter, Lotel, Orbit and Chill Mobile */
 
+/**
+ * LAYOUT VARIANTS
+ *
+ * This file provides two main layout patterns for project pages:
+ *
+ * 1. VERTICAL GRID LAYOUT (default classes)
+ *    - .timelineSteps / .timelineStep
+ *    - .featureFlow / .featureCard
+ *    - Alternating left/right grid layout
+ *    - Used by: Orbit and Chill Mobile
+ *
+ * 2. HORIZONTAL STAGGERED LAYOUT (variant classes)
+ *    - .timelineStepsHorizontal / .timelineStepHorizontal
+ *    - .featureFlowHorizontal / .featureCardHorizontal
+ *    - Three-column horizontal with staggered heights
+ *    - Slide-in animations from left/right
+ *    - Used by: Blueprint Flutter, Lotel
+ *
+ * SHARED COMPONENTS (work with both layouts)
+ *    - .timelineContainer
+ *    - .stepNumber
+ *    - .timelineImage / .timelineContent
+ *    - .featureNumber
+ *    - .featureImageWrapper / .featureContent
+ *    - .sidebarImages / .sidebarImageWrapper / .sidebarImage
+ *
+ * All layouts are fully responsive and collapse to vertical on tablets/mobile.
+ */
+
 /* ===============================================
-   TIMELINE STYLES
+   TIMELINE STYLES - VERTICAL GRID LAYOUT
    =============================================== */
 
 /* Timeline Container */
@@ -14,13 +43,13 @@
   padding: 0 20px;
 }
 
+/* Vertical Grid Layout - alternating left/right */
 .timelineSteps {
   display: flex;
   flex-direction: column;
   gap: var(--space4XL, 80px);
 }
 
-/* Timeline Step - Grid Layout */
 .timelineStep {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -37,6 +66,51 @@
 
 .timelineStep:nth-child(even) > * {
   direction: ltr;
+}
+
+/* ===============================================
+   TIMELINE STYLES - HORIZONTAL STAGGERED LAYOUT
+   =============================================== */
+
+/* Horizontal Layout - three columns with staggered heights */
+.timelineStepsHorizontal {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  min-height: 450px;
+  z-index: 2;
+  gap: 40px;
+}
+
+.timelineStepHorizontal {
+  position: relative;
+  width: 30%;
+  max-width: 350px;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 0.8s ease-out forwards;
+  padding: 25px 20px 0 20px;
+}
+
+/* Default stagger pattern - customize in project CSS */
+.timelineStepHorizontal:nth-child(1) {
+  margin-top: 60px;
+}
+
+.timelineStepHorizontal:nth-child(2) {
+  margin-top: 20px;
+}
+
+.timelineStepHorizontal:nth-child(3) {
+  margin-top: 40px;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Step Number Badge */
@@ -116,9 +190,10 @@
 }
 
 /* ===============================================
-   FEATURE FLOW STYLES
+   FEATURE FLOW STYLES - VERTICAL GRID LAYOUT
    =============================================== */
 
+/* Grid layout for feature cards */
 .featureFlow {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -138,6 +213,50 @@
   max-width: 500px;
   overflow: visible;
   margin: 30px 30px 0 30px;
+}
+
+/* ===============================================
+   FEATURE FLOW STYLES - HORIZONTAL SLIDE-IN LAYOUT
+   =============================================== */
+
+/* Horizontal alternating layout with slide-in animations */
+.featureFlowHorizontal {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  margin: 60px 0;
+  position: relative;
+}
+
+.featureCardHorizontal {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+/* Alternate direction for even cards */
+.featureCardHorizontal:nth-child(even) {
+  flex-direction: row-reverse;
+  transform: translateX(50px);
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 /* Feature Number Badge */
@@ -292,6 +411,7 @@
    =============================================== */
 
 @media (max-width: 1024px) {
+  /* Vertical Grid Layout - collapse to single column */
   .timelineStep {
     grid-template-columns: 1fr;
     justify-items: center;
@@ -302,10 +422,54 @@
     direction: ltr;
   }
 
+  /* Horizontal Staggered Layout - collapse to vertical */
+  .timelineStepsHorizontal {
+    flex-direction: column;
+    gap: 50px;
+    min-height: auto;
+    align-items: center;
+  }
+
+  .timelineStepHorizontal {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px 15px 0 15px;
+  }
+
+  .timelineStepHorizontal:nth-child(1),
+  .timelineStepHorizontal:nth-child(2),
+  .timelineStepHorizontal:nth-child(3) {
+    margin-top: 0;
+  }
+
+  /* Feature Flow - collapse to single column */
   .featureFlow {
     grid-template-columns: 1fr;
   }
 
+  /* Horizontal Feature Flow - collapse to vertical */
+  .featureCardHorizontal {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+    transform: translateY(30px);
+    animation: slideInUp 0.8s ease-out forwards;
+  }
+
+  .featureCardHorizontal:nth-child(even) {
+    flex-direction: column;
+    transform: translateY(30px);
+    animation: slideInUp 0.8s ease-out forwards;
+  }
+
+  @keyframes slideInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Sidebar Images - collapse to vertical */
   .sidebarImages {
     display: flex;
     flex-direction: column;
