@@ -1,20 +1,13 @@
 @import '../../styles/project-interactions.css';
 @import '../../styles/project-layouts.css';
+@import '../../styles/project-modern-layout.css';
 
 .lotel {
   --primary-color: #10b981;
   --secondary-color: #059669;
 }
 
-/* Interactive Timeline Styles */
-.timelineContainer {
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
-  margin: 60px auto;
-  padding: 0 20px;
-}
-
+/* Lotel-specific horizontal timeline layout overrides */
 .timelineSteps {
   position: relative;
   display: flex;
@@ -33,17 +26,17 @@
   transform: translateY(50px);
   animation: fadeInUp 0.8s ease-out forwards;
   padding: 25px 20px 0 20px;
-  
+
   &[data-step="1"] {
     animation-delay: 1s;
     margin-top: 60px;
   }
-  
+
   &[data-step="2"] {
     animation-delay: 1.3s;
     margin-top: 20px;
   }
-  
+
   &[data-step="3"] {
     animation-delay: 1.6s;
     margin-top: 40px;
@@ -105,12 +98,12 @@
   box-shadow: 0 20px 40px color-mix(in lab, var(--text) 10%, transparent);
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   cursor: pointer;
-  
+
   & img {
     border-radius: 16px;
     overflow: hidden;
   }
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -118,27 +111,27 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, 
-      color-mix(in lab, var(--accent) 20%, transparent) 0%, 
+    background: linear-gradient(135deg,
+      color-mix(in lab, var(--accent) 20%, transparent) 0%,
       transparent 50%);
     z-index: 1;
     opacity: 0;
     transition: opacity 0.3s ease;
   }
-  
+
   &:hover::before {
     opacity: 1;
   }
-  
+
   &:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 30px 60px color-mix(in lab, var(--text) 15%, transparent);
   }
-  
+
   & img {
     transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   }
-  
+
   &:hover img {
     transform: scale(1.05);
   }
@@ -147,14 +140,14 @@
 .timelineContent {
   margin-top: 24px;
   text-align: center;
-  
+
   & h3 {
     font-size: 1.1rem;
     font-weight: 600;
     color: var(--textTitle);
     margin-bottom: 12px;
     position: relative;
-    
+
     &::after {
       content: '';
       position: absolute;
@@ -166,7 +159,7 @@
       background: var(--accent);
     }
   }
-  
+
   & p {
     font-size: 0.85rem;
     color: var(--textLight);
@@ -178,7 +171,7 @@
   }
 }
 
-/* Feature Flow Styles */
+/* Lotel-specific feature card layout overrides */
 .featureFlow {
   display: flex;
   flex-direction: column;
@@ -195,30 +188,30 @@
   opacity: 0;
   transform: translateX(-50px);
   animation: slideInLeft 0.8s ease-out forwards;
-  
+
   &[data-feature="remittance"] {
     animation-delay: 0.2s;
   }
-  
+
   &[data-feature="reports"] {
     animation-delay: 0.4s;
     flex-direction: row-reverse;
     transform: translateX(50px);
     animation-name: slideInRight;
-    
+
     & .featureNumber {
       right: -60px;
       left: auto;
     }
   }
-  
+
   @media (--mediaTablet) {
     flex-direction: column;
     text-align: center;
     gap: 30px;
     transform: translateY(30px);
     animation-name: slideInUp;
-    
+
     &[data-feature="reports"] {
       flex-direction: column;
       transform: translateY(30px);
@@ -268,12 +261,12 @@
   opacity: 0;
   transform: translateY(-50%) scale(0.8);
   animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-  
+
   @media (--mediaTablet) {
     position: static;
     transform: scale(0.8);
     margin: 0 auto 20px;
-    
+
     &.featureNumber {
       animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
     }
@@ -295,20 +288,20 @@
   box-shadow: 0 20px 40px color-mix(in lab, var(--text) 15%, transparent);
   transition: all 0.3s ease;
   cursor: pointer;
-  
+
   & img {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   }
-  
+
   &:hover {
     transform: translateY(-8px);
     box-shadow: 0 30px 60px color-mix(in lab, var(--text) 20%, transparent);
-    
+
     & img {
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     }
   }
-  
+
   @media (--mediaTablet) {
     flex: none;
     width: 100%;
@@ -318,14 +311,14 @@
 
 .featureContent {
   flex: 1;
-  
+
   & h4 {
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--textTitle);
     margin-bottom: 16px;
   }
-  
+
   & p {
     font-size: 1rem;
     color: var(--textLight);
@@ -333,7 +326,7 @@
   }
 }
 
-/* Responsive Design */
+/* Lotel-specific responsive overrides */
 @media (--mediaTablet) {
   .timelineSteps {
     flex-direction: column;
@@ -341,19 +334,19 @@
     min-height: auto;
     align-items: center;
   }
-  
+
   .timelineStep {
     width: 100%;
     max-width: 400px;
     padding: 20px 15px 0 15px;
-    
+
     &[data-step="1"],
     &[data-step="2"],
     &[data-step="3"] {
       margin-top: 0;
     }
   }
-  
+
   .timelineContent {
     & p {
       max-width: 320px;
@@ -365,12 +358,12 @@
   .timelineContainer {
     padding: 0 10px;
   }
-  
+
   .timelineStep {
     padding: 15px 10px 0 10px;
     max-width: 320px;
   }
-  
+
   .stepNumber {
     top: -20px;
     left: -20px;
@@ -379,14 +372,14 @@
     font-size: 1rem;
     border: 3px solid var(--background);
   }
-  
+
   .timelineContent {
     margin-top: 20px;
-    
+
     & h3 {
       font-size: 1rem;
     }
-    
+
     & p {
       font-size: 0.8rem;
       max-width: 260px;
@@ -394,11 +387,11 @@
   }
 }
 
-/* Project-specific sidebar layout - keep existing from shared styles */
+/* Lotel-specific sidebar layout overrides */
 .sidebarImageWrapper {
   position: relative;
   cursor: pointer;
-  
+
   &:first-child {
     grid-column: col 1 / span 4;
     grid-row: 1;

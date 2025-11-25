@@ -6,6 +6,10 @@ import blueprintFlutterScreenShotCards from '~/assets/blueprintjs_flutter/cards.
 import orbitAndChillScreenShot from '~/assets/orbitandchill/photo_1_2025-08-18_18-13-46.jpg';
 import orbitAndChillScreenShot2 from '~/assets/orbitandchill/photo_3_2025-08-18_18-13-46.jpg';
 
+// Orbit and Chill Mobile assets
+import orbitAndChillMobileScreenShot from '~/assets/orbitandchill_mobile/natal-chart.jpg';
+import orbitAndChillMobileScreenShot2 from '~/assets/orbitandchill_mobile/synastry.jpg';
+
 // Sweldo assets
 import sweldoNextron from '~/assets/sweldo-nextron.png';
 import sweldoScreenShot from '~/assets/Sweldo-Home-Cut.png';
@@ -71,6 +75,29 @@ export const projectsData = [
         {
           srcSet: `${orbitAndChillScreenShot2} 1280w, ${orbitAndChillScreenShot2} 2560w`,
           placeholder: orbitAndChillScreenShot2
+        }
+      ]
+    }
+  },
+  {
+    id: 'orbitandchillmobile',
+    title: 'Orbit and Chill Mobile',
+    description: 'Professional-grade Android astrology app built with Jetpack Compose and Kotlin. Features accurate natal charts with 15 celestial bodies, synastry compatibility analysis, and Matrix of Destiny divination.',
+    technologies: ['Jetpack Compose', 'Kotlin', 'Android'],
+    image: orbitAndChillMobileScreenShot,
+    link: '/projects/orbitandchillmobile',
+    featured: true,
+    scrollView: {
+      modelType: 'phone',
+      alt: 'Orbit and Chill Mobile astrology app',
+      textures: [
+        {
+          srcSet: `${orbitAndChillMobileScreenShot} 375w, ${orbitAndChillMobileScreenShot} 750w`,
+          placeholder: orbitAndChillMobileScreenShot
+        },
+        {
+          srcSet: `${orbitAndChillMobileScreenShot2} 375w, ${orbitAndChillMobileScreenShot2} 750w`,
+          placeholder: orbitAndChillMobileScreenShot2
         }
       ]
     }

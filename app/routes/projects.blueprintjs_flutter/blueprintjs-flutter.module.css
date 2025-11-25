@@ -1,23 +1,17 @@
 @import '../../styles/project-interactions.css';
 @import '../../styles/project-layouts.css';
+@import '../../styles/project-modern-layout.css';
 
 .blueprintFlutter {
   --primary-color: #137cbd;
   --secondary-color: #0e5a8a;
 }
 
-/* Interactive Timeline Styles */
-.timelineContainer {
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
-  margin: 60px auto;
-  padding: 0 20px;
-}
-
+/* Blueprint-specific timeline - horizontal layout variant */
 .timelineSteps {
   position: relative;
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
   min-height: 450px;
@@ -25,53 +19,30 @@
   gap: 40px;
 }
 
+/* Blueprint-specific horizontal timeline step */
 .timelineStep {
-  position: relative;
   width: 30%;
   max-width: 350px;
-  opacity: 0;
   transform: translateY(50px);
   animation: fadeInUp 0.8s ease-out forwards;
-  padding: 25px 20px 0 20px;
-  
+
   &[data-step="1"] {
     animation-delay: 1s;
     margin-top: 60px;
   }
-  
+
   &[data-step="2"] {
     animation-delay: 1.3s;
     margin-top: 20px;
   }
-  
+
   &[data-step="3"] {
     animation-delay: 1.6s;
     margin-top: 40px;
   }
 }
 
-.stepNumber {
-  position: absolute;
-  top: -30px;
-  left: -30px;
-  width: 60px;
-  height: 60px;
-  background: var(--accent);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: white;
-  border: 4px solid var(--background);
-  box-shadow: 0 10px 30px color-mix(in lab, var(--accent) 40%, transparent);
-  z-index: 15;
-  opacity: 0;
-  transform: scale(0.8);
-  animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-}
-
+/* Blueprint-specific step number delays */
 .timelineStep[data-step="1"] .stepNumber {
   animation-delay: 1.5s;
 }
@@ -84,13 +55,6 @@
   animation-delay: 2.1s;
 }
 
-@keyframes popIn {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -98,37 +62,14 @@
   }
 }
 
-.timelineImage {
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 20px 40px color-mix(in lab, var(--text) 10%, transparent);
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  cursor: crosshair;
-  
-  & img {
-    border-radius: 16px;
-    overflow: hidden;
-    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-  
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 30px 60px color-mix(in lab, var(--text) 15%, transparent);
-  }
-}
-
+/* Blueprint-specific timeline content styling */
 .timelineContent {
   margin-top: 24px;
   text-align: center;
-  
+
   & h3 {
     font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--textTitle);
-    margin-bottom: 12px;
-    position: relative;
-    
+
     &::after {
       content: '';
       position: absolute;
@@ -140,12 +81,9 @@
       background: var(--accent);
     }
   }
-  
+
   & p {
     font-size: 0.85rem;
-    color: var(--textLight);
-    line-height: 1.6;
-    margin-top: 16px;
     max-width: 320px;
     margin-left: auto;
     margin-right: auto;
