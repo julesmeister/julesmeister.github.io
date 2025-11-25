@@ -15,7 +15,9 @@
       "Bash(NODE_OPTIONS=\"--max-old-space-size=1024\" npx typescript --version)",
       "Bash(npm run build:*)",
       "Bash(NODE_OPTIONS=\"--max-old-space-size=1024\" npx eslint --ext .ts,.tsx app/ --quiet)",
-      "Bash(NODE_OPTIONS=\"--max-old-space-size=1024\" npx eslint --ext .js,.jsx,.ts,.tsx app/ --quiet)"
+      "Bash(NODE_OPTIONS=\"--max-old-space-size=1024\" npx eslint --ext .js,.jsx,.ts,.tsx app/ --quiet)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nAdd Orbit and Chill Mobile project and refactor shared CSS\n\n- Add new Orbit and Chill Mobile Android astrology app project\n  - Built with Jetpack Compose and Kotlin\n  - Features natal charts, synastry, and Matrix of Destiny\n  - Includes 5 tablet-optimized screenshots\n  - Beginner-friendly, conversational descriptions\n\n- Create shared project-modern-layout.css (359 lines)\n  - Timeline container and step animations\n  - Feature card grid layouts with number badges\n  - Sidebar image stacking with CSS Grid\n  - All animations (popIn, fadeIn) and responsive breakpoints\n  - Reduces code duplication across modern layout projects\n\n- Refactor Orbit and Chill Mobile CSS (95 lines, 74% reduction)\n  - Import shared modern layout styles\n  - Keep only project-specific customizations\n\n- Refactor Blueprint Flutter CSS\n  - Import shared modern layout styles\n  - Keep Blueprint-specific horizontal timeline overrides\n\n- Refactor Lotel CSS\n  - Import shared modern layout styles\n  - Keep Lotel-specific animations and layouts\n\n- Update config.json with Jetpack Compose discipline\n- Update projects-data.js with new project entry\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
