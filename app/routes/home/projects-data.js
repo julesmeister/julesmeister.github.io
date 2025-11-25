@@ -35,6 +35,52 @@ import cTraderScreenShotPlaceholder from '~/assets/cTrader.png';
 
 export const projectsData = [
   {
+    id: 'testmanshipwebv2',
+    title: 'Testmanship Web V2',
+    description: 'Modern German language learning platform featuring AI-powered flashcards with spaced-repetition, comprehensive writing exercises, live voice sessions, and a teacher dashboard for managing students. Built with Next.js 15, TypeScript, and Tailwind CSS 4.',
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Firebase'],
+    image: testmanshipWebV2Hero,
+    link: '/projects/testmanshipwebv2',
+    featured: true,
+    scrollView: {
+      modelType: 'laptop',
+      alt: 'Testmanship Web V2 German Learning Platform',
+      textures: [
+        {
+          srcSet: `${testmanshipWebV2Hero} 1280w, ${testmanshipWebV2Hero} 2560w`,
+          placeholder: testmanshipWebV2Hero
+        },
+        {
+          srcSet: `${testmanshipWebV2Dashboard} 1280w, ${testmanshipWebV2Dashboard} 2560w`,
+          placeholder: testmanshipWebV2Dashboard
+        }
+      ]
+    }
+  },
+  {
+    id: 'orbitandchillmobile',
+    title: 'Orbit and Chill Mobile',
+    description: 'Professional-grade Android astrology app built with Jetpack Compose and Kotlin. Features accurate natal charts with 15 celestial bodies, synastry compatibility analysis, and Matrix of Destiny divination.',
+    technologies: ['Jetpack Compose', 'Kotlin', 'Android'],
+    image: orbitAndChillMobileScreenShot,
+    link: '/projects/orbitandchillmobile',
+    featured: true,
+    scrollView: {
+      modelType: 'phone',
+      alt: 'Orbit and Chill Mobile astrology app',
+      textures: [
+        {
+          srcSet: `${orbitAndChillMobileScreenShot} 375w, ${orbitAndChillMobileScreenShot} 750w`,
+          placeholder: orbitAndChillMobileScreenShot
+        },
+        {
+          srcSet: `${orbitAndChillMobileScreenShot2} 375w, ${orbitAndChillMobileScreenShot2} 750w`,
+          placeholder: orbitAndChillMobileScreenShot2
+        }
+      ]
+    }
+  },
+  {
     id: 'blueprintjs-flutter',
     title: 'Blueprint Flutter Components',
     description: 'A comprehensive Flutter implementation of the Blueprint.js design system with 26+ components. Features pixel-perfect design fidelity, complete color palette, and faithful Blueprint.js interactions.',
@@ -79,29 +125,6 @@ export const projectsData = [
         {
           srcSet: `${orbitAndChillScreenShot2} 1280w, ${orbitAndChillScreenShot2} 2560w`,
           placeholder: orbitAndChillScreenShot2
-        }
-      ]
-    }
-  },
-  {
-    id: 'orbitandchillmobile',
-    title: 'Orbit and Chill Mobile',
-    description: 'Professional-grade Android astrology app built with Jetpack Compose and Kotlin. Features accurate natal charts with 15 celestial bodies, synastry compatibility analysis, and Matrix of Destiny divination.',
-    technologies: ['Jetpack Compose', 'Kotlin', 'Android'],
-    image: orbitAndChillMobileScreenShot,
-    link: '/projects/orbitandchillmobile',
-    featured: true,
-    scrollView: {
-      modelType: 'phone',
-      alt: 'Orbit and Chill Mobile astrology app',
-      textures: [
-        {
-          srcSet: `${orbitAndChillMobileScreenShot} 375w, ${orbitAndChillMobileScreenShot} 750w`,
-          placeholder: orbitAndChillMobileScreenShot
-        },
-        {
-          srcSet: `${orbitAndChillMobileScreenShot2} 375w, ${orbitAndChillMobileScreenShot2} 750w`,
-          placeholder: orbitAndChillMobileScreenShot2
         }
       ]
     }
@@ -156,29 +179,6 @@ export const projectsData = [
         {
           srcSet: `${airlineCrewSchedulingScreenShot} 1280w, ${airlineCrewSchedulingScreenShot} 2560w`,
           placeholder: airlineCrewSchedulingScreenShot
-        }
-      ]
-    }
-  },
-  {
-    id: 'testmanshipwebv2',
-    title: 'Testmanship Web V2',
-    description: 'Modern German language learning platform featuring AI-powered flashcards with spaced-repetition, comprehensive writing exercises, live voice sessions, and a teacher dashboard for managing students. Built with Next.js 15, TypeScript, and Tailwind CSS 4.',
-    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Firebase'],
-    image: testmanshipWebV2Hero,
-    link: '/projects/testmanshipwebv2',
-    featured: true,
-    scrollView: {
-      modelType: 'laptop',
-      alt: 'Testmanship Web V2 German Learning Platform',
-      textures: [
-        {
-          srcSet: `${testmanshipWebV2Hero} 1280w, ${testmanshipWebV2Hero} 2560w`,
-          placeholder: testmanshipWebV2Hero
-        },
-        {
-          srcSet: `${testmanshipWebV2Dashboard} 1280w, ${testmanshipWebV2Dashboard} 2560w`,
-          placeholder: testmanshipWebV2Dashboard
         }
       ]
     }
