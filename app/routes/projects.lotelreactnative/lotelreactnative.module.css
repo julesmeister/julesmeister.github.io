@@ -211,6 +211,12 @@
   animation-delay: 2.3s;
 }
 
+/* Fix feature number positioning for alternating layout */
+.featureCardHorizontal:nth-child(even) .featureNumber {
+  right: auto;
+  left: -20px;
+}
+
 /* Sidebar layout customizations */
 .sidebarImageWrapper {
   position: relative;
