@@ -7,6 +7,10 @@ import remittance from '~/assets/lotel_react_native/remittance.jpg';
 import beddings from '~/assets/lotel_react_native/beddings.jpg';
 import issues from '~/assets/lotel_react_native/issues.jpg';
 import roomBooking from '~/assets/lotel_react_native/room-booking.jpg';
+import expenses from '~/assets/lotel_react_native/expenses.jpg';
+import roles from '~/assets/lotel_react_native/roles.jpg';
+import inventory from '~/assets/lotel_react_native/inventory.jpg';
+import mart from '~/assets/lotel_react_native/mart.jpg';
 
 import { Fragment, useState } from 'react';
 import { Image } from '~/components/image';
@@ -53,7 +57,11 @@ const timelineSteps = [
 const featureCards = [
   createFeatureCard(4, groceryAnalytics, 'Grocery Profitability', 'Track grocery expenses vs revenue with profitability indicators. See days to breakeven, net profit percentage, and purchase history. Real-time analytics help optimize inventory purchasing decisions.'),
   createFeatureCard(5, beddings, 'Beddings & Linens Inventory', 'Manage bedsheet, pillowcase, and towel inventory across all rooms. Track units, pricing, total costs, and room assignments. Filter by type and year for comprehensive inventory control.'),
-  createFeatureCard(6, issues, 'Maintenance Issue Tracking', 'Report and track hotel maintenance issues with status updates, reporter information, and resolution timeline. Issues like fire safety inspections, tissue restocking, and room repairs are organized by date with quick edit access.')
+  createFeatureCard(6, issues, 'Maintenance Issue Tracking', 'Report and track hotel maintenance issues with status updates, reporter information, and resolution timeline. Issues like fire safety inspections, tissue restocking, and room repairs are organized by date with quick edit access.'),
+  createFeatureCard(7, expenses, 'Expense Management', 'Record daily hotel expenses with categorized types including softdrinks, cash advances, salary, food, and more. Track amount and description for complete financial visibility across all hotel operations.'),
+  createFeatureCard(8, roles, 'Staff Role Management', 'Manage hotel staff with role-based access control. Track staff and admin users with real-time activity status. View who is currently active and manage user roles efficiently.'),
+  createFeatureCard(9, inventory, 'Complete Inventory System', 'Comprehensive inventory management for candy, essentials, and drinks. Track stock levels, pricing, and out-of-stock items. Edit or delete inventory items with simple action buttons.'),
+  createFeatureCard(10, mart, 'Lotel Mart Shopping', 'Internal shopping cart system for hotel purchases. Add items to cart with quantity controls, view categorized inventory (27 items total), and process transactions seamlessly.')
 ];
 
 // Sidebar images for tech stack section
@@ -207,9 +215,12 @@ export const LotelReactNative = () => {
             <ProjectSectionText>
               The app leverages Expo's managed workflow for rapid development and easy deployments. PDF generation is handled natively for professional remittance reports. The purple-themed UI uses modern design patterns with smooth animations and intuitive navigation for optimal user experience during daily hotel operations.
             </ProjectSectionText>
-            <ProjectSectionHeading>Future Plans</ProjectSectionHeading>
+            <ProjectSectionHeading>Future Plans: Migrating to Kotlin & Jetpack Compose</ProjectSectionHeading>
             <ProjectSectionText>
-              While React Native with Expo has served the project well for rapid development and cross-platform support, I'm planning to rebuild this application using native Android development with Kotlin and Jetpack Compose. This migration will provide better performance, more granular control over native features, and leverage modern Android development best practices with Material Design 3 components.
+              While React Native with Expo enabled rapid prototyping, the app suffers from slow load times and performance issues that impact daily operations. I'm planning to rebuild this application using native Android development with Kotlin and Jetpack Compose to address these performance bottlenecks and provide a significantly faster, more responsive user experience.
+            </ProjectSectionText>
+            <ProjectSectionText>
+              The migration to native Android will eliminate the JavaScript bridge overhead, provide instant app startup, smoother animations, and better memory management. Jetpack Compose's modern declarative UI framework combined with Material Design 3 components will enable a polished, performant hotel management system that staff can rely on for critical daily operations.
             </ProjectSectionText>
           </ProjectSectionContent>
         </ProjectSection>
