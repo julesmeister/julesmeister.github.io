@@ -147,6 +147,8 @@
   font-size: 1.25rem;
   border: 3px solid var(--background);
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  font-weight: 600;
 }
 
 .featureCardHorizontal[data-feature="feature-4"] .featureNumber {

@@ -207,6 +207,10 @@ export const LotelReactNative = () => {
             <ProjectSectionText>
               The app leverages Expo's managed workflow for rapid development and easy deployments. PDF generation is handled natively for professional remittance reports. The purple-themed UI uses modern design patterns with smooth animations and intuitive navigation for optimal user experience during daily hotel operations.
             </ProjectSectionText>
+            <ProjectSectionHeading>Future Plans</ProjectSectionHeading>
+            <ProjectSectionText>
+              While React Native with Expo has served the project well for rapid development and cross-platform support, I'm planning to rebuild this application using native Android development with Kotlin and Jetpack Compose. This migration will provide better performance, more granular control over native features, and leverage modern Android development best practices with Material Design 3 components.
+            </ProjectSectionText>
           </ProjectSectionContent>
         </ProjectSection>
       </ProjectContainer>
