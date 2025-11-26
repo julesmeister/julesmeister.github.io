@@ -9,6 +9,8 @@ import flashcards from '~/assets/testmanship_web_v2/flashcards.png';
 import flashcardPractice from '~/assets/testmanship_web_v2/flashcard-practice.png';
 import writingExercises from '~/assets/testmanship_web_v2/writing-exercises.png';
 import writingInterface from '~/assets/testmanship_web_v2/writing-interface.png';
+import writingFeedback from '~/assets/testmanship_web_v2/writing-feedback.png';
+import germanSyllabus from '~/assets/testmanship_web_v2/german-syllabus.png';
 
 import { Fragment, useState } from 'react';
 import { Image } from '~/components/image';
@@ -54,7 +56,9 @@ const timelineSteps = [
 // Feature cards data for advanced capabilities
 const featureCards = [
   createFeatureCard(4, writingExercises, 'Writing Exercises', '165+ comprehensive writing prompts across all CEFR levels. Practice creative writing, translation, email composition, and more with structured exercises ranging from 12-15 minutes each.'),
-  createFeatureCard(5, writingInterface, 'Rich Text Editor', 'Write your German translations with a powerful editor featuring hints, reference answers, and helpful tips. Submit completed work for teacher review and track your progress over time.')
+  createFeatureCard(5, writingInterface, 'Rich Text Editor', 'Write your German translations with a powerful editor featuring hints, reference answers, and helpful tips. Submit completed work for teacher review and track your progress over time.'),
+  createFeatureCard(6, writingFeedback, 'Teacher Feedback System', 'Receive detailed feedback on your writing with overall scores (grammar, vocabulary, coherence), strengths, areas for improvement, and teacher comments. Track your progress with assessment history and approval status.'),
+  createFeatureCard(7, germanSyllabus, 'Structured Curriculum', 'Follow a comprehensive German language syllabus from A1-Beginner to upper-intermediate levels. Organized grammar topics, vocabulary themes, and communication skills with estimated study times and progress tracking.')
 ];
 
 // Sidebar images for tech stack section
@@ -142,45 +146,27 @@ export const TestmanshipWebV2 = () => {
               Testmanship Web V2 combines modern web technologies with proven language learning methodologies. The platform features spaced-repetition flashcards, comprehensive writing exercises with teacher feedback, live voice sessions for pronunciation practice, and real-time progress tracking across CEFR levels A1-C2.
             </ProjectSectionText>
             <div className={styles.featureFlowHorizontal}>
-              <div className={styles.featureCardHorizontal} data-feature="writing">
-                <div className={styles.featureNumber}>4</div>
-                <div
-                  className={styles.featureImageWrapper}
-                  onClick={() => handleImageClick(writingExercises, "Writing Exercises")}
-                  onMouseMove={(e) => handleMouseMove(e, writingExercises)}
-                  onMouseEnter={(e) => handleMouseEnter(e, writingExercises)}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <Image
-                    {...createImageVariants(writingExercises, "Writing Exercises", { width: 500, height: 350 })}
-                    sizes="(max-width: 768px) 85vw, 40vw"
-                  />
+              {featureCards.map((card, index) => (
+                <div key={index} className={styles.featureCardHorizontal} data-feature={`feature-${card.featureNumber}`}>
+                  <div className={styles.featureNumber}>{card.featureNumber}</div>
+                  <div
+                    className={styles.featureImageWrapper}
+                    onClick={() => handleImageClick(card.image, card.title)}
+                    onMouseMove={(e) => handleMouseMove(e, card.image)}
+                    onMouseEnter={(e) => handleMouseEnter(e, card.image)}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <Image
+                      {...createImageVariants(card.image, card.title, { width: 500, height: 350 })}
+                      sizes="(max-width: 768px) 85vw, 40vw"
+                    />
+                  </div>
+                  <div className={styles.featureContent}>
+                    <h4>{card.title}</h4>
+                    <p>{card.description}</p>
+                  </div>
                 </div>
-                <div className={styles.featureContent}>
-                  <h4>Writing Exercises</h4>
-                  <p>165+ comprehensive writing prompts across all CEFR levels. Practice creative writing, translation, email composition, and more with structured exercises ranging from 12-15 minutes each.</p>
-                </div>
-              </div>
-
-              <div className={styles.featureCardHorizontal} data-feature="editor">
-                <div className={styles.featureNumber}>5</div>
-                <div
-                  className={styles.featureImageWrapper}
-                  onClick={() => handleImageClick(writingInterface, "Rich Text Editor")}
-                  onMouseMove={(e) => handleMouseMove(e, writingInterface)}
-                  onMouseEnter={(e) => handleMouseEnter(e, writingInterface)}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <Image
-                    {...createImageVariants(writingInterface, "Rich Text Editor", { width: 500, height: 350 })}
-                    sizes="(max-width: 768px) 85vw, 40vw"
-                  />
-                </div>
-                <div className={styles.featureContent}>
-                  <h4>Rich Text Editor</h4>
-                  <p>Write your German translations with a powerful editor featuring hints, reference answers, and helpful tips. Submit completed work for teacher review and track your progress over time.</p>
-                </div>
-              </div>
+              ))}
             </div>
           </ProjectSectionContent>
         </ProjectSection>
