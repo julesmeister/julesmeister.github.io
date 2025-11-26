@@ -155,6 +155,14 @@
   &[data-feature="feature-10"] {
     animation-delay: 1.4s;
   }
+
+  &[data-feature="feature-11"] {
+    animation-delay: 1.6s;
+  }
+
+  &[data-feature="feature-12"] {
+    animation-delay: 1.8s;
+  }
 }
 
 .featureNumber {
@@ -193,6 +201,14 @@
 
 .featureCardHorizontal[data-feature="feature-10"] .featureNumber {
   animation-delay: 1.9s;
+}
+
+.featureCardHorizontal[data-feature="feature-11"] .featureNumber {
+  animation-delay: 2.1s;
+}
+
+.featureCardHorizontal[data-feature="feature-12"] .featureNumber {
+  animation-delay: 2.3s;
 }
 
 /* Sidebar layout customizations */

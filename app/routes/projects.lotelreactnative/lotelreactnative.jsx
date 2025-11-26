@@ -11,6 +11,10 @@ import expenses from '~/assets/lotel_react_native/expenses.jpg';
 import roles from '~/assets/lotel_react_native/roles.jpg';
 import inventory from '~/assets/lotel_react_native/inventory.jpg';
 import mart from '~/assets/lotel_react_native/mart.jpg';
+import transactions from '~/assets/lotel_react_native/transactions.jpg';
+import payroll from '~/assets/lotel_react_native/payroll.jpg';
+import homeDashboard from '~/assets/lotel_react_native/home-dashboard.jpg';
+import staffPayroll from '~/assets/lotel_react_native/staff-payroll.jpg';
 
 import { Fragment, useState } from 'react';
 import { Image } from '~/components/image';
@@ -61,13 +65,15 @@ const featureCards = [
   createFeatureCard(7, expenses, 'Expense Management', 'Record daily hotel expenses with categorized types including softdrinks, cash advances, salary, food, and more. Track amount and description for complete financial visibility across all hotel operations.'),
   createFeatureCard(8, roles, 'Staff Role Management', 'Manage hotel staff with role-based access control. Track staff and admin users with real-time activity status. View who is currently active and manage user roles efficiently.'),
   createFeatureCard(9, inventory, 'Complete Inventory System', 'Comprehensive inventory management for candy, essentials, and drinks. Track stock levels, pricing, and out-of-stock items. Edit or delete inventory items with simple action buttons.'),
-  createFeatureCard(10, mart, 'Lotel Mart Shopping', 'Internal shopping cart system for hotel purchases. Add items to cart with quantity controls, view categorized inventory (27 items total), and process transactions seamlessly.')
+  createFeatureCard(10, mart, 'Lotel Mart Shopping', 'Internal shopping cart system for hotel purchases. Add items to cart with quantity controls, view categorized inventory (27 items total), and process transactions seamlessly.'),
+  createFeatureCard(11, payroll, 'Payroll Management', 'Manage fortnightly payroll cycles with total expenditure tracking (₱535,088.8). View pending and settled payrolls organized by fortnight, with status indicators for each payment period.'),
+  createFeatureCard(12, staffPayroll, 'Staff Payroll Tracking', 'Monitor individual staff member advances and settlements. Track pending cash advances with visual alerts, settled amounts per staff member, and maintain complete payroll transparency across all hotel employees.')
 ];
 
-// Sidebar images for tech stack section
+// Sidebar images for dashboard section
 const sidebarImages = [
-  { src: groceryAnalytics, alt: 'Lotel React Native: Grocery profitability analytics showing revenue, expenses, and days to breakeven with profit percentage' },
-  { src: beddings, alt: 'Lotel React Native: Beddings inventory management with units, pricing, and room assignments for towels, bedsheets, and pillowcases' }
+  { src: homeDashboard, alt: 'Lotel React Native: Home dashboard overview showing documents, grocery analytics, bills, and payroll sections with quick access buttons' },
+  { src: transactions, alt: 'Lotel React Native: Daily transactions view with bookings/goods filters, total and remitted amounts, and detailed sales records by staff member' }
 ];
 
 export const meta = createProjectMeta(projectConfig.title, projectConfig.description);
