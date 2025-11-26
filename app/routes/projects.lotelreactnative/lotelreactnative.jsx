@@ -150,8 +150,8 @@ export const LotelReactNative = () => {
             </ProjectSectionText>
             <div className={styles.featureFlowHorizontal}>
               {featureCards.map((card, index) => (
-                <div key={index} className={styles.featureCardHorizontal} data-feature={`feature-${card.stepNumber}`}>
-                  <div className={styles.featureNumber}>{card.stepNumber}</div>
+                <div key={index} className={styles.featureCardHorizontal} data-feature={`feature-${card.featureNumber}`}>
+                  <div className={styles.featureNumber}>{card.featureNumber}</div>
                   <div
                     className={styles.featureImageWrapper}
                     onClick={() => handleImageClick(card.image, card.title)}
