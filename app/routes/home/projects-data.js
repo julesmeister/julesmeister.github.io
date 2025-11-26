@@ -19,7 +19,7 @@ import testmanshipWebV2Hero from '~/assets/testmanship_web_v2/hero.png';
 import testmanshipWebV2Dashboard from '~/assets/testmanship_web_v2/student-dashboard.png';
 
 // Lotel React Native assets
-import lotelReactNativeRemittance from '~/assets/lotel_react_native/remittance.jpg';
+import lotelReactNativeSalesDashboard from '~/assets/lotel_react_native/sales-dashboard.jpg';
 import lotelReactNativeRoomBooking from '~/assets/lotel_react_native/room-booking.jpg';
 
 // Other project assets
@@ -121,7 +121,7 @@ export const projectsData = [
     technologies: ['Next.js', 'TypeScript', 'TurboDB'],
     image: orbitAndChillScreenShot,
     link: '/projects/orbitandchill',
-    featured: true,
+    featured: false,
     scrollView: {
       modelType: 'laptop',
       alt: 'Orbit and Chill astrology platform',
@@ -217,9 +217,9 @@ export const projectsData = [
     id: 'lotelreactnative',
     title: 'Lotel React Native',
     description:
-      'Modern hotel management system rebuilt with React Native and Expo. Features handymen payment tracking, grocery profitability analytics, remittance management, beddings inventory, maintenance issue tracking, and room booking management. Currently in active development with enhanced UI/UX.',
+      'Modern hotel management system rebuilt with React Native and Expo. Features sales dashboard with occupancy metrics, handymen payment tracking, grocery profitability analytics, remittance management, beddings inventory, maintenance issue tracking, and room booking management. Currently in active development with enhanced UI/UX.',
     technologies: ['React Native', 'Expo', 'Firebase'],
-    image: lotelReactNativeRemittance,
+    image: lotelReactNativeSalesDashboard,
     link: '/projects/lotelreactnative',
     featured: true,
     scrollView: {
@@ -227,8 +227,8 @@ export const projectsData = [
       alt: 'Lotel React Native hotel management system',
       textures: [
         {
-          srcSet: `${lotelReactNativeRemittance} 375w, ${lotelReactNativeRemittance} 750w`,
-          placeholder: lotelReactNativeRemittance,
+          srcSet: `${lotelReactNativeSalesDashboard} 375w, ${lotelReactNativeSalesDashboard} 750w`,
+          placeholder: lotelReactNativeSalesDashboard,
         },
         {
           srcSet: `${lotelReactNativeRoomBooking} 375w, ${lotelReactNativeRoomBooking} 750w`,

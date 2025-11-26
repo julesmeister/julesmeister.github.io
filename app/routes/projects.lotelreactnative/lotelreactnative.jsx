@@ -15,6 +15,7 @@ import transactions from '~/assets/lotel_react_native/transactions.jpg';
 import payroll from '~/assets/lotel_react_native/payroll.jpg';
 import homeDashboard from '~/assets/lotel_react_native/home-dashboard.jpg';
 import staffPayroll from '~/assets/lotel_react_native/staff-payroll.jpg';
+import salesDashboard from '~/assets/lotel_react_native/sales-dashboard.jpg';
 
 import { Fragment, useState } from 'react';
 import { Image } from '~/components/image';
@@ -46,7 +47,7 @@ const projectConfig = {
   roles: ['React Native', 'Expo', 'Firebase', 'TypeScript'],
   url: 'https://github.com/julesmeister/lotel',
   linkLabel: 'View on GitHub',
-  backgroundImage: remittance,
+  backgroundImage: salesDashboard,
   sectionNames: ['header', 'intro', 'features', 'analytics', 'tech-stack']
 };
 
