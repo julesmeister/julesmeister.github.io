@@ -212,7 +212,7 @@
 }
 
 /* Fix feature number positioning for alternating layout */
-.featureCardHorizontal:nth-child(even) .featureNumber {
+.featureCardHorizontal:nth-child(odd) .featureNumber {
   right: auto;
   left: -20px;
 }
