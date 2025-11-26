@@ -32,8 +32,8 @@ import styles from './lotel.module.css';
 
 // Project configuration
 const projectConfig = {
-  title: 'Lotel Android App',
-  description: 'I rebuilt this project using Flutterflow and Firebase, migrating it from a desktop Electron app with a Vue frontend. I have onboarded our staff and co-owners, who use the app on their Android phones to monitor hotels\' performance. While not distributed through the Google Play Store, the app has been successfully running in production for over a year with active daily usage by our staffs. A limited demo mode is available upon request.',
+  title: 'Lotel Android App (Flutterflow Version)',
+  description: 'This is the original version of Lotel, built using Flutterflow and Firebase. It was migrated from a desktop Electron app with a Vue frontend. The app has been successfully running in production for over a year with active daily usage by our staff and co-owners. This version is now being superseded by a more modern React Native/Expo rebuild with enhanced features and improved UI/UX.',
   roles: ['Android', 'Flutterflow', 'Firebase', 'No-Code'],
   url: 'https://lotel-7ac21u.flutterflow.app/',
   linkLabel: 'Visit website',

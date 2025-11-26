@@ -18,6 +18,10 @@ import sweldoScreenShot from '~/assets/Sweldo-Home-Cut.png';
 import testmanshipWebV2Hero from '~/assets/testmanship_web_v2/hero.png';
 import testmanshipWebV2Dashboard from '~/assets/testmanship_web_v2/student-dashboard.png';
 
+// Lotel React Native assets
+import lotelReactNativeRemittance from '~/assets/lotel_react_native/remittance.jpg';
+import lotelReactNativeRoomBooking from '~/assets/lotel_react_native/room-booking.jpg';
+
 // Other project assets
 import airlineCrewSchedulingScreenShot from '~/assets/Airline-Crew-Scheduling.png';
 import testmanshipScreenShot from '~/assets/Testmanship-Light.jpg';
@@ -210,16 +214,40 @@ export const projectsData = [
     },
   },
   {
-    id: 'lotel',
-    title: 'Lotel',
+    id: 'lotelreactnative',
+    title: 'Lotel React Native',
     description:
-      'Comprehensive hospitality management system for encoding and monitoring various aspects of hotel operations, including sales, billing, payroll, and key performance metrics',
+      'Modern hotel management system rebuilt with React Native and Expo. Features handymen payment tracking, grocery profitability analytics, remittance management, beddings inventory, maintenance issue tracking, and room booking management. Currently in active development with enhanced UI/UX.',
+    technologies: ['React Native', 'Expo', 'Firebase'],
+    image: lotelReactNativeRemittance,
+    link: '/projects/lotelreactnative',
+    featured: true,
+    scrollView: {
+      modelType: 'phone',
+      alt: 'Lotel React Native hotel management system',
+      textures: [
+        {
+          srcSet: `${lotelReactNativeRemittance} 375w, ${lotelReactNativeRemittance} 750w`,
+          placeholder: lotelReactNativeRemittance,
+        },
+        {
+          srcSet: `${lotelReactNativeRoomBooking} 375w, ${lotelReactNativeRoomBooking} 750w`,
+          placeholder: lotelReactNativeRoomBooking,
+        },
+      ],
+    },
+  },
+  {
+    id: 'lotel',
+    title: 'Lotel (Flutterflow Version)',
+    description:
+      'Original hotel management system built with Flutterflow and Firebase. This version has been successfully running in production for over a year. Now superseded by the React Native version with enhanced features and modern UI.',
     technologies: ['Flutterflow', 'Firebase'],
     image: lotelScreenShot,
     link: '/projects/lotel',
     scrollView: {
       modelType: 'phone',
-      alt: 'Lotel hospitality management system',
+      alt: 'Lotel Flutterflow version',
       textures: [
         {
           srcSet: `${lotelScreenShot} 375w, ${lotelScreenShotLarge} 750w`,
