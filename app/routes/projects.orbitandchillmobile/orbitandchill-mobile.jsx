@@ -1,10 +1,21 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import synastryImg from '~/assets/orbitandchill_mobile/synastry.jpg';
-import aspectsImg from '~/assets/orbitandchill_mobile/aspects.jpg';
-import qualitiesImg from '~/assets/orbitandchill_mobile/qualities.jpg';
-import natalChartImg from '~/assets/orbitandchill_mobile/natal-chart.jpg';
-import matrixImg from '~/assets/orbitandchill_mobile/matrix.jpg';
+import natalChart from '~/assets/orbitandchill_mobile/natal-chart.jpg';
+import aspects from '~/assets/orbitandchill_mobile/aspects.jpg';
+import qualities from '~/assets/orbitandchill_mobile/qualities.jpg';
+import synastryChart from '~/assets/orbitandchill_mobile/synastry-chart.jpg';
+import synastryCompatibility from '~/assets/orbitandchill_mobile/synastry-compatibility.jpg';
+import matrix from '~/assets/orbitandchill_mobile/matrix.jpg';
+import humanDesign from '~/assets/orbitandchill_mobile/human-design.jpg';
+import lifeStory from '~/assets/orbitandchill_mobile/life-story.jpg';
+import profections from '~/assets/orbitandchill_mobile/profections.jpg';
+import moonMagic from '~/assets/orbitandchill_mobile/moon-magic.jpg';
+import moonTransits from '~/assets/orbitandchill_mobile/moon-transits.jpg';
+import electional from '~/assets/orbitandchill_mobile/electional.jpg';
+import planetaryHours from '~/assets/orbitandchill_mobile/planetary-hours.jpg';
+import persons from '~/assets/orbitandchill_mobile/persons.jpg';
+import timeTab from '~/assets/orbitandchill_mobile/time-tab.jpg';
 
 import { Fragment, useState } from 'react';
 import { Image } from '~/components/image';
@@ -30,33 +41,42 @@ import styles from './orbitandchill-mobile.module.css';
 // Project configuration
 const projectConfig = {
   title: 'Orbit and Chill Mobile',
-  description: 'A powerful Android astrology app for your tablet. Get accurate birth charts with 15 celestial bodies, check relationship compatibility, explore Matrix of Destiny readings, and track moon phases. Built with Jetpack Compose for smooth, beautiful charts that load instantly. Perfect for astrology enthusiasts who want professional insights on the go.',
+  description: 'A professional-grade Android astrology app built with Jetpack Compose and Kotlin. Features accurate natal charts with 15 celestial bodies, synastry compatibility analysis, Matrix of Destiny divination, Human Design bodygraph, annual profections, planetary hours, electional astrology, and real-time moon phase tracking.',
   roles: ['Jetpack Compose', 'Kotlin', 'Android', 'Astrology'],
   url: 'https://orbitandchill.com',
   linkLabel: 'Visit website',
   secondaryUrl: 'https://github.com/julesmeister/Orbit-and-Chill-Mobile',
   secondaryLinkLabel: 'View on Github',
-  backgroundImage: natalChartImg,
-  sectionNames: ['header', 'intro', 'features', 'matrix', 'tech-stack']
+  backgroundImage: natalChart,
+  sectionNames: ['header', 'intro', 'features', 'advanced', 'tech-stack']
 };
 
-// Timeline steps data
+// Timeline steps data - core chart features
 const timelineSteps = [
-  createTimelineStep(1, natalChartImg, 'Birth Charts That Make Sense', 'Create your natal chart with all 10 planets plus important points like your North Node and Lilith. Tap any planet to learn what it means for you. Charts are super accurate and look beautiful on your tablet screen.'),
-  createTimelineStep(2, aspectsImg, 'Understand Your Patterns', 'See how planets in your chart connect to each other. The app shows which connections are helpful (harmonious) and which ones create tension (challenging). Filter by any planet to focus on what matters to you.'),
-  createTimelineStep(3, qualitiesImg, 'Deep Dive Into Placements', 'Learn where each planet sits in your chart - which zodiac sign, which house, and whether it\'s strong or weak there. Includes retrogrades and special positions that make your chart unique.')
+  createTimelineStep(1, natalChart, 'Natal Chart & Transits', 'Full birth chart with inner ring (natal positions) and outer ring (current transits). Transit Navigator lets you scrub through time — 24 hours to 20 years — to see how planets move. Solar Return jumps to your birthday chart instantly.'),
+  createTimelineStep(2, qualities, 'Planet Placements', 'Every planet listed with zodiac sign, exact degree, house position, and dignity status (Exalted, Domicile, Detriment, Fall). Color-coded rows make it easy to spot strengths and challenges at a glance.'),
+  createTimelineStep(3, aspects, 'Aspects & Filters', 'Interactive aspect chart showing Conjunctions, Oppositions, Trines, Squares, and Sextiles with counts. Filter by any planet to isolate its connections. Toggle between Celestial and Matrix aspect views.')
 ];
 
-// Advanced features data
-const advancedFeatures = [
-  createFeatureCard(4, synastryImg, 'Check Your Compatibility', 'Compare two birth charts to see how compatible you are. The app looks at your Venus (how you love), Moon (your emotions), and other key points to show where you click and where you might clash. Great for relationships, friendships, or just understanding your connections better.'),
-  createFeatureCard(5, matrixImg, 'Matrix of Destiny', 'Explore your life path through the Matrix of Destiny - a mystical system using tarot cards mapped to your birth date. Tap any number on the colorful chart to discover what it means for your current life stage, relationships, career, and spiritual journey.')
+// Feature cards data - expanded features
+const featureCards = [
+  createFeatureCard(4, synastryCompatibility, 'Synastry Compatibility', 'Compare two birth charts with an overall compatibility percentage. Add meeting info for electional insights. Toggle between Compatibility overview and detailed Aspects analysis to understand relationship dynamics.'),
+  createFeatureCard(5, synastryChart, 'Synastry Aspects', 'Dual-ring synastry chart overlaying two natal charts. Filter aspects by planet (Sun through Pluto) and aspect type. See exactly how your planets interact with another person\'s chart for deep relationship insights.'),
+  createFeatureCard(6, matrix, 'Matrix of Destiny', 'Mystical divination system using 22 tarot arcana mapped to your birth date. Tap any of the 33 numbered circles to reveal life path meanings — talents, challenges, karma, and spiritual purpose arranged in an intricate geometric pattern.'),
+  createFeatureCard(7, humanDesign, 'Human Design', 'Complete bodygraph showing defined and undefined centers, gates, and channels. Design (unconscious) and Personality (conscious) columns display planetary positions with line numbers. Visual body silhouette maps energy flow.'),
+  createFeatureCard(8, lifeStory, 'Life Story', 'Deep interpretations of your chart ruler and key placements. "Your Life Direction" reveals how Mercury in House 6 as Chart Ruler (Gemini Rising) shapes your path toward service, health, and daily routines. Written in plain English, not jargon.'),
+  createFeatureCard(9, profections, 'Annual Profections', 'Track your current profection year showing profected sign, house, and rising sign. Year Progress bar shows where you are in the cycle. Time Lord reveals which planet rules your year. Full 12-year profection cycle at a glance.'),
+  createFeatureCard(10, moonMagic, 'Moon Phase Magic', 'Current moon phase with illumination percentage and zodiac sign. Correspondences tab reveals magical associations for each phase — from New Moon (setting intentions) through Full Moon (manifestation) and beyond.'),
+  createFeatureCard(11, moonTransits, 'Moon Sign Transits', 'Upcoming moon sign changes with exact dates and times. Track when the Moon moves through Aquarius, Pisces, Aries, and beyond. Calendar view for planning activities aligned with lunar energy.'),
+  createFeatureCard(12, electional, 'Electional Astrology', 'Find the perfect timing for important life events. Choose your goal — Launch Something, Career Move, Romance, Sign Contract, Real Estate, Medical, Travel, Creative Work, Social Event — and get optimal timing based on planetary transits.'),
+  createFeatureCard(13, planetaryHours, 'Planetary Hours', 'Traditional Chaldean planetary hour calculator showing current ruling planet with countdown timer. Sunrise/sunset times, day ruler, and complete hour-by-hour schedule with planet meanings for timing decisions.'),
+  createFeatureCard(14, persons, 'Persons Management', 'Save multiple birth profiles with names, dates, and exact birth times. Alphabetically organized with quick-add button. Switch between saved persons to instantly view any chart, compare synastry, or check compatibility.')
 ];
 
-// Sidebar images for tech stack section
+// Sidebar images
 const sidebarImages = [
-  { src: matrixImg, alt: 'Matrix of Destiny chart with colorful numbers and tarot meanings' },
-  { src: synastryImg, alt: 'Synastry chart comparing two people for relationship compatibility' }
+  { src: timeTab, alt: 'Orbit and Chill Mobile: Time tab showing planetary hours overview with current Mercury hour, electional astrology access, and 13 saved persons' },
+  { src: profections, alt: 'Orbit and Chill Mobile: Annual profections showing Age 0 in 1st profection year with Capricorn rising, Saturn as Time Lord, and 12-year cycle overview' }
 ];
 
 export const meta = createProjectMeta(projectConfig.title, projectConfig.description);
@@ -87,9 +107,9 @@ export const OrbitAndChillMobile = () => {
       <ProjectContainer className={styles.orbitandchillmobile}>
         <ProjectBackground
           src={projectConfig.backgroundImage}
-          srcSet={`${projectConfig.backgroundImage} 1280w, ${projectConfig.backgroundImage} 2560w`}
-          width={1280}
-          height={800}
+          srcSet={`${projectConfig.backgroundImage} 800w, ${projectConfig.backgroundImage} 1600w`}
+          width={800}
+          height={1600}
           placeholder={projectConfig.backgroundImage}
           opacity={0.8}
         />
@@ -107,9 +127,9 @@ export const OrbitAndChillMobile = () => {
         <ProjectSection padding="top" ref={sectionRefs.intro}>
           <ProjectSectionContent>
             <div className={styles.timelineContainer}>
-              <div className={styles.timelineSteps}>
+              <div className={styles.timelineStepsHorizontal}>
                 {timelineSteps.map((step, index) => (
-                  <div key={index} className={styles.timelineStep} data-step={step.stepNumber}>
+                  <div key={index} className={styles.timelineStepHorizontal} data-step={step.stepNumber}>
                     <div
                       className={styles.timelineImage}
                       onClick={() => handleImageClick(step.image, step.title)}
@@ -119,8 +139,8 @@ export const OrbitAndChillMobile = () => {
                     >
                       <div className={styles.stepNumber}>{step.stepNumber}</div>
                       <Image
-                        {...createImageVariants(step.image, step.title, { width: 800, height: 600 })}
-                        sizes="(max-width: 768px) 90vw, 800px"
+                        {...createImageVariants(step.image, step.title, { width: 400, height: 800 })}
+                        sizes="(max-width: 768px) 90vw, 45vw"
                       />
                     </div>
                     <div className={styles.timelineContent}>
@@ -136,29 +156,29 @@ export const OrbitAndChillMobile = () => {
 
         <ProjectSection ref={sectionRefs.features}>
           <ProjectSectionContent>
-            <ProjectSectionHeading>More Cool Features</ProjectSectionHeading>
+            <ProjectSectionHeading>Complete Astrology Toolkit</ProjectSectionHeading>
             <ProjectSectionText>
-              Beyond basic birth charts, the app offers powerful tools for deeper exploration. Check compatibility with anyone in your life, explore mystical divination systems, and get easy-to-understand interpretations written in plain English. Everything loads fast and looks gorgeous on your Android tablet.
+              Beyond natal charts, Orbit and Chill Mobile offers a comprehensive suite of astrological tools. From relationship compatibility and life path readings to timing tools and mystical systems like Matrix of Destiny and Human Design — everything loads instantly with beautiful visualizations optimized for Android phones.
             </ProjectSectionText>
-            <div className={styles.featureFlow}>
-              {advancedFeatures.map((feature) => (
-                <div key={feature.featureNumber} className={styles.featureCard} data-feature="synastry">
-                  <div className={styles.featureNumber}>{feature.featureNumber}</div>
+            <div className={styles.featureFlowHorizontal}>
+              {featureCards.map((card, index) => (
+                <div key={index} className={styles.featureCardHorizontal} data-feature={`feature-${card.featureNumber}`}>
+                  <div className={styles.featureNumber}>{card.featureNumber}</div>
                   <div
                     className={styles.featureImageWrapper}
-                    onClick={() => handleImageClick(feature.image, feature.title)}
-                    onMouseMove={(e) => handleMouseMove(e, feature.image)}
-                    onMouseEnter={(e) => handleMouseEnter(e, feature.image)}
+                    onClick={() => handleImageClick(card.image, card.title)}
+                    onMouseMove={(e) => handleMouseMove(e, card.image)}
+                    onMouseEnter={(e) => handleMouseEnter(e, card.image)}
                     onMouseLeave={handleMouseLeave}
                   >
                     <Image
-                      {...createImageVariants(feature.image, feature.title, { width: 800, height: 600 })}
-                      sizes="(max-width: 768px) 85vw, 600px"
+                      {...createImageVariants(card.image, card.title, { width: 400, height: 800 })}
+                      sizes="(max-width: 768px) 85vw, 40vw"
                     />
                   </div>
                   <div className={styles.featureContent}>
-                    <h4>{feature.title}</h4>
-                    <p>{feature.description}</p>
+                    <h4>{card.title}</h4>
+                    <p>{card.description}</p>
                   </div>
                 </div>
               ))}
@@ -166,40 +186,15 @@ export const OrbitAndChillMobile = () => {
           </ProjectSectionContent>
         </ProjectSection>
 
-        <ProjectSection ref={sectionRefs.matrix}>
-          <ProjectSectionContent>
-            <ProjectSectionHeading>Matrix of Destiny</ProjectSectionHeading>
-            <ProjectSectionText>
-              This feature adds a whole new dimension to your astrological insights. The Matrix of Destiny uses 22 tarot cards arranged in a special pattern based on your birth date. Each position reveals something different about your life - your talents, challenges, relationships, and spiritual path.
-            </ProjectSectionText>
-            <div
-              className={styles.nativeExperienceContainer}
-              onClick={() => handleImageClick(matrixImg, "Matrix of Destiny chart with interactive tarot positions")}
-              onMouseMove={(e) => handleMouseMove(e, matrixImg)}
-              onMouseEnter={(e) => handleMouseEnter(e, matrixImg)}
-              onMouseLeave={handleMouseLeave}
-            >
-              <Image
-                className={styles.nativeExperienceImage}
-                {...createImageVariants(matrixImg, "Matrix of Destiny chart with interactive tarot positions", { width: 800, height: 600 })}
-                sizes="(max-width: 768px) 95vw, 800px"
-              />
-            </div>
-            <ProjectSectionText>
-              Tap any of the 33 colored circles to jump straight to its meaning. The app automatically scrolls to show you detailed interpretations in simple language. You'll also find moon tracking features that show lunar phases, best times for different activities, and even magical correspondences if you're into that sort of thing.
-            </ProjectSectionText>
-          </ProjectSectionContent>
-        </ProjectSection>
-
-        <ProjectSection ref={sectionRefs['tech-stack']}>
+        <ProjectSection ref={sectionRefs.advanced}>
           <ProjectSectionColumns centered className={styles.columns}>
             <div className={styles.imagesText}>
-              <ProjectSectionHeading>Built for Android Tablets</ProjectSectionHeading>
+              <ProjectSectionHeading>Built Native for Android</ProjectSectionHeading>
               <ProjectSectionText>
-                The app is built with Jetpack Compose, giving it that smooth, modern Android feel. Charts load instantly because I rebuilt the rendering engine from scratch - they're 90% faster than before. Everything is optimized for tablets like the Huawei MatePad, so you get the full experience on a nice big screen.
+                The app is built with Jetpack Compose, delivering that smooth, modern Android feel. Charts render instantly using a custom engine rebuilt from scratch — 90% faster than the previous version. All astronomical calculations match professional software accuracy with 15 celestial bodies tracked.
               </ProjectSectionText>
               <ProjectSectionText>
-                Under the hood, it uses the same astronomy calculations as professional software, so the charts are super accurate. I've also written over 700 interpretations in plain English - no confusing astrology jargon. Whether you're checking your chart, comparing compatibility, or exploring the Matrix, everything just works smoothly.
+                Over 700 interpretations written in plain English cover natal placements, aspects, life story narratives, and Matrix of Destiny meanings. Human Design bodygraph calculations include gates, channels, and defined/undefined centers. Planetary hours follow the traditional Chaldean order with real-time countdown timers.
               </ProjectSectionText>
             </div>
             <div className={styles.sidebarImages}>
@@ -214,16 +209,27 @@ export const OrbitAndChillMobile = () => {
                 >
                   <Image
                     className={styles.sidebarImage}
-                    {...createImageVariants(img.src, img.alt, { width: 600, height: 450 })}
-                    sizes={`(max-width: ${media.mobile}px) 300px, 600px`}
+                    {...createImageVariants(img.src, img.alt, { width: 350, height: 750 })}
+                    sizes={`(max-width: ${media.mobile}px) 200px, 343px`}
                   />
                 </div>
               ))}
             </div>
           </ProjectSectionColumns>
         </ProjectSection>
-      </ProjectContainer>
 
+        <ProjectSection ref={sectionRefs.techStack}>
+          <ProjectSectionContent>
+            <ProjectSectionHeading>Native Android Stack</ProjectSectionHeading>
+            <ProjectSectionText>
+              Built with Kotlin and Jetpack Compose for a fully native Android experience. The custom chart rendering engine uses Canvas APIs for pixel-perfect astrological wheels with smooth pinch-to-zoom and rotation. Kotlin coroutines handle complex astronomical calculations off the main thread for a consistently smooth 60fps UI.
+            </ProjectSectionText>
+            <ProjectSectionText>
+              The app supports offline usage with pre-computed ephemeris data for accurate planetary positions. Material Design 3 theming provides a cohesive purple-accented look across all screens. Navigation between the five main tabs — Chart, Persons, Moon, Synastry, and Time — uses Compose Navigation with fluid shared element transitions.
+            </ProjectSectionText>
+          </ProjectSectionContent>
+        </ProjectSection>
+      </ProjectContainer>
 
       {/* Magnifier */}
       {magnifier.isVisible && (

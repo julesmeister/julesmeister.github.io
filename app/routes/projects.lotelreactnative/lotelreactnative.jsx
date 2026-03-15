@@ -222,12 +222,12 @@ export const LotelReactNative = () => {
             <ProjectSectionText>
               The app leverages Expo's managed workflow for rapid development and easy deployments. PDF generation is handled natively for professional remittance reports. The purple-themed UI uses modern design patterns with smooth animations and intuitive navigation for optimal user experience during daily hotel operations.
             </ProjectSectionText>
-            <ProjectSectionHeading>Future Plans: Migrating to Kotlin & Jetpack Compose</ProjectSectionHeading>
+            <ProjectSectionHeading>Migrated to Kotlin & Jetpack Compose</ProjectSectionHeading>
             <ProjectSectionText>
-              While React Native with Expo enabled rapid prototyping, the app suffers from slow load times and performance issues that impact daily operations. I'm planning to rebuild this application using native Android development with Kotlin and Jetpack Compose to address these performance bottlenecks and provide a significantly faster, more responsive user experience.
+              While React Native with Expo enabled rapid prototyping, the app suffered from slow load times and performance issues that impacted daily operations. The application has been rebuilt using native Android development with Kotlin and Jetpack Compose, addressing these performance bottlenecks and delivering a significantly faster, more responsive user experience.
             </ProjectSectionText>
             <ProjectSectionText>
-              The migration to native Android will eliminate the JavaScript bridge overhead, provide instant app startup, smoother animations, and better memory management. Jetpack Compose's modern declarative UI framework combined with Material Design 3 components will enable a polished, performant hotel management system that staff can rely on for critical daily operations.
+              The migration to native Android eliminated the JavaScript bridge overhead, providing instant app startup, smoother animations, and better memory management. Jetpack Compose's modern declarative UI framework combined with Material Design 3 components delivers a polished, performant hotel management system that staff rely on for critical daily operations. <a href="/projects/lotelkotlin">View the Kotlin version</a>.
             </ProjectSectionText>
           </ProjectSectionContent>
         </ProjectSection>

@@ -2,35 +2,35 @@
 @import '../../styles/project-layouts.css';
 @import '../../styles/project-modern-layout.css';
 
-.orbitandchillmobile {
-  --primary-color: #8b5cf6;
-  --secondary-color: #7c3aed;
+.deutschcraft {
+  --primary-color: #e6a817;
+  --secondary-color: #d4940f;
 }
 
-/* Timeline customizations */
+/* DeutschCraft timeline customizations */
 .timelineStepHorizontal {
   &[data-step="1"] {
     animation-delay: 1s;
-    margin-top: 55px;
+    margin-top: 50px;
   }
 
   &[data-step="2"] {
     animation-delay: 1.3s;
-    margin-top: 25px;
+    margin-top: 30px;
   }
 
   &[data-step="3"] {
     animation-delay: 1.6s;
-    margin-top: 45px;
+    margin-top: 60px;
   }
 }
 
 .stepNumber {
-  top: -22px;
-  left: -22px;
-  width: 48px;
-  height: 48px;
-  font-size: 1.15rem;
+  top: -20px;
+  left: -20px;
+  width: 45px;
+  height: 45px;
+  font-size: 1.1rem;
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
 }
 
@@ -163,14 +163,6 @@
   &[data-feature="feature-12"] {
     animation-delay: 1.8s;
   }
-
-  &[data-feature="feature-13"] {
-    animation-delay: 2.0s;
-  }
-
-  &[data-feature="feature-14"] {
-    animation-delay: 2.2s;
-  }
 }
 
 .featureNumber {
@@ -219,14 +211,6 @@
   animation-delay: 2.3s;
 }
 
-.featureCardHorizontal[data-feature="feature-13"] .featureNumber {
-  animation-delay: 2.5s;
-}
-
-.featureCardHorizontal[data-feature="feature-14"] .featureNumber {
-  animation-delay: 2.7s;
-}
-
 /* Fix feature number positioning for alternating layout */
 .featureCardHorizontal:nth-child(odd) .featureNumber {
   right: auto;
@@ -242,7 +226,7 @@
     grid-column: col 1 / span 4;
     grid-row: 1;
     position: relative;
-    top: 6%;
+    top: 8%;
     opacity: 0.85;
   }
 
@@ -250,19 +234,19 @@
     grid-column: col 3 / span 4;
     grid-row: 1;
     position: relative;
-    top: -6%;
+    top: -8%;
     opacity: 1;
   }
 }
 
 .sidebarImage {
   border-radius: 12px;
-  box-shadow: 0 15px 30px rgba(139, 92, 246, 0.15);
+  box-shadow: 0 15px 30px rgba(230, 168, 23, 0.15);
   transition: all 0.3s ease;
   opacity: 1 !important;
 }
 
 .sidebarImageWrapper:hover .sidebarImage {
   transform: translateY(-5px);
-  box-shadow: 0 25px 45px rgba(139, 92, 246, 0.25);
+  box-shadow: 0 25px 45px rgba(230, 168, 23, 0.25);
 }

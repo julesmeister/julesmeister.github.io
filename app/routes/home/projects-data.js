@@ -8,19 +8,23 @@ import orbitAndChillScreenShot2 from '~/assets/orbitandchill/photo_3_2025-08-18_
 
 // Orbit and Chill Mobile assets
 import orbitAndChillMobileScreenShot from '~/assets/orbitandchill_mobile/natal-chart.jpg';
-import orbitAndChillMobileScreenShot2 from '~/assets/orbitandchill_mobile/synastry.jpg';
+import orbitAndChillMobileScreenShot2 from '~/assets/orbitandchill_mobile/synastry-compatibility.jpg';
 
 // Sweldo assets
 import sweldoNextron from '~/assets/sweldo-nextron.png';
 import sweldoScreenShot from '~/assets/Sweldo-Home-Cut.png';
 
-// Testmanship Web V2 assets
-import testmanshipWebV2Hero from '~/assets/testmanship_web_v2/hero.png';
-import testmanshipWebV2Dashboard from '~/assets/testmanship_web_v2/student-dashboard.png';
+// DeutschCraft assets
+import deutschcraftDashboard from '~/assets/deutschcraft/dashboard.png';
+import deutschcraftFlashcards from '~/assets/deutschcraft/flashcard-categories.png';
 
 // Lotel React Native assets
 import lotelReactNativeSalesDashboard from '~/assets/lotel_react_native/sales-dashboard.jpg';
 import lotelReactNativeRoomBooking from '~/assets/lotel_react_native/room-booking.jpg';
+
+// Lotel Kotlin assets
+import lotelKotlinHomeDashboard from '~/assets/lotel_kotlin/home-dashboard.jpg';
+import lotelKotlinMetrics from '~/assets/lotel_kotlin/metrics-dashboard.jpg';
 
 // Other project assets
 import airlineCrewSchedulingScreenShot from '~/assets/Airline-Crew-Scheduling.png';
@@ -39,25 +43,25 @@ import cTraderScreenShotPlaceholder from '~/assets/cTrader.png';
 
 export const projectsData = [
   {
-    id: 'testmanshipwebv2',
-    title: 'Testmanship Web V2',
+    id: 'deutschcraft',
+    title: 'DeutschCraft',
     description:
-      'Modern German language learning platform featuring spaced-repetition flashcards, comprehensive writing exercises with 165+ prompts, live voice sessions, and a teacher dashboard for managing students. Built with Next.js 15, TypeScript, and Tailwind CSS 4.',
+      'Comprehensive German language learning platform with spaced-repetition flashcards across 25+ categories, writing exercises with CEFR-leveled prompts, grammar drills, Answer Hub for Schritte textbook exercises, live voice classrooms, social feed with peer corrections, and gamified Der Die Das practice.',
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Firebase'],
-    image: testmanshipWebV2Hero,
-    link: '/projects/testmanshipwebv2',
+    image: deutschcraftDashboard,
+    link: '/projects/deutschcraft',
     featured: true,
     scrollView: {
       modelType: 'laptop',
-      alt: 'Testmanship Web V2 German Learning Platform',
+      alt: 'DeutschCraft German Learning Platform',
       textures: [
         {
-          srcSet: `${testmanshipWebV2Hero} 1280w, ${testmanshipWebV2Hero} 2560w`,
-          placeholder: testmanshipWebV2Hero,
+          srcSet: `${deutschcraftDashboard} 1280w, ${deutschcraftDashboard} 2560w`,
+          placeholder: deutschcraftDashboard,
         },
         {
-          srcSet: `${testmanshipWebV2Dashboard} 1280w, ${testmanshipWebV2Dashboard} 2560w`,
-          placeholder: testmanshipWebV2Dashboard,
+          srcSet: `${deutschcraftFlashcards} 1280w, ${deutschcraftFlashcards} 2560w`,
+          placeholder: deutschcraftFlashcards,
         },
       ],
     },
@@ -66,7 +70,7 @@ export const projectsData = [
     id: 'orbitandchillmobile',
     title: 'Orbit and Chill Mobile',
     description:
-      'Professional-grade Android astrology app built with Jetpack Compose and Kotlin. Features accurate natal charts with 15 celestial bodies, synastry compatibility analysis, and Matrix of Destiny divination.',
+      'Professional-grade Android astrology app built with Jetpack Compose and Kotlin. Features natal charts with transit navigation, synastry compatibility, Matrix of Destiny, Human Design bodygraph, annual profections, planetary hours, electional astrology, and moon phase tracking.',
     technologies: ['Jetpack Compose', 'Kotlin', 'Android'],
     image: orbitAndChillMobileScreenShot,
     link: '/projects/orbitandchillmobile',
@@ -214,14 +218,38 @@ export const projectsData = [
     },
   },
   {
+    id: 'lotelkotlin',
+    title: 'Lotel Kotlin',
+    description:
+      'Native Android rebuild of the Lotel hotel management system using Kotlin and Jetpack Compose. Eliminates JavaScript bridge overhead for instant startup, smooth animations, and efficient memory management. Features financial metrics, room booking, transaction tracking, remittance management, and payroll with Material Design 3.',
+    technologies: ['Kotlin', 'Jetpack Compose', 'Firebase', 'Android'],
+    image: lotelKotlinHomeDashboard,
+    link: '/projects/lotelkotlin',
+    featured: true,
+    scrollView: {
+      modelType: 'phone',
+      alt: 'Lotel Kotlin native Android hotel management system',
+      textures: [
+        {
+          srcSet: `${lotelKotlinHomeDashboard} 375w, ${lotelKotlinHomeDashboard} 750w`,
+          placeholder: lotelKotlinHomeDashboard,
+        },
+        {
+          srcSet: `${lotelKotlinMetrics} 375w, ${lotelKotlinMetrics} 750w`,
+          placeholder: lotelKotlinMetrics,
+        },
+      ],
+    },
+  },
+  {
     id: 'lotelreactnative',
     title: 'Lotel React Native',
     description:
-      'Modern hotel management system rebuilt with React Native and Expo. Features sales dashboard with occupancy metrics, handymen payment tracking, grocery profitability analytics, remittance management, beddings inventory, maintenance issue tracking, and room booking management. Currently in active development with enhanced UI/UX.',
+      'Hotel management system built with React Native and Expo. Featured sales dashboard with occupancy metrics, handymen payment tracking, grocery profitability analytics, remittance management, beddings inventory, maintenance issue tracking, and room booking management. Now superseded by the native Kotlin version for better performance.',
     technologies: ['React Native', 'Expo', 'Firebase'],
     image: lotelReactNativeSalesDashboard,
     link: '/projects/lotelreactnative',
-    featured: true,
+    featured: false,
     scrollView: {
       modelType: 'phone',
       alt: 'Lotel React Native hotel management system',

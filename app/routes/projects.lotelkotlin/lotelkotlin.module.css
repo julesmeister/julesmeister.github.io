@@ -2,12 +2,12 @@
 @import '../../styles/project-layouts.css';
 @import '../../styles/project-modern-layout.css';
 
-.orbitandchillmobile {
-  --primary-color: #8b5cf6;
-  --secondary-color: #7c3aed;
+.lotelkotlin {
+  --primary-color: #4a6cf7;
+  --secondary-color: #3b5de7;
 }
 
-/* Timeline customizations */
+/* Lotel Kotlin timeline customizations */
 .timelineStepHorizontal {
   &[data-step="1"] {
     animation-delay: 1s;
@@ -151,26 +151,6 @@
   &[data-feature="feature-9"] {
     animation-delay: 1.2s;
   }
-
-  &[data-feature="feature-10"] {
-    animation-delay: 1.4s;
-  }
-
-  &[data-feature="feature-11"] {
-    animation-delay: 1.6s;
-  }
-
-  &[data-feature="feature-12"] {
-    animation-delay: 1.8s;
-  }
-
-  &[data-feature="feature-13"] {
-    animation-delay: 2.0s;
-  }
-
-  &[data-feature="feature-14"] {
-    animation-delay: 2.2s;
-  }
 }
 
 .featureNumber {
@@ -207,26 +187,6 @@
   animation-delay: 1.7s;
 }
 
-.featureCardHorizontal[data-feature="feature-10"] .featureNumber {
-  animation-delay: 1.9s;
-}
-
-.featureCardHorizontal[data-feature="feature-11"] .featureNumber {
-  animation-delay: 2.1s;
-}
-
-.featureCardHorizontal[data-feature="feature-12"] .featureNumber {
-  animation-delay: 2.3s;
-}
-
-.featureCardHorizontal[data-feature="feature-13"] .featureNumber {
-  animation-delay: 2.5s;
-}
-
-.featureCardHorizontal[data-feature="feature-14"] .featureNumber {
-  animation-delay: 2.7s;
-}
-
 /* Fix feature number positioning for alternating layout */
 .featureCardHorizontal:nth-child(odd) .featureNumber {
   right: auto;
@@ -257,12 +217,12 @@
 
 .sidebarImage {
   border-radius: 12px;
-  box-shadow: 0 15px 30px rgba(139, 92, 246, 0.15);
+  box-shadow: 0 15px 30px rgba(74, 108, 247, 0.15);
   transition: all 0.3s ease;
   opacity: 1 !important;
 }
 
 .sidebarImageWrapper:hover .sidebarImage {
   transform: translateY(-5px);
-  box-shadow: 0 25px 45px rgba(139, 92, 246, 0.25);
+  box-shadow: 0 25px 45px rgba(74, 108, 247, 0.25);
 }
