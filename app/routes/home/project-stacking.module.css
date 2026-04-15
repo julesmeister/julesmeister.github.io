@@ -48,19 +48,19 @@
 .stackingCard:nth-child(12) { z-index: 12; }
 
 .cardContent {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: var(--space2XL);
   height: 100%;
   z-index: 1;
 }
 
-.cardContent > div:first-child {
-  flex: 0 0 35%;
+.cardText {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: var(--spaceM);
+  justify-content: center;
+  padding: var(--spaceXL);
+  z-index: 1;
 }
 
 .cardVisual {
@@ -68,9 +68,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  overflow: hidden;
+  overflow: visible;
   position: relative;
 }
 
@@ -119,19 +117,23 @@
   align-items: center;
   gap: var(--spaceS);
   padding: var(--spaceM) var(--spaceL);
-  background: var(--primary);
-  color: var(--background);
-  border-radius: var(--spaceM);
+  background: white;
+  color: black;
+  border-radius: 100px;
   text-decoration: none;
   font-weight: var(--fontWeightMedium);
-  font-size: var(--fontSizeBodyS);
-  transition: all 0.3s ease;
+  font-size: var(--fontSizeBody);
+  transition: all 0.15s ease-in-out;
   width: fit-content;
 }
 
 .cardButton:hover {
-  transform: translateX(4px);
-  filter: brightness(1.1);
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.cardButton:active {
+  transform: scale(0.95);
 }
 
 .cardVisual {

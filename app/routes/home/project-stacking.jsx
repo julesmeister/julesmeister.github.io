@@ -35,28 +35,29 @@ const StackingCard = ({ project, index, totalProjects }) => {
   return (
     <div className={styles.stackingCardInner}>
       <div className={styles.cardContent}>
-        <span className={styles.cardIndex}>{indexText} / {totalProjects}</span>
-        <h2 className={styles.cardTitle}>{project.title}</h2>
-        <p className={styles.cardDescription}>{project.description}</p>
-        <div className={styles.cardTech}>
-          {project.technologies.slice(0, 4).map((tech, i) => (
-            <span key={i} className={styles.techBadge}>{tech}</span>
-          ))}
+        <div className={styles.cardText}>
+          <span className={styles.cardIndex}>{indexText} / {totalProjects}</span>
+          <h2 className={styles.cardTitle}>{project.title}</h2>
+          <p className={styles.cardDescription}>{project.description}</p>
+          <div className={styles.cardTech}>
+            {project.technologies.slice(0, 4).map((tech, i) => (
+              <span key={i} className={styles.techBadge}>{tech}</span>
+            ))}
+          </div>
+          <a href={project.link} className={styles.cardButton}>
+            View Project
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M3 8H13M13 8L9 4M13 8L9 12"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </a>
         </div>
-        <a href={project.link} className={styles.cardButton}>
-          View Project
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path
-              d="M3 8H13M13 8L9 4M13 8L9 12"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </a>
-      </div>
-      <div className={styles.cardVisual}>
+        <div className={styles.cardVisual}>
         {model?.modelType === 'laptop' && (
           <>
             <div className={styles.deviceFrame} data-device="laptop">
@@ -142,6 +143,7 @@ const StackingCard = ({ project, index, totalProjects }) => {
             loading="lazy"
           />
         )}
+        </div>
       </div>
     </div>
   );
