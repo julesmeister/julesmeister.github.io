@@ -28,7 +28,6 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  padding: var(--space2XL);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   position: relative;
   transform-origin: top;
