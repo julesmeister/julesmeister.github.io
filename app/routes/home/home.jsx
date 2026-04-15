@@ -70,7 +70,7 @@ export const Home = () => {
         
         {/* Conditional rendering based on view mode */}
         {viewMode === 'stacking' && (
-          <div style={{ overflow: 'visible', width: '100%' }}>
+          <div style={{ overflow: 'visible', width: '100%', minHeight: `${projectsData.length * 100}vh` }}>
             <ProjectStacking projects={projectsData} />
           </div>
         )}
