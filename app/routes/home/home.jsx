@@ -4,6 +4,7 @@ import { Intro } from './intro';
 import { Profile } from './profile';
 import { ProjectSummary } from './project-summary';
 import { ProjectGrid } from './project-grid';
+import { ProjectStacking } from './project-stacking';
 import { projectsData } from './projects-data';
 import { useViewMode } from '~/contexts/view-context';
 import { useHomePage } from '~/hooks/use-home-page';
@@ -68,7 +69,12 @@ export const Home = () => {
         />
         
         {/* Conditional rendering based on view mode */}
-        {viewMode === 'scroll' ? (
+        {viewMode === 'stacking' && (
+          <div style={{ overflow: 'visible', width: '100%' }}>
+            <ProjectStacking projects={projectsData} />
+          </div>
+        )}
+        {viewMode === 'scroll' && (
           // Algorithmic scroll view rendering
           <>
             {projectsData.map((project, index) => (
@@ -90,7 +96,8 @@ export const Home = () => {
               />
             ))}
           </>
-        ) : (
+        )}
+        {viewMode === 'grid' && (
           // Grid view
           <ProjectGrid projects={projectsData} />
         )}

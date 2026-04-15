@@ -87,18 +87,32 @@ export const Model = ({
   const reduceMotion = useReducedMotion();
   const rotationX = useSpring(0, rotationSpringConfig);
   const rotationY = useSpring(0, rotationSpringConfig);
+  const webglSupported = useRef(false);
 
   useEffect(() => {
     const { clientWidth, clientHeight } = container.current;
 
-    renderer.current = new WebGLRenderer({
-      canvas: canvas.current,
-      alpha: true,
-      antialias: false,
-      powerPreference: 'high-performance',
-      failIfMajorPerformanceCaveat: true,
-    });
+    try {
+      renderer.current = new WebGLRenderer({
+        canvas: canvas.current,
+        alpha: true,
+        antialias: false,
+        powerPreference: 'high-performance',
+        failIfMajorPerformanceCaveat: false,
+      });
+    } catch (error) {
+      console.warn('WebGL not supported or context lost:', error);
+      return;
+    }
 
+    // Check if WebGL context was created successfully
+    if (!renderer.current.getContext()) {
+      console.warn('WebGL context could not be created');
+      renderer.current = null;
+      return;
+    }
+
+    webglSupported.current = true;
     renderer.current.setPixelRatio(2);
     renderer.current.setSize(clientWidth, clientHeight);
     renderer.current.outputColorSpace = SRGBColorSpace;
@@ -211,11 +225,14 @@ export const Model = ({
     const unsubscribeY = rotationY.on('change', renderFrame);
 
     return () => {
-      renderTarget.current.dispose();
-      renderTargetBlur.current.dispose();
+      if (!webglSupported.current) return;
+      renderTarget.current?.dispose();
+      renderTargetBlur.current?.dispose();
       removeLights(lights.current);
       cleanScene(scene.current);
-      cleanRenderer(renderer.current);
+      if (renderer.current) {
+        cleanRenderer(renderer.current);
+      }
       unsubscribeX();
       unsubscribeY();
     };
@@ -223,6 +240,8 @@ export const Model = ({
   }, []);
 
   const blurShadow = useCallback(amount => {
+    if (!renderer.current) return;
+
     blurPlane.current.visible = true;
 
     // Blur horizontally and draw in the renderTargetBlur
@@ -246,6 +265,8 @@ export const Model = ({
 
   // Handle render passes for a single frame
   const renderFrame = useCallback(() => {
+    if (!renderer.current) return;
+
     const blurAmount = 5;
 
     // Remove the background
@@ -305,7 +326,7 @@ export const Model = ({
   // Handle window resize
   useEffect(() => {
     const handleResize = () => {
-      if (!container.current) return;
+      if (!container.current || !renderer.current) return;
 
       const { clientWidth, clientHeight } = container.current;
 
@@ -370,6 +391,8 @@ const Device = ({
 
   useEffect(() => {
     const applyScreenTexture = async (texture, node) => {
+      if (!renderer.current) return;
+
       texture.colorSpace = SRGBColorSpace;
       texture.flipY = false;
       texture.anisotropy = renderer.current.capabilities.getMaxAnisotropy();

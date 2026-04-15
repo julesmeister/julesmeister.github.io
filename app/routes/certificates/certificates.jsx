@@ -2,7 +2,6 @@ import { Footer } from '~/components/footer';
 import { Image } from '~/components/image';
 import { List, ListItem } from '~/components/list';
 import {
-  ProjectBackground,
   ProjectContainer,
   ProjectHeader,
   ProjectSection,
@@ -27,9 +26,18 @@ export const meta = () => {
 
 const CertificateCard = ({ image, title, issuer, date, description, onImageClick }) => (
   <div className={styles.certificateCard}>
-    <div 
+    <div
       className={styles.certificateImageWrapper}
       onClick={() => onImageClick(image, title)}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onImageClick(image, title);
+        }
+      }}
+      aria-label={`View ${title} certificate`}
     >
       <Image
         src={image}
@@ -76,10 +84,6 @@ export const Certificates = () => {
   return (
     <Fragment>
       <ProjectContainer className={styles.certificates}>
-        <ProjectBackground
-          src={null}
-          opacity={0.5}
-        />
         <ProjectHeader
           title="Certificates"
           description="A collection of my professional certifications and educational achievements that demonstrate my commitment to continuous learning and skill development."
@@ -90,8 +94,8 @@ export const Certificates = () => {
             <ProjectTextRow width="m">
               <ProjectSectionHeading>Professional Certifications</ProjectSectionHeading>
               <ProjectSectionText>
-                I believe in continuously expanding my skillset through structured learning 
-                and professional certification programs. Here are the credentials I've earned 
+                I believe in continuously expanding my skillset through structured learning
+                and professional certification programs. Here are the credentials I&apos;ve earned
                 throughout my career.
               </ProjectSectionText>
             </ProjectTextRow>

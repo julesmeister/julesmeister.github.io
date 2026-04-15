@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from 'react';
 const ViewContext = createContext();
 
 export const ViewProvider = ({ children }) => {
-  const [viewMode, setViewMode] = useState('scroll');
+  const [viewMode, setViewMode] = useState('stacking');
 
   return (
     <ViewContext.Provider value={{ viewMode, setViewMode }}>
