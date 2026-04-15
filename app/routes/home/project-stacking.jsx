@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, Suspense, lazy } from 'react';
+import { useEffect, useState, Suspense, lazy } from 'react';
 import { Loader } from '~/components/loader';
 import { deviceModels } from '~/components/model/device-models';
 import { useHydrated } from '~/hooks/useHydrated';
@@ -148,85 +148,39 @@ const StackingCard = ({ project, index, totalProjects }) => {
 };
 
 export const ProjectStacking = ({ projects }) => {
-  const containerRef = useRef();
-  const [cardStates, setCardStates] = useState({});
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!containerRef.current) return;
-
-      const cards = containerRef.current.children;
-      const newStates = {};
-
-      // Find all stuck cards and calculate their stack depth
-      const cardArray = Array.from(cards);
-      const stuckIndices = [];
-      
-      cardArray.forEach((card, index) => {
-        const rect = card.getBoundingClientRect();
-        if (rect.top <= 0) {
-          stuckIndices.push(index);
-        }
-      });
-
-      cardArray.forEach((card, index) => {
-        const rect = card.getBoundingClientRect();
-        const distanceFromTop = rect.top;
-
-        // When card reaches or passes the top of viewport
-        if (distanceFromTop <= 0) {
-          // Position in stuck stack (0 = first/bottom, last = top/front)
-          const stuckPosition = stuckIndices.indexOf(index);
-          const totalStuck = stuckIndices.length;
-          
-          // Cards at front (higher stuckPosition) are full size
-          // Cards behind (lower stuckPosition) get smaller
-          const depthFromFront = totalStuck - 1 - stuckPosition;
-          const scale = Math.max(0.75, 1 - (depthFromFront * 0.08));
-          
-          // Vertical offset - cards behind are offset lower
-          const offsetY = depthFromFront * 30;
-
-          newStates[index] = {
-            position: 'fixed',
-            top: '50%',
-            left: '50%',
-            transform: `translate(-50%, calc(-50% + ${offsetY}px)) scale(${scale})`,
-            zIndex: stuckPosition + 100, // z-index based on stuck order
-          };
-        } else {
-          newStates[index] = {
-            position: 'relative',
-            transform: 'translateY(0) scale(1)',
-            zIndex: index + 1,
-          };
-        }
-      });
-
-      setCardStates(newStates);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [projects.length]);
+  // Pre-calculated scale values from reference (index-based, not dynamic)
+  const scaleValues = [0.799347, 0.841988, 0.882789, 0.920962, 0.955193, 0.983116];
 
   return (
-    <div ref={containerRef} className={styles.stackingContainer}>
-      {projects.map((project, index) => (
-        <div
-          key={project.id}
-          className={styles.stackingCard}
-          style={cardStates[index] || { position: 'relative' }}
-        >
-          <StackingCard
-            project={project}
-            index={index + 1}
-            totalProjects={projects.length}
-          />
-        </div>
-      ))}
+    <div className={styles.stackingContainer}>
+      {projects.map((project, index) => {
+        // Static values based on index like reference
+        const scale = scaleValues[index] || 1;
+        const topOffset = index * 25; // 0, 25, 50, 75, 100...
+        
+        return (
+          <div
+            key={project.id}
+            className={styles.stackingCard}
+            style={{ zIndex: index + 1 }}
+          >
+            <div 
+              className={styles.stackingCardInner}
+              style={{
+                transform: `scale(${scale})`,
+                top: `calc(-5% + ${topOffset}px)`,
+                zIndex: index + 1,
+              }}
+            >
+              <StackingCard
+                project={project}
+                index={index + 1}
+                totalProjects={projects.length}
+              />
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };

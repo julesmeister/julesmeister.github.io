@@ -1,0 +1,2772 @@
+<html lang="en" style="user-select: none;" id="component"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="next-size-adjust" content="">
+  <title>Priyabrata Singh - Full-Stack Developer</title>
+  <meta name="description" content="Full-Stack Developer experienced in building scalable, responsive applications using MERN, React, Node.js, and Python.">
+</head>
+
+<body class="__variable_188709 __variable_9a8899 __variable_cf1728 antialiased" data-new-gr-c-s-check-loaded="14.1136.0" data-gr-ext-installed="" style="user-select: none;">
+  <div hidden=""><!--/$--></div>
+  <div id="main" class="min-h-screen bg-[#0F0F0F]">
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-[100] w-full max-w-fit px-4 pointer-events-none" style="opacity: 1; transform: none;">
+      <div class="flex items-center justify-between gap-6 px-1.5 py-1.5 bg-[#1a1a1a]/80 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl pointer-events-auto">
+        <div class="hidden lg:flex items-center gap-1 pl-4"><a href="#about" class="group relative h-10 px-4 flex items-center overflow-hidden">
+            <div class="relative flex flex-col transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
+              <span class="text-[14px] font-medium text-white/70 h-10 flex items-center">About</span><span class="text-[14px] font-medium text-white h-10 flex items-center absolute top-full">About</span>
+            </div>
+          </a><a href="#work" class="group relative h-10 px-4 flex items-center overflow-hidden">
+            <div class="relative flex flex-col transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
+              <span class="text-[14px] font-medium text-white/70 h-10 flex items-center">Work</span><span class="text-[14px] font-medium text-white h-10 flex items-center absolute top-full">Work</span>
+            </div>
+          </a><a href="#playground" class="group relative h-10 px-4 flex items-center overflow-hidden">
+            <div class="relative flex flex-col transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
+              <span class="text-[14px] font-medium text-white/70 h-10 flex items-center">Playground</span><span class="text-[14px] font-medium text-white h-10 flex items-center absolute top-full">Playground</span>
+            </div>
+          </a></div><img alt="Logo" loading="lazy" width="24" height="24" decoding="async" data-nimg="1" class="w-full h-full object-contain" style="color:transparent" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fplogo.png&amp;w=32&amp;q=75, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fplogo.png&amp;w=48&amp;q=75 2x" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fplogo.png&amp;w=48&amp;q=75">
+        <div class="hidden lg:flex items-center gap-1 pr-1.5"><a href="#services" class="group relative h-10 px-4 flex items-center overflow-hidden">
+            <div class="relative flex flex-col transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
+              <span class="text-[14px] font-medium text-white/70 h-10 flex items-center">Services</span><span class="text-[14px] font-medium text-white h-10 flex items-center absolute top-full">Services</span>
+            </div>
+          </a><a href="#footer" class="group relative h-10 px-4 flex items-center overflow-hidden">
+            <div class="relative flex flex-col transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
+              <span class="text-[14px] font-medium text-white/70 h-10 flex items-center">Contact</span><span class="text-[14px] font-medium text-white h-10 flex items-center absolute top-full">Contact</span>
+            </div>
+          </a><a href="https://drive.google.com/file/d/1O9-kHBAzu9JAvXFtCEGpZo3w3rz9RDIU/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="group relative h-10 pl-6 pr-5 flex items-center overflow-hidden bg-white/5 border border-white/10 rounded-full">
+            <div class="relative flex items-center gap-2 transition-all duration-500 ease-in-out group-hover:-translate-y-full">
+              <span class="text-[14px] font-medium text-white/90">Resume</span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-arrow-out-up-right text-white/60" aria-hidden="true">
+                <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"></path>
+                <path d="m21 3-9 9"></path>
+                <path d="M15 3h6v6"></path>
+              </svg></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-2 translate-y-full transition-all duration-500 ease-in-out group-hover:translate-y-0 bg-white rounded-full">
+              <span class="text-[14px] font-medium text-black">Resume</span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-arrow-out-up-right text-black" aria-hidden="true">
+                <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"></path>
+                <path d="m21 3-9 9"></path>
+                <path d="M15 3h6v6"></path>
+              </svg></div>
+          </a></div>
+        <div class="lg:hidden pr-4 pl-2"><button class="text-white p-2 relative w-8 h-6 flex flex-col justify-center">
+            <div class="w-6 h-0.5 bg-white absolute" style="transform: translateY(-4px);"></div>
+            <div class="w-4 h-0.5 bg-white absolute right-0" style="width: 16px; transform: translateY(4px);"></div>
+          </button></div>
+      </div>
+    </nav>
+    <section id="hero" class="relative min-h-screen w-full flex flex-col items-center jus  tify-center overflow-hidden bg-[#0F0F0F] pt-24 pb-16">
+      <div class="absolute inset-x-0 top-1/2 -translate-y-[60%] select-none pointer-events-none flex flex-col items-center justify-center z-20">
+        <h1 class="hero-title text-white tracking-tighter uppercase flex flex-col items-center text-center leading-[0.9] mt-25 text-[12vw]" style="opacity: 1; transform: none;"><span>Priyabrata</span><span>Singh</span></h1>
+      </div>
+      <div class="absolute inset-0 flex items-center justify-center z-0 pointer-events-none select-none">
+        <span class="font-[family-name:var(--font-antonio)] text-[10vw] md:text-[12vw] leading-none bg-gradient-to-b from-white to-[#0F0F0F] bg-clip-text text-transparent whitespace-nowrap mb-[32rem]" style="opacity: 1; transform: none;">Hello, I'm</span>
+      </div>
+      <div class="relative w-full max-w-[1200px] h-[500px] md:h-[600px] flex items-center justify-center z-10 perspective-1000">
+        <div class="relative w-[300px] h-[300px]" style="transform-style: preserve-3d; transform: rotate(141.174deg);">
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer" style="z-index: 1; transform-style: preserve-3d; opacity: 1; transform: translateX(480px) rotate(-90deg);">
+            <div class="relative w-28 h-40 md:w-36 md:h-52 rounded-[20px] overflow-hidden border border-white/10 bg-black" style="box-shadow:0 20px 60px rgba(0, 0, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 0.3)"><img alt="Project 1" loading="lazy" decoding="async" data-nimg="fill" class="object-cover" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="160px" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fcrypteq.png&amp;w=16&amp;q=75 16w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fcrypteq.png&amp;w=32&amp;q=75 32w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fcrypteq.png&amp;w=48&amp;q=75 48w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fcrypteq.png&amp;w=64&amp;q=75 64w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fcrypteq.png&amp;w=96&amp;q=75 96w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fcrypteq.png&amp;w=128&amp;q=75 128w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fcrypteq.png&amp;w=256&amp;q=75 256w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fcrypteq.png&amp;w=384&amp;q=75 384w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fcrypteq.png&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fcrypteq.png&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fcrypteq.png&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fcrypteq.png&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fcrypteq.png&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fcrypteq.png&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fcrypteq.png&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fcrypteq.png&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fcrypteq.png&amp;w=3840&amp;q=75"></div>
+          </div>
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer" style="z-index: 2; transform-style: preserve-3d; opacity: 1; transform: translateX(403.802px) translateY(259.508px) rotate(-57.2727deg);">
+            <div class="relative w-28 h-40 md:w-36 md:h-52 rounded-[20px] overflow-hidden border border-white/10 bg-black" style="box-shadow:0 20px 60px rgba(0, 0, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 0.3)"><img alt="Project 2" loading="lazy" decoding="async" data-nimg="fill" class="object-cover" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="160px" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fplaynxt.png&amp;w=16&amp;q=75 16w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fplaynxt.png&amp;w=32&amp;q=75 32w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fplaynxt.png&amp;w=48&amp;q=75 48w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fplaynxt.png&amp;w=64&amp;q=75 64w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fplaynxt.png&amp;w=96&amp;q=75 96w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fplaynxt.png&amp;w=128&amp;q=75 128w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fplaynxt.png&amp;w=256&amp;q=75 256w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fplaynxt.png&amp;w=384&amp;q=75 384w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fplaynxt.png&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fplaynxt.png&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fplaynxt.png&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fplaynxt.png&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fplaynxt.png&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fplaynxt.png&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fplaynxt.png&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fplaynxt.png&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fplaynxt.png&amp;w=3840&amp;q=75"></div>
+          </div>
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer" style="z-index: 3; transform-style: preserve-3d; opacity: 1; transform: translateX(199.399px) translateY(436.623px) rotate(-24.5455deg);">
+            <div class="relative w-28 h-40 md:w-36 md:h-52 rounded-[20px] overflow-hidden border border-white/10 bg-black" style="box-shadow:0 20px 60px rgba(0, 0, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 0.3)"><img alt="Project 3" loading="lazy" decoding="async" data-nimg="fill" class="object-cover" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="160px" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Freunify.png&amp;w=16&amp;q=75 16w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Freunify.png&amp;w=32&amp;q=75 32w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Freunify.png&amp;w=48&amp;q=75 48w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Freunify.png&amp;w=64&amp;q=75 64w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Freunify.png&amp;w=96&amp;q=75 96w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Freunify.png&amp;w=128&amp;q=75 128w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Freunify.png&amp;w=256&amp;q=75 256w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Freunify.png&amp;w=384&amp;q=75 384w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Freunify.png&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Freunify.png&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Freunify.png&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Freunify.png&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Freunify.png&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Freunify.png&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Freunify.png&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Freunify.png&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Freunify.png&amp;w=3840&amp;q=75"></div>
+          </div>
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer" style="z-index: 4; transform-style: preserve-3d; opacity: 1; transform: translateX(-68.3111px) translateY(475.114px) rotate(8.18182deg);">
+            <div class="relative w-28 h-40 md:w-36 md:h-52 rounded-[20px] overflow-hidden border border-white/10 bg-black" style="box-shadow:0 20px 60px rgba(0, 0, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 0.3)"><img alt="Project 4" loading="lazy" decoding="async" data-nimg="fill" class="object-cover" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="160px" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Faurax.png&amp;w=16&amp;q=75 16w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Faurax.png&amp;w=32&amp;q=75 32w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Faurax.png&amp;w=48&amp;q=75 48w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Faurax.png&amp;w=64&amp;q=75 64w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Faurax.png&amp;w=96&amp;q=75 96w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Faurax.png&amp;w=128&amp;q=75 128w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Faurax.png&amp;w=256&amp;q=75 256w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Faurax.png&amp;w=384&amp;q=75 384w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Faurax.png&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Faurax.png&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Faurax.png&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Faurax.png&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Faurax.png&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Faurax.png&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Faurax.png&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Faurax.png&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Faurax.png&amp;w=3840&amp;q=75"></div>
+          </div>
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer" style="z-index: 5; transform-style: preserve-3d; opacity: 1; transform: translateX(-314.333px) translateY(362.76px) rotate(40.9091deg);">
+            <div class="relative w-28 h-40 md:w-36 md:h-52 rounded-[20px] overflow-hidden border border-white/10 bg-black" style="box-shadow:0 20px 60px rgba(0, 0, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 0.3)"><img alt="Project 5" loading="lazy" decoding="async" data-nimg="fill" class="object-cover" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="160px" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fdoozy.png&amp;w=16&amp;q=75 16w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fdoozy.png&amp;w=32&amp;q=75 32w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fdoozy.png&amp;w=48&amp;q=75 48w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fdoozy.png&amp;w=64&amp;q=75 64w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fdoozy.png&amp;w=96&amp;q=75 96w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fdoozy.png&amp;w=128&amp;q=75 128w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fdoozy.png&amp;w=256&amp;q=75 256w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fdoozy.png&amp;w=384&amp;q=75 384w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fdoozy.png&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fdoozy.png&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fdoozy.png&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fdoozy.png&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fdoozy.png&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fdoozy.png&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fdoozy.png&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fdoozy.png&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fdoozy.png&amp;w=3840&amp;q=75"></div>
+          </div>
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer" style="z-index: 6; transform-style: preserve-3d; opacity: 1; transform: translateX(-460.557px) translateY(135.232px) rotate(73.6364deg);">
+            <div class="relative w-28 h-40 md:w-36 md:h-52 rounded-[20px] overflow-hidden border border-white/10 bg-black" style="box-shadow:0 20px 60px rgba(0, 0, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 0.3)"><img alt="Project 6" loading="lazy" decoding="async" data-nimg="fill" class="object-cover" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="160px" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fshowly.png&amp;w=16&amp;q=75 16w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fshowly.png&amp;w=32&amp;q=75 32w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fshowly.png&amp;w=48&amp;q=75 48w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fshowly.png&amp;w=64&amp;q=75 64w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fshowly.png&amp;w=96&amp;q=75 96w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fshowly.png&amp;w=128&amp;q=75 128w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fshowly.png&amp;w=256&amp;q=75 256w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fshowly.png&amp;w=384&amp;q=75 384w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fshowly.png&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fshowly.png&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fshowly.png&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fshowly.png&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fshowly.png&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fshowly.png&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fshowly.png&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fshowly.png&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fshowly.png&amp;w=3840&amp;q=75"></div>
+          </div>
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer" style="z-index: 7; transform-style: preserve-3d; opacity: 1; transform: translateX(-460.557px) translateY(-135.232px) rotate(106.364deg);">
+            <div class="relative w-28 h-40 md:w-36 md:h-52 rounded-[20px] overflow-hidden border border-white/10 bg-black" style="box-shadow:0 20px 60px rgba(0, 0, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 0.3)"><img alt="Project 7" loading="lazy" decoding="async" data-nimg="fill" class="object-cover" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="160px" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Ffixtime.png&amp;w=16&amp;q=75 16w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Ffixtime.png&amp;w=32&amp;q=75 32w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Ffixtime.png&amp;w=48&amp;q=75 48w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Ffixtime.png&amp;w=64&amp;q=75 64w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Ffixtime.png&amp;w=96&amp;q=75 96w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Ffixtime.png&amp;w=128&amp;q=75 128w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Ffixtime.png&amp;w=256&amp;q=75 256w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Ffixtime.png&amp;w=384&amp;q=75 384w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Ffixtime.png&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Ffixtime.png&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Ffixtime.png&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Ffixtime.png&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Ffixtime.png&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Ffixtime.png&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Ffixtime.png&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Ffixtime.png&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Ffixtime.png&amp;w=3840&amp;q=75"></div>
+          </div>
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer" style="z-index: 8; transform-style: preserve-3d; opacity: 1; transform: translateX(-314.333px) translateY(-362.76px) rotate(139.091deg);">
+            <div class="relative w-28 h-40 md:w-36 md:h-52 rounded-[20px] overflow-hidden border border-white/10 bg-black" style="box-shadow:0 20px 60px rgba(0, 0, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 0.3)"><img alt="Project 8" loading="lazy" decoding="async" data-nimg="fill" class="object-cover" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="160px" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fentrepeneur.png&amp;w=16&amp;q=75 16w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fentrepeneur.png&amp;w=32&amp;q=75 32w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fentrepeneur.png&amp;w=48&amp;q=75 48w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fentrepeneur.png&amp;w=64&amp;q=75 64w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fentrepeneur.png&amp;w=96&amp;q=75 96w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fentrepeneur.png&amp;w=128&amp;q=75 128w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fentrepeneur.png&amp;w=256&amp;q=75 256w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fentrepeneur.png&amp;w=384&amp;q=75 384w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fentrepeneur.png&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fentrepeneur.png&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fentrepeneur.png&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fentrepeneur.png&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fentrepeneur.png&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fentrepeneur.png&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fentrepeneur.png&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fentrepeneur.png&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fentrepeneur.png&amp;w=3840&amp;q=75"></div>
+          </div>
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer" style="z-index: 9; transform-style: preserve-3d; opacity: 1; transform: translateX(-68.3111px) translateY(-475.114px) rotate(171.818deg);">
+            <div class="relative w-28 h-40 md:w-36 md:h-52 rounded-[20px] overflow-hidden border border-white/10 bg-black" style="box-shadow:0 20px 60px rgba(0, 0, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 0.3)"><img alt="Project 9" loading="lazy" decoding="async" data-nimg="fill" class="object-cover" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="160px" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Frobotics.png&amp;w=16&amp;q=75 16w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Frobotics.png&amp;w=32&amp;q=75 32w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Frobotics.png&amp;w=48&amp;q=75 48w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Frobotics.png&amp;w=64&amp;q=75 64w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Frobotics.png&amp;w=96&amp;q=75 96w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Frobotics.png&amp;w=128&amp;q=75 128w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Frobotics.png&amp;w=256&amp;q=75 256w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Frobotics.png&amp;w=384&amp;q=75 384w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Frobotics.png&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Frobotics.png&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Frobotics.png&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Frobotics.png&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Frobotics.png&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Frobotics.png&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Frobotics.png&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Frobotics.png&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Frobotics.png&amp;w=3840&amp;q=75"></div>
+          </div>
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer" style="z-index: 10; transform-style: preserve-3d; opacity: 1; transform: translateX(199.399px) translateY(-436.623px) rotate(204.545deg);">
+            <div class="relative w-28 h-40 md:w-36 md:h-52 rounded-[20px] overflow-hidden border border-white/10 bg-black" style="box-shadow:0 20px 60px rgba(0, 0, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 0.3)"><img alt="Project 10" loading="lazy" decoding="async" data-nimg="fill" class="object-cover" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="160px" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fgalactus.png&amp;w=16&amp;q=75 16w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fgalactus.png&amp;w=32&amp;q=75 32w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fgalactus.png&amp;w=48&amp;q=75 48w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fgalactus.png&amp;w=64&amp;q=75 64w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fgalactus.png&amp;w=96&amp;q=75 96w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fgalactus.png&amp;w=128&amp;q=75 128w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fgalactus.png&amp;w=256&amp;q=75 256w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fgalactus.png&amp;w=384&amp;q=75 384w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fgalactus.png&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fgalactus.png&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fgalactus.png&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fgalactus.png&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fgalactus.png&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fgalactus.png&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fgalactus.png&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fgalactus.png&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fgalactus.png&amp;w=3840&amp;q=75"></div>
+          </div>
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer" style="z-index: 11; transform-style: preserve-3d; opacity: 1; transform: translateX(403.802px) translateY(-259.508px) rotate(237.273deg);">
+            <div class="relative w-28 h-40 md:w-36 md:h-52 rounded-[20px] overflow-hidden border border-white/10 bg-black" style="box-shadow:0 20px 60px rgba(0, 0, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 0.3)"><img alt="Project 11" loading="lazy" decoding="async" data-nimg="fill" class="object-cover" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="160px" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fnike.png&amp;w=16&amp;q=75 16w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fnike.png&amp;w=32&amp;q=75 32w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fnike.png&amp;w=48&amp;q=75 48w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fnike.png&amp;w=64&amp;q=75 64w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fnike.png&amp;w=96&amp;q=75 96w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fnike.png&amp;w=128&amp;q=75 128w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fnike.png&amp;w=256&amp;q=75 256w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fnike.png&amp;w=384&amp;q=75 384w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fnike.png&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fnike.png&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fnike.png&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fnike.png&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fnike.png&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fnike.png&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fnike.png&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fnike.png&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Fprojectposters%2Fnike.png&amp;w=3840&amp;q=75"></div>
+          </div>
+        </div>
+      </div>
+      <div class="relative mt-32 flex flex-col items-center max-w-[600px] text-center px-6 pointer-events-none" style="opacity: 1; transform: none;">
+        <h5 class="relative z-0 text-[#f2f2f2] text-lg md:text-xl font-medium leading-tight mb-12 pointer-events-auto">Full-Stack Developer experienced in building scalable, responsive applications using MERN, React, Node.js, and Python</h5>
+        <div class="relative z-30 flex flex-col md:flex-row items-center gap-8 pointer-events-auto" style="opacity: 1; transform: none;"><a href="mailto:priyabrata.singh@adypu.edu.in" class="group relative flex items-center gap-3 bg-white/5 backdrop-blur-md border border-white/10 px-10 py-4 rounded-full text-xl font-semibold text-white transition-all duration-300 hover:bg-white hover:text-black hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] overflow-hidden"><span class="relative z-10">Let's Connect</span>
+            <div class="relative z-10 p-1 bg-white/20 rounded-full group-hover:bg-black/10 transition-colors"><svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg></div>
+          </a>
+          <div class="flex items-center gap-3 bg-white/5 px-6 py-3 rounded-full border border-white/5 backdrop-blur-sm">
+            <div class="relative flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#22C55E] opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-[#22C55E]"></span>
+            </div><span class="text-white/80 text-sm font-medium tracking-wide">Available for work</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="relative w-full bg-[#0F0F0F] flex flex-col items-center justify-center py-40 px-8 md:px-16 overflow-hidden">
+      <div class="max-w-[1100px] w-full mx-auto text-center"><h2 class="sr-only">Introductory Biography</h2>
+        <div class="flex flex-col gap-0 items-center justify-center">
+          <p class="text-white font-sans text-[24px] md:text-[34px] lg:text-[44px] leading-[1.3] md:leading-[1.4] font-normal tracking-tight text-balance flex flex-wrap justify-center gap-x-[0.3em]"><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">Full-Stack</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">Developer</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">experienced</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">in</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">building</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">scalable,</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">responsive</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">applications</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">using</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">MERN,</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">React,</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">Node.js,</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">and</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">Python;</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">developed</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">5+</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">production-ready</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">projects</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">with</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">strong</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">frontend-backend</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">integration</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">and</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">clean</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">architecture;</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">active</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">open-source</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">contributor</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">focused</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">on</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">performance,</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">maintainable</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">code,</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">user-centric</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">solutions,</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">and</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">continuous</span><span class="inline-block will-change-transform" style="opacity: 1; transform: none;">learning.</span></p>
+        </div>
+      </div>
+    </section>
+    <section id="work" class="w-full bg-[#0F0F0F] relative">
+      <div class="relative mt-[10vh] mb-[10vh]">
+        <div class="h-screen flex items-center justify-center sticky top-0 perspective-1000">
+          <div class="relative flex flex-col w-[95vw] max-w-[1400px] h-[80vh] rounded-[32px] p-8 md:p-14 origin-top border border-white/10 bg-white/5 backdrop-blur-[40px] shadow-2xl overflow-hidden" style="top: calc(-5% + 0px); transform: scale(0.799347);">
+            <div class="relative z-10 flex flex-col md:flex-row h-full gap-10 md:gap-16">
+              <div class="md:w-[35%] flex flex-col justify-between py-4">
+                <div class="space-y-6">
+                  <div class="flex items-center gap-3 text-white/50 text-sm font-bold uppercase tracking-widest">
+                    <span>2025</span><span>•</span><span>Full Stack</span></div>
+                  <h2 class="text-4xl md:text-6xl lg:text-7xl font-display font-medium text-white leading-[0.95]" style="opacity: 1; transform: none;">Reunify</h2>
+                  <p class="text-white/70 text-lg md:text-xl leading-relaxed font-sans max-w-md" style="opacity: 1; transform: none;">A comprehensive platform for alumni-student connection with real-time chat and role-based access.</p>
+                </div>
+                <div class="mt-8 md:mt-0 flex flex-wrap gap-4" style="opacity: 1; transform: none;"><a href="https://reunifyyy.vercel.app/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-8 py-4 rounded-full bg-white text-black text-lg font-semibold hover:bg-white/90 transition-all hover:scale-105 active:scale-95">Live
+                    Demo<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg></a><a href="https://github.com/SaadArqam/Reunify" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white text-lg font-semibold hover:bg-white/10 transition-all hover:scale-105 active:scale-95">GitHub<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                      </path>
+                    </svg></a></div>
+              </div>
+              <div class="relative flex-1 w-full h-full rounded-[20px] overflow-hidden border border-white/5 shadow-inner flex items-center justify-center">
+                <div class="w-full h-full relative" style="transform: none;"><img alt="Reunify" loading="lazy" decoding="async" data-nimg="fill" class="object-contain opacity-90 transition-opacity hover:opacity-100" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="100vw" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Freunify2.png&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Freunify2.png&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Freunify2.png&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Freunify2.png&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Freunify2.png&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Freunify2.png&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Freunify2.png&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Freunify2.png&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Freunify2.png&amp;w=3840&amp;q=75"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="h-screen flex items-center justify-center sticky top-0 perspective-1000" style="">
+          <div class="relative flex flex-col w-[95vw] max-w-[1400px] h-[80vh] rounded-[32px] p-8 md:p-14 origin-top border border-white/10 bg-white/5 backdrop-blur-[40px] shadow-2xl overflow-hidden" style="top: calc(-5% + 25px); transform: scale(0.841988);">
+            <div class="relative z-10 flex flex-col md:flex-row h-full gap-10 md:gap-16">
+              <div class="md:w-[35%] flex flex-col justify-between py-4">
+                <div class="space-y-6">
+                  <div class="flex items-center gap-3 text-white/50 text-sm font-bold uppercase tracking-widest">
+                    <span>2025</span><span>•</span><span>Mobile App</span></div>
+                  <h2 class="text-4xl md:text-6xl lg:text-7xl font-display font-medium text-white leading-[0.95]" style="opacity: 1; transform: none;">Playnxt</h2>
+                  <p class="text-white/70 text-lg md:text-xl leading-relaxed font-sans max-w-md" style="opacity: 1; transform: none;">Sports venue booking app enabling seamless reservations and facility management.</p>
+                </div>
+                <div class="mt-8 md:mt-0 flex flex-wrap gap-4" style="opacity: 1; transform: none;"><a href="https://drive.google.com/file/d/1GcO2O99T20hHCncjNsEBIO5FcDs0t74F/view" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-8 py-4 rounded-full bg-white text-black text-lg font-semibold hover:bg-white/90 transition-all hover:scale-105 active:scale-95">Live
+                    Demo<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg></a><a href="https://github.com/CodyBrat/PlayNxt" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white text-lg font-semibold hover:bg-white/10 transition-all hover:scale-105 active:scale-95">GitHub<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                      </path>
+                    </svg></a></div>
+              </div>
+              <div class="relative flex-1 w-full h-full rounded-[20px] overflow-hidden border border-white/5 shadow-inner flex items-center justify-center">
+                <div class="w-full h-full relative" style="transform: none;"><img alt="Playnxt" loading="lazy" decoding="async" data-nimg="fill" class="object-contain opacity-90 transition-opacity hover:opacity-100" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="100vw" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fplaynxt2.png&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fplaynxt2.png&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fplaynxt2.png&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fplaynxt2.png&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fplaynxt2.png&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fplaynxt2.png&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fplaynxt2.png&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fplaynxt2.png&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fplaynxt2.png&amp;w=3840&amp;q=75"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="h-screen flex items-center justify-center sticky top-0 perspective-1000">
+          <div class="relative flex flex-col w-[95vw] max-w-[1400px] h-[80vh] rounded-[32px] p-8 md:p-14 origin-top border border-white/10 bg-white/5 backdrop-blur-[40px] shadow-2xl overflow-hidden" style="top: calc(-5% + 50px); transform: scale(0.882789);">
+            <div class="relative z-10 flex flex-col md:flex-row h-full gap-10 md:gap-16">
+              <div class="md:w-[35%] flex flex-col justify-between py-4">
+                <div class="space-y-6">
+                  <div class="flex items-center gap-3 text-white/50 text-sm font-bold uppercase tracking-widest">
+                    <span>2025</span><span>•</span><span>Web App</span></div>
+                  <h2 class="text-4xl md:text-6xl lg:text-7xl font-display font-medium text-white leading-[0.95]" style="opacity: 1; transform: none;">Crypteq</h2>
+                  <p class="text-white/70 text-lg md:text-xl leading-relaxed font-sans max-w-md" style="opacity: 1; transform: none;">Real-time crypto tracking dashboard with live market data and portfolio management.</p>
+                </div>
+                <div class="mt-8 md:mt-0 flex flex-wrap gap-4" style="opacity: 1; transform: none;"><a href="https://cryptoapp-ochre.vercel.app/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-8 py-4 rounded-full bg-white text-black text-lg font-semibold hover:bg-white/90 transition-all hover:scale-105 active:scale-95">Live
+                    Demo<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg></a><a href="https://github.com/CodyBrat/cryptoapp" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white text-lg font-semibold hover:bg-white/10 transition-all hover:scale-105 active:scale-95">GitHub<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                      </path>
+                    </svg></a></div>
+              </div>
+              <div class="relative flex-1 w-full h-full rounded-[20px] overflow-hidden border border-white/5 shadow-inner flex items-center justify-center">
+                <div class="w-full h-full relative" style="transform: none;"><img alt="Crypteq" loading="lazy" decoding="async" data-nimg="fill" class="object-contain opacity-90 transition-opacity hover:opacity-100" style="position: absolute; height: 100%; width: 100%; inset: 0px;" sizes="100vw" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fv2%2FD4D22AQF4vlkk2YRHog%2Ffeedshare-shrink_2048_1536%2FB4DZxGRlLdH4Ak-%2F0%2F1770705541059%3Fe%3D1772668800%26v%3Dbeta%26t%3DFvU-gpgHpcqBhFN8NzdnvxM3r3NUQF_uNzVjvmEQnkc&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fv2%2FD4D22AQF4vlkk2YRHog%2Ffeedshare-shrink_2048_1536%2FB4DZxGRlLdH4Ak-%2F0%2F1770705541059%3Fe%3D1772668800%26v%3Dbeta%26t%3DFvU-gpgHpcqBhFN8NzdnvxM3r3NUQF_uNzVjvmEQnkc&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fv2%2FD4D22AQF4vlkk2YRHog%2Ffeedshare-shrink_2048_1536%2FB4DZxGRlLdH4Ak-%2F0%2F1770705541059%3Fe%3D1772668800%26v%3Dbeta%26t%3DFvU-gpgHpcqBhFN8NzdnvxM3r3NUQF_uNzVjvmEQnkc&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fv2%2FD4D22AQF4vlkk2YRHog%2Ffeedshare-shrink_2048_1536%2FB4DZxGRlLdH4Ak-%2F0%2F1770705541059%3Fe%3D1772668800%26v%3Dbeta%26t%3DFvU-gpgHpcqBhFN8NzdnvxM3r3NUQF_uNzVjvmEQnkc&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fv2%2FD4D22AQF4vlkk2YRHog%2Ffeedshare-shrink_2048_1536%2FB4DZxGRlLdH4Ak-%2F0%2F1770705541059%3Fe%3D1772668800%26v%3Dbeta%26t%3DFvU-gpgHpcqBhFN8NzdnvxM3r3NUQF_uNzVjvmEQnkc&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fv2%2FD4D22AQF4vlkk2YRHog%2Ffeedshare-shrink_2048_1536%2FB4DZxGRlLdH4Ak-%2F0%2F1770705541059%3Fe%3D1772668800%26v%3Dbeta%26t%3DFvU-gpgHpcqBhFN8NzdnvxM3r3NUQF_uNzVjvmEQnkc&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fv2%2FD4D22AQF4vlkk2YRHog%2Ffeedshare-shrink_2048_1536%2FB4DZxGRlLdH4Ak-%2F0%2F1770705541059%3Fe%3D1772668800%26v%3Dbeta%26t%3DFvU-gpgHpcqBhFN8NzdnvxM3r3NUQF_uNzVjvmEQnkc&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fv2%2FD4D22AQF4vlkk2YRHog%2Ffeedshare-shrink_2048_1536%2FB4DZxGRlLdH4Ak-%2F0%2F1770705541059%3Fe%3D1772668800%26v%3Dbeta%26t%3DFvU-gpgHpcqBhFN8NzdnvxM3r3NUQF_uNzVjvmEQnkc&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fv2%2FD4D22AQF4vlkk2YRHog%2Ffeedshare-shrink_2048_1536%2FB4DZxGRlLdH4Ak-%2F0%2F1770705541059%3Fe%3D1772668800%26v%3Dbeta%26t%3DFvU-gpgHpcqBhFN8NzdnvxM3r3NUQF_uNzVjvmEQnkc&amp;w=3840&amp;q=75">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="h-screen flex items-center justify-center sticky top-0 perspective-1000" style="">
+          <div class="relative flex flex-col w-[95vw] max-w-[1400px] h-[80vh] rounded-[32px] p-8 md:p-14 origin-top border border-white/10 bg-white/5 backdrop-blur-[40px] shadow-2xl overflow-hidden" style="top: calc(-5% + 75px); transform: scale(0.920962);">
+            <div class="relative z-10 flex flex-col md:flex-row h-full gap-10 md:gap-16">
+              <div class="md:w-[35%] flex flex-col justify-between py-4">
+                <div class="space-y-6">
+                  <div class="flex items-center gap-3 text-white/50 text-sm font-bold uppercase tracking-widest">
+                    <span>2024</span><span>•</span><span>Product Design</span></div>
+                  <h2 class="text-4xl md:text-6xl lg:text-7xl font-display font-medium text-white leading-[0.95]" style="opacity: 1; transform: none;">Doozy</h2>
+                  <p class="text-white/70 text-lg md:text-xl leading-relaxed font-sans max-w-md" style="opacity: 1; transform: none;">e-commerce platform for buying and selling products.</p>
+                </div>
+                <div class="mt-8 md:mt-0 flex flex-wrap gap-4" style="opacity: 1; transform: none;"><a href="https://doozy-liart.vercel.app/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-8 py-4 rounded-full bg-white text-black text-lg font-semibold hover:bg-white/90 transition-all hover:scale-105 active:scale-95">Live
+                    Demo<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg></a><a href="https://github.com/CodyBrat/fullstackusingreact" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white text-lg font-semibold hover:bg-white/10 transition-all hover:scale-105 active:scale-95">GitHub<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                      </path>
+                    </svg></a></div>
+              </div>
+              <div class="relative flex-1 w-full h-full rounded-[20px] overflow-hidden border border-white/5 shadow-inner flex items-center justify-center">
+                <div class="w-full h-full relative" style="transform: none;"><img alt="Doozy" loading="lazy" decoding="async" data-nimg="fill" class="object-contain opacity-90 transition-opacity hover:opacity-100" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="100vw" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fdoozy2.png&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fdoozy2.png&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fdoozy2.png&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fdoozy2.png&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fdoozy2.png&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fdoozy2.png&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fdoozy2.png&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fdoozy2.png&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fdoozy2.png&amp;w=3840&amp;q=75"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="h-screen flex items-center justify-center sticky top-0 perspective-1000">
+          <div class="relative flex flex-col w-[95vw] max-w-[1400px] h-[80vh] rounded-[32px] p-8 md:p-14 origin-top border border-white/10 bg-white/5 backdrop-blur-[40px] shadow-2xl overflow-hidden" style="top: calc(-5% + 100px); transform: scale(0.955193);">
+            <div class="relative z-10 flex flex-col md:flex-row h-full gap-10 md:gap-16">
+              <div class="md:w-[35%] flex flex-col justify-between py-4">
+                <div class="space-y-6">
+                  <div class="flex items-center gap-3 text-white/50 text-sm font-bold uppercase tracking-widest">
+                    <span>2024</span><span>•</span><span>Mobile App</span></div>
+                  <h2 class="text-4xl md:text-6xl lg:text-7xl font-display font-medium text-white leading-[0.95]" style="opacity: 1; transform: none;">Showly</h2>
+                  <p class="text-white/70 text-lg md:text-xl leading-relaxed font-sans max-w-md" style="opacity: 1; transform: none;">Entertainment tracking app for movies and TV shows with personalized recommendations.</p>
+                </div>
+                <div class="mt-8 md:mt-0 flex flex-wrap gap-4" style="opacity: 0; transform: translateY(20px);"><a href="https://showlyama.vercel.app/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-8 py-4 rounded-full bg-white text-black text-lg font-semibold hover:bg-white/90 transition-all hover:scale-105 active:scale-95">Live
+                    Demo<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg></a><a href="https://github.com/CodyBrat/showly3.0" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white text-lg font-semibold hover:bg-white/10 transition-all hover:scale-105 active:scale-95">GitHub<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                      </path>
+                    </svg></a></div>
+              </div>
+              <div class="relative flex-1 w-full h-full rounded-[20px] overflow-hidden border border-white/5 shadow-inner flex items-center justify-center">
+                <div class="w-full h-full relative" style="transform: scale(1.06558);"><img alt="Showly" loading="lazy" decoding="async" data-nimg="fill" class="object-contain opacity-90 transition-opacity hover:opacity-100" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="100vw" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fshowly2.png&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fshowly2.png&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fshowly2.png&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fshowly2.png&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fshowly2.png&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fshowly2.png&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fshowly2.png&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fshowly2.png&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Fshowly2.png&amp;w=3840&amp;q=75"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="h-screen flex items-center justify-center sticky top-0 perspective-1000">
+          <div class="relative flex flex-col w-[95vw] max-w-[1400px] h-[80vh] rounded-[32px] p-8 md:p-14 origin-top border border-white/10 bg-white/5 backdrop-blur-[40px] shadow-2xl overflow-hidden" style="top: calc(-5% + 125px); transform: scale(0.983116);">
+            <div class="relative z-10 flex flex-col md:flex-row h-full gap-10 md:gap-16">
+              <div class="md:w-[35%] flex flex-col justify-between py-4">
+                <div class="space-y-6">
+                  <div class="flex items-center gap-3 text-white/50 text-sm font-bold uppercase tracking-widest">
+                    <span>2023</span><span>•</span><span>Full Stack</span></div>
+                  <h2 class="text-4xl md:text-6xl lg:text-7xl font-display font-medium text-white leading-[0.95]" style="opacity: 0; transform: translateY(20px);">FixTime</h2>
+                  <p class="text-white/70 text-lg md:text-xl leading-relaxed font-sans max-w-md" style="opacity: 0; transform: translateY(20px);">Service scheduling platform connecting homeowners with reliable local professionals.</p>
+                </div>
+                <div class="mt-8 md:mt-0 flex flex-wrap gap-4" style="opacity: 0; transform: translateY(20px);"><a href="https://fix-time-7.vercel.app/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-8 py-4 rounded-full bg-white text-black text-lg font-semibold hover:bg-white/90 transition-all hover:scale-105 active:scale-95">Live
+                    Demo<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg></a><a href="https://github.com/nst-sdc/Fix-Time" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white text-lg font-semibold hover:bg-white/10 transition-all hover:scale-105 active:scale-95">GitHub<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                      </path>
+                    </svg></a></div>
+              </div>
+              <div class="relative flex-1 w-full h-full rounded-[20px] overflow-hidden border border-white/5 shadow-inner flex items-center justify-center">
+                <div class="w-full h-full relative" style="transform: scale(1.1);"><img alt="FixTime" loading="lazy" decoding="async" data-nimg="fill" class="object-contain opacity-90 transition-opacity hover:opacity-100" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="100vw" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Ffixtime2.png&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Ffixtime2.png&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Ffixtime2.png&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Ffixtime2.png&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Ffixtime2.png&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Ffixtime2.png&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Ffixtime2.png&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Ffixtime2.png&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=%2Ffeaturedprojects%2Ffixtime2.png&amp;w=3840&amp;q=75"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="services" class="bg-[#0f0f0f] py-[160px]">
+      <div class="container px-6 md:px-12">
+        <div class="mb-20">
+          <p class="font-sans text-sm font-medium tracking-[0.2em] uppercase text-[#999999] mb-6" style="opacity: 1; transform: none;">Where I Can Help</p>
+          <h2 class="section-heading text-white max-w-4xl" style="opacity: 1; transform: none;">From discovery to delivery</h2>
+          <p class="font-sans text-[20px] md:text-[24px] text-[#999999] mt-2" style="opacity: 1; transform: none;">...and everything in between, to move your product forward.</p>
+        </div>
+        <div class="flex flex-col gap-6">
+          <div class="group relative flex w-full flex-col md:flex-row items-start md:items-center justify-between bg-white px-8 py-10 md:px-12 md:py-14 rounded-[4px] border border-transparent shadow-lg cursor-pointer" style="opacity: 1; transform: none;">
+            <div class="flex flex-col max-w-[70%]">
+              <div class="flex items-center gap-4 mb-4">
+                <h3 class="font-display text-[32px] md:text-[48px] leading-[1.1] text-[#0f0f0f] uppercase tracking-[-0.02em]">Frontend Development</h3>
+              </div>
+              <p class="font-sans text-[14px] md:text-[16px] leading-[1.6] text-[#666666] max-w-2xl">React · Next.js · Tailwind CSS · HTML · CSS · JavaScript · Redux · Responsive Design</p>
+            </div>
+            <div class="mt-8 md:mt-0 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+              <img alt="Frontend Development" loading="lazy" width="100" height="100" decoding="async" data-nimg="1" class="w-[100px] h-auto object-contain" style="color:transparent" src="https://proxy.extractcss.dev/https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/3e6ef7f8-6f9c-4200-ba6c-e088cd5905a6-meet-framer-media/assets/icons/yS1tTJLUCs3PmKNlc7AXy5zGQ-4.png">
+            </div>
+          </div>
+          <div class="group relative flex w-full flex-col md:flex-row items-start md:items-center justify-between bg-white px-8 py-10 md:px-12 md:py-14 rounded-[4px] border border-transparent shadow-lg cursor-pointer" style="opacity: 1; transform: none;">
+            <div class="flex flex-col max-w-[70%]">
+              <div class="flex items-center gap-4 mb-4">
+                <h3 class="font-display text-[32px] md:text-[48px] leading-[1.1] text-[#0f0f0f] uppercase tracking-[-0.02em]">Backend Development</h3>
+              </div>
+              <p class="font-sans text-[14px] md:text-[16px] leading-[1.6] text-[#666666] max-w-2xl">Node.js · Express · MongoDB · MySQL · Prisma ORM · Python · REST APIs · Authentication (JWT)</p>
+            </div>
+            <div class="mt-8 md:mt-0 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+              <img alt="Backend Development" loading="lazy" width="100" height="100" decoding="async" data-nimg="1" class="w-[100px] h-auto object-contain" style="color:transparent" src="https://proxy.extractcss.dev/https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/3e6ef7f8-6f9c-4200-ba6c-e088cd5905a6-meet-framer-media/assets/icons/EiJdUV3HNBjOODiAUDqzgCWF058-2.png">
+            </div>
+          </div>
+          <div class="group relative flex w-full flex-col md:flex-row items-start md:items-center justify-between bg-white px-8 py-10 md:px-12 md:py-14 rounded-[4px] border border-transparent shadow-lg cursor-pointer" style="opacity: 1; transform: none;">
+            <div class="flex flex-col max-w-[70%]">
+              <div class="flex items-center gap-4 mb-4">
+                <h3 class="font-display text-[32px] md:text-[48px] leading-[1.1] text-[#0f0f0f] uppercase tracking-[-0.02em]">Mobile Development</h3>
+              </div>
+              <p class="font-sans text-[14px] md:text-[16px] leading-[1.6] text-[#666666] max-w-2xl">React Native · Expo · iOS &amp; Android Apps · Cross-platform Development</p>
+            </div>
+            <div class="mt-8 md:mt-0 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+              <img alt="Mobile Development" loading="lazy" width="100" height="100" decoding="async" data-nimg="1" class="w-[100px] h-auto object-contain" style="color:transparent" src="https://proxy.extractcss.dev/https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/3e6ef7f8-6f9c-4200-ba6c-e088cd5905a6-meet-framer-media/assets/icons/lPDBCTLx4C3C28ue8Wai3KeV6ys-3.png">
+            </div>
+          </div>
+          <div class="group relative flex w-full flex-col md:flex-row items-start md:items-center justify-between bg-white px-8 py-10 md:px-12 md:py-14 rounded-[4px] border border-transparent shadow-lg cursor-pointer" style="opacity:0;transform:translateY(60px) scale(0.96)">
+            <div class="flex flex-col max-w-[70%]">
+              <div class="flex items-center gap-4 mb-4">
+                <h3 class="font-display text-[32px] md:text-[48px] leading-[1.1] text-[#0f0f0f] uppercase tracking-[-0.02em]">Tools &amp; Cloud</h3>
+              </div>
+              <p class="font-sans text-[14px] md:text-[16px] leading-[1.6] text-[#666666] max-w-2xl">Git · GitHub · AWS · Docker · Postman · VS Code · Canva</p>
+            </div>
+            <div class="mt-8 md:mt-0 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+              <img alt="Tools &amp; Cloud" loading="lazy" width="100" height="100" decoding="async" data-nimg="1" class="w-[100px] h-auto object-contain" style="color:transparent" src="https://proxy.extractcss.dev/https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/3e6ef7f8-6f9c-4200-ba6c-e088cd5905a6-meet-framer-media/assets/icons/rMbUonfFJXB2mH4wgkaz2qkMA-5.png">
+            </div>
+          </div>
+          <div class="group relative flex w-full flex-col md:flex-row items-start md:items-center justify-between bg-white px-8 py-10 md:px-12 md:py-14 rounded-[4px] border border-transparent shadow-lg cursor-pointer" style="opacity:0;transform:translateY(60px) scale(0.96)">
+            <div class="flex flex-col max-w-[70%]">
+              <div class="flex items-center gap-4 mb-4">
+                <h3 class="font-display text-[32px] md:text-[48px] leading-[1.1] text-[#0f0f0f] uppercase tracking-[-0.02em]">Soft Skills</h3>
+              </div>
+              <p class="font-sans text-[14px] md:text-[16px] leading-[1.6] text-[#666666] max-w-2xl">Creativity · Critical Thinking · Communication · Problem Solving · Teamwork</p>
+            </div>
+            <div class="mt-8 md:mt-0 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+              <img alt="Soft Skills" loading="lazy" width="100" height="100" decoding="async" data-nimg="1" class="w-[100px] h-auto object-contain" style="color:transparent" src="https://proxy.extractcss.dev/https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/3e6ef7f8-6f9c-4200-ba6c-e088cd5905a6-meet-framer-media/assets/icons/rMbUonfFJXB2mH4wgkaz2qkMA-5.png">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-32 bg-white text-[#0f0f0f] overflow-hidden">
+      <div class="container px-6 md:px-12">
+        <div class="mb-20 text-center" style="opacity:0;transform:translateY(40px)">
+          <h2 class="font-display text-[48px] md:text-[64px] uppercase leading-[0.9] tracking-tighter mb-6">Education <br> <span class="text-[#999999]">&amp; Certifications</span></h2>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 max-w-6xl mx-auto">
+          <div class="space-y-12">
+            <h3 class="text-2xl font-sans font-medium uppercase tracking-widest text-[#999999] mb-8 border-b border-[#0f0f0f]/10 pb-4">Academic Background</h3>
+            <div class="group relative pl-8 border-l-2 border-[#0f0f0f]/10 hover:border-[#22C55E] transition-colors duration-300" style="opacity:0;transform:translateX(-30px)">
+              <div class="flex flex-col gap-2">
+                <span class="text-sm font-medium text-[#22C55E] font-sans">2024 - 2028</span>
+                <h4 class="text-xl md:text-2xl font-display uppercase leading-tight">Newton School of Technology (ADYPU), Pune</h4>
+                <p class="text-lg text-[#666666]">Bachelor of Technology (AI ML)</p>
+                <p class="text-sm text-[#999999] mt-1 font-medium">Grade: 7.68/10.0</p>
+              </div>
+            </div>
+            <div class="group relative pl-8 border-l-2 border-[#0f0f0f]/10 hover:border-[#22C55E] transition-colors duration-300" style="opacity:0;transform:translateX(-30px)">
+              <div class="flex flex-col gap-2">
+                <span class="text-sm font-medium text-[#22C55E] font-sans">2023 - 2024</span>
+                <h4 class="text-xl md:text-2xl font-display uppercase leading-tight">Doon Heritage School, West Bengal</h4>
+                <p class="text-lg text-[#666666]">Intermediate (Class XII)</p>
+                <p class="text-sm text-[#999999] mt-1 font-medium">Grade: 91.2%</p>
+              </div>
+            </div>
+            <div class="group relative pl-8 border-l-2 border-[#0f0f0f]/10 hover:border-[#22C55E] transition-colors duration-300" style="opacity:0;transform:translateX(-30px)">
+              <div class="flex flex-col gap-2">
+                <span class="text-sm font-medium text-[#22C55E] font-sans">2021 - 2022</span>
+                <h4 class="text-xl md:text-2xl font-display uppercase leading-tight">St. Michael's School, West Bengal</h4>
+                <p class="text-lg text-[#666666]">Matriculation (Class X)</p>
+                <p class="text-sm text-[#999999] mt-1 font-medium">Grade: 87.8%</p>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-12">
+            <h3 class="text-2xl font-sans font-medium uppercase tracking-widest text-[#999999] mb-8 border-b border-[#0f0f0f]/10 pb-4">Certifications &amp; Activities</h3>
+            <div class="mb-12" style="opacity:0;transform:translateX(30px)">
+              <div class="bg-[#f5f5f5] p-8 rounded-[4px] border border-transparent hover:border-[#0f0f0f]/10 transition-colors">
+                <div class="flex justify-between items-start mb-4">
+                  <h4 class="text-xl font-display uppercase">Architecture Job Simulation</h4>
+                  <span class="text-xs bg-[#0f0f0f] text-white px-2 py-1 rounded">Forage</span></div>
+                <p class="text-[#666666] text-sm leading-relaxed mb-2">Gained hands-on experience designing scalable, cost-efficient AWS cloud solutions.</p>
+                <span class="text-xs text-[#999999] font-medium">December 2024</span>
+              </div>
+            </div>
+            <div style="opacity:0;transform:translateX(30px)">
+              <h4 class="text-lg font-bold uppercase mb-4">Extra-Curricular</h4>
+              <ul class="space-y-3 text-[#666666] text-sm md:text-base">
+                <li class="flex items-start gap-2">
+                  <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#22C55E]"></span><span><strong>Designer:</strong> Designed UI/UX and graphics for tech events, club and web platforms.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#22C55E]"></span><span><strong>Entrepreneurship:</strong> Active contributor to entrepreneurship club initiatives through startups.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-[#0f0f0f] text-white w-full overflow-hidden">
+      <div id="playground" class="container min-h-screen py-[160px] flex flex-col items-center justify-center w-full overflow-hidden">
+        <div class="text-center mb-16 z-10" style="opacity:0;transform:translateY(50px)">
+          <p class="text-[12px] font-medium tracking-[0.2em] text-[#999999] uppercase mb-4">Creative Lab</p>
+          <h2 class="font-display text-[clamp(2.5rem,8vw,5.5rem)] leading-[0.9] mb-4">Pixels at Play</h2>
+          <p class="text-[20px] md:text-[24px] font-medium text-white/60">Explorations, Experiments, and Escapades</p>
+        </div>
+        <div class="max-w-7xl mx-auto relative group">
+          <div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#020202] to-transparent z-20 pointer-events-none">
+          </div>
+          <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#020202] to-transparent z-20 pointer-events-none">
+          </div>
+          <div class="overflow-hidden">
+            <div class="flex whitespace-nowrap py-4 w-fit" style="transform: translateX(-13.5982%);"><button class="flex flex-col items-center gap-6 flex-shrink-0 mr-12 group/poster cursor-pointer outline-none focus:outline-none">
+                <div class="relative w-64 sm:w-80 h-[400px] sm:h-[480px] rounded-2xl overflow-hidden border border-white/5 transition-all duration-500 hover:border-purple-500/40 hover:shadow-[0_0_50px_rgba(168,85,247,0.2)]">
+                  <img alt="Ctrl+Z" loading="lazy" decoding="async" data-nimg="fill" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover/poster:scale-105" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="100vw" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F70%2Ff7%2F5e%2F70f75e6f0d35c2ebeba3eca9c31a80c5.jpg&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F70%2Ff7%2F5e%2F70f75e6f0d35c2ebeba3eca9c31a80c5.jpg&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F70%2Ff7%2F5e%2F70f75e6f0d35c2ebeba3eca9c31a80c5.jpg&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F70%2Ff7%2F5e%2F70f75e6f0d35c2ebeba3eca9c31a80c5.jpg&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F70%2Ff7%2F5e%2F70f75e6f0d35c2ebeba3eca9c31a80c5.jpg&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F70%2Ff7%2F5e%2F70f75e6f0d35c2ebeba3eca9c31a80c5.jpg&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F70%2Ff7%2F5e%2F70f75e6f0d35c2ebeba3eca9c31a80c5.jpg&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F70%2Ff7%2F5e%2F70f75e6f0d35c2ebeba3eca9c31a80c5.jpg&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F70%2Ff7%2F5e%2F70f75e6f0d35c2ebeba3eca9c31a80c5.jpg&amp;w=3840&amp;q=75">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                  </div>
+                </div>
+                <h3 class="text-white font-bold text-[10px] sm:text-xs pixel-font opacity-30 group-hover/poster:opacity-100 transition-opacity uppercase tracking-[0.3em]">Ctrl+Z</h3>
+              </button><button class="flex flex-col items-center gap-6 flex-shrink-0 mr-12 group/poster cursor-pointer outline-none focus:outline-none">
+                <div class="relative w-64 sm:w-80 h-[400px] sm:h-[480px] rounded-2xl overflow-hidden border border-white/5 transition-all duration-500 hover:border-purple-500/40 hover:shadow-[0_0_50px_rgba(168,85,247,0.2)]">
+                  <img alt="nintendo" loading="lazy" decoding="async" data-nimg="fill" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover/poster:scale-105" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="100vw" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fce%2Fef%2F46%2Fceef46fbe8e3489ee8d023e819116963.jpg&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fce%2Fef%2F46%2Fceef46fbe8e3489ee8d023e819116963.jpg&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fce%2Fef%2F46%2Fceef46fbe8e3489ee8d023e819116963.jpg&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fce%2Fef%2F46%2Fceef46fbe8e3489ee8d023e819116963.jpg&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fce%2Fef%2F46%2Fceef46fbe8e3489ee8d023e819116963.jpg&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fce%2Fef%2F46%2Fceef46fbe8e3489ee8d023e819116963.jpg&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fce%2Fef%2F46%2Fceef46fbe8e3489ee8d023e819116963.jpg&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fce%2Fef%2F46%2Fceef46fbe8e3489ee8d023e819116963.jpg&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fce%2Fef%2F46%2Fceef46fbe8e3489ee8d023e819116963.jpg&amp;w=3840&amp;q=75">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                  </div>
+                </div>
+                <h3 class="text-white font-bold text-[10px] sm:text-xs pixel-font opacity-30 group-hover/poster:opacity-100 transition-opacity uppercase tracking-[0.3em]">nintendo</h3>
+              </button><button class="flex flex-col items-center gap-6 flex-shrink-0 mr-12 group/poster cursor-pointer outline-none focus:outline-none">
+                <div class="relative w-64 sm:w-80 h-[400px] sm:h-[480px] rounded-2xl overflow-hidden border border-white/5 transition-all duration-500 hover:border-purple-500/40 hover:shadow-[0_0_50px_rgba(168,85,247,0.2)]">
+                  <img alt="debug" loading="lazy" decoding="async" data-nimg="fill" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover/poster:scale-105" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="100vw" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F4a%2F10%2F8d%2F4a108df778fde749a4c9896680f4b84a.jpg&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F4a%2F10%2F8d%2F4a108df778fde749a4c9896680f4b84a.jpg&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F4a%2F10%2F8d%2F4a108df778fde749a4c9896680f4b84a.jpg&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F4a%2F10%2F8d%2F4a108df778fde749a4c9896680f4b84a.jpg&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F4a%2F10%2F8d%2F4a108df778fde749a4c9896680f4b84a.jpg&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F4a%2F10%2F8d%2F4a108df778fde749a4c9896680f4b84a.jpg&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F4a%2F10%2F8d%2F4a108df778fde749a4c9896680f4b84a.jpg&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F4a%2F10%2F8d%2F4a108df778fde749a4c9896680f4b84a.jpg&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F4a%2F10%2F8d%2F4a108df778fde749a4c9896680f4b84a.jpg&amp;w=3840&amp;q=75">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                  </div>
+                </div>
+                <h3 class="text-white font-bold text-[10px] sm:text-xs pixel-font opacity-30 group-hover/poster:opacity-100 transition-opacity uppercase tracking-[0.3em]">debug</h3>
+              </button><button class="flex flex-col items-center gap-6 flex-shrink-0 mr-12 group/poster cursor-pointer outline-none focus:outline-none">
+                <div class="relative w-64 sm:w-80 h-[400px] sm:h-[480px] rounded-2xl overflow-hidden border border-white/5 transition-all duration-500 hover:border-purple-500/40 hover:shadow-[0_0_50px_rgba(168,85,247,0.2)]">
+                  <img alt="Drone Havoc" loading="lazy" decoding="async" data-nimg="fill" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover/poster:scale-105" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="100vw" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525cb748e99e375e51f1_image1%25201.avif&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525cb748e99e375e51f1_image1%25201.avif&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525cb748e99e375e51f1_image1%25201.avif&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525cb748e99e375e51f1_image1%25201.avif&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525cb748e99e375e51f1_image1%25201.avif&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525cb748e99e375e51f1_image1%25201.avif&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525cb748e99e375e51f1_image1%25201.avif&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525cb748e99e375e51f1_image1%25201.avif&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525cb748e99e375e51f1_image1%25201.avif&amp;w=3840&amp;q=75">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                  </div>
+                </div>
+                <h3 class="text-white font-bold text-[10px] sm:text-xs pixel-font opacity-30 group-hover/poster:opacity-100 transition-opacity uppercase tracking-[0.3em]">Drone Havoc</h3>
+              </button><button class="flex flex-col items-center gap-6 flex-shrink-0 mr-12 group/poster cursor-pointer outline-none focus:outline-none">
+                <div class="relative w-64 sm:w-80 h-[400px] sm:h-[480px] rounded-2xl overflow-hidden border border-white/5 transition-all duration-500 hover:border-purple-500/40 hover:shadow-[0_0_50px_rgba(168,85,247,0.2)]">
+                  <img alt="Kullu" loading="lazy" decoding="async" data-nimg="fill" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover/poster:scale-105" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="100vw" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525c7acb204e022f49bf_image3%25201.avif&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525c7acb204e022f49bf_image3%25201.avif&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525c7acb204e022f49bf_image3%25201.avif&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525c7acb204e022f49bf_image3%25201.avif&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525c7acb204e022f49bf_image3%25201.avif&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525c7acb204e022f49bf_image3%25201.avif&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525c7acb204e022f49bf_image3%25201.avif&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525c7acb204e022f49bf_image3%25201.avif&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525c7acb204e022f49bf_image3%25201.avif&amp;w=3840&amp;q=75">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                  </div>
+                </div>
+                <h3 class="text-white font-bold text-[10px] sm:text-xs pixel-font opacity-30 group-hover/poster:opacity-100 transition-opacity uppercase tracking-[0.3em]">Kullu</h3>
+              </button><button class="flex flex-col items-center gap-6 flex-shrink-0 mr-12 group/poster cursor-pointer outline-none focus:outline-none">
+                <div class="relative w-64 sm:w-80 h-[400px] sm:h-[480px] rounded-2xl overflow-hidden border border-white/5 transition-all duration-500 hover:border-purple-500/40 hover:shadow-[0_0_50px_rgba(168,85,247,0.2)]">
+                  <img alt="Ctrl+Z" loading="lazy" decoding="async" data-nimg="fill" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover/poster:scale-105" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="100vw" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F70%2Ff7%2F5e%2F70f75e6f0d35c2ebeba3eca9c31a80c5.jpg&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F70%2Ff7%2F5e%2F70f75e6f0d35c2ebeba3eca9c31a80c5.jpg&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F70%2Ff7%2F5e%2F70f75e6f0d35c2ebeba3eca9c31a80c5.jpg&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F70%2Ff7%2F5e%2F70f75e6f0d35c2ebeba3eca9c31a80c5.jpg&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F70%2Ff7%2F5e%2F70f75e6f0d35c2ebeba3eca9c31a80c5.jpg&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F70%2Ff7%2F5e%2F70f75e6f0d35c2ebeba3eca9c31a80c5.jpg&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F70%2Ff7%2F5e%2F70f75e6f0d35c2ebeba3eca9c31a80c5.jpg&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F70%2Ff7%2F5e%2F70f75e6f0d35c2ebeba3eca9c31a80c5.jpg&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F70%2Ff7%2F5e%2F70f75e6f0d35c2ebeba3eca9c31a80c5.jpg&amp;w=3840&amp;q=75">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                  </div>
+                </div>
+                <h3 class="text-white font-bold text-[10px] sm:text-xs pixel-font opacity-30 group-hover/poster:opacity-100 transition-opacity uppercase tracking-[0.3em]">Ctrl+Z</h3>
+              </button><button class="flex flex-col items-center gap-6 flex-shrink-0 mr-12 group/poster cursor-pointer outline-none focus:outline-none">
+                <div class="relative w-64 sm:w-80 h-[400px] sm:h-[480px] rounded-2xl overflow-hidden border border-white/5 transition-all duration-500 hover:border-purple-500/40 hover:shadow-[0_0_50px_rgba(168,85,247,0.2)]">
+                  <img alt="nintendo" loading="lazy" decoding="async" data-nimg="fill" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover/poster:scale-105" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="100vw" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fce%2Fef%2F46%2Fceef46fbe8e3489ee8d023e819116963.jpg&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fce%2Fef%2F46%2Fceef46fbe8e3489ee8d023e819116963.jpg&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fce%2Fef%2F46%2Fceef46fbe8e3489ee8d023e819116963.jpg&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fce%2Fef%2F46%2Fceef46fbe8e3489ee8d023e819116963.jpg&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fce%2Fef%2F46%2Fceef46fbe8e3489ee8d023e819116963.jpg&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fce%2Fef%2F46%2Fceef46fbe8e3489ee8d023e819116963.jpg&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fce%2Fef%2F46%2Fceef46fbe8e3489ee8d023e819116963.jpg&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fce%2Fef%2F46%2Fceef46fbe8e3489ee8d023e819116963.jpg&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fce%2Fef%2F46%2Fceef46fbe8e3489ee8d023e819116963.jpg&amp;w=3840&amp;q=75">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                  </div>
+                </div>
+                <h3 class="text-white font-bold text-[10px] sm:text-xs pixel-font opacity-30 group-hover/poster:opacity-100 transition-opacity uppercase tracking-[0.3em]">nintendo</h3>
+              </button><button class="flex flex-col items-center gap-6 flex-shrink-0 mr-12 group/poster cursor-pointer outline-none focus:outline-none">
+                <div class="relative w-64 sm:w-80 h-[400px] sm:h-[480px] rounded-2xl overflow-hidden border border-white/5 transition-all duration-500 hover:border-purple-500/40 hover:shadow-[0_0_50px_rgba(168,85,247,0.2)]">
+                  <img alt="debug" loading="lazy" decoding="async" data-nimg="fill" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover/poster:scale-105" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="100vw" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F4a%2F10%2F8d%2F4a108df778fde749a4c9896680f4b84a.jpg&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F4a%2F10%2F8d%2F4a108df778fde749a4c9896680f4b84a.jpg&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F4a%2F10%2F8d%2F4a108df778fde749a4c9896680f4b84a.jpg&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F4a%2F10%2F8d%2F4a108df778fde749a4c9896680f4b84a.jpg&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F4a%2F10%2F8d%2F4a108df778fde749a4c9896680f4b84a.jpg&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F4a%2F10%2F8d%2F4a108df778fde749a4c9896680f4b84a.jpg&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F4a%2F10%2F8d%2F4a108df778fde749a4c9896680f4b84a.jpg&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F4a%2F10%2F8d%2F4a108df778fde749a4c9896680f4b84a.jpg&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F4a%2F10%2F8d%2F4a108df778fde749a4c9896680f4b84a.jpg&amp;w=3840&amp;q=75">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                  </div>
+                </div>
+                <h3 class="text-white font-bold text-[10px] sm:text-xs pixel-font opacity-30 group-hover/poster:opacity-100 transition-opacity uppercase tracking-[0.3em]">debug</h3>
+              </button><button class="flex flex-col items-center gap-6 flex-shrink-0 mr-12 group/poster cursor-pointer outline-none focus:outline-none">
+                <div class="relative w-64 sm:w-80 h-[400px] sm:h-[480px] rounded-2xl overflow-hidden border border-white/5 transition-all duration-500 hover:border-purple-500/40 hover:shadow-[0_0_50px_rgba(168,85,247,0.2)]">
+                  <img alt="Drone Havoc" loading="lazy" decoding="async" data-nimg="fill" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover/poster:scale-105" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="100vw" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525cb748e99e375e51f1_image1%25201.avif&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525cb748e99e375e51f1_image1%25201.avif&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525cb748e99e375e51f1_image1%25201.avif&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525cb748e99e375e51f1_image1%25201.avif&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525cb748e99e375e51f1_image1%25201.avif&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525cb748e99e375e51f1_image1%25201.avif&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525cb748e99e375e51f1_image1%25201.avif&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525cb748e99e375e51f1_image1%25201.avif&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525cb748e99e375e51f1_image1%25201.avif&amp;w=3840&amp;q=75">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                  </div>
+                </div>
+                <h3 class="text-white font-bold text-[10px] sm:text-xs pixel-font opacity-30 group-hover/poster:opacity-100 transition-opacity uppercase tracking-[0.3em]">Drone Havoc</h3>
+              </button><button class="flex flex-col items-center gap-6 flex-shrink-0 mr-12 group/poster cursor-pointer outline-none focus:outline-none">
+                <div class="relative w-64 sm:w-80 h-[400px] sm:h-[480px] rounded-2xl overflow-hidden border border-white/5 transition-all duration-500 hover:border-purple-500/40 hover:shadow-[0_0_50px_rgba(168,85,247,0.2)]">
+                  <img alt="Kullu" loading="lazy" decoding="async" data-nimg="fill" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover/poster:scale-105" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" sizes="100vw" srcset="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525c7acb204e022f49bf_image3%25201.avif&amp;w=640&amp;q=75 640w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525c7acb204e022f49bf_image3%25201.avif&amp;w=750&amp;q=75 750w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525c7acb204e022f49bf_image3%25201.avif&amp;w=828&amp;q=75 828w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525c7acb204e022f49bf_image3%25201.avif&amp;w=1080&amp;q=75 1080w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525c7acb204e022f49bf_image3%25201.avif&amp;w=1200&amp;q=75 1200w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525c7acb204e022f49bf_image3%25201.avif&amp;w=1920&amp;q=75 1920w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525c7acb204e022f49bf_image3%25201.avif&amp;w=2048&amp;q=75 2048w, https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525c7acb204e022f49bf_image3%25201.avif&amp;w=3840&amp;q=75 3840w" src="https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/image?url=https%3A%2F%2Fcdn.prod.website-files.com%2F62e8d2ea218fb7676b6892a6%2F6837525c7acb204e022f49bf_image3%25201.avif&amp;w=3840&amp;q=75">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                  </div>
+                </div>
+                <h3 class="text-white font-bold text-[10px] sm:text-xs pixel-font opacity-30 group-hover/poster:opacity-100 transition-opacity uppercase tracking-[0.3em]">Kullu</h3>
+              </button></div>
+          </div>
+        </div>
+      </div>
+      <div class="container py-[160px] border-t border-white/10">
+        <div class="text-center mb-32 max-w-3xl mx-auto" style="opacity:0;transform:translateY(40px)">
+          <h2 class="font-display text-[clamp(2rem,6vw,4.5rem)] leading-[0.9] mb-6">Archived adventures</h2>
+          <p class="text-[18px] md:text-[20px] text-[#999999] leading-relaxed">A vault of designs, projects, and experiments that have shaped the journey over time.</p>
+        </div>
+        <div class="relative min-h-[70vh] w-full flex flex-col items-center justify-center">
+          <div class="sticky top-1/2 -translate-y-1/2">
+            <div class="relative w-[220px] md:w-[280px] h-[300px] md:h-[360px]">
+              <div class="absolute inset-0 cursor-pointer" style="z-index:1;opacity:0;transform:scale(0.85)">
+                <div class="w-full h-full bg-[#f2f2f2] text-black p-6 rounded-xl shadow-2xl flex flex-col justify-between border-4 border-black/5">
+                  <div class="flex justify-between items-center opacity-40">
+                    <span class="text-[10px] font-bold uppercase tracking-widest">2021</span>
+                    <div class="w-8 h-8 rounded-full border-2 border-black/20 flex items-center justify-center">
+                      <div class="w-2 h-2 rounded-full bg-black/40"></div>
+                    </div>
+                  </div>
+                  <div class="flex-1 flex flex-col items-center justify-center py-4 gap-2">
+                    <span class="text-[10px] uppercase tracking-widest text-black/40 font-medium">UX/UI Case Study</span>
+                    <h4 class="text-[18px] md:text-[20px] font-black leading-tight uppercase text-center tracking-tighter">Kotak FASTag App</h4>
+                  </div>
+                  <div class="space-y-2 opacity-20">
+                    <div class="h-1 w-full bg-black rounded-full"></div>
+                    <div class="h-1 w-2/3 bg-black rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute inset-0 cursor-pointer" style="z-index:2;opacity:0;transform:scale(0.85)">
+                <div class="w-full h-full bg-[#f2f2f2] text-black p-6 rounded-xl shadow-2xl flex flex-col justify-between border-4 border-black/5">
+                  <div class="flex justify-between items-center opacity-40">
+                    <span class="text-[10px] font-bold uppercase tracking-widest">2017</span>
+                    <div class="w-8 h-8 rounded-full border-2 border-black/20 flex items-center justify-center">
+                      <div class="w-2 h-2 rounded-full bg-black/40"></div>
+                    </div>
+                  </div>
+                  <div class="flex-1 flex flex-col items-center justify-center py-4 gap-2">
+                    <span class="text-[10px] uppercase tracking-widest text-black/40 font-medium">Logo design</span>
+                    <h4 class="text-[18px] md:text-[20px] font-black leading-tight uppercase text-center tracking-tighter">Logofolio Part 1</h4>
+                  </div>
+                  <div class="space-y-2 opacity-20">
+                    <div class="h-1 w-full bg-black rounded-full"></div>
+                    <div class="h-1 w-2/3 bg-black rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute inset-0 cursor-pointer" style="z-index:3;opacity:0;transform:scale(0.85)">
+                <div class="w-full h-full bg-[#f2f2f2] text-black p-6 rounded-xl shadow-2xl flex flex-col justify-between border-4 border-black/5">
+                  <div class="flex justify-between items-center opacity-40">
+                    <span class="text-[10px] font-bold uppercase tracking-widest">2019</span>
+                    <div class="w-8 h-8 rounded-full border-2 border-black/20 flex items-center justify-center">
+                      <div class="w-2 h-2 rounded-full bg-black/40"></div>
+                    </div>
+                  </div>
+                  <div class="flex-1 flex flex-col items-center justify-center py-4 gap-2">
+                    <span class="text-[10px] uppercase tracking-widest text-black/40 font-medium">UI &amp; Logo Design</span>
+                    <h4 class="text-[18px] md:text-[20px] font-black leading-tight uppercase text-center tracking-tighter">Contrivance Mechanics</h4>
+                  </div>
+                  <div class="space-y-2 opacity-20">
+                    <div class="h-1 w-full bg-black rounded-full"></div>
+                    <div class="h-1 w-2/3 bg-black rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute inset-0 cursor-pointer" style="z-index:4;opacity:0;transform:scale(0.85)">
+                <div class="w-full h-full bg-[#f2f2f2] text-black p-6 rounded-xl shadow-2xl flex flex-col justify-between border-4 border-black/5">
+                  <div class="flex justify-between items-center opacity-40">
+                    <span class="text-[10px] font-bold uppercase tracking-widest">2018</span>
+                    <div class="w-8 h-8 rounded-full border-2 border-black/20 flex items-center justify-center">
+                      <div class="w-2 h-2 rounded-full bg-black/40"></div>
+                    </div>
+                  </div>
+                  <div class="flex-1 flex flex-col items-center justify-center py-4 gap-2">
+                    <span class="text-[10px] uppercase tracking-widest text-black/40 font-medium">Logo Design</span>
+                    <h4 class="text-[18px] md:text-[20px] font-black leading-tight uppercase text-center tracking-tighter">Logofolio Part 2</h4>
+                  </div>
+                  <div class="space-y-2 opacity-20">
+                    <div class="h-1 w-full bg-black rounded-full"></div>
+                    <div class="h-1 w-2/3 bg-black rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute inset-0 cursor-pointer" style="z-index:5;opacity:0;transform:scale(0.85)">
+                <div class="w-full h-full bg-[#f2f2f2] text-black p-6 rounded-xl shadow-2xl flex flex-col justify-between border-4 border-black/5">
+                  <div class="flex justify-between items-center opacity-40">
+                    <span class="text-[10px] font-bold uppercase tracking-widest">2020</span>
+                    <div class="w-8 h-8 rounded-full border-2 border-black/20 flex items-center justify-center">
+                      <div class="w-2 h-2 rounded-full bg-black/40"></div>
+                    </div>
+                  </div>
+                  <div class="flex-1 flex flex-col items-center justify-center py-4 gap-2">
+                    <span class="text-[10px] uppercase tracking-widest text-black/40 font-medium">UI &amp; Logo Design</span>
+                    <h4 class="text-[18px] md:text-[20px] font-black leading-tight uppercase text-center tracking-tighter">Dextrics Chemicals</h4>
+                  </div>
+                  <div class="space-y-2 opacity-20">
+                    <div class="h-1 w-full bg-black rounded-full"></div>
+                    <div class="h-1 w-2/3 bg-black rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute inset-0 cursor-pointer" style="z-index:6;opacity:0;transform:scale(0.85)">
+                <div class="w-full h-full bg-[#f2f2f2] text-black p-6 rounded-xl shadow-2xl flex flex-col justify-between border-4 border-black/5">
+                  <div class="flex justify-between items-center opacity-40">
+                    <span class="text-[10px] font-bold uppercase tracking-widest">2016</span>
+                    <div class="w-8 h-8 rounded-full border-2 border-black/20 flex items-center justify-center">
+                      <div class="w-2 h-2 rounded-full bg-black/40"></div>
+                    </div>
+                  </div>
+                  <div class="flex-1 flex flex-col items-center justify-center py-4 gap-2">
+                    <span class="text-[10px] uppercase tracking-widest text-black/40 font-medium">Logo Design</span>
+                    <h4 class="text-[18px] md:text-[20px] font-black leading-tight uppercase text-center tracking-tighter">Stac'16 Tech Conference</h4>
+                  </div>
+                  <div class="space-y-2 opacity-20">
+                    <div class="h-1 w-full bg-black rounded-full"></div>
+                    <div class="h-1 w-2/3 bg-black rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer id="footer" class="footer-section w-full bg-[#f5f5f5] text-[#0f0f0f] selection:bg-[#0f0f0f] selection:text-white">
+      <div class="container mx-auto px-8 md:px-16 pt-[160px] pb-[120px] flex flex-col items-center text-center">
+        <p class="text-[18px] md:text-[20px] font-sans mb-4 text-[#0f0f0f]/60 font-medium" style="opacity:0;transform:translateY(30px)">That's a wrap? Maybe not.</p>
+        <h2 class="font-display text-[72px] md:text-[120px] lg:text-[140px] leading-[0.85] mb-8 tracking-tighter uppercase font-black" style="opacity:0;transform:translateY(50px) scale(0.95)">Great things start <br> with 'Meet'! 😃</h2>
+        <div class="max-w-[700px] mb-12" style="opacity:0;transform:translateY(30px)">
+          <p class="text-[20px] md:text-[24px] font-sans leading-relaxed font-medium">Open to 👁️ conversations, 🤝 collabs, 🧠 creative <br class="hidden md:block">challenges, 🧩 puzzles-or just a friendly game of ♟️ Chess.<br><span class="text-base mt-2 block">📞 +91 9749746057</span></p>
+        </div>
+        <div class="flex flex-col items-center gap-8" style="opacity:0;transform:translateY(20px)"><a href="mailto:priyabrata.singh@adypu.edu.in" class="group relative flex items-center justify-center bg-[#0f0f0f] text-white px-10 py-5 rounded-full text-[18px] font-bold transition-all duration-300 hover:scale-105 hover:shadow-xl"><span>Let's Meet</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg></a>
+          <div class="flex flex-col items-center gap-4">
+            <span class="text-[14px] text-[#0f0f0f]/40 font-medium lowercase">or connect through..</span>
+            <div class="flex items-center gap-6"><a href="www.linkedin.com/in/avgnststudent" class="p-3 bg-white rounded-xl border border-black/5 shadow-sm hover:shadow-md transition-shadow" aria-label="LinkedIn" tabindex="0" style="opacity:0;transform:translateY(20px)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin w-5 h-5" aria-hidden="true">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect width="4" height="12" x="2" y="9"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg></a><a href="mailto:priyabrata.singh@adypu.edu.in" class="p-3 bg-white rounded-xl border border-black/5 shadow-sm hover:shadow-md transition-shadow" aria-label="Email" tabindex="0" style="opacity:0;transform:translateY(20px)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail w-5 h-5" aria-hidden="true">
+                  <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                </svg></a><a href="#" class="p-3 bg-white rounded-xl border border-black/5 shadow-sm hover:shadow-md transition-shadow" aria-label="Website" tabindex="0" style="opacity:0;transform:translateY(20px)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe w-5 h-5" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                  <path d="M2 12h20"></path>
+                </svg></a><a href="https://instagram.com/priyxbrxtx" target="_blank" rel="noopener noreferrer" class="p-3 bg-white rounded-xl border border-black/5 shadow-sm hover:shadow-md transition-shadow" aria-label="Instagram" tabindex="0" style="opacity:0;transform:translateY(20px)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram w-5 h-5" aria-hidden="true">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                </svg></a></div>
+          </div>
+        </div>
+      </div>
+      <div class="container mx-auto px-8 md:px-16 pb-12" style="opacity:0">
+        <div class="w-full h-[1px] bg-[#0f0f0f]/10 mb-10"></div>
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+          <div class="order-3 md:order-1 flex-1">
+            <p class="text-[14px] font-medium text-[#0f0f0f]/60">© Copyright &amp; stuff...</p>
+          </div>
+          <div class="order-1 md:order-2 flex-[2] text-center max-w-[500px] mx-auto">
+            <p class="text-[14px] leading-relaxed font-medium text-[#0f0f0f]/80">Created with 🤯 curiosity ☕️ coffee ❤️ love, 🥰 some peer pressure, and 💻 way too many open tabs. Thanks for stopping by—don't forget to blink and drink (water ofc)!</p>
+          </div>
+          <div class="order-2 md:order-3 flex-1 flex justify-end w-full md:w-auto"><a href="#main" class="group flex items-center gap-2 text-[14px] font-bold uppercase tracking-tight hover:opacity-70 transition-opacity">Back
+              to top<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-up w-4 h-4 transition-transform duration-300 group-hover:-translate-y-1" aria-hidden="true">
+                <path d="M8 6L12 2L16 6"></path>
+                <path d="M12 2V22"></path>
+              </svg></a></div>
+        </div>
+      </div>
+    </footer>
+  </div><!--$--><!--/$-->
+  <div id="give-freely-root-bcjindcccaagfpapjjmafapmmgkkhgoa" class="give-freely-root" data-extension-id="bcjindcccaagfpapjjmafapmmgkkhgoa" data-extension-name="JSON Formatter" style="display: block;">
+  </div><next-route-announcer style="position: absolute;"></next-route-announcer>
+  <div id="give-freely-root-ejkiikneibegknkgimmihdpcbcedgmpo" class="give-freely-root" data-extension-id="ejkiikneibegknkgimmihdpcbcedgmpo" data-extension-name="Volume Booster" style="display: block;">
+  </div><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+
+
+</body></html>
+@layer components;
+
+@font-face {
+  font-family: Antonio;
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: swap;
+  src: url('https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/static/media/d4a1b5818e3fad96-s.woff2') format("woff2");
+  unicode-range:
+    U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: Antonio;
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: swap;
+  src: url('https://proxy.extractcss.dev/https://pmanifestoo.vercel.app/_next/static/media/44ca41e4fd5cc616-s.p.woff2') format("woff2");
+  unicode-range:
+    U+??, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: Antonio Fallback;
+  src: local(Arial);
+  ascent-override: 137.82%;
+  descent-override: 16.61%;
+  line-gap-override: 0%;
+  size-adjust: 83.79%;
+}
+@property --tw-animation-delay {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0s;
+}
+@property --tw-animation-direction {
+  syntax: "*";
+  inherits: false;
+  initial-value: normal;
+}
+@property --tw-animation-duration {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-animation-fill-mode {
+  syntax: "*";
+  inherits: false;
+  initial-value: none;
+}
+@property --tw-animation-iteration-count {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-enter-blur {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-enter-opacity {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-enter-rotate {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-enter-scale {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-enter-translate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-enter-translate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-exit-blur {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-exit-opacity {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-exit-rotate {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-exit-scale {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-exit-translate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-exit-translate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-space-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-gradient-position {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-gradient-from {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #0000;
+}
+@property --tw-gradient-via {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #0000;
+}
+@property --tw-gradient-to {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #0000;
+}
+@property --tw-gradient-stops {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-gradient-via-stops {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-gradient-from-position {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-gradient-via-position {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 50%;
+}
+@property --tw-gradient-to-position {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ordinal {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-slashed-zero {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-numeric-figure {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-numeric-spacing {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-numeric-fraction {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-blur {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-brightness {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-contrast {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-grayscale {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-hue-rotate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-invert {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-opacity {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-saturate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-sepia {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-drop-shadow {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-drop-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-drop-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-drop-shadow-size {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-blur {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-brightness {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-contrast {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-grayscale {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-hue-rotate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-invert {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-opacity {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-saturate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-sepia {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ease {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-scale-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-content {
+  syntax: "*";
+  inherits: false;
+  initial-value: "";
+}
+
+@layer properties {
+  @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+    *,
+    ::backdrop,
+    :after,
+    :before {
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-space-y-reverse: 0;
+      --tw-border-style: solid;
+      --tw-gradient-position: initial;
+      --tw-gradient-from: #0000;
+      --tw-gradient-via: #0000;
+      --tw-gradient-to: #0000;
+      --tw-gradient-stops: initial;
+      --tw-gradient-via-stops: initial;
+      --tw-gradient-from-position: 0%;
+      --tw-gradient-via-position: 50%;
+      --tw-gradient-to-position: 100%;
+      --tw-leading: initial;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-backdrop-blur: initial;
+      --tw-backdrop-brightness: initial;
+      --tw-backdrop-contrast: initial;
+      --tw-backdrop-grayscale: initial;
+      --tw-backdrop-hue-rotate: initial;
+      --tw-backdrop-invert: initial;
+      --tw-backdrop-opacity: initial;
+      --tw-backdrop-saturate: initial;
+      --tw-backdrop-sepia: initial;
+      --tw-duration: initial;
+      --tw-ease: initial;
+      --tw-scale-x: 1;
+      --tw-scale-y: 1;
+      --tw-enter-blur: 0;
+      --tw-enter-opacity: 1;
+      --tw-enter-rotate: 0;
+      --tw-enter-scale: 1;
+      --tw-enter-translate-x: 0;
+      --tw-enter-translate-y: 0;
+      --tw-exit-blur: 0;
+      --tw-exit-opacity: 1;
+      --tw-exit-rotate: 0;
+      --tw-exit-scale: 1;
+      --tw-exit-translate-x: 0;
+      --tw-exit-translate-y: 0;
+    }
+  }
+}
+
+@layer theme {
+  :root {
+    --font-sans: "Inter", sans-serif;
+    --color-purple-500: oklch(62.7% 0.265 303.9);
+    --color-black: #000;
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --container-md: 28rem;
+    --container-2xl: 42rem;
+    --container-3xl: 48rem;
+    --container-4xl: 56rem;
+    --container-6xl: 72rem;
+    --container-7xl: 80rem;
+    --text-xs: 0.75rem;
+    --text-xs--line-height: calc(1 / 0.75);
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-base: 1rem;
+    --text-base--line-height: calc(1.5 / 1);
+    --text-lg: 1.125rem;
+    --text-lg--line-height: calc(1.75 / 1.125);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
+    --text-6xl: 3.75rem;
+    --text-6xl--line-height: 1;
+    --text-7xl: 4.5rem;
+    --text-7xl--line-height: 1;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-black: 900;
+    --tracking-tighter: -0.05em;
+    --tracking-tight: -0.025em;
+    --tracking-wide: 0.025em;
+    --tracking-widest: 0.1em;
+    --leading-tight: 1.25;
+    --leading-relaxed: 1.625;
+    --radius-xl: 0.75rem;
+    --radius-2xl: 1rem;
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+    --blur-sm: 8px;
+    --blur-md: 12px;
+    --blur-xl: 24px;
+    --default-transition-duration: 0.15s;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --default-font-family: var(--font-sans);
+    --font-display: "Impact", "Arial Narrow", sans-serif;
+    --font-antonio: var(--font-antonio);
+    --radius-full: 100px;
+  }
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    border: 0 solid;
+    margin: 0;
+    padding: 0;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    line-height: 1.5;
+    font-family: var(
+      --default-font-family,
+      ui-sans-serif,
+      system-ui,
+      sans-serif,
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
+      "Segoe UI Symbol",
+      "Noto Color Emoji"
+    );
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
+    -webkit-tap-highlight-color: transparent;
+  }
+  h1,
+  h5,
+  h2,
+  h3,
+  h4 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+  strong {
+    font-weight: bolder;
+  }
+  ul {
+    list-style: none;
+  }
+  img,
+  svg {
+    vertical-align: middle;
+    display: block;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  button {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    opacity: 1;
+    background-color: #0000;
+    border-radius: 0;
+    appearance: button;
+  }
+  [hidden]:where(:not([hidden="until-found"])) {
+    display: none !important;
+  }
+  * {
+    border-color: #ffffff1a;
+  }
+  :root {
+    --background: #0f0f0f;
+    --foreground: #fff;
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+  h1,
+  h2,
+  .font-display,
+  h3 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 0.9;
+  }
+  .container {
+    width: 100%;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .hero-title {
+    letter-spacing: -0.05em;
+    font-size: 12vw;
+    font-weight: 900;
+  }
+  .section-heading {
+    margin-bottom: 2rem;
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 900;
+  }
+  .footer-section {
+    color: #0f0f0f;
+    background-color: #f5f5f5;
+    padding: 160px 0 40px;
+  }
+}
+
+@layer utilities {
+  .pointer-events-auto {
+    pointer-events: auto;
+  }
+  .pointer-events-none {
+    pointer-events: none;
+  }
+  .sr-only {
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border-width: 0;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+  }
+  .absolute,
+  .sr-only {
+    position: absolute;
+  }
+  .fixed {
+    position: fixed;
+  }
+  .relative {
+    position: relative;
+  }
+  .sticky {
+    position: sticky;
+  }
+  .inset-0 {
+    inset: calc(var(--spacing) * 0);
+  }
+  .inset-x-0 {
+    inset-inline: calc(var(--spacing) * 0);
+  }
+  .top-0 {
+    top: calc(var(--spacing) * 0);
+  }
+  .top-1\/2 {
+    top: 50%;
+  }
+  .top-6 {
+    top: calc(var(--spacing) * 6);
+  }
+  .top-full {
+    top: 100%;
+  }
+  .right-0 {
+    right: calc(var(--spacing) * 0);
+  }
+  .bottom-0 {
+    bottom: calc(var(--spacing) * 0);
+  }
+  .left-0 {
+    left: calc(var(--spacing) * 0);
+  }
+  .left-1\/2 {
+    left: 50%;
+  }
+  .z-0 {
+    z-index: 0;
+  }
+  .z-10 {
+    z-index: 10;
+  }
+  .z-20 {
+    z-index: 20;
+  }
+  .z-30 {
+    z-index: 30;
+  }
+  .z-\[100\] {
+    z-index: 100;
+  }
+  .order-1 {
+    order: 1;
+  }
+  .order-2 {
+    order: 2;
+  }
+  .order-3 {
+    order: 3;
+  }
+  .container {
+    width: 100%;
+  }
+  @media (width>=40rem) {
+    .container {
+      max-width: 40rem;
+    }
+  }
+  @media (width>=48rem) {
+    .container {
+      max-width: 48rem;
+    }
+  }
+  @media (width>=64rem) {
+    .container {
+      max-width: 64rem;
+    }
+  }
+  @media (width>=80rem) {
+    .container {
+      max-width: 80rem;
+    }
+  }
+  @media (width>=96rem) {
+    .container {
+      max-width: 96rem;
+    }
+  }
+  .mx-auto {
+    margin-inline: auto;
+  }
+  .mt-1 {
+    margin-top: calc(var(--spacing) * 1);
+  }
+  .mt-1\.5 {
+    margin-top: calc(var(--spacing) * 1.5);
+  }
+  .mt-2 {
+    margin-top: calc(var(--spacing) * 2);
+  }
+  .mt-8 {
+    margin-top: calc(var(--spacing) * 8);
+  }
+  .mt-25 {
+    margin-top: calc(var(--spacing) * 25);
+  }
+  .mt-32 {
+    margin-top: calc(var(--spacing) * 32);
+  }
+  .mt-\[10vh\] {
+    margin-top: 10vh;
+  }
+  .mr-12 {
+    margin-right: calc(var(--spacing) * 12);
+  }
+  .mb-2 {
+    margin-bottom: calc(var(--spacing) * 2);
+  }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
+  .mb-6 {
+    margin-bottom: calc(var(--spacing) * 6);
+  }
+  .mb-8 {
+    margin-bottom: calc(var(--spacing) * 8);
+  }
+  .mb-10 {
+    margin-bottom: calc(var(--spacing) * 10);
+  }
+  .mb-12 {
+    margin-bottom: calc(var(--spacing) * 12);
+  }
+  .mb-16 {
+    margin-bottom: calc(var(--spacing) * 16);
+  }
+  .mb-20 {
+    margin-bottom: calc(var(--spacing) * 20);
+  }
+  .mb-32 {
+    margin-bottom: calc(var(--spacing) * 32);
+  }
+  .mb-\[10vh\] {
+    margin-bottom: 10vh;
+  }
+  .mb-\[32rem\] {
+    margin-bottom: 32rem;
+  }
+  .ml-2 {
+    margin-left: calc(var(--spacing) * 2);
+  }
+  .block {
+    display: block;
+  }
+  .flex {
+    display: flex;
+  }
+  .grid {
+    display: grid;
+  }
+  .hidden {
+    display: none;
+  }
+  .inline-block {
+    display: inline-block;
+  }
+  .inline-flex {
+    display: inline-flex;
+  }
+  .h-0\.5 {
+    height: calc(var(--spacing) * 0.5);
+  }
+  .h-1 {
+    height: calc(var(--spacing) * 1);
+  }
+  .h-1\.5 {
+    height: calc(var(--spacing) * 1.5);
+  }
+  .h-2 {
+    height: calc(var(--spacing) * 2);
+  }
+  .h-3 {
+    height: calc(var(--spacing) * 3);
+  }
+  .h-4 {
+    height: calc(var(--spacing) * 4);
+  }
+  .h-5 {
+    height: calc(var(--spacing) * 5);
+  }
+  .h-6 {
+    height: calc(var(--spacing) * 6);
+  }
+  .h-8 {
+    height: calc(var(--spacing) * 8);
+  }
+  .h-10 {
+    height: calc(var(--spacing) * 10);
+  }
+  .h-40 {
+    height: calc(var(--spacing) * 40);
+  }
+  .h-\[1px\] {
+    height: 1px;
+  }
+  .h-\[80vh\] {
+    height: 80vh;
+  }
+  .h-\[300px\] {
+    height: 300px;
+  }
+  .h-\[400px\] {
+    height: 400px;
+  }
+  .h-\[500px\] {
+    height: 500px;
+  }
+  .h-auto {
+    height: auto;
+  }
+  .h-full {
+    height: 100%;
+  }
+  .h-screen {
+    height: 100vh;
+  }
+  .min-h-\[70vh\] {
+    min-height: 70vh;
+  }
+  .min-h-screen {
+    min-height: 100vh;
+  }
+  .w-1\.5 {
+    width: calc(var(--spacing) * 1.5);
+  }
+  .w-2 {
+    width: calc(var(--spacing) * 2);
+  }
+  .w-2\/3 {
+    width: 66.6667%;
+  }
+  .w-3 {
+    width: calc(var(--spacing) * 3);
+  }
+  .w-4 {
+    width: calc(var(--spacing) * 4);
+  }
+  .w-5 {
+    width: calc(var(--spacing) * 5);
+  }
+  .w-6 {
+    width: calc(var(--spacing) * 6);
+  }
+  .w-8 {
+    width: calc(var(--spacing) * 8);
+  }
+  .w-28 {
+    width: calc(var(--spacing) * 28);
+  }
+  .w-32 {
+    width: calc(var(--spacing) * 32);
+  }
+  .w-64 {
+    width: calc(var(--spacing) * 64);
+  }
+  .w-\[95vw\] {
+    width: 95vw;
+  }
+  .w-\[100px\] {
+    width: 100px;
+  }
+  .w-\[220px\] {
+    width: 220px;
+  }
+  .w-\[300px\] {
+    width: 300px;
+  }
+  .w-fit {
+    width: fit-content;
+  }
+  .w-full {
+    width: 100%;
+  }
+  .max-w-2xl {
+    max-width: var(--container-2xl);
+  }
+  .max-w-3xl {
+    max-width: var(--container-3xl);
+  }
+  .max-w-4xl {
+    max-width: var(--container-4xl);
+  }
+  .max-w-6xl {
+    max-width: var(--container-6xl);
+  }
+  .max-w-7xl {
+    max-width: var(--container-7xl);
+  }
+  .max-w-\[70\%\] {
+    max-width: 70%;
+  }
+  .max-w-\[500px\] {
+    max-width: 500px;
+  }
+  .max-w-\[600px\] {
+    max-width: 600px;
+  }
+  .max-w-\[700px\] {
+    max-width: 700px;
+  }
+  .max-w-\[1100px\] {
+    max-width: 1100px;
+  }
+  .max-w-\[1200px\] {
+    max-width: 1200px;
+  }
+  .max-w-\[1400px\] {
+    max-width: 1400px;
+  }
+  .max-w-fit {
+    max-width: fit-content;
+  }
+  .max-w-md {
+    max-width: var(--container-md);
+  }
+  .flex-1 {
+    flex: 1;
+  }
+  .flex-\[2\] {
+    flex: 2;
+  }
+  .flex-shrink-0 {
+    flex-shrink: 0;
+  }
+  .origin-top {
+    transform-origin: top;
+  }
+  .-translate-x-1\/2 {
+    --tw-translate-x: calc(calc(1 / 2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .-translate-y-1\/2 {
+    --tw-translate-y: calc(calc(1 / 2 * 100%) * -1);
+  }
+  .-translate-y-\[60\%\],
+  .-translate-y-1\/2 {
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .-translate-y-\[60\%\] {
+    --tw-translate-y: calc(60% * -1);
+  }
+  .translate-y-full {
+    --tw-translate-y: 100%;
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .animate-ping {
+    animation: var(--animate-ping);
+  }
+  .cursor-pointer {
+    cursor: pointer;
+  }
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .items-start {
+    align-items: flex-start;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .justify-end {
+    justify-content: flex-end;
+  }
+  .gap-0 {
+    gap: calc(var(--spacing) * 0);
+  }
+  .gap-1 {
+    gap: calc(var(--spacing) * 1);
+  }
+  .gap-2 {
+    gap: calc(var(--spacing) * 2);
+  }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
+  .gap-4 {
+    gap: calc(var(--spacing) * 4);
+  }
+  .gap-6 {
+    gap: calc(var(--spacing) * 6);
+  }
+  .gap-8 {
+    gap: calc(var(--spacing) * 8);
+  }
+  .gap-10 {
+    gap: calc(var(--spacing) * 10);
+  }
+  .gap-16 {
+    gap: calc(var(--spacing) * 16);
+  }
+  :where(.space-y-2 > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 2) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-y-reverse)));
+  }
+  :where(.space-y-3 > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 3) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse)));
+  }
+  :where(.space-y-6 > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 6) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)));
+  }
+  :where(.space-y-12 > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 12) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 12) * calc(1 - var(--tw-space-y-reverse)));
+  }
+  .gap-x-\[0\.3em\] {
+    column-gap: 0.3em;
+  }
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  .rounded {
+    border-radius: 0.25rem;
+  }
+  .rounded-2xl {
+    border-radius: var(--radius-2xl);
+  }
+  .rounded-\[4px\] {
+    border-radius: 4px;
+  }
+  .rounded-\[20px\] {
+    border-radius: 20px;
+  }
+  .rounded-\[32px\] {
+    border-radius: 32px;
+  }
+  .rounded-full {
+    border-radius: var(--radius-full);
+  }
+  .rounded-xl {
+    border-radius: var(--radius-xl);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+  .border-2 {
+    border-style: var(--tw-border-style);
+    border-width: 2px;
+  }
+  .border-4 {
+    border-style: var(--tw-border-style);
+    border-width: 4px;
+  }
+  .border-t {
+    border-top-style: var(--tw-border-style);
+    border-top-width: 1px;
+  }
+  .border-b {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 1px;
+  }
+  .border-l-2 {
+    border-left-style: var(--tw-border-style);
+    border-left-width: 2px;
+  }
+  .border-\[\#0f0f0f\]\/10 {
+    border-color: oklab(16.8416% -4.47035e-8 1.49012e-8/0.1);
+  }
+  .border-black\/5 {
+    border-color: #0000000d;
+  }
+  @supports (color: color-mix(in lab, red, red)) {
+    .border-black\/5 {
+      border-color: color-mix(in oklab, var(--color-black) 5%, transparent);
+    }
+  }
+  .border-black\/20 {
+    border-color: #0003;
+  }
+  @supports (color: color-mix(in lab, red, red)) {
+    .border-black\/20 {
+      border-color: color-mix(in oklab, var(--color-black) 20%, transparent);
+    }
+  }
+  .border-transparent {
+    border-color: #0000;
+  }
+  .border-white\/5 {
+    border-color: #ffffff0d;
+  }
+  @supports (color: color-mix(in lab, red, red)) {
+    .border-white\/5 {
+      border-color: color-mix(in oklab, var(--color-white) 5%, transparent);
+    }
+  }
+  .border-white\/10 {
+    border-color: #ffffff1a;
+  }
+  @supports (color: color-mix(in lab, red, red)) {
+    .border-white\/10 {
+      border-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+    }
+  }
+  .border-white\/20 {
+    border-color: #fff3;
+  }
+  @supports (color: color-mix(in lab, red, red)) {
+    .border-white\/20 {
+      border-color: color-mix(in oklab, var(--color-white) 20%, transparent);
+    }
+  }
+  .bg-\[\#0F0F0F\],
+  .bg-\[\#0f0f0f\] {
+    background-color: #0f0f0f;
+  }
+  .bg-\[\#0f0f0f\]\/10 {
+    background-color: oklab(16.8416% -4.47035e-8 1.49012e-8/0.1);
+  }
+  .bg-\[\#1a1a1a\]\/80 {
+    background-color: oklab(21.7786% -7.45058e-9 0/0.8);
+  }
+  .bg-\[\#22C55E\] {
+    background-color: #22c55e;
+  }
+  .bg-\[\#f2f2f2\] {
+    background-color: #f2f2f2;
+  }
+  .bg-\[\#f5f5f5\] {
+    background-color: #f5f5f5;
+  }
+  .bg-black {
+    background-color: var(--color-black);
+  }
+  .bg-black\/40 {
+    background-color: #0006;
+  }
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-black\/40 {
+      background-color: color-mix(in oklab, var(--color-black) 40%, transparent);
+    }
+  }
+  .bg-white {
+    background-color: var(--color-white);
+  }
+  .bg-white\/5 {
+    background-color: #ffffff0d;
+  }
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-white\/5 {
+      background-color: color-mix(in oklab, var(--color-white) 5%, transparent);
+    }
+  }
+  .bg-white\/20 {
+    background-color: #fff3;
+  }
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-white\/20 {
+      background-color: color-mix(in oklab, var(--color-white) 20%, transparent);
+    }
+  }
+  .bg-gradient-to-b {
+    --tw-gradient-position: to bottom in oklab;
+  }
+  .bg-gradient-to-b,
+  .bg-gradient-to-l {
+    background-image: linear-gradient(var(--tw-gradient-stops));
+  }
+  .bg-gradient-to-l {
+    --tw-gradient-position: to left in oklab;
+  }
+  .bg-gradient-to-r {
+    --tw-gradient-position: to right in oklab;
+  }
+  .bg-gradient-to-r,
+  .bg-gradient-to-t {
+    background-image: linear-gradient(var(--tw-gradient-stops));
+  }
+  .bg-gradient-to-t {
+    --tw-gradient-position: to top in oklab;
+  }
+  .from-\[\#020202\] {
+    --tw-gradient-from: #020202;
+    --tw-gradient-stops: var(
+      --tw-gradient-via-stops,
+      var(--tw-gradient-position),
+      var(--tw-gradient-from) var(--tw-gradient-from-position),
+      var(--tw-gradient-to) var(--tw-gradient-to-position)
+    );
+  }
+  .from-black\/40 {
+    --tw-gradient-from: #0006;
+  }
+  @supports (color: color-mix(in lab, red, red)) {
+    .from-black\/40 {
+      --tw-gradient-from: color-mix(in oklab, var(--color-black) 40%, transparent);
+    }
+  }
+  .from-black\/40 {
+    --tw-gradient-stops: var(
+      --tw-gradient-via-stops,
+      var(--tw-gradient-position),
+      var(--tw-gradient-from) var(--tw-gradient-from-position),
+      var(--tw-gradient-to) var(--tw-gradient-to-position)
+    );
+  }
+  .from-white {
+    --tw-gradient-from: var(--color-white);
+    --tw-gradient-stops: var(
+      --tw-gradient-via-stops,
+      var(--tw-gradient-position),
+      var(--tw-gradient-from) var(--tw-gradient-from-position),
+      var(--tw-gradient-to) var(--tw-gradient-to-position)
+    );
+  }
+  .via-transparent {
+    --tw-gradient-via: transparent;
+    --tw-gradient-via-stops:
+      var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position),
+      var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-via-stops);
+  }
+  .to-\[\#0F0F0F\] {
+    --tw-gradient-to: #0f0f0f;
+    --tw-gradient-stops: var(
+      --tw-gradient-via-stops,
+      var(--tw-gradient-position),
+      var(--tw-gradient-from) var(--tw-gradient-from-position),
+      var(--tw-gradient-to) var(--tw-gradient-to-position)
+    );
+  }
+  .to-transparent {
+    --tw-gradient-to: transparent;
+    --tw-gradient-stops: var(
+      --tw-gradient-via-stops,
+      var(--tw-gradient-position),
+      var(--tw-gradient-from) var(--tw-gradient-from-position),
+      var(--tw-gradient-to) var(--tw-gradient-to-position)
+    );
+  }
+  .bg-clip-text {
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  .object-contain {
+    object-fit: contain;
+  }
+  .object-cover {
+    object-fit: cover;
+  }
+  .object-top {
+    object-position: top;
+  }
+  .p-1 {
+    padding: calc(var(--spacing) * 1);
+  }
+  .p-2 {
+    padding: calc(var(--spacing) * 2);
+  }
+  .p-3 {
+    padding: calc(var(--spacing) * 3);
+  }
+  .p-6 {
+    padding: calc(var(--spacing) * 6);
+  }
+  .p-8 {
+    padding: calc(var(--spacing) * 8);
+  }
+  .px-1\.5 {
+    padding-inline: calc(var(--spacing) * 1.5);
+  }
+  .px-2 {
+    padding-inline: calc(var(--spacing) * 2);
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+  .px-6 {
+    padding-inline: calc(var(--spacing) * 6);
+  }
+  .px-8 {
+    padding-inline: calc(var(--spacing) * 8);
+  }
+  .px-10 {
+    padding-inline: calc(var(--spacing) * 10);
+  }
+  .py-1 {
+    padding-block: calc(var(--spacing) * 1);
+  }
+  .py-1\.5 {
+    padding-block: calc(var(--spacing) * 1.5);
+  }
+  .py-3 {
+    padding-block: calc(var(--spacing) * 3);
+  }
+  .py-4 {
+    padding-block: calc(var(--spacing) * 4);
+  }
+  .py-5 {
+    padding-block: calc(var(--spacing) * 5);
+  }
+  .py-10 {
+    padding-block: calc(var(--spacing) * 10);
+  }
+  .py-32 {
+    padding-block: calc(var(--spacing) * 32);
+  }
+  .py-40 {
+    padding-block: calc(var(--spacing) * 40);
+  }
+  .py-\[160px\] {
+    padding-block: 160px;
+  }
+  .pt-24 {
+    padding-top: calc(var(--spacing) * 24);
+  }
+  .pt-\[160px\] {
+    padding-top: 160px;
+  }
+  .pr-1\.5 {
+    padding-right: calc(var(--spacing) * 1.5);
+  }
+  .pr-4 {
+    padding-right: calc(var(--spacing) * 4);
+  }
+  .pr-5 {
+    padding-right: calc(var(--spacing) * 5);
+  }
+  .pb-4 {
+    padding-bottom: calc(var(--spacing) * 4);
+  }
+  .pb-12 {
+    padding-bottom: calc(var(--spacing) * 12);
+  }
+  .pb-16 {
+    padding-bottom: calc(var(--spacing) * 16);
+  }
+  .pb-\[120px\] {
+    padding-bottom: 120px;
+  }
+  .pl-2 {
+    padding-left: calc(var(--spacing) * 2);
+  }
+  .pl-4 {
+    padding-left: calc(var(--spacing) * 4);
+  }
+  .pl-6 {
+    padding-left: calc(var(--spacing) * 6);
+  }
+  .pl-8 {
+    padding-left: calc(var(--spacing) * 8);
+  }
+  .text-center {
+    text-align: center;
+  }
+  .font-\[family-name\:var\(--font-antonio\)\] {
+    font-family: var(--font-antonio);
+  }
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-4xl {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+  .text-base {
+    font-size: var(--text-base);
+    line-height: var(--tw-leading, var(--text-base--line-height));
+  }
+  .text-lg {
+    font-size: var(--text-lg);
+    line-height: var(--tw-leading, var(--text-lg--line-height));
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .text-xs {
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+  }
+  .text-\[10px\] {
+    font-size: 10px;
+  }
+  .text-\[10vw\] {
+    font-size: 10vw;
+  }
+  .text-\[12px\] {
+    font-size: 12px;
+  }
+  .text-\[12vw\] {
+    font-size: 12vw;
+  }
+  .text-\[14px\] {
+    font-size: 14px;
+  }
+  .text-\[18px\] {
+    font-size: 18px;
+  }
+  .text-\[20px\] {
+    font-size: 20px;
+  }
+  .text-\[24px\] {
+    font-size: 24px;
+  }
+  .text-\[32px\] {
+    font-size: 32px;
+  }
+  .text-\[48px\] {
+    font-size: 48px;
+  }
+  .text-\[72px\] {
+    font-size: 72px;
+  }
+  .text-\[clamp\(2\.5rem\,8vw\,5\.5rem\)\] {
+    font-size: clamp(2.5rem, 8vw, 5.5rem);
+  }
+  .text-\[clamp\(2rem\,6vw\,4\.5rem\)\] {
+    font-size: clamp(2rem, 6vw, 4.5rem);
+  }
+  .leading-\[0\.9\] {
+    --tw-leading: 0.9;
+    line-height: 0.9;
+  }
+  .leading-\[0\.85\] {
+    --tw-leading: 0.85;
+    line-height: 0.85;
+  }
+  .leading-\[0\.95\] {
+    --tw-leading: 0.95;
+    line-height: 0.95;
+  }
+  .leading-\[1\.1\] {
+    --tw-leading: 1.1;
+    line-height: 1.1;
+  }
+  .leading-\[1\.3\] {
+    --tw-leading: 1.3;
+    line-height: 1.3;
+  }
+  .leading-\[1\.6\] {
+    --tw-leading: 1.6;
+    line-height: 1.6;
+  }
+  .leading-none {
+    --tw-leading: 1;
+    line-height: 1;
+  }
+  .leading-relaxed {
+    --tw-leading: var(--leading-relaxed);
+    line-height: var(--leading-relaxed);
+  }
+  .leading-tight {
+    --tw-leading: var(--leading-tight);
+    line-height: var(--leading-tight);
+  }
+  .font-black {
+    font-weight: var(--font-weight-black);
+  }
+  .font-bold {
+    font-weight: var(--font-weight-bold);
+  }
+  .font-medium {
+    font-weight: var(--font-weight-medium);
+  }
+  .font-normal {
+    font-weight: var(--font-weight-normal);
+  }
+  .font-semibold {
+    font-weight: var(--font-weight-semibold);
+  }
+  .tracking-\[-0\.02em\] {
+    letter-spacing: -0.02em;
+  }
+  .tracking-\[0\.2em\] {
+    letter-spacing: 0.2em;
+  }
+  .tracking-\[0\.3em\] {
+    letter-spacing: 0.3em;
+  }
+  .tracking-tight {
+    letter-spacing: var(--tracking-tight);
+  }
+  .tracking-tighter {
+    letter-spacing: var(--tracking-tighter);
+  }
+  .tracking-wide {
+    letter-spacing: var(--tracking-wide);
+  }
+  .tracking-widest {
+    letter-spacing: var(--tracking-widest);
+  }
+  .whitespace-nowrap {
+    white-space: nowrap;
+  }
+  .text-\[\#0f0f0f\] {
+    color: #0f0f0f;
+  }
+  .text-\[\#0f0f0f\]\/40 {
+    color: oklab(16.8416% -4.47035e-8 1.49012e-8/0.4);
+  }
+  .text-\[\#0f0f0f\]\/60 {
+    color: oklab(16.8416% -4.47035e-8 1.49012e-8/0.6);
+  }
+  .text-\[\#0f0f0f\]\/80 {
+    color: oklab(16.8416% -4.47035e-8 1.49012e-8/0.8);
+  }
+  .text-\[\#22C55E\] {
+    color: #22c55e;
+  }
+  .text-\[\#666666\] {
+    color: #666;
+  }
+  .text-\[\#999999\] {
+    color: #999;
+  }
+  .text-\[\#f2f2f2\] {
+    color: #f2f2f2;
+  }
+  .text-black {
+    color: var(--color-black);
+  }
+  .text-black\/40 {
+    color: #0006;
+  }
+  @supports (color: color-mix(in lab, red, red)) {
+    .text-black\/40 {
+      color: color-mix(in oklab, var(--color-black) 40%, transparent);
+    }
+  }
+  .text-transparent {
+    color: #0000;
+  }
+  .text-white {
+    color: var(--color-white);
+  }
+  .text-white\/50 {
+    color: #ffffff80;
+  }
+  @supports (color: color-mix(in lab, red, red)) {
+    .text-white\/50 {
+      color: color-mix(in oklab, var(--color-white) 50%, transparent);
+    }
+  }
+  .text-white\/60 {
+    color: #fff9;
+  }
+  @supports (color: color-mix(in lab, red, red)) {
+    .text-white\/60 {
+      color: color-mix(in oklab, var(--color-white) 60%, transparent);
+    }
+  }
+  .text-white\/70 {
+    color: #ffffffb3;
+  }
+  @supports (color: color-mix(in lab, red, red)) {
+    .text-white\/70 {
+      color: color-mix(in oklab, var(--color-white) 70%, transparent);
+    }
+  }
+  .text-white\/80 {
+    color: #fffc;
+  }
+  @supports (color: color-mix(in lab, red, red)) {
+    .text-white\/80 {
+      color: color-mix(in oklab, var(--color-white) 80%, transparent);
+    }
+  }
+  .text-white\/90 {
+    color: #ffffffe6;
+  }
+  @supports (color: color-mix(in lab, red, red)) {
+    .text-white\/90 {
+      color: color-mix(in oklab, var(--color-white) 90%, transparent);
+    }
+  }
+  .lowercase {
+    text-transform: lowercase;
+  }
+  .uppercase {
+    text-transform: uppercase;
+  }
+  .antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .opacity-0 {
+    opacity: 0;
+  }
+  .opacity-20 {
+    opacity: 0.2;
+  }
+  .opacity-30 {
+    opacity: 0.3;
+  }
+  .opacity-40 {
+    opacity: 0.4;
+  }
+  .opacity-60 {
+    opacity: 0.6;
+  }
+  .opacity-75 {
+    opacity: 0.75;
+  }
+  .opacity-90 {
+    opacity: 0.9;
+  }
+  .shadow-2xl {
+    --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, #00000040);
+  }
+  .shadow-2xl,
+  .shadow-inner {
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-inner {
+    --tw-shadow: inset 0 2px 4px 0 var(--tw-shadow-color, #0000000d);
+  }
+  .shadow-lg {
+    --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, #0000001a), 0 4px 6px -4px var(--tw-shadow-color, #0000001a);
+  }
+  .shadow-lg,
+  .shadow-sm {
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-sm {
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, #0000001a), 0 1px 2px -1px var(--tw-shadow-color, #0000001a);
+  }
+  .backdrop-blur-\[40px\] {
+    --tw-backdrop-blur: blur(40px);
+  }
+  .backdrop-blur-md,
+  .backdrop-blur-\[40px\] {
+    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,)
+      var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,)
+      var(--tw-backdrop-sepia,);
+  }
+  .backdrop-blur-md {
+    --tw-backdrop-blur: blur(var(--blur-md));
+  }
+  .backdrop-blur-sm {
+    --tw-backdrop-blur: blur(var(--blur-sm));
+  }
+  .backdrop-blur-xl,
+  .backdrop-blur-sm {
+    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,)
+      var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,)
+      var(--tw-backdrop-sepia,);
+  }
+  .backdrop-blur-xl {
+    --tw-backdrop-blur: blur(var(--blur-xl));
+  }
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-colors {
+    transition-property:
+      color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via,
+      --tw-gradient-to;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-opacity {
+    transition-property: opacity;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-shadow {
+    transition-property: box-shadow;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-transform {
+    transition-property: transform, translate, scale, rotate;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .duration-300 {
+    --tw-duration: 0.3s;
+    transition-duration: 0.3s;
+  }
+  .duration-500 {
+    --tw-duration: 0.5s;
+    transition-duration: 0.5s;
+  }
+  .duration-700 {
+    --tw-duration: 0.7s;
+    transition-duration: 0.7s;
+  }
+  .ease-in-out {
+    --tw-ease: var(--ease-in-out);
+    transition-timing-function: var(--ease-in-out);
+  }
+  .will-change-transform {
+    will-change: transform;
+  }
+  .outline-none {
+    outline-style: none;
+  }
+  .select-none {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  @media (hover: hover) {
+    .group-hover\:translate-x-0\.5:is(:where(.group):hover *) {
+      --tw-translate-x: calc(var(--spacing) * 0.5);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+    .group-hover\:translate-x-1:is(:where(.group):hover *) {
+      --tw-translate-x: calc(var(--spacing) * 1);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+    .group-hover\:-translate-y-0\.5:is(:where(.group):hover *) {
+      --tw-translate-y: calc(var(--spacing) * -0.5);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+    .group-hover\:-translate-y-1:is(:where(.group):hover *) {
+      --tw-translate-y: calc(var(--spacing) * -1);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+    .group-hover\:-translate-y-full:is(:where(.group):hover *) {
+      --tw-translate-y: -100%;
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+    .group-hover\:translate-y-0:is(:where(.group):hover *) {
+      --tw-translate-y: calc(var(--spacing) * 0);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+    .group-hover\:scale-110:is(:where(.group):hover *) {
+      --tw-scale-x: 110%;
+      --tw-scale-y: 110%;
+      scale: var(--tw-scale-x) var(--tw-scale-y);
+    }
+    .group-hover\:bg-black\/10:is(:where(.group):hover *) {
+      background-color: #0000001a;
+    }
+    @supports (color: color-mix(in lab, red, red)) {
+      .group-hover\:bg-black\/10:is(:where(.group):hover *) {
+        background-color: color-mix(in oklab, var(--color-black) 10%, transparent);
+      }
+    }
+    .group-hover\:opacity-100:is(:where(.group):hover *) {
+      opacity: 1;
+    }
+    .group-hover\/poster\:scale-105:is(:where(.group\/poster):hover *) {
+      --tw-scale-x: 105%;
+      --tw-scale-y: 105%;
+      scale: var(--tw-scale-x) var(--tw-scale-y);
+    }
+    .group-hover\/poster\:opacity-100:is(:where(.group\/poster):hover *) {
+      opacity: 1;
+    }
+  }
+  #component ::selection {
+    background-color: #0f0f0f;
+  }
+  .selection\:bg-\[\#0f0f0f\]::selection {
+    background-color: #0f0f0f;
+  }
+  #component ::selection {
+    color: var(--color-white);
+  }
+  .selection\:text-white::selection {
+    color: var(--color-white);
+  }
+  @media (hover: hover) {
+    .hover\:scale-105:hover {
+      --tw-scale-x: 105%;
+      --tw-scale-y: 105%;
+      scale: var(--tw-scale-x) var(--tw-scale-y);
+    }
+    .hover\:border-\[\#0f0f0f\]\/10:hover {
+      border-color: oklab(16.8416% -4.47035e-8 1.49012e-8/0.1);
+    }
+    .hover\:border-\[\#22C55E\]:hover {
+      border-color: #22c55e;
+    }
+    .hover\:border-purple-500\/40:hover {
+      border-color: #ac4bff66;
+    }
+    @supports (color: color-mix(in lab, red, red)) {
+      .hover\:border-purple-500\/40:hover {
+        border-color: color-mix(in oklab, var(--color-purple-500) 40%, transparent);
+      }
+    }
+    .hover\:bg-white:hover {
+      background-color: var(--color-white);
+    }
+    .hover\:bg-white\/10:hover {
+      background-color: #ffffff1a;
+    }
+    @supports (color: color-mix(in lab, red, red)) {
+      .hover\:bg-white\/10:hover {
+        background-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+      }
+    }
+    .hover\:bg-white\/90:hover {
+      background-color: #ffffffe6;
+    }
+    @supports (color: color-mix(in lab, red, red)) {
+      .hover\:bg-white\/90:hover {
+        background-color: color-mix(in oklab, var(--color-white) 90%, transparent);
+      }
+    }
+    .hover\:text-black:hover {
+      color: var(--color-black);
+    }
+    .hover\:opacity-70:hover {
+      opacity: 0.7;
+    }
+    .hover\:opacity-100:hover {
+      opacity: 1;
+    }
+    .hover\:shadow-\[0_0_20px_rgba\(255\,255\,255\,0\.3\)\]:hover {
+      box-shadow:
+        var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      --tw-shadow: 0 0 20px var(--tw-shadow-color, #ffffff4d);
+    }
+    .hover\:shadow-\[0_0_50px_rgba\(168\,85\,247\,0\.2\)\]:hover {
+      --tw-shadow: 0 0 50px var(--tw-shadow-color, #a855f733);
+    }
+    .hover\:shadow-\[0_0_50px_rgba\(168\,85\,247\,0\.2\)\]:hover,
+    .hover\:shadow-md:hover {
+      box-shadow:
+        var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+    .hover\:shadow-md:hover {
+      --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, #0000001a), 0 2px 4px -2px var(--tw-shadow-color, #0000001a);
+    }
+    .hover\:shadow-xl:hover {
+      --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, #0000001a), 0 8px 10px -6px var(--tw-shadow-color, #0000001a);
+      box-shadow:
+        var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .focus\:outline-none:focus {
+    outline-style: none;
+  }
+  .active\:scale-95:active {
+    --tw-scale-x: 95%;
+    --tw-scale-y: 95%;
+    scale: var(--tw-scale-x) var(--tw-scale-y);
+  }
+  @media (width>=40rem) {
+    .sm\:h-\[480px\] {
+      height: 480px;
+    }
+    .sm\:w-80 {
+      width: calc(var(--spacing) * 80);
+    }
+    .sm\:text-xs {
+      font-size: var(--text-xs);
+      line-height: var(--tw-leading, var(--text-xs--line-height));
+    }
+  }
+  @media (width>=48rem) {
+    .md\:order-1 {
+      order: 1;
+    }
+    .md\:order-2 {
+      order: 2;
+    }
+    .md\:order-3 {
+      order: 3;
+    }
+    .md\:mt-0 {
+      margin-top: calc(var(--spacing) * 0);
+    }
+    .md\:block {
+      display: block;
+    }
+    .md\:h-52 {
+      height: calc(var(--spacing) * 52);
+    }
+    .md\:h-\[360px\] {
+      height: 360px;
+    }
+    .md\:h-\[600px\] {
+      height: 600px;
+    }
+    .md\:w-36 {
+      width: calc(var(--spacing) * 36);
+    }
+    .md\:w-\[35\%\] {
+      width: 35%;
+    }
+    .md\:w-\[280px\] {
+      width: 280px;
+    }
+    .md\:w-auto {
+      width: auto;
+    }
+    .md\:flex-row {
+      flex-direction: row;
+    }
+    .md\:items-center {
+      align-items: center;
+    }
+    .md\:gap-16 {
+      gap: calc(var(--spacing) * 16);
+    }
+    .md\:p-14 {
+      padding: calc(var(--spacing) * 14);
+    }
+    .md\:px-12 {
+      padding-inline: calc(var(--spacing) * 12);
+    }
+    .md\:px-16 {
+      padding-inline: calc(var(--spacing) * 16);
+    }
+    .md\:py-14 {
+      padding-block: calc(var(--spacing) * 14);
+    }
+    .md\:text-2xl {
+      font-size: var(--text-2xl);
+      line-height: var(--tw-leading, var(--text-2xl--line-height));
+    }
+    .md\:text-6xl {
+      font-size: var(--text-6xl);
+      line-height: var(--tw-leading, var(--text-6xl--line-height));
+    }
+    .md\:text-base {
+      font-size: var(--text-base);
+      line-height: var(--tw-leading, var(--text-base--line-height));
+    }
+    .md\:text-xl {
+      font-size: var(--text-xl);
+      line-height: var(--tw-leading, var(--text-xl--line-height));
+    }
+    .md\:text-\[12vw\] {
+      font-size: 12vw;
+    }
+    .md\:text-\[16px\] {
+      font-size: 16px;
+    }
+    .md\:text-\[20px\] {
+      font-size: 20px;
+    }
+    .md\:text-\[24px\] {
+      font-size: 24px;
+    }
+    .md\:text-\[34px\] {
+      font-size: 34px;
+    }
+    .md\:text-\[48px\] {
+      font-size: 48px;
+    }
+    .md\:text-\[64px\] {
+      font-size: 64px;
+    }
+    .md\:text-\[120px\] {
+      font-size: 120px;
+    }
+    .md\:leading-\[1\.4\] {
+      --tw-leading: 1.4;
+      line-height: 1.4;
+    }
+  }
+  @media (width>=64rem) {
+    .lg\:flex {
+      display: flex;
+    }
+    .lg\:hidden {
+      display: none;
+    }
+    .lg\:grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .lg\:gap-24 {
+      gap: calc(var(--spacing) * 24);
+    }
+    .lg\:text-7xl {
+      font-size: var(--text-7xl);
+      line-height: var(--tw-leading, var(--text-7xl--line-height));
+    }
+    .lg\:text-\[44px\] {
+      font-size: 44px;
+    }
+    .lg\:text-\[140px\] {
+      font-size: 140px;
+    }
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+}
+.__variable_cf1728 {
+  --font-antonio: "Antonio", "Antonio Fallback";
+}
+.pixel-font {
+  font-family: VT323, monospace;
+}

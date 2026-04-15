@@ -67,13 +67,14 @@ export const Home = () => {
           sectionRef={intro}
           scrollIndicatorHidden={scrollIndicatorHidden}
         />
-        
+      </div>
+      
+      {viewMode === 'stacking' && (
+        <ProjectStacking projects={projectsData} />
+      )}
+      
+      <div className={styles.home}>
         {/* Conditional rendering based on view mode */}
-        {viewMode === 'stacking' && (
-          <div style={{ overflow: 'visible', width: '100%', minHeight: `${projectsData.length * 100}vh` }}>
-            <ProjectStacking projects={projectsData} />
-          </div>
-        )}
         {viewMode === 'scroll' && (
           // Algorithmic scroll view rendering
           <>
