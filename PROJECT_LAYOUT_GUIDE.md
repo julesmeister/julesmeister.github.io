@@ -988,6 +988,10 @@ sizes={`(max-width: ${media.mobile}px) 90vw, (max-width: ${media.tablet}px) 70vw
 - **Global Styles**: `app/global.module.css`
 - **Example Projects**: All projects in `app/routes/projects.*/`
 
+### Other Page Types
+
+For simple content pages (like `/uses`, `/certificates`), see the **[Simple Page Design Guide](./SIMPLE_PAGE_GUIDE.md)** which documents the styling format for non-project informational pages.
+
 ---
 
 ## Version History
