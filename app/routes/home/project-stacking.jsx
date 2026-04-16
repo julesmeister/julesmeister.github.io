@@ -158,30 +158,50 @@ export const ProjectStacking = ({ projects }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Find the card with the highest Y position (front of stack)
-      let maxIndex = 0;
-      let maxY = -Infinity;
+      // Check if all cards are stuck at top (sticky phase complete)
+      let allStuckAtTop = true;
+      let firstVisibleIndex = -1;
       
       cardRefs.current.forEach((ref, index) => {
         if (!ref) return;
         const rect = ref.getBoundingClientRect();
-        const y = rect.top + rect.height / 2;
         
-        // Only consider cards that are:
-        // 1. Below the top edge (not stuck at top)
-        // 2. Above the bottom edge (still visible)
-        // 3. Have the highest Y (most front in stack)
-        if (y > 0 && y < window.innerHeight && y > maxY) {
-          maxY = y;
-          maxIndex = index;
+        // If any card is below top edge, we're still in stacking phase
+        if (rect.top > 0) {
+          allStuckAtTop = false;
+          if (firstVisibleIndex === -1) {
+            firstVisibleIndex = index;
+          }
         }
       });
       
-      setFrontIndex(prev => {
-        // Never go backwards - front index should only increase
-        // This prevents cards from reappearing when scrolling back up
-        return Math.max(prev, maxIndex);
-      });
+      if (allStuckAtTop) {
+        // All cards stuck at top - use scroll position to determine front
+        // Find the last card that should be visible based on scroll
+        const scrollY = window.scrollY;
+        const viewportHeight = window.innerHeight;
+        const lastCardIndex = cardRefs.current.length - 1;
+        
+        // When all stuck, front is the last card
+        setFrontIndex(lastCardIndex);
+      } else if (firstVisibleIndex !== -1) {
+        // In stacking phase - find front card among visible ones
+        let maxIndex = firstVisibleIndex;
+        let maxY = -Infinity;
+        
+        cardRefs.current.forEach((ref, index) => {
+          if (!ref || index < firstVisibleIndex) return;
+          const rect = ref.getBoundingClientRect();
+          const y = rect.top + rect.height / 2;
+          
+          if (y < window.innerHeight && y > maxY) {
+            maxY = y;
+            maxIndex = index;
+          }
+        });
+        
+        setFrontIndex(maxIndex);
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -202,8 +222,9 @@ export const ProjectStacking = ({ projects }) => {
         const isHidden = index < visibleStart;
         
         // If visible, determine its position in the stack (0 = back, 6 = front)
+        // Hidden cards keep a fixed small scale to prevent expansion glitch
         const positionInStack = index - visibleStart;
-        const scale = scaleProgression[positionInStack] || 1;
+        const scale = isHidden ? 0.8 : (scaleProgression[positionInStack] || 1);
         
         return (
           <div
@@ -224,6 +245,7 @@ export const ProjectStacking = ({ projects }) => {
               className={styles.stackingCardInner}
               style={{
                 transform: `scale(${scale})`,
+                transition: isHidden ? 'none' : 'transform 0.2s ease-out',
                 top: `calc(-5% + ${topOffset}px)`,
                 zIndex: index + 1,
               }}
