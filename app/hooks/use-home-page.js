@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useSectionRefs } from '~/utils/ref-management';
 import { useHomeObservers } from '~/utils/home-observers';
-import { createSectionNavigationHandler, addSectionNavigationListener } from '~/utils/navigation';
+import {
+  createSectionNavigationHandler,
+  addSectionNavigationListener,
+} from '~/utils/navigation';
 
-export const useHomePage = (projectCount) => {
+export const useHomePage = projectCount => {
   const [visibleSections, setVisibleSections] = useState([]);
   const [currentProject, setCurrentProject] = useState(0);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
@@ -11,24 +14,21 @@ export const useHomePage = (projectCount) => {
 
   const { intro, details, projectRefs, sections } = useSectionRefs(projectCount);
 
-  const { 
-    setupSectionObserver, 
-    setupProjectObserver, 
-    setupScrollIndicatorObserver 
-  } = useHomeObservers({
-    sections,
-    visibleSections,
-    setVisibleSections,
-    setCurrentProject,
-    setCurrentSectionIndex,
-    setScrollIndicatorHidden,
-    intro
-  });
+  const { setupSectionObserver, setupProjectObserver, setupScrollIndicatorObserver } =
+    useHomeObservers({
+      sections,
+      visibleSections,
+      setVisibleSections,
+      setCurrentProject,
+      setCurrentSectionIndex,
+      setScrollIndicatorHidden,
+      intro,
+    });
 
   // Section intersection observer
   useEffect(() => {
     if (!sections.every(section => section.current)) return;
-    
+
     const observer = setupSectionObserver();
     return () => observer.disconnect();
   }, [sections, visibleSections]);
@@ -46,9 +46,29 @@ export const useHomePage = (projectCount) => {
 
   // Section navigation
   useEffect(() => {
-    const handler = createSectionNavigationHandler(sections, currentSectionIndex, setCurrentSectionIndex);
+    const handler = createSectionNavigationHandler(
+      sections,
+      currentSectionIndex,
+      setCurrentSectionIndex
+    );
     return addSectionNavigationListener(handler);
   }, [currentSectionIndex, sections]);
+
+  // Handle navigate-to-intro from stacking cards
+  useEffect(() => {
+    const handleNavigateToIntro = () => {
+      if (intro.current) {
+        intro.current.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        });
+        setCurrentSectionIndex(0);
+      }
+    };
+
+    window.addEventListener('navigate-to-intro', handleNavigateToIntro);
+    return () => window.removeEventListener('navigate-to-intro', handleNavigateToIntro);
+  }, [intro]);
 
   return {
     // State
@@ -56,11 +76,11 @@ export const useHomePage = (projectCount) => {
     currentProject,
     scrollIndicatorHidden,
     currentSectionIndex,
-    
+
     // Refs
     intro,
     details,
     projectRefs,
-    sections
+    sections,
   };
 };

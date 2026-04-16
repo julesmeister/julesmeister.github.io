@@ -154,7 +154,13 @@ export const ProjectStacking = ({ projects }) => {
   // Index 0 = back (smallest), Index 6 = front (largest, near 1.0)
   const scaleProgression = [0.83, 0.87, 0.90, 0.93, 0.96, 0.985, 1.0];
   const [frontIndex, setFrontIndex] = useState(0);
+  const frontIndexRef = useRef(0);
   const cardRefs = useRef([]);
+
+  // Keep ref in sync with state
+  useEffect(() => {
+    frontIndexRef.current = frontIndex;
+  }, [frontIndex]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -209,6 +215,53 @@ export const ProjectStacking = ({ projects }) => {
     
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Handle navigation button clicks - calculate directly from DOM
+  useEffect(() => {
+    const handleNavClick = (event) => {
+      const direction = event.detail;
+      
+      // Find which card is currently at front
+      // With sticky cards, the one with highest index that has top near 0 is the front
+      let currentCardIndex = 0;
+      let bestScore = -Infinity;
+      
+      cardRefs.current.forEach((ref, index) => {
+        if (!ref) return;
+        const rect = ref.getBoundingClientRect();
+        
+        // Score: higher index = more front, but must be visible
+        // If top is 0 (stuck), add bonus to prefer higher index
+        const isStuck = rect.top <= 1; // Allow small tolerance
+        const visibility = rect.bottom > 0 && rect.top < window.innerHeight ? 1 : 0;
+        const stuckBonus = isStuck ? index * 100 : 0;
+        const score = index + stuckBonus;
+        
+        if (visibility && score > bestScore) {
+          bestScore = score;
+          currentCardIndex = index;
+        }
+      });
+      
+      // Calculate scroll amount
+      // Each card is ~100vh, so scroll one viewport height in the direction
+      const scrollAmount = direction === 'up' ? -window.innerHeight * 0.8 : window.innerHeight * 0.8;
+      
+      // Check if at first card and going up
+      if (direction === 'up' && currentCardIndex === 0) {
+        window.dispatchEvent(new CustomEvent('navigate-to-intro'));
+        return;
+      }
+      
+      window.scrollBy({
+        top: scrollAmount,
+        behavior: 'smooth',
+      });
+    };
+
+    window.addEventListener('navigate-section', handleNavClick);
+    return () => window.removeEventListener('navigate-section', handleNavClick);
+  }, [projects.length]);
 
   // Determine visible range: front card and 6 cards behind it
   const visibleStart = Math.max(0, frontIndex - 6);
