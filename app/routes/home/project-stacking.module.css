@@ -46,6 +46,15 @@
 .stackingCard:nth-child(11) { z-index: 11; }
 .stackingCard:nth-child(12) { z-index: 12; }
 
+/* Top-only lighter shadow from 8th card onwards */
+.stackingCard:nth-child(8) .stackingCardInner,
+.stackingCard:nth-child(9) .stackingCardInner,
+.stackingCard:nth-child(10) .stackingCardInner,
+.stackingCard:nth-child(11) .stackingCardInner,
+.stackingCard:nth-child(12) .stackingCardInner {
+  box-shadow: 0 0px -25px 0px rgba(0, 0, 0, 0.1);
+}
+
 .cardContent {
   display: grid;
   grid-template-columns: 1fr 1fr;

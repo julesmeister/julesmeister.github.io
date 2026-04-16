@@ -1,4 +1,4 @@
-import { useEffect, useState, Suspense, lazy } from 'react';
+import { useEffect, useState, Suspense, lazy, useRef } from 'react';
 import { Loader } from '~/components/loader';
 import { deviceModels } from '~/components/model/device-models';
 import { useHydrated } from '~/hooks/useHydrated';
@@ -150,21 +150,75 @@ const StackingCard = ({ project, index, totalProjects }) => {
 };
 
 export const ProjectStacking = ({ projects }) => {
-  // Pre-calculated scale values from reference (index-based, not dynamic)
-  const scaleValues = [0.799347, 0.841988, 0.882789, 0.920962, 0.955193, 0.983116];
+  // Scale progression: each card in the visible stack gets a scale
+  // Index 0 = back (smallest), Index 6 = front (largest, near 1.0)
+  const scaleProgression = [0.83, 0.87, 0.90, 0.93, 0.96, 0.985, 1.0];
+  const [frontIndex, setFrontIndex] = useState(0);
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Find the card with the highest Y position (front of stack)
+      let maxIndex = 0;
+      let maxY = -Infinity;
+      
+      cardRefs.current.forEach((ref, index) => {
+        if (!ref) return;
+        const rect = ref.getBoundingClientRect();
+        const y = rect.top + rect.height / 2;
+        
+        // Only consider cards that are:
+        // 1. Below the top edge (not stuck at top)
+        // 2. Above the bottom edge (still visible)
+        // 3. Have the highest Y (most front in stack)
+        if (y > 0 && y < window.innerHeight && y > maxY) {
+          maxY = y;
+          maxIndex = index;
+        }
+      });
+      
+      setFrontIndex(prev => {
+        // Never go backwards - front index should only increase
+        // This prevents cards from reappearing when scrolling back up
+        return Math.max(prev, maxIndex);
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Determine visible range: front card and 6 cards behind it
+  const visibleStart = Math.max(0, frontIndex - 6);
 
   return (
     <div className={styles.stackingContainer}>
       {projects.map((project, index) => {
-        // Static values based on index like reference
-        const scale = scaleValues[index] || 1;
-        const topOffset = index * 25; // 0, 25, 50, 75, 100...
+        const topOffset = index * 25;
+        
+        // Card is hidden if it's before the visible window
+        const isHidden = index < visibleStart;
+        
+        // If visible, determine its position in the stack (0 = back, 6 = front)
+        const positionInStack = index - visibleStart;
+        const scale = scaleProgression[positionInStack] || 1;
         
         return (
           <div
             key={project.id}
+            ref={(el) => { cardRefs.current[index] = el; }}
             className={styles.stackingCard}
-            style={{ zIndex: index + 1 }}
+            data-hidden={isHidden}
+            style={{ 
+              zIndex: isHidden ? -1 : index + 1,
+              opacity: isHidden ? 0 : 1,
+              visibility: isHidden ? 'hidden' : 'visible',
+              transition: 'opacity 0.3s ease-in-out, visibility 0.3s ease-in-out',
+              pointerEvents: isHidden ? 'none' : 'auto',
+              willChange: isHidden ? 'opacity, visibility' : 'auto',
+            }}
           >
             <div 
               className={styles.stackingCardInner}
