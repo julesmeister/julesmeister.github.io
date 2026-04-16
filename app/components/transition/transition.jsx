@@ -49,7 +49,7 @@ const TransitionContent = ({
 }) => {
   const [status, setStatus] = useState(initial ? 'exited' : 'entered');
   const [isPresent, safeToRemove] = usePresence();
-  const [hasEntered, setHasEntered] = useState(true);
+  const [hasEntered, setHasEntered] = useState(initial ? false : true);
   const splitTimeout = typeof timeout === 'object';
   const internalNodeRef = useRef(null);
   const nodeRef = defaultNodeRef || internalNodeRef;
