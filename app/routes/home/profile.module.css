@@ -52,6 +52,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
   margin-bottom: 40px;
   transform: translate3d(0, 0, 0);
 }
@@ -78,7 +79,7 @@
 }
 
 .tag {
-  margin-top: 220px;
+  margin-top: 40px;
   margin-bottom: 40px;
   display: grid;
   grid-template-columns: var(--space4XL) 1fr;
