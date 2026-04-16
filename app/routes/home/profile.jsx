@@ -11,7 +11,7 @@ import { Link } from '~/components/link';
 import { Section } from '~/components/section';
 import { Text } from '~/components/text';
 import { Transition } from '~/components/transition';
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import { media } from '~/utils/style';
 import katakana from './katakana.svg';
 import styles from './profile.module.css';
@@ -32,22 +32,19 @@ const ProfileText = ({ visible, titleId }) => (
   </Fragment>
 );
 
-export const Profile = ({ id, visible, sectionRef }) => {
-  const [focused, setFocused] = useState(false);
+export const Profile = ({ id, sectionRef }) => {
   const titleId = `${id}-title`;
 
   return (
     <Section
       className={styles.profile}
-      onFocus={() => setFocused(true)}
-      onBlur={() => setFocused(false)}
       as="section"
       id={id}
       ref={sectionRef}
       aria-labelledby={titleId}
       tabIndex={-1}
     >
-      <Transition in={visible || focused} timeout={0}>
+      <Transition in={true} timeout={0}>
         {({ visible, nodeRef }) => (
           <div className={styles.content} ref={nodeRef}>
             <div className={styles.column}>
