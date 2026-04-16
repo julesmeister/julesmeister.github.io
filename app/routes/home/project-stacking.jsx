@@ -269,7 +269,10 @@ export const ProjectStacking = ({ projects }) => {
   return (
     <div className={styles.stackingContainer}>
       {projects.map((project, index) => {
-        const topOffset = index * 25;
+        // Calculate offset relative to visible start to maintain consistent
+        // spacing from top when cards are hidden from the back
+        const adjustedIndex = index - visibleStart;
+        const topOffset = Math.max(0, adjustedIndex * 25);
         
         // Card is hidden if it's before the visible window
         const isHidden = index < visibleStart;
