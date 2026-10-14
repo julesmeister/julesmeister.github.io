@@ -356,7 +356,7 @@ export const Home = () => {
   } = useHomePage(projectsData.length);
 
   return (
-    <div className={styles.home} data-theme="dark" data-invert>
+    <div className={styles.home}>
       <ProjectCounter current={currentProject} total={projectsData.length} visible={currentProject > 0} />
       <Intro id="intro" index={0} sectionRef={intro} />
 

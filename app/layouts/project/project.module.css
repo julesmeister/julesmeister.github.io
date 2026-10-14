@@ -39,6 +39,17 @@
     counter-reset: project-section;
   }
 
+  :global(body[data-theme='light']) .project {
+    --background: #f4f6f2;
+    --backgroundLight: #ffffff;
+    --primary: #4d742d;
+    --accent: #4d742d;
+    --text: #1c241c;
+    --textTitle: #182019;
+    --textBody: #414b41;
+    --textLight: #626e62;
+  }
+
   .section {
     width: 100%;
     position: relative;

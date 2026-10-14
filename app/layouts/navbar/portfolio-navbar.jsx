@@ -1,4 +1,5 @@
 import { Icon } from '~/components/icon';
+import { useTheme } from '~/components/theme-provider';
 import { Link as RouterLink } from '@remix-run/react';
 import { useState } from 'react';
 import { navLinks } from './nav-data';
@@ -6,6 +7,7 @@ import styles from './portfolio-dock.module.css';
 
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <header className={styles.portfolioDockShell}>
@@ -55,6 +57,22 @@ export const Navbar = () => {
               </RouterLink>
             </li>
           ))}
+            <li className={styles.portfolioFluidNavigationItem}>
+              <button
+                className={styles.fluidNavigationLink}
+                type="button"
+                aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+                title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+                tabIndex={menuOpen ? 0 : -1}
+                data-open={menuOpen}
+                onClick={() => {
+                  toggleTheme();
+                  setMenuOpen(false);
+                }}
+              >
+                <Icon icon={theme === 'dark' ? 'sun' : 'moon'} />
+              </button>
+            </li>
         </ul>
       </nav>
       <div className={styles.portfolioChatLauncherPosition}>

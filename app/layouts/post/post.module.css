@@ -353,6 +353,16 @@
     font-family: var(--monoFontStack);
   }
 
+  :global(body[data-theme='light']) .post {
+    --background: #f4f6f2;
+    --backgroundLight: #ffffff;
+    --accent: #4d742d;
+    --text: #1c241c;
+    --textTitle: #182019;
+    --textBody: #414b41;
+    --textLight: #626e62;
+  }
+
   .header {
     width: 100%;
     padding: clamp(2rem, 6vw, 4rem) var(--spaceOuter) var(--space2XL);

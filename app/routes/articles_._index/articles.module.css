@@ -405,6 +405,17 @@
     font-family: var(--monoFontStack);
   }
 
+  :global(body[data-theme='light']) .articles {
+    --background: #f4f6f2;
+    --backgroundLight: #ffffff;
+    --primary: #4d742d;
+    --accent: #4d742d;
+    --text: #1c241c;
+    --textTitle: #182019;
+    --textBody: #414b41;
+    --textLight: #626e62;
+  }
+
   .content {
     width: 100%;
     max-width: none;

@@ -66,7 +66,7 @@ export const loader = async ({ request, context }) => {
   });
 
   const session = await getSession(request.headers.get('Cookie'));
-  const theme = session.get('theme') || 'dark';
+  const theme = session.get('theme') || 'light';
 
   return json(
     { canonicalUrl, theme },
@@ -168,13 +168,13 @@ export function ErrorBoundary() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#111" />
-        <meta name="color-scheme" content="dark light" />
+        <meta name="theme-color" content="#F2F2F2" />
+        <meta name="color-scheme" content="light dark" />
         <style dangerouslySetInnerHTML={{ __html: themeStyles }} />
         <Meta />
         <Links />
       </head>
-      <body data-theme="dark">
+      <body data-theme="light">
         <Error error={error} />
         <ScrollRestoration />
         <Scripts />

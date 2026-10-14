@@ -39,14 +39,9 @@
     color: var(--black);
   }
 
-  :global(::selection) {
-    background: oklch(45.33% 0.19 284.82);
-    color: white;
-  }
-
   :global(::-moz-selection) {
-    background: oklch(45.33% 0.19 284.82);
-    color: white;
+    background: var(--accent);
+    color: var(--black);
   }
 
   :global(:focus) {
