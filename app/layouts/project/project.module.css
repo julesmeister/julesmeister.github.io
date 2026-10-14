@@ -581,6 +581,12 @@
     font-size: 0.65rem;
   }
 
+  .metaIcon {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+  }
+
   .image {
     position: relative;
     display: grid;

@@ -12,8 +12,71 @@ import { classes, cssProps, msToNum, numToMs } from '~/utils/style';
 import styles from './project.module.css';
 import { Modal } from '~/components/Modal/Modal';
 import { Link as RouterLink } from '@remix-run/react';
+import {
+  siAndroid,
+  siDart,
+  siDotnet,
+  siElectron,
+  siExpo,
+  siFirebase,
+  siFlutter,
+  siFramer,
+  siJetpackcompose,
+  siKotlin,
+  siLightning,
+  siNextdotjs,
+  siOpenrouter,
+  siOpensourceinitiative,
+  siReact,
+  siShadcnui,
+  siSupabase,
+  siTailwindcss,
+  siTurso,
+  siTypescript,
+  siVercel,
+} from 'simple-icons';
 
 const initDelay = 300;
+
+const roleIcons = {
+  'Lightning Web Components': siLightning,
+  'Apex Classes': siLightning,
+  'Apex Triggers': siLightning,
+  Salesforce: siLightning,
+  Flutter: siFlutter,
+  Dart: siDart,
+  'Open Source': siOpensourceinitiative,
+  'C#': siDotnet,
+  'Next.js': siNextdotjs,
+  TypeScript: siTypescript,
+  'Tailwind CSS': siTailwindcss,
+  Tailwind: siTailwindcss,
+  Firebase: siFirebase,
+  'Framer Motion': siFramer,
+  Android: siAndroid,
+  Flutterflow: siFlutter,
+  Kotlin: siKotlin,
+  'Jetpack Compose': siJetpackcompose,
+  'React Native': siReact,
+  Expo: siExpo,
+  Supabase: siSupabase,
+  'Nextron': siElectron,
+  React: siReact,
+  Electron: siElectron,
+  'shadcn/ui': siShadcnui,
+  'Openrouter AI': siOpenrouter,
+  Vercel: siVercel,
+  Turso: siTurso,
+};
+
+const fallbackRoleIconPaths = {
+  'Custom Components': 'M3 3h8v8H3zM13 3h8v5h-8zM13 10h8v11h-8zM3 13h8v8H3z',
+  cTrader: 'M3 3v18h18v-2H5V3H3zm4 13 4-4 3 2 6-7-1.5-1.3-4.8 5.6-3.2-2.1L5.6 14.6 7 16z',
+  Plugin: 'M9 3h6v4h4v4h-4v6h4v4h-4v-4H9v4H5v-4h4v-6H5V7h4V3z',
+  'No-Code': 'M3 3h8v8H3zM13 3h8v8h-8zM3 13h8v8H3zM13 13h8v8h-8z',
+  Astrology: 'M12 2 9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5L12 2z',
+  CSV: 'M5 2h10l4 4v16H5V2zm9 1.5V7h3.5L14 3.5zM8 11h8v1.5H8V11zm0 4h8v1.5H8V15zm0 4h8v1.5H8V19z',
+};
 
 export const ProjectHeader = forwardRef(
   (
@@ -112,6 +175,12 @@ export const ProjectHeader = forwardRef(
                       key={role}
                     >
                       <span className={styles.metaIndex}>{String(index + 1).padStart(2, '0')}</span>
+                      <svg className={styles.metaIcon} viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d={roleIcons[role]?.path || fallbackRoleIconPaths[role] || 'M8 7 3 12l5 5M16 7l5 5-5 5M14 4l-4 16'}
+                          fill={roleIcons[role] ? `#${roleIcons[role].hex}` : 'currentColor'}
+                        />
+                      </svg>
                       <Text secondary>{role}</Text>
                     </li>
                   ))}
