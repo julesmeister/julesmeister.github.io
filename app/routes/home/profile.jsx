@@ -11,6 +11,16 @@ import { Text } from '~/components/text';
 import { Transition } from '~/components/transition';
 import { media } from '~/utils/style';
 import config from '~/config.json';
+import {
+  siAngular,
+  siDavinciresolve,
+  siFlutter,
+  siJetpackcompose,
+  siKotlin,
+  siReact,
+  siRubyonrails,
+  siSwift,
+} from 'simple-icons';
 import styles from './profile.module.css';
 
 const coreSkills = [
@@ -25,11 +35,40 @@ const coreSkills = [
 
 const creativeTools = ['Adobe Premiere Pro', 'Adobe After Effects', 'DaVinci Resolve', 'Vibe Coding'];
 
+const skillIcons = {
+  ReactJS: siReact,
+  'Jetpack Compose': siJetpackcompose,
+  Flutter: siFlutter,
+  'Ruby on Rails': siRubyonrails,
+  Swift: siSwift,
+  Angular: siAngular,
+  'DaVinci Resolve': siDavinciresolve,
+};
+
+const fallbackSkillIcons = {
+  'Basic SQL': 'M12 3c-4.4 0-8 1.34-8 3v12c0 1.66 3.6 3 8 3s8-1.34 8-3V6c0-1.66-3.6-3-8-3zm0 2c3.87 0 6 .94 6 1s-2.13 1-6 1-6-.94-6-1 2.13-1 6-1zm-6 4c1.43.68 3.61 1 6 1s4.57-.32 6-1v2c0 .06-2.13 1-6 1s-6-.94-6-1V9zm0 5c1.43.68 3.61 1 6 1s4.57-.32 6-1v2c0 .06-2.13 1-6 1s-6-.94-6-1v-2z',
+  'Adobe Premiere Pro': 'M4 3h16v18H4V3zm2 2v4h3.5a2 2 0 0 0 0-4H6zm2 1.5h1.5v1H8v-1zM6 11h12v2H6v-2zm0 4h8v2H6v-2z',
+  'Adobe After Effects': 'M4 3h16v18H4V3zm2 2v4h3.5a2 2 0 0 0 0-4H6zm2 1.5h1.5v1H8v-1zM6 11h12v2H6v-2zm0 4h8v2H6v-2z',
+  'Vibe Coding': 'M12 2 9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5L12 2z',
+};
+
+const SkillIcon = ({ skill }) => {
+  const icon = skillIcons[skill];
+  const path = icon?.path || fallbackSkillIcons[skill];
+
+  return (
+    <svg className={styles.skillIcon} viewBox="0 0 24 24" aria-hidden="true">
+      <path d={path} fill={icon ? `#${icon.hex}` : 'currentColor'} />
+    </svg>
+  );
+};
+
 const SkillMarquee = ({ label, skills, direction }) => {
   const renderSkills = clone => (
     <ul className={styles.skillMarqueeList} aria-hidden={clone || undefined}>
       {skills.map((skill, index) => (
         <li className={styles.skillMarqueeItem} key={`${clone ? 'clone-' : ''}${skill}-${index}`}>
+          <SkillIcon skill={skill} />
           {skill}
         </li>
       ))}

@@ -257,6 +257,12 @@
   }
 }
 
+.skillIcon {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+}
+
 @keyframes skillMarqueeLoop {
   from {
     transform: translateX(0);
