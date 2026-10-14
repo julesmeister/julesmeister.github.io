@@ -294,12 +294,35 @@
   min-width: 0;
   flex: 1 1 0;
   padding: 6px 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
   border: 1px solid color-mix(in lab, var(--text) 18%, transparent);
   color: var(--textBody);
   font-size: var(--fontSizeBodyXS);
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  text-align: center;
+
+  & span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.techIcon {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
+}
+
+.techSprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 .cardButton {

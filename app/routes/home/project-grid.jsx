@@ -1,5 +1,23 @@
 import { useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import {
+  siAndroid,
+  siDart,
+  siElectron,
+  siExpo,
+  siFirebase,
+  siFlutter,
+  siJavascript,
+  siJetpackcompose,
+  siKotlin,
+  siNextdotjs,
+  siReact,
+  siDotnet,
+  siLightning,
+  siSupabase,
+  siTailwindcss,
+  siTypescript,
+} from 'simple-icons';
 import styles from './project-grid.module.css';
 
 const cardVariants = {
@@ -15,6 +33,47 @@ const phoneGradients = [
   { base: '#1c3b32', middle: '#5b881e', highlight: '#a6bd2f', end: '#177c80', glow: '#d2ef58', plane: '#6bd4c1' },
   { base: '#573622', middle: '#b85d26', highlight: '#e4a53c', end: '#247c83', glow: '#ffa87a', plane: '#75d7c7' },
   { base: '#283445', middle: '#337e87', highlight: '#d65a4d', end: '#3c5863', glow: '#fc8769', plane: '#83dbcd' },
+];
+
+const technologyIcons = {
+  'Next.js': siNextdotjs,
+  TypeScript: siTypescript,
+  'Tailwind CSS': siTailwindcss,
+  Firebase: siFirebase,
+  'Jetpack Compose': siJetpackcompose,
+  Kotlin: siKotlin,
+  Android: siAndroid,
+  Flutter: siFlutter,
+  Dart: siDart,
+  Nextron: siElectron,
+  Electron: siElectron,
+  React: siReact,
+  Flutterflow: siFlutter,
+  Supabase: siSupabase,
+  Salesforce: siLightning,
+  LWC: siLightning,
+  JavaScript: siJavascript,
+  'React Native': siReact,
+  Expo: siExpo,
+  'C#': siDotnet,
+};
+
+const brandIcons = [...new Map(Object.values(technologyIcons).map(icon => [icon.slug, icon])).values()];
+
+const fallbackTechnologyIcons = {
+  'Custom Components': 'components',
+  TurboDB: 'database',
+  AI: 'sparkles',
+  cTrader: 'chart',
+  Trading: 'chart',
+};
+
+const fallbackIcons = [
+  { slug: 'code', path: 'M8 7 3 12l5 5M16 7l5 5-5 5M14 4l-4 16' },
+  { slug: 'components', path: 'M3 3h8v8H3zM13 3h8v5h-8zM13 10h8v11h-8zM3 13h8v8H3z' },
+  { slug: 'database', path: 'M12 3c-4.4 0-8 1.34-8 3v12c0 1.66 3.6 3 8 3s8-1.34 8-3V6c0-1.66-3.6-3-8-3zm0 2c3.87 0 6 .94 6 1s-2.13 1-6 1-6-.94-6-1 2.13-1 6-1zm-6 4c1.43.68 3.61 1 6 1s4.57-.32 6-1v2c0 .06-2.13 1-6 1s-6-.94-6-1V9zm0 5c1.43.68 3.61 1 6 1s4.57-.32 6-1v2c0 .06-2.13 1-6 1s-6-.94-6-1v-2z' },
+  { slug: 'sparkles', path: 'M12 2 9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5L12 2z' },
+  { slug: 'chart', path: 'M3 3v18h18v-2H5V3H3zm4 13 4-4 3 2 6-7-1.5-1.3-4.8 5.6-3.2-2.1L5.6 14.6 7 16z' },
 ];
 
 const ProjectCardContent = ({ project, index, preview = false }) => {
@@ -76,7 +135,12 @@ const ProjectCardContent = ({ project, index, preview = false }) => {
         </p>
         <ul className={styles.cardTech} aria-label="Technologies used">
           {project.technologies.map(technology => (
-            <li key={technology} className={styles.techTag}>{technology}</li>
+            <li key={technology} className={styles.techTag}>
+              <svg className={styles.techIcon} viewBox="0 0 24 24" aria-hidden="true">
+                <use href={`#tech-${technologyIcons[technology]?.slug || fallbackTechnologyIcons[technology] || 'code'}`} />
+              </svg>
+              <span>{technology}</span>
+            </li>
           ))}
         </ul>
         {!preview && (
@@ -106,6 +170,20 @@ export const ProjectGrid = ({ projects }) => {
 
   return (
     <section className={styles.projects} id="projects" aria-labelledby="projects-title">
+      <svg className={styles.techSprite} aria-hidden="true" focusable="false">
+        <defs>
+          {brandIcons.map(icon => (
+            <symbol id={`tech-${icon.slug}`} key={icon.slug} viewBox="0 0 24 24">
+              <path d={icon.path} fill={`#${icon.hex}`} />
+            </symbol>
+          ))}
+          {fallbackIcons.map(icon => (
+            <symbol id={`tech-${icon.slug}`} key={icon.slug} viewBox="0 0 24 24">
+              <path d={icon.path} fill="currentColor" />
+            </symbol>
+          ))}
+        </defs>
+      </svg>
       <div className={styles.sectionHeading}>
         <h2 id="projects-title">Selected projects</h2>
         <p className={styles.sectionDescription}>

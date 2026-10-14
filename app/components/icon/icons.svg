@@ -1,10 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+<svg xmlns="http://www.w3.org/2000/svg">
   <defs>
     <symbol id="send" width="24" height="24" viewBox="0 0 24 24">
       <path d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2 .01 7Z"/>
     </symbol>
     <symbol id="arrow-right" width="24" height="24" viewBox="0 0 24 24">
       <path d="m14.2 4.8 6.5 6.5.71.7-.7.7-6.5 6.5-1.42-1.4 4.8-4.8H3v-2h14.59l-4.8-4.8 1.42-1.4Z"/>
+    </symbol>
+    <symbol id="code" width="24" height="24" viewBox="0 0 24 24">
+      <path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
     <symbol id="chevron-right" width="24" height="24" viewBox="0 0 24 24">
       <path d="m13.59 12-5.8-5.8 1.42-1.4 6.5 6.5.7.7-.7.7-6.5 6.5-1.42-1.4 5.8-5.8Z"/>

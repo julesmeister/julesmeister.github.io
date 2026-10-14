@@ -38,7 +38,9 @@ const SkillMarquee = ({ label, skills, direction }) => {
 
   return (
     <div className={styles.skillMarqueeGroup}>
-      <p className={styles.skillGroupLabel}>{label}</p>
+      <p className={styles.skillGroupLabel}>
+        {label === 'Creative and workflow tools' ? `[${label}]` : label}
+      </p>
       <div className={styles.skillMarqueeViewport} role="group" aria-label={label}>
         <div className={`${styles.skillMarqueeTrack} ${styles[direction]}`}>
           {renderSkills(false)}
@@ -123,7 +125,7 @@ export const Profile = ({ id, sectionRef }) => {
                 </figcaption>
               </figure>
               <article className={styles.profileCard}>
-                <p className={styles.cardLabel}>ABOUT.LOG</p>
+                <p className={styles.cardLabel}>[ABOUT.LOG]</p>
                 <ProfileText visible={visible} titleId={`${id}-bio-title`} />
                 <Button
                   secondary
@@ -137,7 +139,7 @@ export const Profile = ({ id, sectionRef }) => {
               </article>
               <div className={styles.skillsLayout}>
                 <section className={styles.skillsCard} aria-labelledby={`${id}-skills-title`}>
-                  <p className={styles.cardLabel}>CORE SKILLS / TOOLS</p>
+                  <p className={styles.cardLabel}>[CORE SKILLS / TOOLS]</p>
                   <Heading level={4} as="h3" id={`${id}-skills-title`}>
                     Technologies and tools
                   </Heading>
@@ -155,7 +157,7 @@ export const Profile = ({ id, sectionRef }) => {
                   </div>
                 </section>
                 <aside className={styles.focusCard} aria-labelledby={`${id}-focus-title`}>
-                  <p className={styles.cardLabel}>CURRENT FOCUS / ANGULAR</p>
+                  <p className={styles.cardLabel}>[CURRENT FOCUS / ANGULAR]</p>
                   <Heading level={4} as="h3" id={`${id}-focus-title`}>
                     Building practical applications
                   </Heading>

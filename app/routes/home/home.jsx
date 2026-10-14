@@ -221,7 +221,7 @@ const CertificationsSnapshot = () => (
     <div className={styles.sectionInner}>
       <SectionHeading
         id="certificates-title"
-        eyebrow="Learning / credentials"
+        eyebrow="[Learning / credentials]"
         title="Certificates"
         description="Four course certificates across software development and creative tools."
       />
@@ -246,7 +246,7 @@ const GearSnapshot = () => {
       <div className={styles.sectionInner}>
         <SectionHeading
           id="gear-title"
-          eyebrow="Tools / setup"
+          eyebrow="[Tools / setup]"
           title="Gear"
           description="The hardware and everyday tools behind my work."
         />
@@ -271,7 +271,7 @@ const ActivitySnapshot = () => (
     <div className={styles.sectionInner}>
       <SectionHeading
         id="activity-title"
-        eyebrow="Notes / open source"
+          eyebrow="[Notes / open source]"
         title="Writing and code"
         description="Thoughts from the build process and the projects behind it."
       />
