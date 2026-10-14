@@ -14,6 +14,7 @@ import { Modal } from '~/components/Modal/Modal';
 import { Link as RouterLink } from '@remix-run/react';
 import {
   siAndroid,
+  siAngular,
   siDart,
   siDotnet,
   siElectron,
@@ -28,6 +29,7 @@ import {
   siOpenrouter,
   siOpensourceinitiative,
   siReact,
+  siRxjs,
   siShadcnui,
   siSupabase,
   siTailwindcss,
@@ -39,6 +41,9 @@ import {
 const initDelay = 300;
 
 const roleIcons = {
+  Angular: siAngular,
+  'Angular Material': siAngular,
+  RxJS: siRxjs,
   'Lightning Web Components': siLightning,
   'Apex Classes': siLightning,
   'Apex Triggers': siLightning,
@@ -70,6 +75,7 @@ const roleIcons = {
 };
 
 const fallbackRoleIconPaths = {
+  'JSON Server': 'M3 4h18v4H3zM3 10h18v4H3zM3 16h18v4H3z',
   'Custom Components': 'M3 3h8v8H3zM13 3h8v5h-8zM13 10h8v11h-8zM3 13h8v8H3z',
   cTrader: 'M3 3v18h18v-2H5V3H3zm4 13 4-4 3 2 6-7-1.5-1.3-4.8 5.6-3.2-2.1L5.6 14.6 7 16z',
   Plugin: 'M9 3h6v4h4v4h-4v6h4v4h-4v-4H9v4H5v-4h4v-6H5V7h4V3z',

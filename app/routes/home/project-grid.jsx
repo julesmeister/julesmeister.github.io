@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import {
   siAndroid,
+  siAngular,
   siDart,
   siElectron,
   siExpo,
@@ -36,6 +37,8 @@ const phoneGradients = [
 ];
 
 const technologyIcons = {
+  Angular: siAngular,
+  'Angular Material': siAngular,
   'Next.js': siNextdotjs,
   TypeScript: siTypescript,
   'Tailwind CSS': siTailwindcss,
@@ -61,6 +64,7 @@ const technologyIcons = {
 const brandIcons = [...new Map(Object.values(technologyIcons).map(icon => [icon.slug, icon])).values()];
 
 const fallbackTechnologyIcons = {
+  'JSON Server': 'database',
   'Custom Components': 'components',
   TurboDB: 'database',
   AI: 'sparkles',

@@ -1,0 +1,1 @@
+export { ContactManagementApp as default, meta } from './contact-management-app';

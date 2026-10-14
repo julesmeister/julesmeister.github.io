@@ -40,8 +40,29 @@ import lotelScreenShot2Placeholder from '~/assets/Lotel-Home.jpg';
 import cTraderScreenShot from '~/assets/cTrader.png';
 import cTraderScreenShotLarge from '~/assets/cTrader.png';
 import cTraderScreenShotPlaceholder from '~/assets/cTrader.png';
+import contactManagementDashboard from '~/assets/contact_management_app/contact-management-dashboard.png';
 
 export const projectsData = [
+  {
+    id: 'contact-management-app',
+    title: 'Contact Management App',
+    description:
+      'Angular contact manager with card and table views, contact details, and full create, edit, and delete workflows backed by JSON Server.',
+    technologies: ['Angular', 'TypeScript', 'Angular Material', 'JSON Server'],
+    image: contactManagementDashboard,
+    link: '/projects/contact-management-app',
+    featured: true,
+    scrollView: {
+      modelType: 'laptop',
+      alt: 'Contact Management App dashboard with contact cards',
+      textures: [
+        {
+          srcSet: `${contactManagementDashboard} 1600w`,
+          placeholder: contactManagementDashboard,
+        },
+      ],
+    },
+  },
   {
     id: 'deutschcraft',
     title: 'DeutschCraft',
