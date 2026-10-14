@@ -1,4 +1,5 @@
 import { Footer } from '~/components/footer';
+import { Icon } from '~/components/icon';
 import { baseMeta } from '~/utils/meta';
 import { Intro } from './intro';
 import { Profile } from './profile';
@@ -207,24 +208,33 @@ const CareerSnapshot = () => {
   );
 };
 
+const certificateSummaryItems = [
+  { title: 'Adobe After Effects CC Bootcamp: Beginner to Advanced', date: 'April 2026' },
+  { title: 'Salesforce Certified Platform Developer I (LWC & Aura)', date: 'December 2024' },
+  { title: 'Dart - Advanced Course', date: 'December 2020' },
+  { title: 'iOS 12 & Swift - The Complete iOS App Development Bootcamp', date: 'July 2019' },
+];
+
 const CertificationsSnapshot = () => (
   <section className={styles.section} id="certificates" aria-labelledby="certificates-title">
     <div className={styles.sectionInner}>
       <SectionHeading
         id="certificates-title"
         eyebrow="Learning / credentials"
-        title="Certifications"
-        description="A course certificate listed in my portfolio."
+        title="Certificates"
+        description="Four course certificates across software development and creative tools."
       />
-      <article className={styles.credential}>
-        <div>
-          <p className={styles.entryLabel}>Udemy / 2026</p>
-          <h3>Adobe After Effects</h3>
-        </div>
-        <RouterLink className={styles.textLink} to="/certificates">
-          View certificate <span aria-hidden="true">&#8599;</span>
-        </RouterLink>
-      </article>
+      <div className={styles.credentialList}>
+        {certificateSummaryItems.map(({ title, date }) => (
+          <article className={styles.credential} key={title}>
+            <p className={styles.entryLabel}>Udemy / {date}</p>
+            <h3>{title}</h3>
+          </article>
+        ))}
+      </div>
+      <RouterLink className={styles.textLink} to="/certificates">
+        View all four certificates <span aria-hidden="true">&#8599;</span>
+      </RouterLink>
     </div>
   </section>
 );
@@ -298,11 +308,38 @@ const ActivitySnapshot = () => (
 const ContactSnapshot = () => (
   <section className={styles.contact} id="contact" aria-labelledby="contact-title">
     <div className={styles.contactInner}>
-      <p className={styles.eyebrow}>Have a project in mind?</p>
-      <h2 id="contact-title">Let&apos;s connect.</h2>
-      <RouterLink className={styles.primaryAction} to="/contact">
-        Get in touch <span aria-hidden="true">&#8599;</span>
-      </RouterLink>
+      <h2 id="contact-title">Let&apos;s connect</h2>
+      <p className={styles.contactDescription}>
+        For project opportunities, collaboration, or a conversation about my work, reach me here.
+      </p>
+      <ul className={styles.socialLinks} aria-label="Social profiles">
+        <li className={styles.socialItem}>
+          <a
+            className={styles.socialLink}
+            data-social="github"
+            href={`https://github.com/${config.github}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open GitHub profile"
+          >
+            <Icon icon="github" size={20} />
+          </a>
+          <span className={styles.socialTooltip} aria-hidden="true">GitHub</span>
+        </li>
+        <li className={styles.socialItem}>
+          <a
+            className={styles.socialLink}
+            data-social="linkedin"
+            href={`https://www.linkedin.com/in/${config.linkedin}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open LinkedIn profile"
+          >
+            <Icon icon="linkedin" size={20} />
+          </a>
+          <span className={styles.socialTooltip} aria-hidden="true">LinkedIn</span>
+        </li>
+      </ul>
     </div>
   </section>
 );

@@ -15,12 +15,15 @@ import { media } from '~/utils/style';
 import { Fragment, useState } from 'react';
 import { Modal } from '~/components/Modal/Modal';
 import adobeAfterEffectsCert from '~/assets/certificates/UC-4c7604d3-efdb-4a3d-aeaf-ebe7cf7cba26.jpg';
+import dartAdvancedCert from '~/assets/certificates/UC-9eca3ac5-80b1-4deb-9634-bb9333f56aca.jpg';
+import iosSwiftBootcampCert from '~/assets/certificates/UC-NNL2TKF5.jpg';
+import salesforcePlatformDeveloperCert from '~/assets/certificates/UC-0f64e9d6-3334-4a59-aec6-56dd7a7204de.jpg';
 import styles from './certificates.module.css';
 
 export const meta = () => {
   return baseMeta({
     title: 'Certificates',
-    description: 'Professional certifications and achievements',
+    description: 'Course certificates in software development and creative tools',
   });
 };
 
@@ -69,11 +72,32 @@ export const Certificates = () => {
 
   const certificates = [
     {
-      image: adobeAfterEffectsCert,
-      title: 'Adobe After Effects',
+      image: salesforcePlatformDeveloperCert,
+      title: 'Salesforce Certified Platform Developer I (LWC & Aura)',
       issuer: 'Udemy',
-      date: '2026',
-      description: 'Comprehensive course on motion graphics and visual effects using Adobe After Effects.',
+      date: 'December 29, 2024',
+      description: 'Course covering Salesforce Platform Developer concepts, Lightning Web Components, and Aura.',
+    },
+    {
+      image: adobeAfterEffectsCert,
+      title: 'Adobe After Effects CC Bootcamp: Beginner to Advanced',
+      issuer: 'Udemy',
+      date: 'April 15, 2026',
+      description: 'A 35-hour course in Adobe After Effects, from beginner foundations to advanced techniques.',
+    },
+    {
+      image: dartAdvancedCert,
+      title: 'Dart - Advanced Course',
+      issuer: 'Udemy',
+      date: 'December 3, 2020',
+      description: 'An advanced course in the Dart programming language.',
+    },
+    {
+      image: iosSwiftBootcampCert,
+      title: 'iOS 12 & Swift - The Complete iOS App Development Bootcamp',
+      issuer: 'Udemy',
+      date: 'July 30, 2019',
+      description: 'A 55.5-hour bootcamp in iOS app development with Swift.',
     },
   ];
 
@@ -86,24 +110,22 @@ export const Certificates = () => {
       <ProjectContainer className={styles.certificates}>
         <ProjectHeader
           title="Certificates"
-          description="A collection of my professional certifications and educational achievements that demonstrate my commitment to continuous learning and skill development."
+          description="Course certificates documenting structured learning in software development and creative tools."
         />
         
         <ProjectSection padding="top" className={styles.section}>
           <ProjectSectionContent>
             <ProjectTextRow width="m">
-              <ProjectSectionHeading>Professional Certifications</ProjectSectionHeading>
+              <ProjectSectionHeading>Course Certificates</ProjectSectionHeading>
               <ProjectSectionText>
-                I believe in continuously expanding my skillset through structured learning
-                and professional certification programs. Here are the credentials I&apos;ve earned
-                throughout my career.
+                A selection of courses completed in Salesforce, mobile development, Dart, and motion graphics.
               </ProjectSectionText>
             </ProjectTextRow>
             
             <div className={styles.certificatesGrid}>
-              {certificates.map((cert, index) => (
+              {certificates.map((cert) => (
                 <CertificateCard
-                  key={index}
+                  key={cert.title}
                   {...cert}
                   onImageClick={handleImageClick}
                 />
@@ -123,8 +145,7 @@ export const Certificates = () => {
                     immediately applicable to real-world scenarios.
                   </ListItem>
                   <ListItem>
-                    Each certification represents not just course completion, but 
-                    demonstrated competency through practical assessments.
+                    I apply what I learn through hands-on projects and practical work.
                   </ListItem>
                   <ListItem>
                     I focus on technologies and skills that complement my existing 
