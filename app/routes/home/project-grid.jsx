@@ -1,33 +1,86 @@
 import { useState } from 'react';
 import styles from './project-grid.module.css';
 
-const ProjectCardContent = ({ project, index, preview = false }) => (
-  <>
-    <div className={styles.cardImage}>
-      <img src={project.image} alt={preview ? '' : project.title} loading={preview ? 'lazy' : undefined} />
-      <span className={styles.projectIndex}>PROJECT / {String(index + 1).padStart(2, '0')}</span>
-    </div>
-    <div className={styles.cardContent}>
-      <p className={styles.projectCategory}>
-        {project.featured ? 'Featured project' : 'Selected project'}
-      </p>
-      <h3 className={styles.cardTitle}>{project.title}</h3>
-      <p className={`${styles.cardDescription} ${preview ? styles.previewDescription : ''}`}>
-        {project.description}
-      </p>
-      <ul className={styles.cardTech} aria-label="Technologies used">
-        {project.technologies.map(technology => (
-          <li key={technology} className={styles.techTag}>{technology}</li>
-        ))}
-      </ul>
-      {!preview && (
-        <a href={project.link} className={styles.cardButton}>
-          View project <span aria-hidden="true">&#8599;</span>
-        </a>
-      )}
-    </div>
-  </>
-);
+const phoneGradients = [
+  { base: '#123745', middle: '#087f8c', highlight: '#20aaa4', end: '#17618a', glow: '#51f2da', plane: '#39b8eb' },
+  { base: '#4a2830', middle: '#a9434a', highlight: '#ef7954', end: '#c44b59', glow: '#ffd078', plane: '#fa966d' },
+  { base: '#102f5b', middle: '#1266aa', highlight: '#19b3ca', end: '#16477d', glow: '#58ddeb', plane: '#5c9cff' },
+  { base: '#1c3b32', middle: '#5b881e', highlight: '#a6bd2f', end: '#177c80', glow: '#d2ef58', plane: '#6bd4c1' },
+  { base: '#573622', middle: '#b85d26', highlight: '#e4a53c', end: '#247c83', glow: '#ffa87a', plane: '#75d7c7' },
+  { base: '#283445', middle: '#337e87', highlight: '#d65a4d', end: '#3c5863', glow: '#fc8769', plane: '#83dbcd' },
+];
+
+const ProjectCardContent = ({ project, index, preview = false }) => {
+  const phoneScreens = project.scrollView?.modelType === 'phone'
+    ? project.scrollView.textures
+        .slice(0, 2)
+        .map(texture => texture.placeholder || texture.srcSet?.split(' ')[0])
+        .filter(Boolean)
+    : [];
+  const phoneGradient = phoneGradients[index % phoneGradients.length];
+
+  return (
+    <>
+      <div
+        className={`${styles.cardImage} ${phoneScreens.length ? styles.phoneCardImage : ''}`}
+        style={phoneScreens.length ? {
+          '--phone-base': phoneGradient.base,
+          '--phone-middle': phoneGradient.middle,
+          '--phone-highlight': phoneGradient.highlight,
+          '--phone-end': phoneGradient.end,
+          '--phone-glow': phoneGradient.glow,
+          '--phone-plane': phoneGradient.plane,
+        } : undefined}
+      >
+        {phoneScreens.length ? (
+          <>
+            <img
+              className={styles.phoneBackdrop}
+              src={project.image}
+              alt=""
+              aria-hidden="true"
+              loading={preview ? 'lazy' : undefined}
+            />
+            <div className={styles.phoneScreens}>
+              {phoneScreens.map((screen, screenIndex) => (
+                <img
+                  className={styles.phoneScreenshot}
+                  src={screen}
+                  alt={preview ? '' : `${project.title} app screen ${screenIndex + 1}`}
+                  aria-hidden={preview ? 'true' : undefined}
+                  loading={preview ? 'lazy' : undefined}
+                  key={screen}
+                />
+              ))}
+            </div>
+          </>
+        ) : (
+          <img src={project.image} alt={preview ? '' : project.title} loading={preview ? 'lazy' : undefined} />
+        )}
+        <span className={styles.projectIndex}>PROJECT / {String(index + 1).padStart(2, '0')}</span>
+      </div>
+      <div className={styles.cardContent}>
+        <p className={styles.projectCategory}>
+          {project.featured ? 'Featured project' : 'Selected project'}
+        </p>
+        <h3 className={styles.cardTitle}>{project.title}</h3>
+        <p className={`${styles.cardDescription} ${preview ? styles.previewDescription : ''}`}>
+          {project.description}
+        </p>
+        <ul className={styles.cardTech} aria-label="Technologies used">
+          {project.technologies.map(technology => (
+            <li key={technology} className={styles.techTag}>{technology}</li>
+          ))}
+        </ul>
+        {!preview && (
+          <a href={project.link} className={styles.cardButton}>
+            View project <span aria-hidden="true">&#8599;</span>
+          </a>
+        )}
+      </div>
+    </>
+  );
+};
 
 export const ProjectGrid = ({ projects }) => {
   const [activeIndex, setActiveIndex] = useState(0);
