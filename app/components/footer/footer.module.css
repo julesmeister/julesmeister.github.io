@@ -13,10 +13,6 @@
     color: var(--textLight);
   }
 
-  .link {
-    display: inline-flex;
-  }
-
   .date {
     padding-right: var(--spaceXS);
     display: inline-flex;
