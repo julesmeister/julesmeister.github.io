@@ -1,220 +1,340 @@
-/* Pinterest-style Grid */
-.projectGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
-  padding: 60px var(--spaceOuter);
-  max-width: 1400px;
-  margin: 0 auto;
+.projects {
+  padding: clamp(4rem, 9vw, 7rem) var(--spaceOuter);
+  border-top: 1px solid color-mix(in lab, var(--text) 16%, transparent);
+}
 
-  @media (--mediaDesktop) {
-    grid-template-columns: repeat(3, 1fr);
+.sectionHeading {
+  max-width: 1000px;
+  margin: 0 auto var(--space2XL);
+  text-align: left;
+
+  & h2 {
+    margin: 0;
+    color: var(--textTitle);
+    font-family: var(--monoFontStack);
+    font-size: var(--fontSizeH3);
+    line-height: var(--lineHeightTitle);
   }
 
-  @media (--mediaLaptop) {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 40px var(--spaceOuter);
-  }
+  @media (--mediaMobileS) {
+    padding-right: 76px;
 
-  @media (--mediaTablet) {
-    grid-template-columns: 1fr;
-    padding: 30px var(--spaceOuter);
-    gap: 20px;
-  }
-
-  @media (--mediaMobile) {
-    padding: 20px var(--spaceS);
-    gap: 16px;
+    & h2 {
+      font-size: var(--fontSizeH4);
+    }
   }
 }
 
-.projectCard {
-  background: var(--background);
-  border-radius: 16px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.sectionDescription {
+  max-width: 560px;
+  margin: var(--spaceM) 0 0;
+  color: var(--textLight);
+  font-size: var(--fontSizeBodyS);
+  line-height: var(--lineHeightBody);
+}
+
+.carousel {
+  --project-stack-card-width: min(28rem, 56vw);
+  --project-stack-card-height: clamp(28rem, 38vw, 30rem);
+  --project-stack-side-space: clamp(4rem, 11vw, 9rem);
+  --project-stack-bottom-space: clamp(2.25rem, 4vw, 3rem);
+
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.stage {
+  width: min(
+    100%,
+    calc(
+      var(--project-stack-card-width) + var(--project-stack-side-space) +
+        var(--project-stack-side-space)
+    )
+  );
+  min-height: calc(var(--project-stack-card-height) + var(--project-stack-bottom-space));
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: var(--project-stack-card-height);
+  padding-block: 0.2rem var(--project-stack-bottom-space);
+  place-items: start center;
+  gap: 0;
+  margin-inline: auto;
   position: relative;
+  display: grid;
+  isolation: isolate;
+  overflow: visible;
+}
+
+.preview {
+  width: var(--project-stack-card-width);
+  height: var(--project-stack-card-height);
+  position: relative;
+  grid-area: 1 / 1;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid color-mix(in lab, var(--text) 18%, transparent);
+  border-radius: 4px;
+  background: var(--backgroundLight);
+  color: var(--textTitle);
+  opacity: 0.78;
+  cursor: pointer;
+  box-shadow: 0 16px 44px rgb(0 0 0 / 34%);
+  transition: opacity var(--durationM) ease, transform var(--durationM) ease,
+    border-color var(--durationM) ease;
 
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: var(--background);
-    clip-path: polygon(
-      0 0,
-      100% 0,
-      100% calc(100% - 16px),
-      calc(100% - 16px) 100%,
-      0 100%
-    );
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus-visible {
+    opacity: 0.9;
+    border-color: var(--accent);
   }
 
-  &:hover {
-    transform: scale(0.98);
-    color: var(--background);
-    
-    &::after {
-      background: var(--textBody);
-    }
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
   }
 
-  &.regular {
-    color: var(--textBody);
-    
-    &::after {
-      background: color-mix(in lab, var(--textBody) 2%, var(--background));
-    }
-    
-    &:hover {
-      color: var(--textBody);
-      
-      &::after {
-        background: color-mix(in lab, var(--textBody) 12%, var(--background));
-      }
-    }
-  }
+}
 
-  &.featured {
-    color: var(--accent);
-    
-    &::after {
-      background: color-mix(in lab, var(--accent) 5%, var(--background));
-    }
-    
-    &:hover {
-      color: var(--background);
-      
-      &::after {
-        background: var(--accent);
-      }
-    }
-  }
+.preview[data-side='previous'] {
+  z-index: 1;
+  transform: translateX(-58%) translateY(12px) scale(0.95) rotateZ(-3.5deg);
+}
+
+.preview[data-side='next'] {
+  z-index: 2;
+  transform: translateX(58%) translateY(12px) scale(0.95) rotateZ(3.5deg);
+}
+
+.projectCard {
+  width: var(--project-stack-card-width);
+  height: var(--project-stack-card-height);
+  min-width: 0;
+  margin: 0 auto;
+  grid-area: 1 / 1;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid color-mix(in lab, var(--text) 24%, transparent);
+  background: var(--backgroundLight);
 }
 
 .cardImage {
   position: relative;
   width: 100%;
-  height: 240px;
+  aspect-ratio: 2.2;
   overflow: hidden;
   flex-shrink: 0;
+  border-bottom: 1px solid color-mix(in lab, var(--text) 20%, transparent);
+  background: var(--background);
 
   & img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
-  }
-
-  .projectCard:hover & img {
-    transform: scale(1.05);
-  }
-
-  .featured & {
-    /* Keep same height as regular cards */
-    height: 240px;
   }
 }
 
-.featuredBadge {
+.projectIndex {
   position: absolute;
-  top: 16px;
-  left: 16px;
-  background: var(--accent);
-  color: white;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 4px 12px color-mix(in lab, var(--accent) 40%, transparent);
-  transition: all 0.3s ease;
-
-  .projectCard:hover & {
-    background: var(--background);
-    color: var(--accent);
-  }
+  top: var(--spaceS);
+  left: var(--spaceS);
+  padding: 5px 8px;
+  background: color-mix(in lab, var(--background) 88%, transparent);
+  color: var(--textBody);
+  font-size: var(--fontSizeBodyXS);
 }
 
 .cardContent {
-  padding: 24px;
+  height: 260px;
+  min-height: 260px;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   flex: 1;
+}
 
-  @media (--mediaMobile) {
-    padding: 20px;
-  }
+.preview .cardContent {
+  height: 260px;
+  min-height: 260px;
+  overflow: hidden;
 }
 
 .cardTitle {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: inherit;
-  margin-bottom: 12px;
-  line-height: 1.3;
+  margin: 0 0 var(--spaceM);
+  color: var(--textTitle);
+  font-family: var(--monoFontStack);
+  font-size: var(--fontSizeH5);
+  font-weight: var(--fontWeightMedium);
+  line-height: 1.35;
+}
+
+.projectCategory {
+  margin: 0 0 var(--spaceS);
+  color: var(--textLight);
+  font-size: var(--fontSizeBodyXS);
 }
 
 .cardDescription {
-  font-size: 0.9rem;
-  color: inherit;
-  opacity: 0.8;
-  line-height: 1.6;
-  margin-bottom: 16px;
-  flex: 1;
+  max-width: 660px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  margin: 0 0 var(--spaceM);
+  color: var(--textBody);
+  font-size: var(--fontSizeBodyS);
+  line-height: 1.4;
+}
+
+.previewDescription {
+  -webkit-line-clamp: 3;
 }
 
 .cardTech {
+  width: 100%;
+  height: 30px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 20px;
+  flex-wrap: nowrap;
+  gap: 4px;
+  margin: 0 0 var(--spaceM);
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
 }
 
 .techTag {
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-
-  .regular & {
-    background: color-mix(in lab, var(--textBody) 8%, transparent);
-    color: var(--textBody);
-    border: 1px solid color-mix(in lab, var(--textBody) 15%, transparent);
-  }
-
-  .featured & {
-    background: color-mix(in lab, var(--accent) 10%, transparent);
-    color: var(--accent);
-    border: 1px solid color-mix(in lab, var(--accent) 20%, transparent);
-  }
-
-  .projectCard:hover.featured & {
-    background: var(--background);
-    color: var(--accent);
-    border-color: var(--background);
-  }
+  min-width: 0;
+  flex: 1 1 0;
+  padding: 6px 7px;
+  border: 1px solid color-mix(in lab, var(--text) 18%, transparent);
+  color: var(--textBody);
+  font-size: var(--fontSizeBodyXS);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .cardButton {
-  display: inline-flex;
+  width: 100%;
+  min-height: 40px;
+  display: flex;
   align-items: center;
-  gap: 8px;
-  color: inherit;
+  justify-content: space-between;
+  gap: var(--spaceM);
+  padding: 0 var(--spaceM);
+  border: 1px solid color-mix(in lab, var(--text) 24%, transparent);
+  color: var(--textTitle);
   text-decoration: none;
-  font-weight: 500;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-  align-self: flex-start;
-  opacity: 0.9;
-  
+  font-weight: var(--fontWeightMedium);
+  font-size: var(--fontSizeBodyS);
+  transition: color var(--durationS) ease, border-color var(--durationS) ease;
+
   &:hover {
-    opacity: 1;
-    transform: translateX(4px);
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+}
+
+.carouselControls {
+  width: var(--project-stack-card-width);
+  margin: var(--spaceL) auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spaceL);
+}
+
+.carouselButton {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid color-mix(in lab, var(--text) 28%, transparent);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--textTitle);
+  font-size: var(--fontSizeH5);
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  &:focus-visible {
+    outline-color: var(--accent);
+  }
+}
+
+.carouselProgress {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spaceM);
+  color: var(--textLight);
+  font-size: var(--fontSizeBodyXS);
+}
+
+.progressTrack {
+  width: clamp(80px, 20vw, 180px);
+  height: 2px;
+  overflow: hidden;
+  background: color-mix(in lab, var(--text) 20%, transparent);
+
+  & span {
+    height: 100%;
+    display: block;
+    background: var(--accent);
+    transition: width var(--durationM) ease;
+  }
+}
+
+@media (--mediaTablet) {
+  .carousel {
+    --project-stack-card-width: min(28rem, 56vw);
+    --project-stack-card-height: clamp(30rem, 58vw, 31rem);
+    --project-stack-side-space: clamp(3.5rem, 11vw, 6rem);
+    --project-stack-bottom-space: clamp(2rem, 4vw, 2.75rem);
+  }
+}
+
+@media (--mediaMobile) {
+  .carousel {
+    --project-stack-card-width: calc(100% - clamp(5.25rem, 26vw, 6.5rem));
+    --project-stack-card-height: clamp(26rem, 88vw, 30.5rem);
+    --project-stack-side-space: 0rem;
+    --project-stack-bottom-space: clamp(1.25rem, 4vw, 1.75rem);
+  }
+
+  .stage {
+    width: 100%;
+  }
+
+  .cardContent {
+    height: 260px;
+    min-height: 260px;
+    padding: 0.75rem;
+  }
+
+  .cardTitle {
+    font-size: var(--fontSizeH5);
+  }
+
+  .cardDescription {
+    font-size: var(--fontSizeBodyS);
+  }
+
+  .cardTech {
+    height: 52px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .carouselControls {
+    margin-top: var(--spaceM);
   }
 }

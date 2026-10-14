@@ -1,0 +1,246 @@
+@layer layout {
+  .portfolioDockShell {
+    --fluidNavigationSize: 52px;
+    --fluidNavigationItemSize: 44px;
+    --fluidNavigationGap: 8px;
+    --fluidNavigationStep: clamp(1.2rem, calc(16.6667dvh - 2.125rem), 3rem);
+
+    position: relative;
+    z-index: 50;
+    color: #f1f0ec;
+    pointer-events: none;
+  }
+
+  .portfolioFluidNavigation {
+    position: fixed;
+    right: clamp(1rem, 3vw, 2rem);
+    bottom: calc(1.5rem + 3.25rem + 0.75rem);
+    z-index: 50;
+    width: var(--fluidNavigationSize);
+    height: var(--fluidNavigationSize);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform-origin: bottom;
+    transition: opacity 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.42s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s;
+  }
+
+  .portfolioFluidNavigationTrigger,
+  .portfolioChatLauncher {
+    border: 1px solid color-mix(in lab, var(--text) 24%, transparent);
+    background: var(--backgroundLight);
+    color: var(--textTitle);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 24%);
+    transition: background-color 0.18s, border-color 0.18s, color 0.18s,
+      box-shadow 0.18s;
+
+    &:hover,
+    &:focus-visible {
+      border-color: var(--accent);
+      background: color-mix(in lab, var(--backgroundLight) 72%, var(--accent));
+      color: var(--textTitle);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+  }
+
+  .portfolioFluidNavigationTrigger {
+    position: relative;
+    z-index: 100;
+    width: var(--fluidNavigationSize);
+    height: var(--fluidNavigationSize);
+    padding: 0;
+    border-radius: 50%;
+    font: inherit;
+  }
+
+  .portfolioFluidNavigationTriggerIcon {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: rotate(90deg) scale(0.7);
+    transition: opacity 0.22s, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+
+    & svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .menuIcon,
+  .closeIcon {
+    opacity: 0;
+  }
+
+  .menuIcon[data-active='true'] {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+
+  .closeIcon[data-active='true'] {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+
+  .portfolioFluidNavigationMenu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: calc(var(--fluidNavigationItemSize) * 2 + var(--fluidNavigationGap));
+    height: calc(var(--fluidNavigationItemSize) * 4 + var(--fluidNavigationGap) * 3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    pointer-events: none;
+  }
+
+  .portfolioFluidNavigationItem {
+    --navigationIndex: 0;
+    --navigationX: 0px;
+    --navigationY: 0px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: calc(90 - var(--navigationIndex));
+    width: var(--fluidNavigationItemSize);
+    height: var(--fluidNavigationItemSize);
+
+    &:nth-child(odd) {
+      --navigationX: 0px;
+    }
+
+    &:nth-child(even) {
+      --navigationX: calc(var(--fluidNavigationItemSize) + var(--fluidNavigationGap));
+    }
+
+    &:nth-child(-n + 2) {
+      --navigationY: calc(0px - var(--fluidNavigationItemSize) - var(--fluidNavigationStep));
+    }
+
+    &:nth-child(n + 3):nth-child(-n + 4) {
+      --navigationY: calc(0px - var(--fluidNavigationItemSize) * 2 - var(--fluidNavigationStep) * 2);
+    }
+
+    &:nth-child(n + 5):nth-child(-n + 6) {
+      --navigationY: calc(0px - var(--fluidNavigationItemSize) * 3 - var(--fluidNavigationStep) * 3);
+    }
+
+    &:nth-child(n + 7) {
+      --navigationY: calc(0px - var(--fluidNavigationItemSize) * 4 - var(--fluidNavigationStep) * 4);
+    }
+  }
+
+  .fluidNavigationLink {
+    width: var(--fluidNavigationItemSize);
+    height: var(--fluidNavigationItemSize);
+    border: 1px solid color-mix(in lab, var(--text) 22%, transparent);
+    border-radius: 50%;
+    background: var(--backgroundLight);
+    color: var(--textBody);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate3d(0, 0, 0) scale(0.78);
+    transition: opacity 0.22s, transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s linear 0.32s, background-color 0.18s, border-color 0.18s,
+      color 0.18s;
+
+    &[data-open='true'] {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translate3d(var(--navigationX), var(--navigationY), 0) scale(1);
+      transition-delay: calc(var(--navigationIndex) * 24ms);
+    }
+
+    &:hover,
+    &:focus-visible {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: var(--background);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    & svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .portfolioChatLauncherPosition {
+    position: fixed;
+    right: clamp(1rem, 3vw, 2rem);
+    bottom: 1.5rem;
+    z-index: 61;
+    pointer-events: none;
+  }
+
+  .portfolioChatLauncher {
+    min-width: 52px;
+    min-height: 52px;
+    padding: 0 18px;
+    border-radius: 999px;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    pointer-events: auto;
+
+    & svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  @media (--mediaMobile) {
+    .portfolioChatLauncher {
+      width: 52px;
+      min-width: 52px;
+      height: 52px;
+      padding: 0;
+      border-radius: 50%;
+    }
+
+    .chatLabel {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+    }
+  }
+
+  @media (--mediaReduceMotion) {
+    .portfolioFluidNavigation,
+    .portfolioFluidNavigationTrigger,
+    .portfolioFluidNavigationTriggerIcon,
+    .fluidNavigationLink,
+    .portfolioChatLauncher {
+      transition: none;
+    }
+  }
+}

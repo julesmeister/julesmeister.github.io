@@ -205,3 +205,12 @@
     height: calc(100% - var(--spacing) * 2);
   }
 }
+
+@layer layout {
+  @media (--mediaMobile), (--mediaMobileLS) {
+    .toggle:not([data-mobile='true']),
+    .container:not([data-mobile='true']) {
+      display: flex;
+    }
+  }
+}

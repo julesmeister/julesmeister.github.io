@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from 'react';
 const ViewContext = createContext();
 
 export const ViewProvider = ({ children }) => {
-  const [viewMode, setViewMode] = useState('stacking');
+  const [viewMode, setViewMode] = useState('grid');
 
   return (
     <ViewContext.Provider value={{ viewMode, setViewMode }}>

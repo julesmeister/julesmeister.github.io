@@ -35,6 +35,10 @@
     "width": 24,
     "height": 24
   },
+  "arrow-left-line": {
+    "width": 24,
+    "height": 24
+  },
   "check": {
     "width": 24,
     "height": 24
@@ -60,6 +64,50 @@
     "height": 24
   },
   "linkedin": {
+    "width": 24,
+    "height": 24
+  },
+  "house": {
+    "width": 24,
+    "height": 24
+  },
+  "user-round": {
+    "width": 24,
+    "height": 24
+  },
+  "briefcase-business": {
+    "width": 24,
+    "height": 24
+  },
+  "file-text": {
+    "width": 24,
+    "height": 24
+  },
+  "badge-check": {
+    "width": 24,
+    "height": 24
+  },
+  "laptop-minimal": {
+    "width": 24,
+    "height": 24
+  },
+  "headphones": {
+    "width": 24,
+    "height": 24
+  },
+  "mail": {
+    "width": 24,
+    "height": 24
+  },
+  "message-circle": {
+    "width": 24,
+    "height": 24
+  },
+  "menu-outline": {
+    "width": 24,
+    "height": 24
+  },
+  "x": {
     "width": 24,
     "height": 24
   }

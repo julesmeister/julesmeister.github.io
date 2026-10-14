@@ -24,6 +24,76 @@
     }
   }
 
+  .navbar {
+    width: 0;
+    height: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: auto;
+    overflow: visible;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .contactButton {
+    position: fixed;
+    right: var(--spaceOuter);
+    bottom: calc(var(--spaceOuter) + 72px);
+    z-index: var(--zIndex4);
+    width: 60px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    border: 1px solid color-mix(in lab, var(--text) 22%, transparent);
+    border-radius: 50%;
+    background: var(--backgroundLight);
+    color: var(--textTitle);
+    transition: color var(--durationS) ease, border-color var(--durationS) ease;
+
+    &:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+  }
+
+  .contactButton :global(svg) {
+    width: 22px;
+    height: 22px;
+  }
+
+  .navbar {
+    @media (--mediaMobile) {
+      .contactButton {
+        display: none;
+      }
+    }
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .mobileNav {
+    z-index: var(--zIndex3);
+    display: flex;
+    padding: var(--space5XL) var(--spaceOuter);
+    background: rgb(17 16 15 / 96%);
+  }
+
+  .mobileNavLink {
+    max-width: 700px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgb(241 240 236 / 16%);
+    font-family: var(--monoFontStack);
+    font-size: var(--fontSizeH4);
+    text-align: left;
+  }
+
   .logo {
     display: flex;
     position: relative;

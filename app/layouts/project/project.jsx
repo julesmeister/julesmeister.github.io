@@ -1,6 +1,7 @@
 import { Button } from '~/components/button';
 import { Heading } from '~/components/heading';
 import { Image } from '~/components/image';
+import { Icon } from '~/components/icon';
 import { Section } from '~/components/section';
 import { Text } from '~/components/text';
 import { tokens } from '~/components/theme-provider/theme';
@@ -10,6 +11,7 @@ import { forwardRef, useRef, useState } from 'react';
 import { classes, cssProps, msToNum, numToMs } from '~/utils/style';
 import styles from './project.module.css';
 import { Modal } from '~/components/Modal/Modal';
+import { Link as RouterLink } from '@remix-run/react';
 
 const initDelay = 300;
 
@@ -33,40 +35,49 @@ export const ProjectHeader = forwardRef(
 
     return (
       <Section className={classes(styles.header, className)} as="section" ref={ref}>
-        <div
-          className={styles.headerContent}
-          style={cssProps({ initDelay: numToMs(initDelay) })}
-        >
-          <div className={styles.details}>
-            <Heading className={styles.title} level={2} as="h1">
-              {title}
-            </Heading>
-            <Text className={styles.description} size="xl" as="p">
-              {description}
-            </Text>
-            {!!url && (
-              <>
-                <Button
-                  secondary
-                  iconHoverShift
-                  className={styles.linkButton}
-                  icon="chevron-right"
-                  href={url}
-                >
-                  {linkLabel}
-                </Button>
+        <div className={styles.headerShell}>
+          <div className={styles.systemLine}>
+            <RouterLink className={styles.backLink} to="/#projects" aria-label="Back to projects">
+              <Icon icon="arrow-left-line" size={12} />
+              <span>Projects</span>
+            </RouterLink>
+            <span className={styles.systemName}><b aria-hidden="true">&gt;_</b> PROJECT.SYSTEM</span>
+            <span className={styles.systemMeta}>CASE FILE / 2026</span>
+          </div>
+          <div
+            className={styles.headerContent}
+            style={cssProps({ initDelay: numToMs(initDelay) })}
+          >
+            <div className={styles.details}>
+              <p className={styles.headerEyebrow}>PROJECT / CASE STUDY</p>
+              <Heading className={styles.title} level={2} as="h1">
+                {title}
+              </Heading>
+              <Text className={styles.description} size="xl" as="p">
+                {description}
+              </Text>
+              <div className={styles.headerActions}>
+                {!!url && (
+                  <Button
+                    secondary
+                    iconHoverShift
+                    className={styles.linkButton}
+                    icon="chevron-right"
+                    href={url}
+                  >
+                    {linkLabel}
+                  </Button>
+                )}
                 {!!secondaryUrl && (
-                  <>
-                    <Button
-                      secondary
-                      iconHoverShift
-                      className={styles.linkButton}
-                      icon="chevron-right"
-                      href={secondaryUrl}
-                    >
-                      {secondaryLinkLabel}
-                    </Button>
-                  </>
+                  <Button
+                    secondary
+                    iconHoverShift
+                    className={styles.linkButton}
+                    icon="chevron-right"
+                    href={secondaryUrl}
+                  >
+                    {secondaryLinkLabel}
+                  </Button>
                 )}
                 {!!pdfUrl && (
                   <>
@@ -79,7 +90,6 @@ export const ProjectHeader = forwardRef(
                     >
                       {pdfLinkLabel}
                     </Button>
-
                     <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
                       <iframe
                         src={pdfUrl}
@@ -89,22 +99,26 @@ export const ProjectHeader = forwardRef(
                     </Modal>
                   </>
                 )}
-              </>
+              </div>
+            </div>
+            {!!roles?.length && (
+              <aside className={styles.metaPanel} aria-label="Project technologies">
+                <p className={styles.metaLabel}>TECH STACK / INDEX</p>
+                <ul className={styles.meta}>
+                  {roles.map((role, index) => (
+                    <li
+                      className={styles.metaItem}
+                      style={cssProps({ delay: numToMs(initDelay + 300 + index * 140) })}
+                      key={role}
+                    >
+                      <span className={styles.metaIndex}>{String(index + 1).padStart(2, '0')}</span>
+                      <Text secondary>{role}</Text>
+                    </li>
+                  ))}
+                </ul>
+              </aside>
             )}
           </div>
-          {!!roles?.length && (
-            <ul className={styles.meta}>
-              {roles?.map((role, index) => (
-                <li
-                  className={styles.metaItem}
-                  style={cssProps({ delay: numToMs(initDelay + 300 + index * 140) })}
-                  key={role}
-                >
-                  <Text secondary>{role}</Text>
-                </li>
-              ))}
-            </ul>
-          )}
         </div>
       </Section>
     );
@@ -136,6 +150,7 @@ export const ProjectSection = forwardRef(
       ref={ref}
       {...rest}
     >
+      <span className={styles.sectionIndex} aria-hidden="true" />
       {!!backgroundElement && (
         <div
           className={styles.sectionBackground}

@@ -1,47 +1,42 @@
-import config from '~/config.json';
-
 export const navLinks = [
   {
-    label: 'Projects',
-    pathname: '/#project-1',
+    label: 'Home',
+    pathname: '/#intro',
+    icon: 'house',
   },
   {
-    label: 'Me',
+    label: 'About',
     pathname: '/#details',
+    icon: 'user-round',
   },
   {
-    label: 'Articles',
-    pathname: '/articles',
+    label: 'Selected Projects',
+    pathname: '/#projects',
+    icon: 'briefcase-business',
   },
   {
-    label: 'Certificates',
-    pathname: '/certificates',
+    label: 'Career Snapshot',
+    pathname: '/#career',
+    icon: 'file-text',
   },
   {
-    label: 'Contact',
-    pathname: '/contact',
-  },
-];
-
-export const socialLinks = [
-  // {
-  //   label: 'Bluesky',
-  //   url: `https://bsky.app/profile/${config.bluesky}`,
-  //   icon: 'bluesky',
-  // },
-  // {
-  //   label: 'Figma',
-  //   url: `https://www.figma.com/${config.figma}`,
-  //   icon: 'figma',
-  // },
-  {
-    label: 'Github',
-    url: `https://github.com/${config.github}`,
-    icon: 'github',
+    label: 'Certifications',
+    pathname: '/#certificates',
+    icon: 'badge-check',
   },
   {
-    label: 'LinkedIn',
-    url: `https://www.linkedin.com/in/${config.linkedin}`,
-    icon: 'linkedin',
+    label: 'Gear',
+    pathname: '/#gear',
+    icon: 'laptop-minimal',
+  },
+  {
+    label: 'Writing & Code',
+    pathname: '/#activity',
+    icon: 'headphones',
+  },
+  {
+    label: "Let's Connect",
+    pathname: '/#contact',
+    icon: 'mail',
   },
 ];

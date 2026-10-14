@@ -9,6 +9,7 @@ export const Icon = forwardRef(({ icon, className, size, ...rest }, ref) => {
       aria-hidden
       ref={ref}
       className={classes(styles.icon, className)}
+      viewBox="0 0 24 24"
       width={size || 24}
       height={size || 24}
       {...rest}
