@@ -42,6 +42,6 @@ npm run deploy
 - `app/components/` contains reusable interface components.
 - `app/assets/` contains project media, certificates, and fonts.
 
-Visual inspiration: [Switberto Silvosa](https://www.switberto.com/).
+The portfolio's visual direction is inspired by [Switberto III L. Silvosa](https://www.switberto.com/).
 
 See [LICENSE](LICENSE) for licensing terms.

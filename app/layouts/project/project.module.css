@@ -553,9 +553,11 @@
     border-radius: 3px;
     background: color-mix(in lab, var(--backgroundLight) 78%, var(--background));
     font-size: var(--fontSizeBodyXS);
+    transition: border-color var(--durationS) ease, background-color var(--durationS) ease;
 
     @media (--mediaUseMotion) {
       opacity: 0;
+      transition: translate var(--durationS) var(--bezierFastoutSlowin), border-color var(--durationS) ease, background-color var(--durationS) ease;
       animation: projectFadeSlide 1.5s var(--bezierFastoutSlowin) var(--delay) forwards;
     }
 
@@ -565,6 +567,12 @@
       overflow-wrap: anywhere;
       white-space: normal;
     }
+  }
+
+  .metaItem:hover {
+    translate: 4px 0;
+    border-color: var(--accent);
+    background: color-mix(in lab, var(--backgroundLight) 88%, var(--accent));
   }
 
   .metaIndex {
