@@ -243,11 +243,11 @@ const GearSnapshot = () => {
   const gear = [
     ['Desktop', 'Custom built'],
     ['Operating system', 'Windows 11'],
-    ['Browser', 'Arc Browser'],
-    ['Laptop', 'MacBook Air M2'],
+    ['Browser', 'Firefox / Edge'],
+    ['Laptop', 'HP EliteBook'],
     ['Keyboard', 'MSI VIGOR GK50Z'],
     ['Mouse', 'Logitech Lift'],
-    ['Microphone', 'HyperX QuadCast'],
+    ['Microphone', 'Hollyland Lark M2'],
   ];
 
   return (

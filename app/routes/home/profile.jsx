@@ -6,7 +6,6 @@ import { Button } from '~/components/button';
 import { DecoderText } from '~/components/decoder-text';
 import { Heading } from '~/components/heading';
 import { Image } from '~/components/image';
-import { Link } from '~/components/link';
 import { Section } from '~/components/section';
 import { Text } from '~/components/text';
 import { Transition } from '~/components/transition';
@@ -53,7 +52,7 @@ const SkillMarquee = ({ label, skills, direction }) => {
 const ProfileText = ({ visible, titleId }) => (
   <>
     <Heading className={styles.title} data-visible={visible} level={3} id={titleId}>
-      <DecoderText text="A little bit about myself" start={visible} delay={500} />
+      <DecoderText text="Why I build" start={visible} delay={500} />
     </Heading>
     <dl className={styles.facts}>
       <div>
@@ -74,13 +73,13 @@ const ProfileText = ({ visible, titleId }) => (
       </div>
     </dl>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      I'm Jules, a Filipino of Chinese descent based in Pasay City. The Japanese text on my site sometimes gives people the wrong idea, but I'm Filipino through and through: adobo and sinigang included. I'm currently an Angular Developer at Accenture, where my training has included building contact-management and inventory applications.
+      Since high school, I've built apps on my own and discovered how much I love development. Lotel is the project I'm proudest of, and Kotlin mobile development is a favorite.
     </Text>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      From 2019 to 2026, I worked as a Software Developer and General Manager at Serenity Pension Inn in Zamboanga City. I built and maintained its Kotlin and Firebase business system while supporting daily operations.
+      I'm currently training at Accenture in Angular and Java Spring Boot, strengthening my fundamentals and broadening my perspective through the collaborative, systems-minded reality of corporate software development.
     </Text>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      My other work includes FlutterFlow, cTrader, and React/Next.js projects. Outside work, I spend time at the gym. For my everyday tools and setup, visit the <Link href="/uses">uses page</Link>; for project discussions, <Link href="/contact">get in touch</Link>.
+      I'm curious about AI and automation, and hope to freelance one day. Outside development, I enjoy skating and exploring astrology.
     </Text>
   </>
 );
