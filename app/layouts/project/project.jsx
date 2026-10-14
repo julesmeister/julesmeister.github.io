@@ -29,7 +29,7 @@ import {
   siOpenrouter,
   siOpensourceinitiative,
   siReact,
-  siRxjs,
+  siReactivex,
   siShadcnui,
   siSupabase,
   siTailwindcss,
@@ -43,7 +43,7 @@ const initDelay = 300;
 const roleIcons = {
   Angular: siAngular,
   'Angular Material': siAngular,
-  RxJS: siRxjs,
+  RxJS: siReactivex,
   'Lightning Web Components': siLightning,
   'Apex Classes': siLightning,
   'Apex Triggers': siLightning,

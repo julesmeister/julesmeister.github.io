@@ -35,6 +35,7 @@ export const ContactManagementApp = () => (
         </ProjectSectionText>
         <ProjectImage
           srcSet={`${dashboard} 1600w`}
+          placeholder={dashboard}
           width={1600}
           height={1000}
           alt="Contact Management App card dashboard with fictional sample contacts"
@@ -49,6 +50,7 @@ export const ContactManagementApp = () => (
         </ProjectSectionText>
         <ProjectImage
           srcSet={`${tableView} 1600w`}
+          placeholder={tableView}
           width={1600}
           height={1000}
           alt="Contact Management App table view with fictional sample contacts"
