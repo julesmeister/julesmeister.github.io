@@ -1,5 +1,12 @@
 import { useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import styles from './project-grid.module.css';
+
+const cardVariants = {
+  enter: direction => ({ opacity: 0, x: direction * 48 }),
+  visible: { opacity: 1, x: 0 },
+  exit: direction => ({ opacity: 0, x: direction * -48 }),
+};
 
 const phoneGradients = [
   { base: '#123745', middle: '#087f8c', highlight: '#20aaa4', end: '#17618a', glow: '#51f2da', plane: '#39b8eb' },
@@ -83,14 +90,18 @@ const ProjectCardContent = ({ project, index, preview = false }) => {
 };
 
 export const ProjectGrid = ({ projects }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [{ activeIndex, direction }, setSelection] = useState({ activeIndex: 0, direction: 1 });
+  const reduceMotion = useReducedMotion();
   const activeProject = projects[activeIndex];
   const previousProject = projects[(activeIndex - 1 + projects.length) % projects.length];
   const nextProject = projects[(activeIndex + 1) % projects.length];
   const progress = ((activeIndex + 1) / projects.length) * 100;
 
   const changeProject = offset => {
-    setActiveIndex(index => (index + offset + projects.length) % projects.length);
+    setSelection(selection => ({
+      activeIndex: (selection.activeIndex + offset + projects.length) % projects.length,
+      direction: Math.sign(offset),
+    }));
   };
 
   return (
@@ -117,11 +128,19 @@ export const ProjectGrid = ({ projects }) => {
             }}
             aria-label={`Show previous project: ${previousProject.title}`}
           >
-            <ProjectCardContent
-              project={previousProject}
-              index={(activeIndex - 1 + projects.length) % projects.length}
-              preview
-            />
+            <motion.div
+              key={previousProject.link}
+              className={styles.previewContent}
+              initial={{ opacity: reduceMotion ? 1 : 0.35 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: reduceMotion ? 0 : 0.3 }}
+            >
+              <ProjectCardContent
+                project={previousProject}
+                index={(activeIndex - 1 + projects.length) % projects.length}
+                preview
+              />
+            </motion.div>
           </article>
           <article
             className={styles.preview}
@@ -137,19 +156,36 @@ export const ProjectGrid = ({ projects }) => {
             }}
             aria-label={`Show next project: ${nextProject.title}`}
           >
-            <ProjectCardContent
-              project={nextProject}
-              index={(activeIndex + 1) % projects.length}
-              preview
-            />
+            <motion.div
+              key={nextProject.link}
+              className={styles.previewContent}
+              initial={{ opacity: reduceMotion ? 1 : 0.35 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: reduceMotion ? 0 : 0.3 }}
+            >
+              <ProjectCardContent
+                project={nextProject}
+                index={(activeIndex + 1) % projects.length}
+                preview
+              />
+            </motion.div>
           </article>
-          <article
-            className={styles.projectCard}
-            aria-label={`Project ${activeIndex + 1} of ${projects.length}: ${activeProject.title}`}
-            aria-live="polite"
-          >
-            <ProjectCardContent project={activeProject} index={activeIndex} />
-          </article>
+          <AnimatePresence initial={false} custom={direction}>
+            <motion.article
+              key={activeIndex}
+              className={styles.projectCard}
+              custom={direction}
+              variants={cardVariants}
+              initial={reduceMotion ? false : 'enter'}
+              animate="visible"
+              exit={reduceMotion ? undefined : 'exit'}
+              transition={{ duration: reduceMotion ? 0 : 0.3, ease: [0.22, 1, 0.36, 1] }}
+              aria-label={`Project ${activeIndex + 1} of ${projects.length}: ${activeProject.title}`}
+              aria-live="polite"
+            >
+              <ProjectCardContent project={activeProject} index={activeIndex} />
+            </motion.article>
+          </AnimatePresence>
         </div>
         <div className={styles.carouselControls}>
           <button
