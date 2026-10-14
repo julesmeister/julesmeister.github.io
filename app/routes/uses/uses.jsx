@@ -4,7 +4,6 @@ import usesBackground from '~/assets/uses-background.mp4';
 import { Footer } from '~/components/footer';
 import { Link } from '~/components/link';
 import { List, ListItem } from '~/components/list';
-import { Table, TableBody, TableCell, TableHeadCell, TableRow } from '~/components/table';
 import {
   ProjectBackground,
   ProjectContainer,
@@ -16,6 +15,7 @@ import {
   ProjectTextRow,
 } from '~/layouts/project';
 import { baseMeta } from '~/utils/meta';
+import { gearItems } from '~/utils/gear';
 import styles from './uses.module.css';
 
 export const meta = () => {
@@ -26,6 +26,8 @@ export const meta = () => {
 };
 
 export const Uses = () => {
+  const browser = gearItems.find(({ label }) => label === 'Browser')?.value;
+
   return (
     <>
       <ProjectContainer className={styles.uses}>
@@ -39,7 +41,7 @@ export const Uses = () => {
           description="A somewhat comprehensive list of tools, apps, hardware, and more that I use on a daily basis to design and code things."
         />
         <ProjectSection padding="none" className={styles.section}>
-          <ProjectSectionContent>
+          <ProjectSectionContent className={styles.overviewGrid} width="l">
             <ProjectTextRow width="m">
               <ProjectSectionHeading>Design</ProjectSectionHeading>
               <ProjectSectionText as="div">
@@ -64,10 +66,6 @@ export const Uses = () => {
                 </List>
               </ProjectSectionText>
             </ProjectTextRow>
-          </ProjectSectionContent>
-        </ProjectSection>
-        <ProjectSection padding="none" className={styles.section}>
-          <ProjectSectionContent>
             <ProjectTextRow width="m">
               <ProjectSectionHeading>Development</ProjectSectionHeading>
               <ProjectSectionText as="div">
@@ -78,7 +76,7 @@ export const Uses = () => {
                     typeface of choice.
                   </ListItem>
                   <ListItem>
-                    Arc is my main browser for both development and general use.
+                    I currently use {browser} for development and general browsing.
                   </ListItem>
                   <ListItem>
                     <Link href="https://reactjs.org/">React</Link> is my front end
@@ -107,44 +105,16 @@ export const Uses = () => {
         </ProjectSection>
         <ProjectSection padding="none" className={styles.section}>
           <ProjectSectionContent>
-            <ProjectTextRow stretch width="m">
+            <ProjectTextRow stretch width="l">
               <ProjectSectionHeading>System</ProjectSectionHeading>
-              <Table>
-                <TableBody>
-                  <TableRow>
-                    <TableHeadCell>Desktop</TableHeadCell>
-                    <TableCell>Custom built</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableHeadCell>Operating system</TableHeadCell>
-                    <TableCell>Windows 11</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableHeadCell>Browser</TableHeadCell>
-                    <TableCell>Arc Browser</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableHeadCell>Monitor</TableHeadCell>
-                    <TableCell>Gamdias Atlas 24" Curve HD24C and Nvision QS34G1 Ultra Wide</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableHeadCell>Keyboard</TableHeadCell>
-                    <TableCell>MSI VIGOR GK50Z & VIGOR GK50Z V2 Gaming Mechanical Keyboard Black RGB Light</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableHeadCell>Mouse</TableHeadCell>
-                    <TableCell>Logitech Lift Vertical Ergonomic Mouse</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableHeadCell>Laptop</TableHeadCell>
-                    <TableCell>Macbook Air M2</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableHeadCell>Microphone</TableHeadCell>
-                    <TableCell>HyperX QuadCast Gaming Microphone</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
+              <dl className={styles.systemGrid}>
+                {gearItems.map(({ label, value }) => (
+                  <div className={styles.systemItem} key={label}>
+                    <dt>{label}</dt>
+                    <dd>{value}</dd>
+                  </div>
+                ))}
+              </dl>
             </ProjectTextRow>
           </ProjectSectionContent>
         </ProjectSection>

@@ -563,14 +563,17 @@
 }
 
 .gearGrid {
+  --gearSeparator: 1px solid color-mix(in lab, var(--text) 24%, transparent);
+
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: 0 0 var(--spaceL);
+  border-top: var(--gearSeparator);
 
   & div {
     min-width: 0;
     padding: var(--spaceL) var(--spaceM) var(--spaceL) 0;
-    border-top: 1px solid color-mix(in lab, var(--text) 24%, transparent);
+    border-bottom: var(--gearSeparator);
   }
 
   & dt {
@@ -586,6 +589,10 @@
 
   @media (--mediaTablet) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (--mediaMobile) {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 

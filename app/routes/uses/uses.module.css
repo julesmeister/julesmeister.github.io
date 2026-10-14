@@ -1,5 +1,5 @@
 .uses {
-  --maxWidthL: var(--maxWidthM);
+  --maxWidthL: 1000px;
 }
 
 .section {
@@ -14,5 +14,51 @@
 
   + & {
     margin-top: 0;
+  }
+}
+
+.overviewGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: var(--space3XL);
+}
+
+.systemGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--space2XL);
+  margin: var(--spaceL) 0 0;
+  border-top: 1px solid color-mix(in lab, var(--text) 20%, transparent);
+  border-bottom: 1px solid color-mix(in lab, var(--text) 20%, transparent);
+}
+
+.systemItem {
+  min-width: 0;
+  padding: var(--spaceL) var(--spaceM) var(--spaceL) 0;
+  border-top: 1px solid color-mix(in lab, var(--text) 20%, transparent);
+
+  & dt {
+    margin-bottom: var(--spaceS);
+    color: var(--textLight);
+    font-size: var(--fontSizeBodyXS);
+  }
+
+  & dd {
+    margin: 0;
+    color: var(--textTitle);
+    font-size: var(--fontSizeBodyS);
+    line-height: var(--lineHeightBody);
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (--mediaMobile) {
+  .overviewGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space2XL);
+  }
+
+  .systemGrid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

@@ -12,6 +12,7 @@ import { useHomePage } from '~/hooks/use-home-page';
 import { Link as RouterLink } from '@remix-run/react';
 import { useState } from 'react';
 import config from '~/config.json';
+import { gearItems } from '~/utils/gear';
 import styles from './home.module.css';
 import projectCounterStyles from './project-counter.module.css';
 
@@ -240,16 +241,6 @@ const CertificationsSnapshot = () => (
 );
 
 const GearSnapshot = () => {
-  const gear = [
-    ['Desktop', 'Custom built'],
-    ['Operating system', 'Windows 11'],
-    ['Browser', 'Firefox / Edge'],
-    ['Laptop', 'HP EliteBook'],
-    ['Keyboard', 'MSI VIGOR GK50Z'],
-    ['Mouse', 'Logitech Lift'],
-    ['Microphone', 'Hollyland Lark M2'],
-  ];
-
   return (
     <section className={styles.section} id="gear" aria-labelledby="gear-title">
       <div className={styles.sectionInner}>
@@ -260,7 +251,7 @@ const GearSnapshot = () => {
           description="The hardware and everyday tools behind my work."
         />
         <dl className={styles.gearGrid}>
-          {gear.map(([label, value]) => (
+          {gearItems.map(({ label, value }) => (
             <div key={label}>
               <dt>{label}</dt>
               <dd>{value}</dd>
