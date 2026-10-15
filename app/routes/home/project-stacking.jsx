@@ -29,6 +29,44 @@ const StackingCard = ({ project, index, totalProjects }) => {
   const indexText = index < 10 ? `0${index}` : index;
 
   const model = project.scrollView;
+  const modelConfig = model?.modelType === 'laptop'
+    ? {
+        cameraPosition: { x: 0, y: 0, z: 8 },
+        showDelay: 300,
+        models: [
+          {
+            ...deviceModels.laptop,
+            texture: {
+              ...model.textures[0],
+              sizes: laptopSizes,
+            },
+          },
+        ],
+      }
+    : model?.modelType === 'phone'
+      ? {
+          cameraPosition: { x: 0, y: 0, z: 11.5 },
+          showDelay: 200,
+          models: [
+            {
+              ...deviceModels.phone,
+              position: { x: -0.6, y: 1.1, z: 0 },
+              texture: {
+                ...model.textures[0],
+                sizes: phoneSizes,
+              },
+            },
+            {
+              ...deviceModels.phone,
+              position: { x: 0.6, y: -0.5, z: 0.3 },
+              texture: {
+                ...model.textures[1],
+                sizes: phoneSizes,
+              },
+            },
+          ],
+        }
+      : null;
 
   // Katakana removed - was showing instead of 3D model
 
@@ -58,82 +96,29 @@ const StackingCard = ({ project, index, totalProjects }) => {
           </a>
         </div>
         <div className={styles.cardVisual}>
-        {model?.modelType === 'laptop' && (
-          <>
-            <div className={styles.deviceFrame} data-device="laptop">
-              {!modelLoaded && (
-                <Loader center className={styles.loader} data-visible={true} />
-              )}
-              <img 
-                src={model.textures[0].placeholder} 
-                alt={model.alt}
-                className={styles.deviceScreen}
-              />
-              {isHydrated && (
-                <Suspense fallback={null}>
-                  <LazyModel
-                    alt={model.alt}
-                    cameraPosition={{ x: 0, y: 0, z: 8 }}
-                    showDelay={300}
-                    onLoad={() => setModelLoaded(true)}
-                    show={true}
-                    models={[
-                      {
-                        ...deviceModels.laptop,
-                        texture: {
-                          ...model.textures[0],
-                          sizes: laptopSizes,
-                        },
-                      },
-                    ]}
-                  />
-                </Suspense>
-              )}
-            </div>
-          </>
-        )}
-        {model?.modelType === 'phone' && (
-          <>
-            <div className={styles.deviceFrame} data-device="phone">
-              {!modelLoaded && (
-                <Loader center className={styles.loader} data-visible={true} />
-              )}
-              <img 
-                src={model.textures[0].placeholder} 
-                alt={model.alt}
-                className={styles.deviceScreen}
-              />
-              {isHydrated && (
-                <Suspense fallback={null}>
-                  <LazyModel
-                    alt={model.alt}
-                    cameraPosition={{ x: 0, y: 0, z: 11.5 }}
-                    showDelay={200}
-                    onLoad={() => setModelLoaded(true)}
-                    show={true}
-                    models={[
-                      {
-                        ...deviceModels.phone,
-                        position: { x: -0.6, y: 1.1, z: 0 },
-                        texture: {
-                          ...model.textures[0],
-                          sizes: phoneSizes,
-                        },
-                      },
-                      {
-                        ...deviceModels.phone,
-                        position: { x: 0.6, y: -0.5, z: 0.3 },
-                        texture: {
-                          ...model.textures[1],
-                          sizes: phoneSizes,
-                        },
-                      },
-                    ]}
-                  />
-                </Suspense>
-              )}
-            </div>
-          </>
+        {modelConfig && (
+          <div className={styles.deviceFrame} data-device={model.modelType}>
+            {!modelLoaded && (
+              <Loader center className={styles.loader} data-visible={true} />
+            )}
+            <img
+              src={model.textures[0].placeholder}
+              alt={model.alt}
+              className={styles.deviceScreen}
+            />
+            {isHydrated && (
+              <Suspense fallback={null}>
+                <LazyModel
+                  alt={model.alt}
+                  cameraPosition={modelConfig.cameraPosition}
+                  showDelay={modelConfig.showDelay}
+                  onLoad={() => setModelLoaded(true)}
+                  show={true}
+                  models={modelConfig.models}
+                />
+              </Suspense>
+            )}
+          </div>
         )}
         {!model?.modelType && (
           <img
