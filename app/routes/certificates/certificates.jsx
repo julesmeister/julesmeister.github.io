@@ -14,10 +14,7 @@ import { baseMeta } from '~/utils/meta';
 import { media } from '~/utils/style';
 import { Fragment, useState } from 'react';
 import { Modal } from '~/components/Modal/Modal';
-import adobeAfterEffectsCert from '~/assets/certificates/UC-4c7604d3-efdb-4a3d-aeaf-ebe7cf7cba26.jpg';
-import dartAdvancedCert from '~/assets/certificates/UC-9eca3ac5-80b1-4deb-9634-bb9333f56aca.jpg';
-import iosSwiftBootcampCert from '~/assets/certificates/UC-NNL2TKF5.jpg';
-import salesforcePlatformDeveloperCert from '~/assets/certificates/UC-0f64e9d6-3334-4a59-aec6-56dd7a7204de.jpg';
+import { certificatesData } from './certificates-data';
 import styles from './certificates.module.css';
 
 export const meta = () => {
@@ -27,79 +24,99 @@ export const meta = () => {
   });
 };
 
-const CertificateCard = ({ image, title, issuer, date, description, onImageClick }) => (
-  <div className={styles.certificateCard}>
-    <div
-      className={styles.certificateImageWrapper}
-      onClick={() => onImageClick(image, title)}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          onImageClick(image, title);
-        }
-      }}
-      aria-label={`View ${title} certificate`}
-    >
-      <Image
-        src={image}
-        alt={title}
-        className={styles.certificateImage}
-        width={400}
-        height={300}
-        sizes={`(max-width: ${media.mobile}px) 90vw, 400px`}
-      />
-      <div className={styles.certificateOverlay}>
-        <span className={styles.viewIcon}>View</span>
+const CertificateCard = ({ image, gallery, title, issuer, date, description, documents, onImageClick }) => (
+  <article className={`${styles.certificateCard} ${gallery ? styles.mergedCertificateCard : ''}`}>
+    {gallery ? (
+      <div className={`${styles.certificateImageWrapper} ${styles.mergedCertificateImages}`}>
+        <span className={styles.projectIndex}>FLUTTER / DART</span>
+        {gallery.map((certificate) => (
+          <button
+            className={styles.mergedCertificateImage}
+            type="button"
+            key={certificate.title}
+            onClick={() => onImageClick(certificate.image, certificate.title)}
+            aria-label={`View ${certificate.title} certificate`}
+          >
+            <Image
+              src={certificate.image}
+              alt=""
+              className={styles.certificateImage}
+              width={600}
+              height={400}
+              sizes={`(max-width: ${media.mobile}px) 42vw, 360px`}
+            />
+            <span className={styles.mergedCertificateLabel}>
+              {certificate.label}
+              <small>{certificate.date}</small>
+            </span>
+          </button>
+        ))}
       </div>
-    </div>
+    ) : image ? (
+      <button
+        className={styles.certificateImageWrapper}
+        type="button"
+        onClick={() => onImageClick(image, title)}
+        aria-label={`View ${title} certificate`}
+      >
+        <Image
+          src={image}
+          alt={title}
+          className={styles.certificateImage}
+          width={600}
+          height={400}
+          sizes={`(max-width: ${media.mobile}px) 90vw, 400px`}
+        />
+        <span className={styles.certificateOverlay}>
+          <span className={styles.viewIcon}>View</span>
+        </span>
+      </button>
+    ) : documents ? (
+      <div
+        className={`${styles.certificateImageWrapper} ${styles.documentPreview}`}
+        role="img"
+        aria-label={`${documents.length} PDF certificate${documents.length === 1 ? '' : 's'}`}
+      >
+        <div className={styles.documentPreviewStack}>
+          {documents.slice(0, 3).map((document, index) => (
+            <div className={styles.documentSheet} key={document.title}>
+              <span className={styles.pdfBadge}>PDF</span>
+              <span className={styles.documentPreviewTitle}>{document.title}</span>
+              <span className={styles.documentPreviewIndex}>
+                {String(index + 1).padStart(2, '0')} / {String(documents.length).padStart(2, '0')}
+              </span>
+            </div>
+          ))}
+        </div>
+        <span className={styles.documentCount}>{documents.length} PDF FILES</span>
+      </div>
+    ) : null}
     <div className={styles.certificateContent}>
       <h3 className={styles.certificateTitle}>{title}</h3>
-      <p className={styles.certificateMeta}>
-        <span className={styles.certificateIssuer}>{issuer}</span>
-        <span className={styles.certificateDate}>{date}</span>
-      </p>
-      {description && (
-        <p className={styles.certificateDescription}>{description}</p>
+      {(issuer || date) && (
+        <p className={styles.certificateMeta}>
+          {issuer && <span className={styles.certificateIssuer}>{issuer}</span>}
+          {date && <span className={styles.certificateDate}>{date}</span>}
+        </p>
+      )}
+      {description && <p className={styles.certificateDescription}>{description}</p>}
+      {documents && (
+        <ul className={styles.certificateDocuments}>
+          {documents.map((document) => (
+            <li key={document.title}>
+              <a href={document.file} target="_blank" rel="noreferrer">
+                {document.title}
+              </a>
+            </li>
+          ))}
+        </ul>
       )}
     </div>
-  </div>
+  </article>
 );
 
 export const Certificates = () => {
   const [selectedImage, setSelectedImage] = useState(null);
-
-  const certificates = [
-    {
-      image: salesforcePlatformDeveloperCert,
-      title: 'Salesforce Certified Platform Developer I (LWC & Aura)',
-      issuer: 'Udemy',
-      date: 'December 29, 2024',
-      description: 'Course covering Salesforce Platform Developer concepts, Lightning Web Components, and Aura.',
-    },
-    {
-      image: adobeAfterEffectsCert,
-      title: 'Adobe After Effects CC Bootcamp: Beginner to Advanced',
-      issuer: 'Udemy',
-      date: 'April 15, 2026',
-      description: 'A 35-hour course in Adobe After Effects, from beginner foundations to advanced techniques.',
-    },
-    {
-      image: dartAdvancedCert,
-      title: 'Dart - Advanced Course',
-      issuer: 'Udemy',
-      date: 'December 3, 2020',
-      description: 'An advanced course in the Dart programming language.',
-    },
-    {
-      image: iosSwiftBootcampCert,
-      title: 'iOS 12 & Swift - The Complete iOS App Development Bootcamp',
-      issuer: 'Udemy',
-      date: 'July 30, 2019',
-      description: 'A 55.5-hour bootcamp in iOS app development with Swift.',
-    },
-  ];
 
   const handleImageClick = (imageSrc, title) => {
     setSelectedImage({ src: imageSrc, alt: title });
@@ -118,15 +135,15 @@ export const Certificates = () => {
             <ProjectTextRow width="m">
               <ProjectSectionHeading>Course Certificates</ProjectSectionHeading>
               <ProjectSectionText>
-                A selection of courses completed in Salesforce, mobile development, Dart, and motion graphics.
+                A selection of learning across software development, data, and creative tools.
               </ProjectSectionText>
             </ProjectTextRow>
             
             <div className={styles.certificatesGrid}>
-              {certificates.map((cert) => (
+              {certificatesData.map((certificate) => (
                 <CertificateCard
-                  key={cert.title}
-                  {...cert}
+                  key={certificate.title}
+                  {...certificate}
                   onImageClick={handleImageClick}
                 />
               ))}

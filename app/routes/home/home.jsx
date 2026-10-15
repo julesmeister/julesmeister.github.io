@@ -13,6 +13,7 @@ import { Link as RouterLink } from '@remix-run/react';
 import { useState } from 'react';
 import config from '~/config.json';
 import { gearItems } from '~/utils/gear';
+import { certificatesData } from '~/routes/certificates/certificates-data';
 import styles from './home.module.css';
 import projectCounterStyles from './project-counter.module.css';
 
@@ -209,13 +210,6 @@ const CareerSnapshot = () => {
   );
 };
 
-const certificateSummaryItems = [
-  { title: 'Adobe After Effects CC Bootcamp: Beginner to Advanced', date: 'April 2026' },
-  { title: 'Salesforce Certified Platform Developer I (LWC & Aura)', date: 'December 2024' },
-  { title: 'Dart - Advanced Course', date: 'December 2020' },
-  { title: 'iOS 12 & Swift - The Complete iOS App Development Bootcamp', date: 'July 2019' },
-];
-
 const CertificationsSnapshot = () => (
   <section className={styles.section} id="certificates" aria-labelledby="certificates-title">
     <div className={styles.sectionInner}>
@@ -223,18 +217,20 @@ const CertificationsSnapshot = () => (
         id="certificates-title"
         eyebrow="[Learning / credentials]"
         title="Certificates"
-        description="Four course certificates across software development and creative tools."
+        description={`${certificatesData.length} course entries across software development and creative tools.`}
       />
       <div className={styles.credentialList}>
-        {certificateSummaryItems.map(({ title, date }) => (
+        {certificatesData.map(({ title, issuer, date, documents }) => (
           <article className={styles.credential} key={title}>
-            <p className={styles.entryLabel}>Udemy / {date}</p>
+            <p className={styles.entryLabel}>
+              {issuer ? [issuer, date].filter(Boolean).join(' / ') : `${documents.length} module certificates`}
+            </p>
             <h3>{title}</h3>
           </article>
         ))}
       </div>
       <RouterLink className={styles.textLink} to="/certificates">
-        View all four certificates <span aria-hidden="true">&#8599;</span>
+        View all {certificatesData.length} certificate entries <span aria-hidden="true">&#8599;</span>
       </RouterLink>
     </div>
   </section>
