@@ -5,7 +5,7 @@ import right from '~/assets/me-right-facing.jpg';
 import up from '~/assets/me-up-facing.jpg';
 import down from '~/assets/me-down-facing.jpg';
 import upRight from '~/assets/me-up-right-facing.jpg';
-import downRight from '~/assets/me-down-right-facing.png';
+import downRight from '~/assets/me-down-right-facing.jpg';
 import styles from './profile.module.css';
 
 const portraits = { front, left, right, up, down, upRight, downRight };
