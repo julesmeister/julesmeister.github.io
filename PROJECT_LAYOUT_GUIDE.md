@@ -1,6 +1,6 @@
 # Project Layout Design Guide
 
-This guide provides comprehensive instructions for creating new project pages in the portfolio, based on established patterns from existing projects.
+This guide explains the shared data-driven project system and the custom JSX escape hatch for project pages that need unique interactions or composition.
 
 ## Table of Contents
 
@@ -17,12 +17,7 @@ This guide provides comprehensive instructions for creating new project pages in
 
 ## Overview
 
-All project pages follow a consistent architecture using:
-- **Remix routing** (file-based routes in `app/routes/projects.*`)
-- **Modern layout pattern** with timeline steps and feature cards
-- **Interactive features** (image magnifier, modal viewer)
-- **Shared components** from `~/layouts/project`
-- **Custom hooks** for page logic and interactions
+New projects should use a typed `{projectName}.project.js` definition rendered by `ProjectTemplate`. Common timeline, feature, image-text, and text sections use shared styles and the optional shared image viewer. Keep custom JSX and project CSS for layouts or interactions that do not fit those blocks.
 
 ---
 
@@ -32,8 +27,9 @@ All project pages follow a consistent architecture using:
 ```
 app/routes/projects.{projectName}/
 ├── route.js                    # Route export
-├── {projectName}.jsx           # Main component file
-└── {projectName}.module.css    # Component styles
+├── {projectName}.project.js    # Typed content, theme, and section definitions
+├── {projectName}.page.jsx      # Optional thin ProjectTemplate adapter
+└── {projectName}.module.css    # Optional: only for unique page styling
 ```
 
 ### Route File (`route.js`)
@@ -41,7 +37,11 @@ app/routes/projects.{projectName}/
 export { ProjectName as default, meta } from './{projectName}';
 ```
 
-### Main Component File Pattern
+For a data-driven page, the route may re-export from `{projectName}.page.jsx`; the page module imports the project definition, creates metadata, and renders `<ProjectTemplate {...projectDefinition} />`.
+
+### Custom JSX Route Pattern
+
+Use a custom component only when the page needs interactions or composition that the shared section types cannot express. Most pages should only need `route.js`, `{projectName}.project.js`, and the shared template.
 ```javascript
 // 1. Image imports
 import backgroundImg from '~/assets/{project}/...';
@@ -81,8 +81,8 @@ import styles from './{projectName}.module.css';
 
 ## Core Patterns
 
-### 1. Project Configuration
-Every project should define a configuration object:
+### 1. Shared Project Definition (recommended)
+New projects should use the typed `ProjectDefinition` format below. The metadata-only object shown here is retained for custom JSX routes; data-driven routes should include a `sections` array instead of a manually maintained `sectionNames` list.
 
 ```javascript
 const projectConfig = {
@@ -100,7 +100,78 @@ const projectConfig = {
 };
 ```
 
-### 2. Data Structures
+#### Data-driven project definitions
+
+For projects that fit the shared layouts, put metadata and section content in a `{projectName}.project.js` module. JavaScript modules are preferred over JSON when images come from `app/assets`, because the bundler can resolve and optimize imported assets. The `ProjectDefinition` declaration provides editor checking for the supported section shapes.
+
+```javascript
+// @ts-check
+import dashboard from '~/assets/example/dashboard.png';
+import feature from '~/assets/example/feature.png';
+
+/** @type {import('~/components/project-template/project-definition').ProjectDefinition} */
+export const exampleProject = {
+  title: 'Example Project',
+  description: 'A concise project overview.',
+  roles: ['React', 'TypeScript'],
+  url: 'https://example.com',
+  backgroundImage: dashboard,
+  backgroundOptions: { width: 800, height: 1600, opacity: 0.8 },
+  theme: { primary: '#287c72', secondary: '#17645c' },
+  imageViewer: true,
+  sections: [
+    {
+      id: 'overview',
+      type: 'timeline',
+      layout: 'horizontal',
+      offsets: [55, 25, 45],
+      items: [
+        { stepNumber: 1, image: dashboard, title: 'Dashboard', description: 'The main view.' },
+      ],
+    },
+    {
+      id: 'features',
+      type: 'features',
+      layout: 'alternating',
+      delays: [0.2],
+      heading: 'Features',
+      items: [
+        { featureNumber: 1, image: feature, title: 'Reporting', description: 'Clear project metrics.' },
+      ],
+    },
+    {
+      id: 'details',
+      type: 'image-text',
+      heading: 'How it works',
+      paragraphs: ['First detail paragraph.', 'Second detail paragraph.'],
+      imageOffsets: [5, -5],
+      images: [{ src: dashboard, alt: 'Project dashboard' }],
+    },
+    {
+      id: 'stack',
+      type: 'text',
+      blocks: [
+        { type: 'heading', text: 'Technology' },
+        { type: 'paragraph', content: ['Built with React. ', { text: 'Source code', href: 'https://example.com/repo' }] },
+      ],
+    },
+  ],
+};
+```
+
+Render the definition with the shared template:
+
+```jsx
+import { ProjectTemplate, createProjectMeta } from '~/components/project-template';
+import { exampleProject } from './example.project';
+
+export const meta = createProjectMeta(exampleProject.title, exampleProject.description);
+export const ExampleProject = () => <ProjectTemplate {...exampleProject} />;
+```
+
+Section IDs become navigation refs automatically. Shared styles use the `theme` and section `layout` values, so standard pages do not need a project-specific CSS module. `offsets` are timeline vertical offsets in pixels, `delays` are feature entrance delays in seconds, and `imageOffsets` control the image stack in percentages. Text blocks can mix plain text with `{ text, href }` links. Supported section types are `timeline`, `features`, `image-text`, and `text`. Projects with genuinely custom interactions or composition can keep JSX and use `ProjectTemplate`'s children API; avoid adding booleans to the common schema for one-off designs.
+
+### 2. Legacy JSX Data Structures (custom routes only)
 
 #### Timeline Steps (3 steps recommended)
 ```javascript
@@ -128,7 +199,7 @@ const sidebarImages = [
 ];
 ```
 
-### 3. Component Structure
+### 3. Custom JSX Component Structure
 
 ```javascript
 export const ProjectName = () => {
@@ -183,11 +254,11 @@ export const ProjectName = () => {
 
 ---
 
-## Layout Types
+## Layout Types for Custom JSX
 
-### Layout 1: Modern Timeline + Feature Flow (Recommended)
+### Layout 1: Modern Timeline + Feature Flow
 
-**Best for**: New projects, modern presentations
+**Best for**: Custom pages that need to compose the existing timeline and feature visuals directly. For standard pages, use the data-driven `timeline` and `features` blocks.
 **Examples**: `lotel`, `orbitandchill`, `blueprintjs_flutter`
 
 **Sections**:
@@ -493,7 +564,7 @@ export const meta = createProjectMeta(
 
 ## Styling Guidelines
 
-### CSS Module Structure
+### CSS Module Structure (custom sections only)
 
 **Required classes for Modern Timeline Layout:**
 
@@ -773,41 +844,25 @@ The portfolio uses these CSS variables (from `global.module.css`):
 
 ## Step-by-Step Implementation
 
-### Step 1: Create Project Directory
+### Step 1: Create the Project Directory and Assets
 ```bash
 mkdir app/routes/projects.{projectName}
 ```
 
-### Step 2: Add Images
-1. Place images in `app/assets/{projectName}/`
-2. Use descriptive filenames
-3. Optimize images (recommended: < 500KB each)
+Place optimized images in `app/assets/{projectName}/` and import them from the project definition module.
 
-### Step 3: Create Route File
+### Step 2: Create the Project Definition
+Create `{projectName}.project.js`, add `// @ts-check`, import assets, and annotate the exported object with `ProjectDefinition`. Choose shared section types and set theme/layout values in data. Use `imageViewer: true` to enable the shared modal and magnifier.
+
+### Step 3: Create the Thin Route
 Create `route.js`:
 ```javascript
 export { ProjectName as default, meta } from './{projectName}';
 ```
 
-### Step 4: Create Main Component
-Create `{projectName}.jsx` with:
+The route component can simply spread the definition into `ProjectTemplate` and derive metadata with `createProjectMeta`. Add a custom component only when the page needs markup that the shared blocks cannot express.
 
-1. **Imports** (images, components, hooks, utilities, styles)
-2. **Project Configuration** object
-3. **Data Structures** (timeline steps, feature cards, sidebar images)
-4. **Meta Export** using `createProjectMeta`
-5. **Component** with:
-   - State and hooks
-   - Event handlers
-   - JSX structure
-   - Magnifier
-   - Modal
-   - Footer
-
-### Step 5: Create Styles
-Create `{projectName}.module.css` with required classes for your chosen layout type.
-
-### Step 6: Add to Projects Data
+### Step 4: Add to Projects Data
 Update `app/routes/home/projects-data.js`:
 
 ```javascript
@@ -825,12 +880,12 @@ export const projects = [
 ];
 ```
 
-### Step 7: Test
+### Step 5: Test
 1. Run dev server: `npm run dev`
 2. Navigate to `/projects/{projectName}`
-3. Test image interactions (magnifier, modal)
-4. Test responsive layout
-5. Verify section navigation
+3. Verify every configured section and image
+4. Test image viewing if `imageViewer` is enabled
+5. Test responsive layout and section navigation
 
 ---
 
@@ -851,15 +906,15 @@ export const projects = [
 ### Performance
 - Lazy load images below the fold
 - Use `placeholder` prop for blur-up effect
-- Minimize CSS module size
-- Use CSS variables for consistency
+- Prefer shared section types and theme variables over route-specific CSS
+- Add project CSS only for a genuinely unique visual or interaction
 
 ### Content
 - **Title**: Clear, concise (3-5 words)
 - **Description**: Detailed but scannable (2-3 sentences)
 - **Roles**: 3-4 key technologies
-- **Timeline**: 3 steps showing project flow
-- **Features**: 2-3 advanced features
+- **Timeline**: Add only the steps that tell the project story
+- **Features**: Group related capabilities into readable cards
 - **Tech Stack**: Detailed technical explanation
 
 ### Code Quality
@@ -876,21 +931,13 @@ export const projects = [
 - [ ] Create project directory structure
 - [ ] Add optimized images to assets
 - [ ] Create `route.js` with proper export
-- [ ] Create main component with all sections
-- [ ] Define project configuration
-- [ ] Create timeline steps data (3 steps)
-- [ ] Create feature cards data (2-3 cards)
-- [ ] Add sidebar images for tech stack
-- [ ] Implement all event handlers
-- [ ] Add magnifier component
-- [ ] Add modal component
-- [ ] Create CSS module with required classes
-- [ ] Add responsive breakpoints
+- [ ] Create typed `{projectName}.project.js` definition
+- [ ] Use supported shared section types and theme values
+- [ ] Enable shared image viewer if needed
+- [ ] Keep custom JSX/CSS limited to unique sections
 - [ ] Export meta using `createProjectMeta`
 - [ ] Update `projects-data.js`
-- [ ] Test image interactions
-- [ ] Test responsive layout
-- [ ] Test section navigation
+- [ ] Verify content, image links, and responsive layout
 - [ ] Verify accessibility
 - [ ] Optimize performance
 

@@ -1,1 +1,1 @@
-export { OrbitAndChillMobile as default, meta } from './orbitandchill-mobile';
+export { OrbitAndChillMobile as default, meta } from './orbitandchill-mobile.page';

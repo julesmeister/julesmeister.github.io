@@ -1,1 +1,1 @@
-export { BlueprintjsFlutter as default, meta } from './blueprintjs-flutter';
+export { BlueprintjsFlutter as default, meta } from './blueprintjs-flutter.page';
