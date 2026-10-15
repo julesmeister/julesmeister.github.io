@@ -164,9 +164,9 @@ export const Airline = () => {
               sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 800px, 1000px`}
               alt="These are the assignment boxes or flight schedules"
             />
-            <div className={styles.captionWrapper}>
+            <div className={styles.captionWrapper} data-align="left">
               <span className={styles.captionContent}>
-                <Icon icon="link" className={styles.captionIcon} />
+                <Icon icon="link" className={styles.captionIcon} data-spacing="wide" />
                 <span className={styles.imageCaption}>
                   "Crews who are available for flight assignments are dropped in these assignment boxes. A crew can also be removed from the assignment by clicking the 'X' button."
                 </span>
@@ -194,9 +194,9 @@ export const Airline = () => {
               sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 800px, 1000px`}
               alt="This is how those assignment boxes are created"
             />
-            <div className={styles.captionWrapper}>
+            <div className={styles.captionWrapper} data-align="left">
               <span className={styles.captionContent}>
-                <Icon icon="link" className={styles.captionIcon} />
+                <Icon icon="link" className={styles.captionIcon} data-spacing="wide" />
                 <span className={styles.imageCaption}>
                   "Quite simply how those crew assignments are created. I managed to
                   squeeze this create button between the previous and next buttons. The
@@ -250,7 +250,7 @@ export const Airline = () => {
                 />
               </div>
             </div>
-            <div className={styles.gridText}>
+            <div className={styles.gridText} data-spacing="compact">
               <ProjectSectionHeading>Crews</ProjectSectionHeading>
               <ProjectSectionText>
                 Crews can be either a Pilot or a Flight Attendant. The reason why I
@@ -350,9 +350,9 @@ export const Airline = () => {
               sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 800px, 1000px`}
               alt="This is how those assignment boxes are created"
             />
-            <div className={styles.captionWrapper}>
+            <div className={styles.captionWrapper} data-align="left">
               <span className={styles.captionContent}>
-                <Icon icon="link" className={styles.captionIcon} />
+                <Icon icon="link" className={styles.captionIcon} data-spacing="wide" />
                 <span className={styles.imageCaption}>
                   "Flight Map is a map that visualizes the origin and destination
                   of each flight. It's a separate LWC component from the

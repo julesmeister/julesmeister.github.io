@@ -566,6 +566,15 @@ export const meta = createProjectMeta(
 
 ### CSS Module Structure (custom sections only)
 
+For custom JSX routes, import the shared styles before adding project-specific rules:
+
+```css
+@import '../../styles/project-interactions.css';
+@import '../../styles/project-layouts.css';
+```
+
+Use those shared layout classes for grids, columns, sidebars, and captions instead of copying their declarations into the route module. Caption alignment and icon spacing are configurable with `data-align="left"` and `data-spacing="wide"`. Keep only genuinely unique visuals in the project module.
+
 **Required classes for Modern Timeline Layout:**
 
 ```css

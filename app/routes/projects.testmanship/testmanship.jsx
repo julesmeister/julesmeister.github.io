@@ -189,9 +189,9 @@ export const Testmanship = () => {
               sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 800px, 1000px`}
               alt="Testmanship dashboard showing a student's progress"
             />
-            <div className={styles.captionWrapper}>
+            <div className={styles.captionWrapper} data-align="left">
               <span className={styles.captionContent}>
-                <Icon icon="link" className={styles.captionIcon} />
+                <Icon icon="link" className={styles.captionIcon} data-spacing="wide" />
                 <span className={styles.imageCaption}>
                   "Upon completing challenges, users are presented with an exercise on their dashboard tailored to their identified weak points, facilitating targeted learning and improvement."
               </span>
