@@ -1,18 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import front from '~/assets/me-front-facing.jpg';
-import left from '~/assets/me-left-facing.jpg';
+import left from '~/assets/me-left-facing.png';
 import right from '~/assets/me-right-facing.jpg';
 import up from '~/assets/me-up-facing.jpg';
 import down from '~/assets/me-down-facing.jpg';
 import upRight from '~/assets/me-up-right-facing.jpg';
-import downRight from '~/assets/me-down-right-facing.jpg';
+import downRight from '~/assets/me-down-right-facing.png';
 import styles from './profile.module.css';
 
 const portraits = { front, left, right, up, down, upRight, downRight };
-const alignment = {
-  left: { '--pose-x': '2%', '--pose-y': '-1%' },
-  downRight: { '--pose-x': '0.5%', '--pose-y': '1%' },
-};
 
 export const ProfilePortrait = () => {
   const container = useRef(null);
@@ -105,7 +101,6 @@ export const ProfilePortrait = () => {
         (pose === 'front' || preload) && (
           <img
             className={styles.portraitPose}
-            style={alignment[pose]}
             key={pose}
             src={source}
             alt={pose === 'front' ? 'Jules Lee at the Galilean Sea' : ''}

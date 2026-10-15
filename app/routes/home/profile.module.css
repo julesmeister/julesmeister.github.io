@@ -103,7 +103,6 @@
   z-index: 1;
   display: block;
   object-fit: fill;
-  transform: translate(var(--pose-x, 0%), var(--pose-y, 0%));
   opacity: 0;
   pointer-events: none;
   transition: opacity 140ms ease-out;
