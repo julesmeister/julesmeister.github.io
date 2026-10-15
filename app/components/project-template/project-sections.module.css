@@ -72,7 +72,8 @@
   display: grid;
   place-items: center;
   border: 3px solid var(--background);
-  border-radius: 50%;
+  border-radius: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 72%, 72% 100%, 0 100%);
   background: linear-gradient(135deg, var(--project-primary, var(--accent)), var(--project-secondary, var(--accent)));
   color: #fff;
   font-size: 1.1rem;
@@ -155,7 +156,8 @@
   display: grid;
   place-items: center;
   border: 3px solid var(--background);
-  border-radius: 50%;
+  border-radius: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 72%, 72% 100%, 0 100%);
   background: linear-gradient(135deg, var(--project-primary, var(--accent)), var(--project-secondary, var(--accent)));
   color: #fff;
   font-size: 1.1rem;
