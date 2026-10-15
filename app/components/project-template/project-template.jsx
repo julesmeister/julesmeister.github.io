@@ -1,17 +1,15 @@
-import { Fragment, useMemo, useState } from 'react';
+import { Fragment, useMemo } from 'react';
 import { Footer } from '~/components/footer';
-import { Image } from '~/components/image';
-import { Modal } from '~/components/Modal/Modal';
 import {
   ProjectBackground,
   ProjectContainer,
   ProjectHeader,
 } from '~/layouts/project';
 import { useProjectPage } from '~/hooks/use-project-page';
-import { useMagnifier } from '~/hooks/use-magnifier';
+import { useProjectImageViewer } from '~/hooks/use-project-image-viewer';
 import { baseMeta } from '~/utils/meta';
+import { ProjectImageViewer } from './project-image-viewer';
 import { ProjectSections } from './project-sections';
-import '~/styles/project-interactions.css';
 
 const defaultSectionNames = ['header', 'intro', 'details'];
 
@@ -31,7 +29,7 @@ export const ProjectTemplate = ({
   backgroundImage,
   backgroundOptions,
   theme,
-  imageViewer = false,
+  imageViewer: imageViewerEnabled = false,
   sections,
   getImageHandlers,
   children,
@@ -53,15 +51,8 @@ export const ProjectTemplate = ({
     '--project-primary': theme.primary,
     '--project-secondary': theme.secondary,
   } : undefined;
-  const [selectedImage, setSelectedImage] = useState(null);
-  const { magnifier, showMagnifier, hideMagnifier, updateMagnifier } = useMagnifier();
-  const getImageViewerHandlers = (image, alt) => ({
-    onClick: () => setSelectedImage({ src: image, alt }),
-    onMouseMove: (event) => updateMagnifier(event, image),
-    onMouseEnter: (event) => showMagnifier(event, image),
-    onMouseLeave: hideMagnifier,
-  });
-  const sectionImageHandlers = getImageHandlers || (imageViewer ? getImageViewerHandlers : undefined);
+  const imageViewer = useProjectImageViewer();
+  const sectionImageHandlers = getImageHandlers || (imageViewerEnabled ? imageViewer.getImageHandlers : undefined);
 
   return (
     <Fragment>
@@ -100,24 +91,8 @@ export const ProjectTemplate = ({
           children({ sectionRefs, visibleSections, currentSectionIndex })
         ) : children}
       </ProjectContainer>
-      {imageViewer && magnifier.isVisible && (
-        <div
-          className="magnifier"
-          style={{
-            left: magnifier.x,
-            top: magnifier.y,
-            backgroundImage: `url(${magnifier.currentImage})`,
-            backgroundPosition: `${magnifier.backgroundX}% ${magnifier.backgroundY}%`,
-          }}
-        />
-      )}
-      {imageViewer && selectedImage && (
-        <Modal isOpen={!!selectedImage} onClose={() => setSelectedImage(null)}>
-          <div className="modalImageContainer">
-            <Image src={selectedImage.src} alt={selectedImage.alt} className="modalImage" />
-            <p className="modalCaption">{selectedImage.alt}</p>
-          </div>
-        </Modal>
+      {imageViewerEnabled && (
+        <ProjectImageViewer {...imageViewer} />
       )}
       <Footer />
     </Fragment>

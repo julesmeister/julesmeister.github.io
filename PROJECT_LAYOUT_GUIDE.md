@@ -47,12 +47,12 @@ Use a custom component only when the page needs interactions or composition that
 import backgroundImg from '~/assets/{project}/...';
 
 // 2. React imports
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 
 // 3. Component imports
 import { Image } from '~/components/image';
 import { Footer } from '~/components/footer';
-import { Modal } from '~/components/Modal/Modal';
+import { ProjectImageViewer, createProjectMeta } from '~/components/project-template';
 
 // 4. Layout imports
 import {
@@ -67,9 +67,8 @@ import {
 } from '~/layouts/project';
 
 // 5. Utilities and hooks
-import { createProjectMeta } from '~/components/project-template';
 import { useProjectPage } from '~/hooks/use-project-page';
-import { useMagnifier } from '~/hooks/use-magnifier';
+import { useProjectImageViewer } from '~/hooks/use-project-image-viewer';
 import { createImageVariants, createTimelineStep, createFeatureCard } from '~/utils/project-helpers';
 import { media } from '~/utils/style';
 
@@ -439,50 +438,21 @@ export const ProjectName = () => {
 
 ### Image with Interactive Features
 ```javascript
+const imageViewer = useProjectImageViewer();
+
 <div
   className={styles.imageWrapper}
-  onClick={() => handleImageClick(imageSrc, altText)}
-  onMouseMove={(e) => handleMouseMove(e, imageSrc)}
-  onMouseEnter={(e) => handleMouseEnter(e, imageSrc)}
-  onMouseLeave={handleMouseLeave}
+  {...imageViewer.getImageHandlers(imageSrc, altText)}
 >
   <Image
     {...createImageVariants(imageSrc, altText, { width: 600, height: 400 })}
     sizes="(max-width: 768px) 90vw, 45vw"
   />
 </div>
+<ProjectImageViewer {...imageViewer} />
 ```
 
-### Magnifier Component
-```javascript
-{magnifier.isVisible && (
-  <div
-    className={styles.magnifier}
-    style={{
-      left: magnifier.x,
-      top: magnifier.y,
-      backgroundImage: `url(${magnifier.currentImage})`,
-      backgroundPosition: `${magnifier.backgroundX}% ${magnifier.backgroundY}%`,
-    }}
-  />
-)}
-```
-
-### Modal Component
-```javascript
-{selectedImage && (
-  <Modal isOpen={!!selectedImage} onClose={() => setSelectedImage(null)}>
-    <div className={styles.modalImageContainer}>
-      <Image
-        src={selectedImage.src}
-        alt={selectedImage.alt}
-        className={styles.modalImage}
-      />
-      <p className={styles.modalCaption}>{selectedImage.alt}</p>
-    </div>
-  </Modal>
-)}
-```
+The shared viewer owns the image modal and cursor magnifier. It also loads the shared interaction styles, so custom routes do not need to duplicate those CSS rules.
 
 ---
 
@@ -503,16 +473,13 @@ const { sectionRefs } = useProjectPage([
 <ProjectSection ref={sectionRefs.intro}>
 ```
 
-### `useMagnifier()`
-Provides magnifier functionality for images.
+### `useProjectImageViewer()`
+Provides click, hover, modal, and magnifier behavior for custom JSX image layouts.
 
 ```javascript
-const {
-  magnifier,           // State object
-  showMagnifier,       // (e, imageSrc) => void
-  hideMagnifier,       // () => void
-  updateMagnifier      // (e, imageSrc) => void
-} = useMagnifier();
+const imageViewer = useProjectImageViewer();
+imageViewer.getImageHandlers(imageSrc, altText);
+<ProjectImageViewer {...imageViewer} />
 ```
 
 ### `createImageVariants(src, alt, options)`
@@ -569,11 +536,10 @@ export const meta = createProjectMeta(
 For custom JSX routes, import the shared styles before adding project-specific rules:
 
 ```css
-@import '../../styles/project-interactions.css';
 @import '../../styles/project-layouts.css';
 ```
 
-Use those shared layout classes for grids, columns, sidebars, and captions instead of copying their declarations into the route module. Caption alignment and icon spacing are configurable with `data-align="left"` and `data-spacing="wide"`. Keep only genuinely unique visuals in the project module.
+Use those shared layout classes for grids, columns, sidebars, and captions instead of copying their declarations into the route module. `ProjectImageViewer` loads the shared interaction styles; import `project-interactions.css` directly only when using those interaction classes without that component. Caption alignment and icon spacing are configurable with `data-align="left"` and `data-spacing="wide"`. Keep only genuinely unique visuals in the project module.
 
 **Required classes for Modern Timeline Layout:**
 

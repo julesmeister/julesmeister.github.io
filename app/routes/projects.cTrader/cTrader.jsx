@@ -5,11 +5,11 @@ import cTraderScreenShot from '~/assets/cTrader.png';
 import equityStopNew from '~/assets/equity-stop-order-cooldown.png';
 import equityStopOld from '~/assets/Equity-Stop-Old.png';
 
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import { Image } from '~/components/image';
 import { Icon } from '~/components/icon';
 import { Footer } from '~/components/footer';
-import { Modal } from '~/components/Modal/Modal';
+import { ProjectImageViewer, createProjectMeta } from '~/components/project-template';
 import {
   ProjectBackground,
   ProjectContainer,
@@ -21,9 +21,8 @@ import {
   ProjectSectionHeading,
   ProjectSectionText,
 } from '~/layouts/project';
-import { createProjectMeta } from '~/components/project-template';
 import { useProjectPage } from '~/hooks/use-project-page';
-import { useMagnifier } from '~/hooks/use-magnifier';
+import { useProjectImageViewer } from '~/hooks/use-project-image-viewer';
 import { createImageVariants } from '~/utils/project-helpers';
 import { List, ListItem } from '~/components/list';
 import { media } from '~/utils/style';
@@ -49,25 +48,9 @@ const sidebarImages = [
 export const meta = createProjectMeta(projectConfig.title, projectConfig.description);
 
 export const Slice = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
-  const { magnifier, showMagnifier, hideMagnifier, updateMagnifier } = useMagnifier();
+  const imageViewer = useProjectImageViewer();
+  const { getImageHandlers } = imageViewer;
   const { sectionRefs } = useProjectPage(projectConfig.sectionNames);
-
-  const handleImageClick = (imageSrc, alt) => {
-    setSelectedImage({ src: imageSrc, alt });
-  };
-
-  const handleMouseMove = (e, imageSrc) => {
-    updateMagnifier(e, imageSrc);
-  };
-
-  const handleMouseLeave = () => {
-    hideMagnifier();
-  };
-
-  const handleMouseEnter = (e, imageSrc) => {
-    showMagnifier(e, imageSrc);
-  };
 
   return (
     <Fragment>
@@ -91,11 +74,8 @@ export const Slice = () => {
         <ProjectSection padding="top" ref={sectionRefs.intro}>
           <ProjectSectionContent>
             <div 
-              className={styles.themeImageWrapper}
-              onClick={() => handleImageClick(cTraderScreenShot, "Enhanced Equity Stop plugin interface showing lot size controls and cooldown features")}
-              onMouseMove={(e) => handleMouseMove(e, cTraderScreenShot)}
-              onMouseEnter={(e) => handleMouseEnter(e, cTraderScreenShot)}
-              onMouseLeave={handleMouseLeave}
+              className="themeImageWrapper"
+              {...getImageHandlers(cTraderScreenShot, "Enhanced Equity Stop plugin interface showing lot size controls and cooldown features")}
             >
               <ProjectImage
                 className={styles.themeImage}
@@ -131,10 +111,7 @@ export const Slice = () => {
                 <div 
                   key={index}
                   className={styles.sidebarImageWrapper}
-                  onClick={() => handleImageClick(img.src, img.alt)}
-                  onMouseMove={(e) => handleMouseMove(e, img.src)}
-                  onMouseEnter={(e) => handleMouseEnter(e, img.src)}
-                  onMouseLeave={handleMouseLeave}
+                  {...getImageHandlers(img.src, img.alt)}
                 >
                   <Image
                     className={styles.sidebarImage}
@@ -148,32 +125,7 @@ export const Slice = () => {
         </ProjectSection>
       </ProjectContainer>
 
-      {/* Magnifier */}
-      {magnifier.isVisible && (
-        <div
-          className={styles.magnifier}
-          style={{
-            left: magnifier.x,
-            top: magnifier.y,
-            backgroundImage: `url(${magnifier.currentImage})`,
-            backgroundPosition: `${magnifier.backgroundX}% ${magnifier.backgroundY}%`,
-          }}
-        />
-      )}
-
-      {/* Modal for full-size images */}
-      {selectedImage && (
-        <Modal isOpen={!!selectedImage} onClose={() => setSelectedImage(null)}>
-          <div className={styles.modalImageContainer}>
-            <Image
-              src={selectedImage.src}
-              alt={selectedImage.alt}
-              className={styles.modalImage}
-            />
-            <p className={styles.modalCaption}>{selectedImage.alt}</p>
-          </div>
-        </Modal>
-      )}
+      <ProjectImageViewer {...imageViewer} />
       
       <Footer />
     </Fragment>

@@ -9,10 +9,10 @@ import photo5 from '~/assets/orbitandchill/photo_5_2025-08-18_18-13-46.jpg';
 import photo6 from '~/assets/orbitandchill/photo_6_2025-08-18_18-13-46.jpg';
 import photo7 from '~/assets/orbitandchill/photo_7_2025-08-18_18-13-46.jpg';
 
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import { Image } from '~/components/image';
 import { Footer } from '~/components/footer';
-import { Modal } from '~/components/Modal/Modal';
+import { ProjectImageViewer, createProjectMeta } from '~/components/project-template';
 import {
   ProjectBackground,
   ProjectContainer,
@@ -23,9 +23,8 @@ import {
   ProjectSectionHeading,
   ProjectSectionText,
 } from '~/layouts/project';
-import { createProjectMeta } from '~/components/project-template';
 import { useProjectPage } from '~/hooks/use-project-page';
-import { useMagnifier } from '~/hooks/use-magnifier';
+import { useProjectImageViewer } from '~/hooks/use-project-image-viewer';
 import { createImageVariants, createTimelineStep, createFeatureCard } from '~/utils/project-helpers';
 import { media } from '~/utils/style';
 import styles from './orbitandchill.module.css';
@@ -66,25 +65,9 @@ const sidebarImages = [
 export const meta = createProjectMeta(projectConfig.title, projectConfig.description);
 
 export const OrbitAndChill = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
-  const { magnifier, showMagnifier, hideMagnifier, updateMagnifier } = useMagnifier();
+  const imageViewer = useProjectImageViewer();
+  const { getImageHandlers } = imageViewer;
   const { sectionRefs } = useProjectPage(projectConfig.sectionNames);
-
-  const handleImageClick = (imageSrc, alt) => {
-    setSelectedImage({ src: imageSrc, alt });
-  };
-
-  const handleMouseMove = (e, imageSrc) => {
-    updateMagnifier(e, imageSrc);
-  };
-
-  const handleMouseLeave = () => {
-    hideMagnifier();
-  };
-
-  const handleMouseEnter = (e, imageSrc) => {
-    showMagnifier(e, imageSrc);
-  };
 
   return (
     <Fragment>
@@ -116,10 +99,7 @@ export const OrbitAndChill = () => {
                   <div key={index} className={styles.timelineStep} data-step={step.stepNumber}>
                     <div 
                       className={styles.timelineImage}
-                      onClick={() => handleImageClick(step.image, step.title)}
-                      onMouseMove={(e) => handleMouseMove(e, step.image)}
-                      onMouseEnter={(e) => handleMouseEnter(e, step.image)}
-                      onMouseLeave={handleMouseLeave}
+                      {...getImageHandlers(step.image, step.title)}
                     >
                       <div className={styles.stepNumber}>{step.stepNumber}</div>
                       <Image
@@ -149,10 +129,7 @@ export const OrbitAndChill = () => {
                 <div className={styles.featureNumber}>4</div>
                 <div 
                   className={styles.featureImageWrapper}
-                  onClick={() => handleImageClick(photo6, "Chart Interpretation")}
-                  onMouseMove={(e) => handleMouseMove(e, photo6)}
-                  onMouseEnter={(e) => handleMouseEnter(e, photo6)}
-                  onMouseLeave={handleMouseLeave}
+                  {...getImageHandlers(photo6, 'Chart Interpretation')}
                 >
                   <Image
                     {...createImageVariants(photo6, "Chart Interpretation", { width: 500, height: 350 })}
@@ -169,10 +146,7 @@ export const OrbitAndChill = () => {
                 <div className={styles.featureNumber}>5</div>
                 <div 
                   className={styles.featureImageWrapper}
-                  onClick={() => handleImageClick(photo4, "Community Discussions")}
-                  onMouseMove={(e) => handleMouseMove(e, photo4)}
-                  onMouseEnter={(e) => handleMouseEnter(e, photo4)}
-                  onMouseLeave={handleMouseLeave}
+                  {...getImageHandlers(photo4, 'Community Discussions')}
                 >
                   <Image
                     {...createImageVariants(photo4, "Community Discussions", { width: 500, height: 350 })}
@@ -189,10 +163,7 @@ export const OrbitAndChill = () => {
                 <div className={styles.featureNumber}>6</div>
                 <div 
                   className={styles.featureImageWrapper}
-                  onClick={() => handleImageClick(photo3, "Optimal Timing")}
-                  onMouseMove={(e) => handleMouseMove(e, photo3)}
-                  onMouseEnter={(e) => handleMouseEnter(e, photo3)}
-                  onMouseLeave={handleMouseLeave}
+                  {...getImageHandlers(photo3, 'Optimal Timing')}
                 >
                   <Image
                     {...createImageVariants(photo3, "Optimal Timing", { width: 500, height: 350 })}
@@ -215,8 +186,8 @@ export const OrbitAndChill = () => {
               At the heart of Orbit and Chill is our professional-grade natal chart generator. This comprehensive astrological chart maps the exact positions of celestial bodies at the moment of birth, providing deep insights into personality traits, life patterns, and cosmic influences.
             </ProjectSectionText>
             <div 
-              className={styles.natalChartContainer}
-              onClick={() => handleImageClick(natalChartImg, "Professional natal chart showing planetary positions, houses, and astrological aspects")}
+              className="natalChartContainer"
+              {...getImageHandlers(natalChartImg, 'Professional natal chart showing planetary positions, houses, and astrological aspects')}
             >
               <Image
                 className={styles.natalChart}
@@ -246,10 +217,7 @@ export const OrbitAndChill = () => {
                 <div 
                   key={index}
                   className={styles.sidebarImageWrapper}
-                  onClick={() => handleImageClick(img.src, img.alt)}
-                  onMouseMove={(e) => handleMouseMove(e, img.src)}
-                  onMouseEnter={(e) => handleMouseEnter(e, img.src)}
-                  onMouseLeave={handleMouseLeave}
+                  {...getImageHandlers(img.src, img.alt)}
                 >
                   <Image
                     className={styles.sidebarImage}
@@ -264,32 +232,7 @@ export const OrbitAndChill = () => {
       </ProjectContainer>
 
 
-      {/* Magnifier */}
-      {magnifier.isVisible && (
-        <div
-          className={styles.magnifier}
-          style={{
-            left: magnifier.x,
-            top: magnifier.y,
-            backgroundImage: `url(${magnifier.currentImage})`,
-            backgroundPosition: `${magnifier.backgroundX}% ${magnifier.backgroundY}%`,
-          }}
-        />
-      )}
-
-      {/* Modal for full-size images */}
-      {selectedImage && (
-        <Modal isOpen={!!selectedImage} onClose={() => setSelectedImage(null)}>
-          <div className={styles.modalImageContainer}>
-            <Image
-              src={selectedImage.src}
-              alt={selectedImage.alt}
-              className={styles.modalImage}
-            />
-            <p className={styles.modalCaption}>{selectedImage.alt}</p>
-          </div>
-        </Modal>
-      )}
+      <ProjectImageViewer {...imageViewer} />
       
       <Footer />
     </Fragment>
