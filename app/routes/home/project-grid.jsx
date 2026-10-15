@@ -196,23 +196,14 @@ export const ProjectGrid = ({ projects }) => {
       </div>
       <div className={styles.carousel} role="region" aria-roledescription="carousel" aria-label="Selected projects">
         <div className={styles.stage}>
-          <article
+          <div
             className={styles.preview}
             data-side="previous"
-            role="button"
-            tabIndex={0}
-            onClick={() => changeProject(-1)}
-            onKeyDown={event => {
-              if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                changeProject(-1);
-              }
-            }}
-            aria-label={`Show previous project: ${previousProject.title}`}
           >
             <motion.div
               key={previousProject.link}
               className={styles.previewContent}
+              aria-hidden="true"
               initial={{ opacity: reduceMotion ? 1 : 0.35 }}
               animate={{ opacity: 1 }}
               transition={{ duration: reduceMotion ? 0 : 0.3 }}
@@ -223,24 +214,21 @@ export const ProjectGrid = ({ projects }) => {
                 preview
               />
             </motion.div>
-          </article>
-          <article
+            <button
+              className={styles.previewAction}
+              type="button"
+              onClick={() => changeProject(-1)}
+              aria-label={`Show previous project: ${previousProject.title}`}
+            />
+          </div>
+          <div
             className={styles.preview}
             data-side="next"
-            role="button"
-            tabIndex={0}
-            onClick={() => changeProject(1)}
-            onKeyDown={event => {
-              if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                changeProject(1);
-              }
-            }}
-            aria-label={`Show next project: ${nextProject.title}`}
           >
             <motion.div
               key={nextProject.link}
               className={styles.previewContent}
+              aria-hidden="true"
               initial={{ opacity: reduceMotion ? 1 : 0.35 }}
               animate={{ opacity: 1 }}
               transition={{ duration: reduceMotion ? 0 : 0.3 }}
@@ -251,7 +239,13 @@ export const ProjectGrid = ({ projects }) => {
                 preview
               />
             </motion.div>
-          </article>
+            <button
+              className={styles.previewAction}
+              type="button"
+              onClick={() => changeProject(1)}
+              aria-label={`Show next project: ${nextProject.title}`}
+            />
+          </div>
           <AnimatePresence initial={false} custom={direction}>
             <motion.article
               key={activeIndex}
