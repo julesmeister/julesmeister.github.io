@@ -42,6 +42,12 @@ npm run deploy
 - `app/components/` contains reusable interface components.
 - `app/assets/` contains project media, certificates, and fonts.
 
+### Project Styling
+
+For projects using the shared timeline, feature, image-text, or text sections, define content and presentation in `{projectName}.project.js`. Set the `theme` colors and section `layout`/spacing options there; shared styles live in `app/components/project-template/` and `app/styles/`. Avoid copying those layout rules into a project CSS module.
+
+Use `{projectName}.module.css` only for genuinely project-specific visuals. Custom JSX pages should import shared interaction/layout styles and add only their unique rules. See the [Project Layout Guide](PROJECT_LAYOUT_GUIDE.md) for the schema and examples.
+
 The portfolio's visual direction is inspired by [Switberto III L. Silvosa](https://www.switberto.com/).
 
 See [LICENSE](LICENSE) for licensing terms.
