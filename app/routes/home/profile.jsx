@@ -1,22 +1,17 @@
 /* eslint-disable react/no-unescaped-entities */
-import profileImgLarge from '~/assets/photo_2022-12-26_03-22-53.jpg';
-import profileImgPlaceholder from '~/assets/profile-placeholder.jpg';
-import profileImg from '~/assets/photo_2022-12-26_03-22-53.jpg';
 import { Button } from '~/components/button';
 import { DecoderText } from '~/components/decoder-text';
 import { Heading } from '~/components/heading';
-import { Image } from '~/components/image';
 import { Section } from '~/components/section';
 import { Text } from '~/components/text';
 import { Transition } from '~/components/transition';
-import { media } from '~/utils/style';
+import { ProfilePortrait } from './profile-portrait';
 import config from '~/config.json';
 import {
   siAngular,
   siDavinciresolve,
   siFlutter,
   siJetpackcompose,
-  siKotlin,
   siReact,
   siRubyonrails,
   siSwift,
@@ -146,18 +141,7 @@ export const Profile = ({ id, sectionRef }) => {
             </header>
             <div className={styles.content}>
               <figure className={styles.portraitCard}>
-                <div className={styles.image}>
-                  <Image
-                    reveal
-                    delay={100}
-                    placeholder={profileImgPlaceholder}
-                    srcSet={`${profileImg} 480w, ${profileImgLarge} 960w`}
-                    width={960}
-                    height={957}
-                    sizes={`(max-width: ${media.mobile}px) 100vw, 360px`}
-                    alt="Jules Lee at the Galilean Sea"
-                  />
-                </div>
+                <ProfilePortrait />
                 <figcaption>
                   <span>01 / PROFILE</span>
                   <span>{config.name}</span>

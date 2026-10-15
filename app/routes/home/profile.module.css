@@ -88,6 +88,42 @@
   font-size: var(--fontSizeBodyXS);
 }
 
+.image > .portraitCanvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--portrait-side, 100%);
+  height: var(--portrait-side, 100%);
+  transform: translate(-50%, -50%);
+}
+
+.image .portraitPose {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  object-fit: fill;
+  transform: translate(var(--pose-x, 0%), var(--pose-y, 0%));
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 140ms ease-out;
+
+  &[data-base='true'] {
+    z-index: 0;
+    opacity: 1;
+  }
+
+  &[data-active='true'] {
+    opacity: 1;
+  }
+}
+
+@media (--mediaReduceMotion) {
+  .portraitPose {
+    transition: none;
+  }
+}
+
 .profileCard {
   grid-area: profile;
   padding: clamp(1rem, 2.5vw, 1.75rem);
