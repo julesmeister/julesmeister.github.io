@@ -136,7 +136,7 @@ export const Profile = ({ id, sectionRef }) => {
         {({ visible, nodeRef }) => (
           <div className={styles.inner} ref={nodeRef}>
             <header className={styles.sectionHeading}>
-              <p className={styles.sectionLabel}>PROFILE / 01</p>
+              <p className={styles.sectionLabel}>[PROFILE / 01]</p>
               <Heading level={2} as="h2" id={titleId}>About</Heading>
             </header>
             <div className={styles.content}>
