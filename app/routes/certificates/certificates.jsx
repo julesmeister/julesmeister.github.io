@@ -24,72 +24,83 @@ export const meta = () => {
   });
 };
 
+const CertificateImageButton = ({ image, title, className, imageClassName, sizes, onImageClick, children }) => (
+  <button
+    className={className}
+    type="button"
+    onClick={() => onImageClick(image, title)}
+    aria-label={`View ${title} certificate`}
+  >
+    <Image
+      src={image}
+      alt=""
+      className={imageClassName}
+      width={600}
+      height={400}
+      sizes={sizes}
+    />
+    {children}
+  </button>
+);
+
+const PdfDocumentPreview = ({ documents }) => (
+  <div
+    className={`${styles.certificateImageWrapper} ${styles.documentPreview}`}
+    role="img"
+    aria-label={`${documents.length} PDF certificate${documents.length === 1 ? '' : 's'}`}
+  >
+    <div className={styles.documentPreviewStack}>
+      {documents.slice(0, 3).map((document, index) => (
+        <div className={styles.documentSheet} key={document.title}>
+          <span className={styles.pdfBadge}>PDF</span>
+          <span className={styles.documentPreviewTitle}>{document.title}</span>
+          <span className={styles.documentPreviewIndex}>
+            {String(index + 1).padStart(2, '0')} / {String(documents.length).padStart(2, '0')}
+          </span>
+        </div>
+      ))}
+    </div>
+    <span className={styles.documentCount}>{documents.length} PDF FILES</span>
+  </div>
+);
+
 const CertificateCard = ({ image, gallery, title, issuer, date, description, documents, onImageClick }) => (
   <article className={`${styles.certificateCard} ${gallery ? styles.mergedCertificateCard : ''}`}>
     {gallery ? (
       <div className={`${styles.certificateImageWrapper} ${styles.mergedCertificateImages}`}>
         <span className={styles.projectIndex}>FLUTTER / DART</span>
         {gallery.map((certificate) => (
-          <button
+          <CertificateImageButton
             className={styles.mergedCertificateImage}
-            type="button"
+            imageClassName={styles.certificateImage}
+            image={certificate.image}
+            title={certificate.title}
+            sizes={`(max-width: ${media.mobile}px) 42vw, 360px`}
+            onImageClick={onImageClick}
             key={certificate.title}
-            onClick={() => onImageClick(certificate.image, certificate.title)}
-            aria-label={`View ${certificate.title} certificate`}
           >
-            <Image
-              src={certificate.image}
-              alt=""
-              className={styles.certificateImage}
-              width={600}
-              height={400}
-              sizes={`(max-width: ${media.mobile}px) 42vw, 360px`}
-            />
             <span className={styles.mergedCertificateLabel}>
               {certificate.label}
               <small>{certificate.date}</small>
             </span>
-          </button>
+          </CertificateImageButton>
         ))}
       </div>
     ) : image ? (
-      <button
+      <CertificateImageButton
         className={styles.certificateImageWrapper}
-        type="button"
-        onClick={() => onImageClick(image, title)}
-        aria-label={`View ${title} certificate`}
+        imageClassName={styles.certificateImage}
+        image={image}
+        title={title}
+        sizes={`(max-width: ${media.mobile}px) 90vw, 400px`}
+        onImageClick={onImageClick}
       >
-        <Image
-          src={image}
-          alt={title}
-          className={styles.certificateImage}
-          width={600}
-          height={400}
-          sizes={`(max-width: ${media.mobile}px) 90vw, 400px`}
-        />
         <span className={styles.certificateOverlay}>
           <span className={styles.viewIcon}>View</span>
         </span>
-      </button>
+      </CertificateImageButton>
     ) : documents ? (
-      <div
-        className={`${styles.certificateImageWrapper} ${styles.documentPreview}`}
-        role="img"
-        aria-label={`${documents.length} PDF certificate${documents.length === 1 ? '' : 's'}`}
-      >
-        <div className={styles.documentPreviewStack}>
-          {documents.slice(0, 3).map((document, index) => (
-            <div className={styles.documentSheet} key={document.title}>
-              <span className={styles.pdfBadge}>PDF</span>
-              <span className={styles.documentPreviewTitle}>{document.title}</span>
-              <span className={styles.documentPreviewIndex}>
-                {String(index + 1).padStart(2, '0')} / {String(documents.length).padStart(2, '0')}
-              </span>
-            </div>
-          ))}
-        </div>
-        <span className={styles.documentCount}>{documents.length} PDF FILES</span>
-      </div>
+      <PdfDocumentPreview documents={documents} />
     ) : null}
     <div className={styles.certificateContent}>
       <h3 className={styles.certificateTitle}>{title}</h3>
