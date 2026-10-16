@@ -1,0 +1,123 @@
+.background {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 60%;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.65;
+  mask-image: linear-gradient(to bottom, black 20%, rgb(0 0 0 / 80%) 55%, transparent 100%);
+}
+
+.system {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(1100px, 160vw);
+  aspect-ratio: 1;
+  transform: translate(-50%, -42%);
+}
+
+.system::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgb(255 219 158 / 70%);
+  border-radius: 50%;
+  box-shadow: 0 0 16px rgb(255 219 158 / 20%), inset 0 0 16px rgb(255 219 158 / 20%);
+  opacity: 0;
+  transform: scale(0.04);
+  animation: shockwave 3s linear infinite;
+}
+
+.sun {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 46px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at 30% 30%, #ffdb58, #ff7b00);
+  box-shadow: 0 0 28px rgb(255 123 0 / 55%), 0 0 65px rgb(255 123 0 / 18%);
+}
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--orbit);
+  aspect-ratio: 1;
+  border: 1px dashed color-mix(in lab, var(--text) 22%, transparent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(var(--angle));
+  animation: revolve var(--period) linear infinite;
+}
+
+.planet {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: var(--planetSize);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--planetColor);
+  box-shadow: inset -3px -2px 5px rgb(0 0 0 / 40%), 0 0 10px color-mix(in srgb, var(--planetColor) 40%, transparent);
+}
+
+.planet[data-planet='Saturn']::after {
+  content: '';
+  position: absolute;
+  inset: 25% -50%;
+  border: 2px solid rgb(210 182 91 / 65%);
+  border-radius: 50%;
+  transform: rotate(-25deg);
+}
+
+.blur {
+  position: absolute;
+  inset: 72% 0 0;
+  backdrop-filter: blur(7px);
+  mask-image: linear-gradient(to bottom, transparent, black 65%);
+}
+
+@keyframes shockwave {
+  0% {
+    transform: scale(0.04);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.85;
+  }
+
+  55% {
+    opacity: 0.65;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes revolve {
+  from {
+    transform: translate(-50%, -50%) rotate(var(--angle));
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(calc(var(--angle) + 360deg));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .system::before {
+    animation: none;
+  }
+
+  .orbit {
+    animation: none;
+  }
+}

@@ -3,6 +3,7 @@ import { Heading } from '~/components/heading';
 import { Section } from '~/components/section';
 import { Link as RouterLink } from '@remix-run/react';
 import config from '~/config.json';
+import { SolarSystemBackground } from './solar-system-background';
 import styles from './intro.module.css';
 
 export function Intro({ id, sectionRef, ...rest }) {
@@ -18,6 +19,7 @@ export function Intro({ id, sectionRef, ...rest }) {
       tabIndex={-1}
       {...rest}
     >
+      <SolarSystemBackground />
       <header className={styles.text}>
         <a
           className={styles.availability}
