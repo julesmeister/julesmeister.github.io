@@ -1,5 +1,7 @@
 import styles from './solar-system-background.module.css';
 
+const shockwaveDuration = 3;
+
 const planets = [
   { name: 'Mercury', color: '#a6a6a6', size: 5, orbit: 15, period: 24, angle: 35 },
   { name: 'Venus', color: '#e7cdcd', size: 9, orbit: 24, period: 38, angle: 145 },
@@ -14,7 +16,7 @@ const planets = [
 export function SolarSystemBackground() {
   return (
     <div className={styles.background} aria-hidden="true">
-      <div className={styles.system}>
+      <div className={styles.system} style={{ '--waveDuration': `${shockwaveDuration}s` }}>
         <div className={styles.sun} />
         {planets.map(planet => (
           <div
@@ -26,6 +28,7 @@ export function SolarSystemBackground() {
               '--angle': `${planet.angle}deg`,
               '--planetSize': `${planet.size}px`,
               '--planetColor': planet.color,
+              '--waveDelay': `${((planet.orbit / 100 - 0.04) / 0.96 - 0.05) * shockwaveDuration}s`,
             }}
           >
             <div className={styles.planet} data-planet={planet.name} />

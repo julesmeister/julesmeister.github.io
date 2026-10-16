@@ -25,9 +25,10 @@
   border: 2px solid rgb(255 219 158 / 70%);
   border-radius: 50%;
   box-shadow: 0 0 16px rgb(255 219 158 / 20%), inset 0 0 16px rgb(255 219 158 / 20%);
+  filter: blur(3px);
   opacity: 0;
   transform: scale(0.04);
-  animation: shockwave 3s linear infinite;
+  animation: shockwave var(--waveDuration) linear infinite;
 }
 
 .sun {
@@ -51,7 +52,8 @@
   border: 1px dashed color-mix(in lab, var(--text) 22%, transparent);
   border-radius: 50%;
   transform: translate(-50%, -50%) rotate(var(--angle));
-  animation: revolve var(--period) linear infinite;
+  animation: revolve var(--period) linear infinite,
+    orbitDarken var(--waveDuration) linear var(--waveDelay) infinite;
 }
 
 .planet {
@@ -99,6 +101,18 @@
   100% {
     transform: scale(1);
     opacity: 0;
+  }
+}
+
+@keyframes orbitDarken {
+  0%,
+  10%,
+  100% {
+    border-color: color-mix(in lab, var(--text) 22%, transparent);
+  }
+
+  5% {
+    border-color: rgb(0 0 0 / 70%);
   }
 }
 
