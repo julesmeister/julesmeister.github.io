@@ -109,7 +109,7 @@ const ProfileText = ({ visible, titleId }) => (
       </div>
     </dl>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      Since high school, I've built apps on my own and discovered how much I love development. Lotel is the project I'm proudest of, and Kotlin mobile development is a favorite.
+      Since high school, I've been tinkering on web tools and discovered how much I love development. PHP was the only popular language at the time. I've since enjoyed building using other languages and frameworks. Lotel is the project I'm proudest of, and Kotlin mobile development is a favorite.
     </Text>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
       I'm currently training at Accenture in Angular and Java Spring Boot, strengthening my fundamentals and broadening my perspective through the collaborative, systems-minded reality of corporate software development.
