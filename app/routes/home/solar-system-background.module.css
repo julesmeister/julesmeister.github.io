@@ -1,4 +1,8 @@
 .background {
+  --orbitColor: color-mix(in lab, var(--text) 22%, transparent);
+  --orbitPulseColor: color-mix(in lab, var(--text) 70%, transparent);
+  --waveColor: color-mix(in srgb, var(--text) 65%, #ffdb9e);
+
   position: absolute;
   inset: 0 0 auto;
   height: 60%;
@@ -7,6 +11,10 @@
   pointer-events: none;
   opacity: 0.65;
   mask-image: linear-gradient(to bottom, black 20%, rgb(0 0 0 / 80%) 55%, transparent 100%);
+}
+
+:global([data-theme='light']) .background {
+  --waveColor: rgb(255 219 158 / 45%);
 }
 
 .system {
@@ -22,9 +30,10 @@
   content: '';
   position: absolute;
   inset: 0;
-  border: 2px solid rgb(255 219 158 / 70%);
+  border: 2px solid color-mix(in srgb, var(--waveColor) 70%, transparent);
   border-radius: 50%;
-  box-shadow: 0 0 16px rgb(255 219 158 / 20%), inset 0 0 16px rgb(255 219 158 / 20%);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--waveColor) 20%, transparent),
+    inset 0 0 16px color-mix(in srgb, var(--waveColor) 20%, transparent);
   filter: blur(3px);
   opacity: 0;
   transform: scale(0.04);
@@ -49,11 +58,11 @@
   left: 50%;
   width: var(--orbit);
   aspect-ratio: 1;
-  border: 1px dashed color-mix(in lab, var(--text) 22%, transparent);
+  border: 1px dashed var(--orbitColor);
   border-radius: 50%;
   transform: translate(-50%, -50%) rotate(var(--angle));
   animation: revolve var(--period) linear infinite,
-    orbitDarken var(--waveDuration) linear var(--waveDelay) infinite;
+    orbitPulse var(--waveDuration) linear var(--waveDelay) infinite;
 }
 
 .planet {
@@ -104,15 +113,15 @@
   }
 }
 
-@keyframes orbitDarken {
+@keyframes orbitPulse {
   0%,
   10%,
   100% {
-    border-color: color-mix(in lab, var(--text) 22%, transparent);
+    border-color: var(--orbitColor);
   }
 
   5% {
-    border-color: rgb(0 0 0 / 70%);
+    border-color: var(--orbitPulseColor);
   }
 }
 
