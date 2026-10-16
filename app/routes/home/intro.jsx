@@ -2,12 +2,26 @@ import { DecoderText } from '~/components/decoder-text';
 import { Heading } from '~/components/heading';
 import { Section } from '~/components/section';
 import { Link as RouterLink } from '@remix-run/react';
+import { useReducedMotion } from 'framer-motion';
 import config from '~/config.json';
 import { SolarSystemBackground } from './solar-system-background';
 import styles from './intro.module.css';
 
 export function Intro({ id, sectionRef, ...rest }) {
   const titleId = `${id}-title`;
+  const reduceMotion = useReducedMotion();
+
+  const handleExploreProjects = event => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+      return;
+    }
+
+    const target = document.getElementById('projects') || document.getElementById('project-1');
+    if (!target) return;
+
+    event.preventDefault();
+    target.scrollIntoView({ behavior: reduceMotion ? 'instant' : 'smooth', block: 'start' });
+  };
 
   return (
     <Section
@@ -46,7 +60,7 @@ export function Intro({ id, sectionRef, ...rest }) {
           I build practical web and mobile software across React, Flutter, and Kotlin.
         </p>
         <div className={styles.actions}>
-          <a className={styles.primaryAction} href="#projects">
+          <a className={styles.primaryAction} href="#projects" onClick={handleExploreProjects}>
             Explore projects <span aria-hidden="true">&#8595;</span>
           </a>
           <RouterLink className={styles.secondaryAction} to="/contact">

@@ -252,7 +252,7 @@ export const ProjectStacking = ({ projects }) => {
   const visibleStart = Math.max(0, frontIndex - 6);
 
   return (
-    <div className={styles.stackingContainer}>
+    <div className={styles.stackingContainer} id="projects">
       {projects.map((project, index) => {
         // Calculate offset relative to visible start to maintain consistent
         // spacing from top when cards are hidden from the back
