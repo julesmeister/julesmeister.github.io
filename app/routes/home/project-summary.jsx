@@ -1,4 +1,5 @@
 import { Button } from '~/components/button';
+import { HomeCardGlow } from '~/components/home-card-glow';
 import { Divider } from '~/components/divider';
 import { Heading } from '~/components/heading';
 import { deviceModels } from '~/components/model/device-models';
@@ -100,7 +101,8 @@ export function ProjectSummary({
 
   function renderPreview(visible) {
     return (
-      <div className={styles.preview}>
+      <div className={styles.preview} data-home-magic-card>
+        <HomeCardGlow />
         {model.type === 'laptop' && (
           <>
             {renderKatakana('laptop', visible)}

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { HomeCardGlow } from '~/components/home-card-glow';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import {
   siAndroid,
@@ -199,6 +200,7 @@ export const ProjectGrid = ({ projects }) => {
           <div
             className={styles.preview}
             data-cut-corner="top-right"
+            data-home-magic-card
             data-side="previous"
           >
             <motion.div
@@ -222,10 +224,12 @@ export const ProjectGrid = ({ projects }) => {
               onClick={() => changeProject(-1)}
               aria-label={`Show previous project: ${previousProject.title}`}
             />
+            <HomeCardGlow />
           </div>
           <div
             className={styles.preview}
             data-cut-corner="top-right"
+            data-home-magic-card
             data-side="next"
           >
             <motion.div
@@ -249,12 +253,14 @@ export const ProjectGrid = ({ projects }) => {
               onClick={() => changeProject(1)}
               aria-label={`Show next project: ${nextProject.title}`}
             />
+            <HomeCardGlow />
           </div>
           <AnimatePresence initial={false} custom={direction}>
             <motion.article
               key={activeIndex}
               className={styles.projectCard}
               data-cut-corner="top-right"
+              data-home-magic-card
               custom={direction}
               variants={cardVariants}
               initial={reduceMotion ? false : 'enter'}
@@ -267,6 +273,7 @@ export const ProjectGrid = ({ projects }) => {
               <div className={styles.projectCardContent} data-cut-inner>
                 <ProjectCardContent project={activeProject} index={activeIndex} />
               </div>
+              <HomeCardGlow />
             </motion.article>
           </AnimatePresence>
         </div>

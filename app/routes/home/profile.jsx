@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Button } from '~/components/button';
+import { HomeCardGlow } from '~/components/home-card-glow';
 import { DecoderText } from '~/components/decoder-text';
 import { Heading } from '~/components/heading';
 import { Section } from '~/components/section';
@@ -140,14 +141,16 @@ export const Profile = ({ id, sectionRef }) => {
               <Heading level={2} as="h2" id={titleId}>About</Heading>
             </header>
             <div className={styles.content}>
-              <figure className={styles.portraitCard}>
+              <figure className={styles.portraitCard} data-home-magic-card>
                 <ProfilePortrait />
                 <figcaption>
                   <span>01 / PROFILE</span>
                   <span>{config.name}</span>
                 </figcaption>
+                <HomeCardGlow />
               </figure>
-              <article className={styles.profileCard} data-cut-corner="top-right">
+              <article className={styles.profileCard} data-cut-corner="top-right" data-home-magic-card>
+                <HomeCardGlow />
                 <p className={styles.cardLabel}>[ABOUT.LOG]</p>
                 <ProfileText visible={visible} titleId={`${id}-bio-title`} />
                 <Button
@@ -161,7 +164,8 @@ export const Profile = ({ id, sectionRef }) => {
                 </Button>
               </article>
               <div className={styles.skillsLayout}>
-                <section className={styles.skillsCard} aria-labelledby={`${id}-skills-title`}>
+                <section className={styles.skillsCard} data-home-magic-card aria-labelledby={`${id}-skills-title`}>
+                  <HomeCardGlow />
                   <p className={styles.cardLabel}>[CORE SKILLS / TOOLS]</p>
                   <Heading level={4} as="h3" id={`${id}-skills-title`}>
                     Technologies and tools
@@ -179,7 +183,8 @@ export const Profile = ({ id, sectionRef }) => {
                     />
                   </div>
                 </section>
-                <aside className={styles.focusCard} aria-labelledby={`${id}-focus-title`}>
+                <aside className={styles.focusCard} data-home-magic-card aria-labelledby={`${id}-focus-title`}>
+                  <HomeCardGlow />
                   <p className={styles.cardLabel}>[CURRENT FOCUS / ANGULAR]</p>
                   <Heading level={4} as="h3" id={`${id}-focus-title`}>
                     Building practical applications

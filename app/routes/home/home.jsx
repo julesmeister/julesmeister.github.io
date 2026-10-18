@@ -1,4 +1,5 @@
 import { Footer } from '~/components/footer';
+import { HomeCardGlow } from '~/components/home-card-glow';
 import { Icon } from '~/components/icon';
 import { baseMeta } from '~/utils/meta';
 import { Intro } from './intro';
@@ -10,7 +11,7 @@ import { projectsData } from './projects-data';
 import { useViewMode } from '~/contexts/view-context';
 import { useHomePage } from '~/hooks/use-home-page';
 import { Link as RouterLink } from '@remix-run/react';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import config from '~/config.json';
 import { gearItems } from '~/utils/gear';
 import { certificatesData } from '~/routes/certificates/certificates-data';
@@ -145,12 +146,14 @@ const CareerSnapshot = () => {
             <span className={styles.resumeCommandStatus}>PROFILE / 01</span>
           </div>
           <div className={styles.resumeCommandBody}>
-            <article className={`${styles.resumePanel} ${styles.resumeExperiencePanel}`}>
+            <article className={`${styles.resumePanel} ${styles.resumeExperiencePanel}`} data-home-magic-card>
+              <HomeCardGlow />
               <p className={styles.resumeKicker}>[experience]</p>
               <h3>Professional experience</h3>
               <ResumeTimeline items={experienceItems} />
             </article>
-            <article className={`${styles.resumePanel} ${styles.resumeEducationPanel}`}>
+            <article className={`${styles.resumePanel} ${styles.resumeEducationPanel}`} data-home-magic-card>
+              <HomeCardGlow />
               <p className={styles.resumeKicker}>[education]</p>
               <h3>Bachelor of Science in Computer Science</h3>
               <p className={styles.resumeEducationMeta}>
@@ -221,7 +224,8 @@ const CertificationsSnapshot = () => (
       />
       <div className={styles.credentialList}>
         {certificatesData.map(({ title, issuer, date, documents }) => (
-          <article className={styles.credential} key={title}>
+          <article className={styles.credential} key={title} data-home-magic-card>
+            <HomeCardGlow />
             <p className={styles.entryLabel}>
               {issuer ? [issuer, date].filter(Boolean).join(' / ') : `${documents.length} module certificates`}
             </p>
@@ -272,14 +276,21 @@ const ActivitySnapshot = () => (
         description="Thoughts from the build process and the projects behind it."
       />
       <div className={styles.activityGrid}>
-        <RouterLink className={styles.activityLink} data-cut-corner="top-right" to="/articles">
+        <RouterLink
+          className={styles.activityLink}
+          data-cut-corner="top-right"
+          data-home-magic-card
+          to="/articles"
+        >
           <span className={styles.entryLabel}>Articles</span>
           <span className={styles.activityTitle}>Read notes on learning, work, and building</span>
           <span aria-hidden="true" className={styles.activityArrow}>&#8599;</span>
+          <HomeCardGlow />
         </RouterLink>
         <a
           className={styles.activityLink}
           data-cut-corner="top-right"
+          data-home-magic-card
           href={`https://github.com/${config.github}`}
           target="_blank"
           rel="noopener noreferrer"
@@ -287,6 +298,7 @@ const ActivitySnapshot = () => (
           <span className={styles.entryLabel}>GitHub</span>
           <span className={styles.activityTitle}>Explore my public repositories</span>
           <span aria-hidden="true" className={styles.activityArrow}>&#8599;</span>
+          <HomeCardGlow />
         </a>
       </div>
     </div>
@@ -334,6 +346,53 @@ const ContactSnapshot = () => (
 
 export const Home = () => {
   const { viewMode } = useViewMode();
+  const homeRef = useRef(null);
+
+  useEffect(() => {
+    const home = homeRef.current;
+    if (!home) return undefined;
+
+    let activeCard = null;
+
+    const findCard = target =>
+      target instanceof Element ? target.closest('[data-home-magic-card]') : null;
+
+    const clearCard = card => {
+      card.style.setProperty('--home-card-glow-opacity', '0');
+      if (activeCard === card) activeCard = null;
+    };
+
+    const handlePointerMove = event => {
+      if (event.pointerType === 'touch') return;
+
+      const card = findCard(event.target);
+      if (!card || !home.contains(card)) {
+        if (activeCard) clearCard(activeCard);
+        return;
+      }
+
+      if (activeCard && activeCard !== card) clearCard(activeCard);
+
+      const bounds = card.getBoundingClientRect();
+      card.style.setProperty('--home-card-glow-x', `${event.clientX - bounds.left}px`);
+      card.style.setProperty('--home-card-glow-y', `${event.clientY - bounds.top}px`);
+      card.style.setProperty('--home-card-glow-opacity', '1');
+      activeCard = card;
+    };
+
+    const handlePointerOut = event => {
+      const card = findCard(event.target);
+      if (card && !card.contains(event.relatedTarget)) clearCard(card);
+    };
+
+    home.addEventListener('pointermove', handlePointerMove, { passive: true });
+    home.addEventListener('pointerout', handlePointerOut, { passive: true });
+
+    return () => {
+      home.removeEventListener('pointermove', handlePointerMove);
+      home.removeEventListener('pointerout', handlePointerOut);
+    };
+  }, []);
   
   const {
     visibleSections,
@@ -344,7 +403,7 @@ export const Home = () => {
   } = useHomePage(projectsData.length);
 
   return (
-    <div className={styles.home}>
+    <div className={styles.home} ref={homeRef}>
       <ProjectCounter current={currentProject} total={projectsData.length} visible={currentProject > 0} />
       <Intro id="intro" index={0} sectionRef={intro} />
 

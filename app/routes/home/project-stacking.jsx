@@ -1,5 +1,6 @@
 import { useEffect, useState, Suspense, lazy, useRef } from 'react';
 import { Loader } from '~/components/loader';
+import { HomeCardGlow } from '~/components/home-card-glow';
 import { deviceModels } from '~/components/model/device-models';
 import { useHydrated } from '~/hooks/useHydrated';
 import { media } from '~/utils/style';
@@ -71,7 +72,8 @@ const StackingCard = ({ project, index, totalProjects }) => {
   // Katakana removed - was showing instead of 3D model
 
   return (
-    <div className={styles.stackingCardInner}>
+    <div className={styles.stackingCardInner} data-home-magic-card>
+      <HomeCardGlow />
       <div className={styles.cardContent}>
         <div className={styles.cardText}>
           <span className={styles.cardIndex}>{indexText} / {totalProjects}</span>
