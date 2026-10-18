@@ -149,7 +149,7 @@ const ProjectCardContent = ({ project, index, preview = false }) => {
           ))}
         </ul>
         {!preview && (
-          <a href={project.link} className={styles.cardButton}>
+          <a href={project.link} className={styles.cardButton} data-cut-corner="bottom-right">
             View project <span aria-hidden="true">&#8599;</span>
           </a>
         )}
