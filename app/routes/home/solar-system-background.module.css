@@ -116,6 +116,24 @@
   box-shadow: 0 0 28px rgb(255 123 0 / 55%), 0 0 65px rgb(255 123 0 / 18%);
 }
 
+:global([data-theme='dark']) .sun {
+  background: transparent;
+  box-shadow: none;
+}
+
+.moon {
+  display: none;
+  position: absolute;
+  inset: -4px;
+  width: calc(100% + 8px);
+  height: calc(100% + 8px);
+  filter: drop-shadow(0 0 12px rgb(206 218 231 / 32%));
+}
+
+:global([data-theme='dark']) .moon {
+  display: block;
+}
+
 .orbit {
   position: absolute;
   top: 50%;

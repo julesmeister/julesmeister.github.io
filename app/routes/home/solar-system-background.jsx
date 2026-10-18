@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import styles from './solar-system-background.module.css';
+import moonImage from '~/assets/moon.svg';
 
 const shockwaveDuration = 3;
 
@@ -155,7 +156,9 @@ export function SolarSystemBackground() {
         </svg>
       </div>
       <div className={styles.system} style={{ '--waveDuration': `${shockwaveDuration}s` }}>
-        <div className={styles.sun} />
+        <div className={styles.sun}>
+          <img className={styles.moon} src={moonImage} alt="" />
+        </div>
         {planets.map(planet => (
           <div
             key={planet.name}
