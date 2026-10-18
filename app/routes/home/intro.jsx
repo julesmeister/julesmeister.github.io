@@ -57,7 +57,7 @@ export function Intro({ id, sectionRef, ...rest }) {
           {config.role}
         </Heading>
         <p className={styles.description}>
-          I build practical web and mobile software across React, Flutter, and Kotlin.
+          I build practical web and mobile software across React, Angular, Flutter, and Kotlin.
         </p>
         <div className={styles.actions}>
           <a className={styles.primaryAction} href="#projects" onClick={handleExploreProjects}>
