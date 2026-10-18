@@ -65,6 +65,9 @@
 }
 
 .preview {
+  --cut-border-color: color-mix(in lab, var(--text) 18%, transparent);
+  --cut-fill-color: var(--backgroundLight);
+
   width: var(--project-stack-card-width);
   height: var(--project-stack-card-height);
   position: relative;
@@ -73,19 +76,18 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border: 1px solid color-mix(in lab, var(--text) 18%, transparent);
+  padding: 1px;
   border-radius: 4px;
-  background: var(--backgroundLight);
   color: var(--textTitle);
   opacity: 0.78;
   box-shadow: 0 16px 44px rgb(0 0 0 / 34%);
   transition: opacity var(--durationM) ease, transform var(--durationM) ease,
-    border-color var(--durationM) ease;
+    box-shadow var(--durationM) ease;
 
   &:hover,
   &:focus-within {
     opacity: 0.9;
-    border-color: var(--accent);
+    --cut-border-color: var(--accent);
   }
 
   &:has(.previewAction:focus-visible) {
@@ -117,13 +119,25 @@
 }
 
 .previewContent {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
 }
 
+.projectCardContent {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+
 .projectCard {
+  --cut-border-color: color-mix(in lab, var(--text) 24%, transparent);
+  --cut-fill-color: var(--backgroundLight);
+
   width: var(--project-stack-card-width);
   height: var(--project-stack-card-height);
   min-width: 0;
@@ -133,8 +147,7 @@
   z-index: 3;
   display: flex;
   flex-direction: column;
-  border: 1px solid color-mix(in lab, var(--text) 24%, transparent);
-  background: var(--backgroundLight);
+  padding: 1px;
 }
 
 .cardImage {
@@ -348,7 +361,21 @@
   text-decoration: none;
   font-weight: var(--fontWeightMedium);
   font-size: var(--fontSizeBodyS);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
   transition: color var(--durationS) ease, border-color var(--durationS) ease;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: -2px;
+    bottom: 4px;
+    width: 12px;
+    border-top: 1px solid;
+    border-top-color: inherit;
+    transform: rotate(-45deg);
+    pointer-events: none;
+  }
 
   &:hover {
     color: var(--accent);

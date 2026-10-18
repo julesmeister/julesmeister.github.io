@@ -60,7 +60,12 @@ export function Intro({ id, sectionRef, ...rest }) {
           I build practical web and mobile software across React, Angular, Flutter, and Kotlin.
         </p>
         <div className={styles.actions}>
-          <a className={styles.primaryAction} href="#projects" onClick={handleExploreProjects}>
+          <a
+            className={styles.primaryAction}
+            data-cut-corner="bottom-right"
+            href="#projects"
+            onClick={handleExploreProjects}
+          >
             Explore projects <span aria-hidden="true">&#8595;</span>
           </a>
           <RouterLink className={styles.secondaryAction} to="/contact">

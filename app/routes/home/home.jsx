@@ -272,13 +272,14 @@ const ActivitySnapshot = () => (
         description="Thoughts from the build process and the projects behind it."
       />
       <div className={styles.activityGrid}>
-        <RouterLink className={styles.activityLink} to="/articles">
+        <RouterLink className={styles.activityLink} data-cut-corner="top-right" to="/articles">
           <span className={styles.entryLabel}>Articles</span>
           <span className={styles.activityTitle}>Read notes on learning, work, and building</span>
           <span aria-hidden="true" className={styles.activityArrow}>&#8599;</span>
         </RouterLink>
         <a
           className={styles.activityLink}
+          data-cut-corner="top-right"
           href={`https://github.com/${config.github}`}
           target="_blank"
           rel="noopener noreferrer"

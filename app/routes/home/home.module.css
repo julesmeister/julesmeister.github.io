@@ -607,20 +607,23 @@
 }
 
 .activityLink {
+  --cut-border-color: color-mix(in lab, var(--text) 22%, transparent);
+  --cut-fill-color: var(--background);
+
   position: relative;
   display: flex;
   flex-direction: column;
   min-height: 180px;
   padding: var(--spaceL);
-  border: 1px solid color-mix(in lab, var(--text) 22%, transparent);
-  border-radius: 4px;
+  border: 0;
+  background: transparent;
   color: var(--textTitle);
   text-decoration: none;
-  transition: border-color var(--durationS) ease, background var(--durationS) ease;
+  transition: color var(--durationS) ease;
 
   &:hover {
-    border-color: var(--accent);
-    background: color-mix(in lab, var(--accent) 5%, transparent);
+    --cut-border-color: var(--accent);
+    --cut-fill-color: color-mix(in lab, var(--accent) 5%, var(--background));
   }
 }
 

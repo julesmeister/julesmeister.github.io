@@ -124,8 +124,13 @@
 }
 
 .profileCard {
+  --cut-border-color: color-mix(in lab, var(--text) 20%, transparent);
+  --cut-fill-color: color-mix(in lab, var(--backgroundLight) 82%, var(--background));
+
   grid-area: profile;
   padding: clamp(1rem, 2.5vw, 1.75rem);
+  background: transparent;
+  border: 0;
 }
 
 .title {

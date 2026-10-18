@@ -85,3 +85,114 @@
     }
   }
 }
+
+:global([data-cut-corner='top-right']) {
+  --cut-border-width: 1px;
+  --cut-size: 14px;
+  --cut-inner-size: 13.41421356px;
+  --cut-border-color: color-mix(in lab, var(--text) 22%, transparent);
+  --cut-fill-color: var(--backgroundLight);
+
+  position: relative;
+  isolation: isolate;
+  background: transparent;
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cut-size)) 0,
+    100% var(--cut-size),
+    100% 100%,
+    0 100%
+  );
+}
+
+:global([data-cut-corner='bottom-right']) {
+  --cut-border-width: 1px;
+  --cut-size: 10px;
+  --cut-inner-size: 9.41421356px;
+  --cut-border-color: var(--accent);
+  --cut-fill-color: var(--accent);
+
+  position: relative;
+  isolation: isolate;
+  background: transparent;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - var(--cut-size)),
+    calc(100% - var(--cut-size)) 100%,
+    0 100%
+  );
+}
+
+:global([data-cut-corner]::before),
+:global([data-cut-corner]::after) {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+
+:global([data-cut-corner]::before) {
+  z-index: -2;
+  inset: 0;
+  background: var(--cut-border-color);
+  transition: background-color var(--durationS) ease;
+}
+
+:global([data-cut-corner]::after) {
+  z-index: -1;
+  inset: var(--cut-border-width);
+  background: var(--cut-fill-color);
+  transition: background-color var(--durationS) ease;
+}
+
+:global([data-cut-corner='top-right']::before) {
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cut-size)) 0,
+    100% var(--cut-size),
+    100% 100%,
+    0 100%
+  );
+}
+
+:global([data-cut-corner='top-right']::after) {
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cut-inner-size)) 0,
+    100% var(--cut-inner-size),
+    100% 100%,
+    0 100%
+  );
+}
+
+:global([data-cut-corner='bottom-right']::before) {
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - var(--cut-size)),
+    calc(100% - var(--cut-size)) 100%,
+    0 100%
+  );
+}
+
+:global([data-cut-corner='bottom-right']::after) {
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - var(--cut-inner-size)),
+    calc(100% - var(--cut-inner-size)) 100%,
+    0 100%
+  );
+}
+
+:global([data-cut-inner]) {
+  position: relative;
+  z-index: 1;
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cut-inner-size)) 0,
+    100% var(--cut-inner-size),
+    100% 100%,
+    0 100%
+  );
+}

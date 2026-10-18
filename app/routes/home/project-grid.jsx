@@ -198,11 +198,13 @@ export const ProjectGrid = ({ projects }) => {
         <div className={styles.stage}>
           <div
             className={styles.preview}
+            data-cut-corner="top-right"
             data-side="previous"
           >
             <motion.div
               key={previousProject.link}
               className={styles.previewContent}
+              data-cut-inner
               aria-hidden="true"
               initial={{ opacity: reduceMotion ? 1 : 0.35 }}
               animate={{ opacity: 1 }}
@@ -223,11 +225,13 @@ export const ProjectGrid = ({ projects }) => {
           </div>
           <div
             className={styles.preview}
+            data-cut-corner="top-right"
             data-side="next"
           >
             <motion.div
               key={nextProject.link}
               className={styles.previewContent}
+              data-cut-inner
               aria-hidden="true"
               initial={{ opacity: reduceMotion ? 1 : 0.35 }}
               animate={{ opacity: 1 }}
@@ -250,6 +254,7 @@ export const ProjectGrid = ({ projects }) => {
             <motion.article
               key={activeIndex}
               className={styles.projectCard}
+              data-cut-corner="top-right"
               custom={direction}
               variants={cardVariants}
               initial={reduceMotion ? false : 'enter'}
@@ -259,7 +264,9 @@ export const ProjectGrid = ({ projects }) => {
               aria-label={`Project ${activeIndex + 1} of ${projects.length}: ${activeProject.title}`}
               aria-live="polite"
             >
-              <ProjectCardContent project={activeProject} index={activeIndex} />
+              <div className={styles.projectCardContent} data-cut-inner>
+                <ProjectCardContent project={activeProject} index={activeIndex} />
+              </div>
             </motion.article>
           </AnimatePresence>
         </div>

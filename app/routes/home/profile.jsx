@@ -147,7 +147,7 @@ export const Profile = ({ id, sectionRef }) => {
                   <span>{config.name}</span>
                 </figcaption>
               </figure>
-              <article className={styles.profileCard}>
+              <article className={styles.profileCard} data-cut-corner="top-right">
                 <p className={styles.cardLabel}>[ABOUT.LOG]</p>
                 <ProfileText visible={visible} titleId={`${id}-bio-title`} />
                 <Button
