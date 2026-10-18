@@ -233,6 +233,10 @@
   );
 }
 
+:global([data-home-magic-border-only] > .home-card-glow::before) {
+  display: none;
+}
+
 :global(.home-card-glow::after) {
   inset: 0;
   padding: 1px;

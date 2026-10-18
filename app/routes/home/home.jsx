@@ -140,20 +140,19 @@ const CareerSnapshot = () => {
           title="Résumé snapshot"
           description="Experience and education, distilled into one concise view."
         />
-        <div className={styles.resumeDesktop}>
+        <div className={styles.resumeDesktop} data-home-magic-card>
+          <HomeCardGlow />
           <div className={styles.resumeHeader}>
             <span className={styles.resumeCommandTitle}>[RESUME.LOG]</span>
             <span className={styles.resumeCommandStatus}>PROFILE / 01</span>
           </div>
           <div className={styles.resumeCommandBody}>
-            <article className={`${styles.resumePanel} ${styles.resumeExperiencePanel}`} data-home-magic-card>
-              <HomeCardGlow />
+            <article className={`${styles.resumePanel} ${styles.resumeExperiencePanel}`}>
               <p className={styles.resumeKicker}>[experience]</p>
               <h3>Professional experience</h3>
               <ResumeTimeline items={experienceItems} />
             </article>
-            <article className={`${styles.resumePanel} ${styles.resumeEducationPanel}`} data-home-magic-card>
-              <HomeCardGlow />
+            <article className={`${styles.resumePanel} ${styles.resumeEducationPanel}`}>
               <p className={styles.resumeKicker}>[education]</p>
               <h3>Bachelor of Science in Computer Science</h3>
               <p className={styles.resumeEducationMeta}>
@@ -167,7 +166,8 @@ const CareerSnapshot = () => {
             </article>
           </div>
         </div>
-        <div className={styles.resumeMobile}>
+        <div className={styles.resumeMobile} data-home-magic-card>
+          <HomeCardGlow />
           <div className={styles.resumeHeader}>
             <span className={styles.resumeCommandTitle}>[resume.log]</span>
             <span className={styles.resumeCommandStatus} aria-live="polite">

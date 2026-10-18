@@ -164,7 +164,12 @@ export const Profile = ({ id, sectionRef }) => {
                 </Button>
               </article>
               <div className={styles.skillsLayout}>
-                <section className={styles.skillsCard} data-home-magic-card aria-labelledby={`${id}-skills-title`}>
+                <section
+                  className={styles.skillsCard}
+                  data-home-magic-card
+                  data-home-magic-border-only
+                  aria-labelledby={`${id}-skills-title`}
+                >
                   <HomeCardGlow />
                   <p className={styles.cardLabel}>[CORE SKILLS / TOOLS]</p>
                   <Heading level={4} as="h3" id={`${id}-skills-title`}>
@@ -183,7 +188,12 @@ export const Profile = ({ id, sectionRef }) => {
                     />
                   </div>
                 </section>
-                <aside className={styles.focusCard} data-home-magic-card aria-labelledby={`${id}-focus-title`}>
+                <aside
+                  className={styles.focusCard}
+                  data-home-magic-card
+                  data-home-magic-border-only
+                  aria-labelledby={`${id}-focus-title`}
+                >
                   <HomeCardGlow />
                   <p className={styles.cardLabel}>[CURRENT FOCUS / ANGULAR]</p>
                   <Heading level={4} as="h3" id={`${id}-focus-title`}>
