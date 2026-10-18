@@ -224,8 +224,7 @@ const CertificationsSnapshot = () => (
       />
       <div className={styles.credentialList}>
         {certificatesData.map(({ title, issuer, date, documents }) => (
-          <article className={styles.credential} key={title} data-home-magic-card>
-            <HomeCardGlow />
+          <article className={styles.credential} key={title}>
             <p className={styles.entryLabel}>
               {issuer ? [issuer, date].filter(Boolean).join(' / ') : `${documents.length} module certificates`}
             </p>
