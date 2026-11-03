@@ -18,6 +18,14 @@ import sweldoScreenShot from '~/assets/Sweldo-Home-Cut.png';
 import deutschcraftDashboard from '~/assets/deutschcraft/dashboard.png';
 import deutschcraftFlashcards from '~/assets/deutschcraft/flashcard-categories.png';
 
+// DeutschCraft Chat assets
+import deutschcraftChatMission from '~/assets/deutschcraft_chat/1793691868577.png';
+import deutschcraftChatSettings from '~/assets/deutschcraft_chat/1793691874009.png';
+import deutschcraftChatProgress from '~/assets/deutschcraft_chat/1793691878242.png';
+import deutschcraftChatGuidance from '~/assets/deutschcraft_chat/1793691881246.png';
+import deutschcraftChatConversation from '~/assets/deutschcraft_chat/1793691884369.png';
+import deutschcraftChatThreads from '~/assets/deutschcraft_chat/1793691888004.png';
+
 // Lotel React Native assets
 import lotelReactNativeSalesDashboard from '~/assets/lotel_react_native/sales-dashboard.jpg';
 import lotelReactNativeRoomBooking from '~/assets/lotel_react_native/room-booking.jpg';
@@ -83,6 +91,46 @@ export const projectsData = [
         {
           srcSet: `${deutschcraftFlashcards} 1280w, ${deutschcraftFlashcards} 2560w`,
           placeholder: deutschcraftFlashcards,
+        },
+      ],
+    },
+  },
+  {
+    id: 'deutschcraftchat',
+    title: 'DeutschCraft Chat',
+    description:
+      'Offline-first Android language learning through natural conversations with an AI companion. Persistent chats, contextual corrections, CEFR progress, and realistic missions make practice part of the conversation.',
+    technologies: ['Kotlin', 'Jetpack Compose', 'Room', 'Qwen'],
+    image: deutschcraftChatThreads,
+    link: '/projects/deutschcraftchat',
+    featured: true,
+    scrollView: {
+      modelType: 'phone',
+      alt: 'DeutschCraft Chat conversations and German-learning missions on Android',
+      textures: [
+        {
+          srcSet: `${deutschcraftChatThreads} 473w, ${deutschcraftChatThreads} 946w`,
+          placeholder: deutschcraftChatThreads,
+        },
+        {
+          srcSet: `${deutschcraftChatConversation} 473w, ${deutschcraftChatConversation} 946w`,
+          placeholder: deutschcraftChatConversation,
+        },
+        {
+          srcSet: `${deutschcraftChatMission} 473w, ${deutschcraftChatMission} 946w`,
+          placeholder: deutschcraftChatMission,
+        },
+        {
+          srcSet: `${deutschcraftChatProgress} 473w, ${deutschcraftChatProgress} 946w`,
+          placeholder: deutschcraftChatProgress,
+        },
+        {
+          srcSet: `${deutschcraftChatGuidance} 473w, ${deutschcraftChatGuidance} 946w`,
+          placeholder: deutschcraftChatGuidance,
+        },
+        {
+          srcSet: `${deutschcraftChatSettings} 473w, ${deutschcraftChatSettings} 946w`,
+          placeholder: deutschcraftChatSettings,
         },
       ],
     },

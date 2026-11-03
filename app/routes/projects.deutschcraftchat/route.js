@@ -1,0 +1,1 @@
+export { DeutschCraftChat as default, meta } from './deutschcraft-chat.page';
