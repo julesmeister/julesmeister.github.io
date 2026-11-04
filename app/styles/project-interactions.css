@@ -49,28 +49,104 @@
 }
 
 /* Modal Styles */
+/* Image viewer: image always fits inside the viewport, leaving room for arrows + caption */
 .modalImageContainer {
+  --viewer-side-gutter: 88px;
+  --viewer-caption-space: 110px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-m, 1rem);
-  max-width: 90vw;
-  max-height: 90vh;
+  gap: 12px;
+  margin: 0;
+  max-width: calc(100vw - var(--viewer-side-gutter) * 2);
+  max-height: 100vh;
+  cursor: default;
 }
 
 .modalImage {
-  max-width: 100%;
-  max-height: 80vh;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: calc(100vw - var(--viewer-side-gutter) * 2);
+  max-height: calc(100vh - var(--viewer-caption-space));
+  max-height: calc(100dvh - var(--viewer-caption-space));
   object-fit: contain;
   border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: viewerImageIn 0.25s ease;
+}
+
+@keyframes viewerImageIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 .modalCaption {
-  color: var(--color-text-light, rgba(255, 255, 255, 0.7));
-  font-size: var(--font-size-s, 0.875rem);
-  text-align: center;
+  max-width: min(720px, 90vw);
   margin: 0;
-  padding: 0 var(--space-m, 1rem);
+  padding: 0 16px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  line-height: 1.4;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.modalImageCounter {
+  display: block;
+  margin-top: -4px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+}
+
+/* Prev / Next buttons pinned to both edges of the screen */
+.modalNavButton {
+  position: fixed;
+  top: 50%;
+  z-index: 1002;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transform: translateY(-50%);
+  transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+.modalNavButton:hover:not(:disabled),
+.modalNavButton:focus-visible {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.modalNavButton:active:not(:disabled) {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.modalNavButton.prev {
+  left: 16px;
+}
+
+.modalNavButton.next {
+  right: 16px;
+}
+
+.modalNavButton:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
 }
 
 /* Interactive states for specific project elements */
@@ -92,19 +168,45 @@
     border: 2px solid var(--color-primary, #fff);
   }
   
+  /* On phones the arrows sit at the bottom so the image can use the full width */
   .modalImageContainer {
-    gap: var(--space-s, 0.5rem);
-    max-width: 95vw;
-    max-height: 95vh;
+    --viewer-side-gutter: 8px;
+    --viewer-caption-space: 170px;
+
+    gap: 8px;
   }
-  
+
   .modalImage {
-    max-height: 70vh;
     border-radius: 6px;
   }
-  
+
   .modalCaption {
-    font-size: var(--font-size-xs, 0.75rem);
-    padding: 0 var(--space-s, 0.5rem);
+    font-size: 0.75rem;
+    -webkit-line-clamp: 2;
+  }
+
+  .modalNavButton {
+    top: auto;
+    bottom: 20px;
+    width: 48px;
+    height: 48px;
+    transform: none;
+  }
+
+  .modalNavButton:hover:not(:disabled),
+  .modalNavButton:focus-visible {
+    transform: scale(1.08);
+  }
+
+  .modalNavButton:active:not(:disabled) {
+    transform: scale(0.95);
+  }
+
+  .modalNavButton.prev {
+    left: calc(50% - 64px);
+  }
+
+  .modalNavButton.next {
+    right: calc(50% - 64px);
   }
 }
