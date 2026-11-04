@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Image } from '~/components/image';
 import { Link } from '~/components/link';
 import {
@@ -10,17 +11,46 @@ import {
 import { createImageVariants } from '~/utils/project-helpers';
 import styles from './project-sections.module.css';
 
-const ImageFrame = ({ image, alt, section, className, getImageHandlers, style, children }) => (
-  <div className={className} style={style} {...getImageHandlers?.(image, alt)}>
-    {children}
-    <Image
-      {...createImageVariants(image, alt, {
-        ...section.imageOptions,
-        sizes: section.imageSizes,
-      })}
-    />
-  </div>
-);
+// Natural width/height ratio, so CSS can shrink the frame to exactly the visible image.
+const useImageRatio = (src) => {
+  const [ratio, setRatio] = useState();
+
+  useEffect(() => {
+    if (!src) return undefined;
+    const probe = new window.Image();
+    const update = () => {
+      if (probe.naturalHeight) setRatio(probe.naturalWidth / probe.naturalHeight);
+    };
+    probe.onload = update;
+    probe.src = src;
+    if (probe.complete) update();
+    return () => {
+      probe.onload = null;
+    };
+  }, [src]);
+
+  return ratio;
+};
+
+const ImageFrame = ({ image, alt, section, className, getImageHandlers, style, children }) => {
+  const ratio = useImageRatio(image);
+
+  return (
+    <div
+      className={className}
+      style={ratio ? { ...style, '--image-ratio': ratio } : style}
+      {...getImageHandlers?.(image, alt)}
+    >
+      {children}
+      <Image
+        {...createImageVariants(image, alt, {
+          ...section.imageOptions,
+          sizes: section.imageSizes,
+        })}
+      />
+    </div>
+  );
+};
 
 const TimelineSection = ({ section, sectionRef, getImageHandlers }) => (
   <ProjectSection padding={section.padding || 'top'} ref={sectionRef}>
@@ -73,14 +103,15 @@ const FeatureSection = ({ section, sectionRef, getImageHandlers }) => (
             key={item.id || item.featureNumber}
             style={{ '--item-delay': `${section.delays?.[index] ?? index * 0.2}s` }}
           >
-            <span className={styles.featureNumber}>{item.featureNumber}</span>
             <ImageFrame
               image={item.image}
               alt={item.alt || item.title}
               section={section}
               className={styles.featureImage}
               getImageHandlers={getImageHandlers}
-            />
+            >
+              <span className={styles.featureNumber}>{item.featureNumber}</span>
+            </ImageFrame>
             <div className={styles.featureContent}>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
