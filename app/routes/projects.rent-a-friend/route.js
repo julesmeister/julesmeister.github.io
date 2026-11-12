@@ -1,0 +1,1 @@
+export { RentAFriend as default, meta } from './rent-a-friend.page';
