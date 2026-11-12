@@ -1,13 +1,10 @@
+name = "julesmeister-github-io"
+compatibility_date = "2026-11-10"
+pages_build_output_dir = "./build/client"
+
 kv_namespaces = [
-  { id = "MY_KV", binding="MY_KV" }
+  { binding = "MY_KV", id = "MY_KV" }
 ]
 
 [build]
 command = "npm run build"
-
-[build.upload]
-format = "service-worker"
-
-# Suppress esbuild side-effects warnings
-[esbuild]
-ignore_warnings = ["ignored-bare-import"]
