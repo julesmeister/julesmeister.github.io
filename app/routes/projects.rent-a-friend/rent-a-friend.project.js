@@ -26,8 +26,8 @@ export const rentAFriendProject = {
     'AWS',
   ],
 
-  url: 'https://github.com/julesmeister/Rent-a-Friend',
-  linkLabel: 'View on GitHub',
+  url: 'https://dbw1c29mj2m18.cloudfront.net/home',
+  linkLabel: 'View Website',
 
   backgroundImage: hero,
 
