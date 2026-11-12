@@ -50,7 +50,46 @@ import cTraderScreenShotLarge from '~/assets/cTrader.png';
 import cTraderScreenShotPlaceholder from '~/assets/cTrader.png';
 import contactManagementDashboard from '~/assets/contact_management_app/contact-management-dashboard.png';
 
+// Rent-a-Friend assets
+import rentAFriendHero from '~/assets/rent_a_friend/hero.png';
+import rentAFriendGallery from '~/assets/rent_a_friend/gallery.png';
+import rentAFriendCheckout from '~/assets/rent_a_friend/check-out.png';
+import rentAFriendBookings from '~/assets/rent_a_friend/my-bookings.png';
+
+
 export const projectsData = [
+  {
+  id: 'rent-a-friend',
+  title: 'Rent-a-Friend',
+  description:
+    'Full-stack companion booking platform built with Angular and Spring Boot, featuring JWT authentication, role-based authorization, DynamoDB persistence, private S3 assets, asynchronous SQS events, and a containerized AWS deployment on ECS Fargate.',
+  technologies: ['Angular', 'Spring Boot', 'Docker', 'AWS'],
+  image: rentAFriendHero,
+  link: '/projects/rent-a-friend',
+  featured: true,
+  scrollView: {
+    modelType: 'laptop',
+    alt: 'Rent-a-Friend full-stack companion booking platform',
+    textures: [
+      {
+        srcSet: `${rentAFriendHero} 1280w, ${rentAFriendHero} 2560w`,
+        placeholder: rentAFriendHero,
+      },
+      {
+        srcSet: `${rentAFriendGallery} 1280w, ${rentAFriendGallery} 2560w`,
+        placeholder: rentAFriendGallery,
+      },
+      {
+        srcSet: `${rentAFriendCheckout} 1280w, ${rentAFriendCheckout} 2560w`,
+        placeholder: rentAFriendCheckout,
+      },
+      {
+        srcSet: `${rentAFriendBookings} 1280w, ${rentAFriendBookings} 2560w`,
+        placeholder: rentAFriendBookings,
+      },
+    ],
+  },
+},
   {
     id: 'contact-management-app',
     title: 'Contact Management App',
