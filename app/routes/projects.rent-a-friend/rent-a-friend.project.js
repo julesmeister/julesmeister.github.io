@@ -26,7 +26,7 @@ export const rentAFriendProject = {
     'AWS',
   ],
 
-  url: 'https://dbw1c29mj2m18.cloudfront.net/home',
+  url: 'https://dbw1c29mj2m18.cloudfront.net/',
   linkLabel: 'View Website',
 
   backgroundImage: hero,
