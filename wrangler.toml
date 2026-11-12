@@ -5,6 +5,3 @@ pages_build_output_dir = "./build/client"
 kv_namespaces = [
   { binding = "MY_KV", id = "MY_KV" }
 ]
-
-[build]
-command = "npm run build"
