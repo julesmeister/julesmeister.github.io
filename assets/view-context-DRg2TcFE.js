@@ -1,0 +1,1 @@
+import{r as t,j as i}from"./jsx-runtime-BgQc5Su6.js";const o=t.createContext(),u=({children:e})=>{const[r,s]=t.useState("grid");return i.jsx(o.Provider,{value:{viewMode:r,setViewMode:s},children:e})},w=()=>{const e=t.useContext(o);if(!e)throw new Error("useViewMode must be used within a ViewProvider");return e};export{u as V,w as u};
