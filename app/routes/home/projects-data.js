@@ -56,8 +56,68 @@ import rentAFriendGallery from '~/assets/rent_a_friend/gallery.png';
 import rentAFriendCheckout from '~/assets/rent_a_friend/check-out.png';
 import rentAFriendBookings from '~/assets/rent_a_friend/my-bookings.png';
 
+// Sangfroid assets
+import sangfroidAnswerEditor from '~/assets/sangfroid/answer-editor.png';
+import sangfroidFeed from '~/assets/sangfroid/feed.png';
+import sangfroidProfile from '~/assets/sangfroid/profile.png';
+import sangfroidProgress from '~/assets/sangfroid/progress.png';
+import sangfroidSavedQuestions from '~/assets/sangfroid/saved-questions.png';
 
 export const projectsData = [
+    {
+    id: 'sangfroid',
+    title: 'Sangfroid',
+    description:
+      'Offline-first Android interview preparation powered by CV-grounded question generation, guided answer practice, AI feedback, saved revision history, and evidence-based progress tracking. Built with Kotlin and Jetpack Compose with a secured Spring Boot and Qwen backend.',
+    technologies: [
+      'Kotlin',
+      'Jetpack Compose',
+      'Room',
+      'Spring Boot',
+      'Qwen',
+      'AWS',
+    ],
+    image: sangfroidFeed,
+    link: '/projects/sangfroid',
+    featured: true,
+    scrollView: {
+      modelType: 'phone',
+      alt:
+        'Sangfroid personalized interview preparation app on Android',
+      textures: [
+        {
+          srcSet:
+            `${sangfroidFeed} 473w, ${sangfroidFeed} 946w`,
+          placeholder:
+            sangfroidFeed,
+        },
+        {
+          srcSet:
+            `${sangfroidAnswerEditor} 473w, ${sangfroidAnswerEditor} 946w`,
+          placeholder:
+            sangfroidAnswerEditor,
+        },
+        {
+          srcSet:
+            `${sangfroidProgress} 473w, ${sangfroidProgress} 946w`,
+          placeholder:
+            sangfroidProgress,
+        },
+        {
+          srcSet:
+            `${sangfroidProfile} 473w, ${sangfroidProfile} 946w`,
+          placeholder:
+            sangfroidProfile,
+        },
+        {
+          srcSet:
+            `${sangfroidSavedQuestions} 473w, ${sangfroidSavedQuestions} 946w`,
+          placeholder:
+            sangfroidSavedQuestions,
+        },
+      ],
+    },
+  },
   {
   id: 'rent-a-friend',
   title: 'Rent-a-Friend',

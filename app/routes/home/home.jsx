@@ -347,6 +347,13 @@ export const Home = () => {
   const { viewMode } = useViewMode();
   const homeRef = useRef(null);
 
+  console.log('VIEW MODE:', viewMode);
+  console.log('PROJECT COUNT:', projectsData.length);
+  console.log(
+    'PROJECTS:',
+    projectsData.map(project => project.id)
+  );
+
   useEffect(() => {
     const home = homeRef.current;
     if (!home) return undefined;
