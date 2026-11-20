@@ -13,7 +13,6 @@ import styles from './project.module.css';
 import { Modal } from '~/components/Modal/Modal';
 import { Link as RouterLink } from '@remix-run/react';
 import {
-  siAmazonwebservices,
   siAndroid,
   siAngular,
   siDart,
@@ -23,19 +22,15 @@ import {
   siFirebase,
   siFlutter,
   siFramer,
-  siHibernate,
   siJetpackcompose,
   siKotlin,
   siLightning,
   siNextdotjs,
-  siOpenjdk,
   siOpenrouter,
   siOpensourceinitiative,
   siReact,
   siReactivex,
   siShadcnui,
-  siSpringboot,
-  siSqlite,
   siSupabase,
   siTailwindcss,
   siTurso,
@@ -66,35 +61,58 @@ const roleIcons = {
   Android: siAndroid,
   Flutterflow: siFlutter,
   Kotlin: siKotlin,
-  Java: siOpenjdk,
-  'Spring Boot': siSpringboot,
   'Jetpack Compose': siJetpackcompose,
   'React Native': siReact,
   Expo: siExpo,
   Supabase: siSupabase,
-  Room: siSqlite,
-  Hilt: siHibernate,
-  AWS: siAmazonwebservices,
   Nextron: siElectron,
   React: siReact,
   Electron: siElectron,
   'shadcn/ui': siShadcnui,
   'Openrouter AI': siOpenrouter,
-  Qwen: siOpenrouter,
   Vercel: siVercel,
   Turso: siTurso,
 };
 
 const fallbackRoleIconPaths = {
-  'JSON Server': 'M3 4h18v4H3zM3 10h18v4H3zM3 16h18v4H3z',
-  'Custom Components': 'M3 3h8v8H3zM13 3h8v5h-8zM13 10h8v11h-8zM3 13h8v8H3z',
-  cTrader: 'M3 3v18h18v-2H5V3H3zm4 13 4-4 3 2 6-7-1.5-1.3-4.8 5.6-3.2-2.1L5.6 14.6 7 16z',
-  Plugin: 'M9 3h6v4h4v4h-4v6h4v4h-4v-4H9v4H5v-4h4v-6H5V7h4V3z',
-  'No-Code': 'M3 3h8v8H3zM13 3h8v8h-8zM3 13h8v8H3zM13 13h8v8h-8z',
-  Astrology: 'M12 2 9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5L12 2z',
-  CSV: 'M5 2h10l4 4v16H5V2zm9 1.5V7h3.5L14 3.5zM8 11h8v1.5H8V11zm0 4h8v1.5H8V15zm0 4h8v1.5H8V19z',
-  Hilt: 'M12 2l3 6h6l-4.5 4 2 7-6.5-4-6.5 4 2-7L3 8h6l3-6z',
-  Qwen: 'M12 2a10 10 0 1 0 6.32 17.75L22 22l-1.35-4.05A10 10 0 0 0 12 2zm0 4a6 6 0 1 1 0 12 6 6 0 0 1 0-12z',
+  Java:
+    'M5 3h14v3H5zM5 8h14v3H5zM5 13h14v3H5zM7 18h10v3H7z',
+
+  'Spring Boot':
+    'M19.8 5.2C16.4 1.8 10.9 1.4 7 4.4 3.4 7.2 2.3 12.3 4.5 16.2c2.4 4.3 7.7 6.4 12.2 4.5 3.8-1.6 6.1-5.4 5.8-9.5-.1-1.4-.5-2.8-1.2-4 .2-1.5-.2-3-1.5-4.3zM8.2 17.8c-2.5-2-3-5.6-1.1-8.1 1.7-2.3 4.9-3 7.4-1.7-2.8.2-5.3 2-6.3 4.7-.7 1.7-.7 3.5 0 5.1zm3.3 1.4c-1.2-2.2-.8-5 1.1-6.8 1.6-1.5 3.8-2 5.8-1.3-1.3.5-2.5 1.3-3.4 2.4-1.4 1.7-2.1 3.7-2 5.8-.5 0-1-.1-1.5-.1z',
+
+  Room:
+    'M4 5c0-1.7 3.6-3 8-3s8 1.3 8 3v14c0 1.7-3.6 3-8 3s-8-1.3-8-3V5zm2 0c0 .6 2.1 1.5 6 1.5S18 5.6 18 5s-2.1-1.5-6-1.5S6 4.4 6 5zm0 3v3c1.5.7 3.6 1 6 1s4.5-.3 6-1V8c-1.5.7-3.6 1-6 1S7.5 8.7 6 8zm0 6v3c1.5.7 3.6 1 6 1s4.5-.3 6-1v-3c-1.5.7-3.6 1-6 1s-4.5-.3-6-1z',
+
+  Hilt:
+    'M12 2 15 8h6l-4.5 4 2 7-6.5-4-6.5 4 2-7L3 8h6l3-6z',
+
+  AWS:
+    'M3 16.5c1.8 1.3 4.2 2.2 6.8 2.6 3.9.6 8.1-.1 11.2-2.2v2.2c-3.1 1.9-7.1 2.7-11.1 2.1-2.7-.4-5.1-1.3-6.9-2.5v-2.2zM5.2 13.9 8.6 5h2.8l3.4 8.9h-2.6l-.7-2H8.4l-.7 2H5.2zm3.9-4h1.8L10 7.1l-.9 2.8zm6.2 4V5h2.4v6.8H21v2.1h-5.7z',
+
+  Qwen:
+    'M12 2a10 10 0 1 0 6.32 17.75L22 22l-1.35-4.05A10 10 0 0 0 12 2zm0 3.2a6.8 6.8 0 1 1 0 13.6 6.8 6.8 0 0 1 0-13.6zm0 3.1a3.7 3.7 0 1 0 0 7.4 3.7 3.7 0 0 0 0-7.4z',
+
+  'JSON Server':
+    'M3 4h18v4H3zM3 10h18v4H3zM3 16h18v4H3z',
+
+  'Custom Components':
+    'M3 3h8v8H3zM13 3h8v5h-8zM13 10h8v11h-8zM3 13h8v8H3z',
+
+  cTrader:
+    'M3 3v18h18v-2H5V3H3zm4 13 4-4 3 2 6-7-1.5-1.3-4.8 5.6-3.2-2.1L5.6 14.6 7 16z',
+
+  Plugin:
+    'M9 3h6v4h4v4h-4v6h4v4h-4v-4H9v4H5v-4h4V3z',
+
+  'No-Code':
+    'M3 3h8v8H3zM13 3h8v8h-8zM3 13h8v8H3zM13 13h8v8h-8z',
+
+  Astrology:
+    'M12 2 9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5L12 2z',
+
+  CSV:
+    'M5 2h10l4 4v16H5V2zm9 1.5V7h3.5L14 3.5zM8 11h8v1.5H8V11zm0 4h8v1.5H8V15zm0 4h8v1.5H8V19z',
 };
 
 export const ProjectHeader = forwardRef(
@@ -116,28 +134,58 @@ export const ProjectHeader = forwardRef(
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
-      <Section className={classes(styles.header, className)} as="section" ref={ref}>
+      <Section
+        className={classes(styles.header, className)}
+        as="section"
+        ref={ref}
+      >
         <div className={styles.headerShell}>
           <div className={styles.systemLine}>
-            <RouterLink className={styles.backLink} to="/#projects" aria-label="Back to projects">
+            <RouterLink
+              className={styles.backLink}
+              to="/#projects"
+              aria-label="Back to projects"
+            >
               <Icon icon="arrow-left-line" size={12} />
               <span>Projects</span>
             </RouterLink>
-            <span className={styles.systemName}><b aria-hidden="true">&gt;_</b> PROJECT.SYSTEM</span>
-            <span className={styles.systemMeta}>CASE FILE / 2026</span>
+
+            <span className={styles.systemName}>
+              <b aria-hidden="true">&gt;_</b> PROJECT.SYSTEM
+            </span>
+
+            <span className={styles.systemMeta}>
+              CASE FILE / 2026
+            </span>
           </div>
+
           <div
             className={styles.headerContent}
-            style={cssProps({ initDelay: numToMs(initDelay) })}
+            style={cssProps({
+              initDelay: numToMs(initDelay),
+            })}
           >
             <div className={styles.details}>
-              <p className={styles.headerEyebrow}>PROJECT / CASE STUDY</p>
-              <Heading className={styles.title} level={2} as="h1">
+              <p className={styles.headerEyebrow}>
+                PROJECT / CASE STUDY
+              </p>
+
+              <Heading
+                className={styles.title}
+                level={2}
+                as="h1"
+              >
                 {title}
               </Heading>
-              <Text className={styles.description} size="xl" as="p">
+
+              <Text
+                className={styles.description}
+                size="xl"
+                as="p"
+              >
                 {description}
               </Text>
+
               <div className={styles.headerActions}>
                 {!!url && (
                   <Button
@@ -150,6 +198,7 @@ export const ProjectHeader = forwardRef(
                     {linkLabel}
                   </Button>
                 )}
+
                 {!!secondaryUrl && (
                   <Button
                     secondary
@@ -161,6 +210,7 @@ export const ProjectHeader = forwardRef(
                     {secondaryLinkLabel}
                   </Button>
                 )}
+
                 {!!pdfUrl && (
                   <>
                     <Button
@@ -172,10 +222,18 @@ export const ProjectHeader = forwardRef(
                     >
                       {pdfLinkLabel}
                     </Button>
-                    <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+
+                    <Modal
+                      isOpen={isModalOpen}
+                      onClose={() => setIsModalOpen(false)}
+                    >
                       <iframe
                         src={pdfUrl}
-                        style={{ width: '100vh', height: '80vh', border: 'none' }}
+                        style={{
+                          width: '100vh',
+                          height: '80vh',
+                          border: 'none',
+                        }}
                         title="PDF"
                       />
                     </Modal>
@@ -183,24 +241,55 @@ export const ProjectHeader = forwardRef(
                 )}
               </div>
             </div>
+
             {!!roles?.length && (
-              <aside className={styles.metaPanel} aria-label="Project technologies">
-                <p className={styles.metaLabel}>TECH STACK / INDEX</p>
+              <aside
+                className={styles.metaPanel}
+                aria-label="Project technologies"
+              >
+                <p className={styles.metaLabel}>
+                  TECH STACK / INDEX
+                </p>
+
                 <ul className={styles.meta}>
                   {roles.map((role, index) => (
                     <li
                       className={styles.metaItem}
-                      style={cssProps({ delay: numToMs(initDelay + 300 + index * 140) })}
+                      style={cssProps({
+                        delay: numToMs(
+                          initDelay +
+                            300 +
+                            index * 140
+                        ),
+                      })}
                       key={role}
                     >
-                      <span className={styles.metaIndex}>{String(index + 1).padStart(2, '0')}</span>
-                      <svg className={styles.metaIcon} viewBox="0 0 24 24" aria-hidden="true">
+                      <span className={styles.metaIndex}>
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+
+                      <svg
+                        className={styles.metaIcon}
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
                         <path
-                          d={roleIcons[role]?.path || fallbackRoleIconPaths[role] || 'M8 7 3 12l5 5M16 7l5 5-5 5M14 4l-4 16'}
-                          fill={roleIcons[role] ? `#${roleIcons[role].hex}` : 'currentColor'}
+                          d={
+                            roleIcons[role]?.path ||
+                            fallbackRoleIconPaths[role] ||
+                            'M8 7 3 12l5 5M16 7l5 5-5 5M14 4l-4 16'
+                          }
+                          fill={
+                            roleIcons[role]
+                              ? `#${roleIcons[role].hex}`
+                              : 'currentColor'
+                          }
                         />
                       </svg>
-                      <Text secondary>{role}</Text>
+
+                      <Text secondary>
+                        {role}
+                      </Text>
                     </li>
                   ))}
                 </ul>
@@ -213,8 +302,14 @@ export const ProjectHeader = forwardRef(
   }
 );
 
-export const ProjectContainer = ({ className, ...rest }) => (
-  <article className={classes(styles.project, className)} {...rest} />
+export const ProjectContainer = ({
+  className,
+  ...rest
+}) => (
+  <article
+    className={classes(styles.project, className)}
+    {...rest}
+  />
 );
 
 export const ProjectSection = forwardRef(
@@ -238,75 +333,151 @@ export const ProjectSection = forwardRef(
       ref={ref}
       {...rest}
     >
-      <span className={styles.sectionIndex} aria-hidden="true" />
+      <span
+        className={styles.sectionIndex}
+        aria-hidden="true"
+      />
+
       {!!backgroundElement && (
         <div
           className={styles.sectionBackground}
-          style={cssProps({ opacity: backgroundOverlayOpacity })}
+          style={cssProps({
+            opacity: backgroundOverlayOpacity,
+          })}
         >
           {backgroundElement}
         </div>
       )}
-      <Section className={styles.sectionInner} data-padding={padding}>
+
+      <Section
+        className={styles.sectionInner}
+        data-padding={padding}
+      >
         {children}
       </Section>
     </section>
   )
 );
 
-export const ProjectBackground = ({ opacity = 0.7, className, ...rest }) => {
+export const ProjectBackground = ({
+  opacity = 0.7,
+  className,
+  ...rest
+}) => {
   const imageRef = useRef();
 
   useParallax(0.6, value => {
-    if (!imageRef.current) return;
-    imageRef.current.style.setProperty('--offset', `${value}px`);
+    if (!imageRef.current) {
+      return;
+    }
+
+    imageRef.current.style.setProperty(
+      '--offset',
+      `${value}px`
+    );
   });
 
   return (
-    <Transition in timeout={msToNum(tokens.base.durationM)}>
+    <Transition
+      in
+      timeout={msToNum(tokens.base.durationM)}
+    >
       {({ visible, nodeRef }) => (
         <div
-          className={classes(styles.backgroundImage, className)}
+          className={classes(
+            styles.backgroundImage,
+            className
+          )}
           data-visible={visible}
           ref={nodeRef}
         >
-          <div className={styles.backgroundImageElement} ref={imageRef}>
-            <Image cover alt="" role="presentation" {...rest} />
+          <div
+            className={styles.backgroundImageElement}
+            ref={imageRef}
+          >
+            <Image
+              cover
+              alt=""
+              role="presentation"
+              {...rest}
+            />
           </div>
-          <div className={styles.backgroundScrim} style={cssProps({ opacity })} />
+
+          <div
+            className={styles.backgroundScrim}
+            style={cssProps({
+              opacity,
+            })}
+          />
         </div>
       )}
     </Transition>
   );
 };
 
-export const ProjectImage = ({ className, alt, ...rest }) => (
-  <div className={classes(styles.image, className)}>
-    <Image reveal alt={alt} delay={300} {...rest} />
+export const ProjectImage = ({
+  className,
+  alt,
+  ...rest
+}) => (
+  <div
+    className={classes(styles.image, className)}
+  >
+    <Image
+      reveal
+      alt={alt}
+      delay={300}
+      {...rest}
+    />
   </div>
 );
 
-export const ProjectImageColumns = ({ images }) => (
+export const ProjectImageColumns = ({
+  images,
+}) => (
   <div className={styles.imageColumns}>
     {images.map((image, index) => (
-      <div key={index} className={styles.imageColumn}>
-        <Image reveal alt={image.alt} delay={300} {...image} />
+      <div
+        key={index}
+        className={styles.imageColumn}
+      >
+        <Image
+          reveal
+          alt={image.alt}
+          delay={300}
+          {...image}
+        />
       </div>
     ))}
   </div>
 );
 
-export const ProjectSectionContent = ({ className, width = 'l', ...rest }) => (
+export const ProjectSectionContent = ({
+  className,
+  width = 'l',
+  ...rest
+}) => (
   <div
-    className={classes(styles.sectionContent, className)}
+    className={classes(
+      styles.sectionContent,
+      className
+    )}
     data-width={width}
     {...rest}
   />
 );
 
-export const ProjectSectionHeading = ({ className, level = 3, as = 'h2', ...rest }) => (
+export const ProjectSectionHeading = ({
+  className,
+  level = 3,
+  as = 'h2',
+  ...rest
+}) => (
   <Heading
-    className={classes(styles.sectionHeading, className)}
+    className={classes(
+      styles.sectionHeading,
+      className
+    )}
     as={as}
     level={level}
     align="auto"
@@ -314,8 +485,19 @@ export const ProjectSectionHeading = ({ className, level = 3, as = 'h2', ...rest
   />
 );
 
-export const ProjectSectionText = ({ className, ...rest }) => (
-  <Text className={classes(styles.sectionText, className)} size="l" as="p" {...rest} />
+export const ProjectSectionText = ({
+  className,
+  ...rest
+}) => (
+  <Text
+    className={classes(
+      styles.sectionText,
+      className
+    )}
+    size="l"
+    as="p"
+    {...rest}
+  />
 );
 
 export const ProjectTextRow = ({
@@ -329,7 +511,10 @@ export const ProjectTextRow = ({
   ...rest
 }) => (
   <div
-    className={classes(styles.textRow, className)}
+    className={classes(
+      styles.textRow,
+      className
+    )}
     data-center={center}
     data-stretch={stretch}
     data-center-mobile={centerMobile}
@@ -340,9 +525,16 @@ export const ProjectTextRow = ({
   />
 );
 
-export const ProjectSectionColumns = ({ className, centered, ...rest }) => (
+export const ProjectSectionColumns = ({
+  className,
+  centered,
+  ...rest
+}) => (
   <ProjectSectionContent
-    className={classes(styles.sectionColumns, className)}
+    className={classes(
+      styles.sectionColumns,
+      className
+    )}
     data-centered={centered}
     {...rest}
   />
