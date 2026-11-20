@@ -9,3 +9,7 @@ node_modules
 
 public/draco
 storybook-static
+
+build/github-pages/
+vite.config.*.timestamp-*.mjs
+vite.config.js.timestamp-*.mjs

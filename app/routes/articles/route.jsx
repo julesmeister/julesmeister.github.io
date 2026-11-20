@@ -7,7 +7,16 @@ import config from '~/config.json';
 import { formatTimecode, readingTime } from '~/utils/timecode';
 
 export async function loader({ request }) {
-  const slug = request.url.split('/').at(-1);
+  const pathname = new URL(request.url).pathname;
+  const slug = pathname.split('/').filter(Boolean).at(-1);
+
+  if (!slug || slug === 'articles') {
+    throw new Response('Article not found', {
+      status: 404,
+      statusText: 'Not Found',
+    });
+  }
+
   const module = await import(`../articles.${slug}.mdx`);
   const text = await import(`../articles.${slug}.mdx?raw`);
   const readTime = readingTime(text.default);
@@ -21,8 +30,21 @@ export async function loader({ request }) {
 }
 
 export function meta({ data }) {
+  if (!data?.frontmatter) {
+    return baseMeta({
+      title: 'Article not found',
+      description: 'The requested article could not be found.',
+    });
+  }
+
   const { title, abstract } = data.frontmatter;
-  return baseMeta({ title, description: abstract, prefix: '', ogImage: data.ogImage });
+
+  return baseMeta({
+    title,
+    description: abstract,
+    prefix: '',
+    ogImage: data.ogImage,
+  });
 }
 
 export default function Articles() {
