@@ -23,6 +23,8 @@ export const deutschCraftChatProject = {
     'AWS',
     'Qwen',
   ],
+  url: 'https://github.com/julesmeister/deutshcraft-chat',
+  linkLabel: 'View Source on GitHub',
   backgroundImage: threads,
   backgroundOptions: {
     srcSet: `${threads} 473w`,
