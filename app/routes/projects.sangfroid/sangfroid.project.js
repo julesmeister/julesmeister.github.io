@@ -6,11 +6,18 @@ import profile from '~/assets/sangfroid/profile.png';
 import progress from '~/assets/sangfroid/progress.png';
 import savedQuestions from '~/assets/sangfroid/saved-questions.png';
 
+import architecture from '~/assets/sangfroid/sangfroid-architecture.png';
+import techStack from '~/assets/sangfroid/sangfroid-tech-stack.png';
+import aiFeedbackPipeline from '~/assets/sangfroid/sangfroid-ai-feedback-pipeline.png';
+import awsDeployment from '~/assets/sangfroid/sangfroid-aws-deployment.png';
+
 /** @type {import('~/components/project-template/project-definition').ProjectDefinition} */
 export const sangfroidProject = {
   title: 'Sangfroid',
+
   description:
-    'An offline-first Android interview-preparation app that turns a candidate’s CV, skills, practice history, and saved revisions into personalized questions, guided answer practice, AI-generated feedback, and measurable progress. A Kotlin and Jetpack Compose client works with a secured Java 21 Spring Boot backend and Qwen to keep AI credentials and evaluation logic outside the mobile application.',
+    'An offline-first Android interview preparation app that turns CV evidence, skills, practice history, and previous answers into personalized questions, guided practice, structured AI feedback, saved revisions, and measurable progress.',
+
   roles: [
     'Kotlin',
     'Jetpack Compose',
@@ -21,194 +28,439 @@ export const sangfroidProject = {
     'AWS',
     'Qwen',
   ],
+
+  url: 'https://github.com/julesmeister/sangfroid',
+  linkLabel: 'View on GitHub',
+
   backgroundImage: feed,
+
   backgroundOptions: {
     srcSet: `${feed} 473w`,
     width: 473,
     height: 1024,
     opacity: 0.8,
   },
+
   theme: {
     primary: '#72EBDD',
     secondary: '#147F75',
   },
+
   imageViewer: true,
+
   sections: [
+    /*
+     * =========================================================
+     * PRODUCT LOOP
+     * =========================================================
+     */
+
     {
       id: 'practice-loop',
       type: 'timeline',
       layout: 'horizontal',
       offsets: [50, 25, 60],
+
       imageOptions: {
         width: 473,
         height: 1024,
       },
-      imageSizes: '(max-width: 768px) 90vw, 45vw',
+
+      imageSizes:
+        '(max-width: 768px) 90vw, 45vw',
+
       items: [
         {
-          id: 'discover-question',
+          id: 'personalize',
           stepNumber: 1,
-          image: feed,
-          title: 'Discover a Relevant Question',
+          image: profile,
+          title: 'Personalize',
           description:
-            'The practice feed presents interview questions shaped by category, difficulty, saved skills, CV evidence, and previous performance. Each card explains why the question matters before the candidate begins.',
+            'Import CV evidence and build an interview profile from skills, projects, experience, target roles, and areas that need more practice.',
           alt:
-            'Sangfroid practice feed showing a personalized interview question with category, difficulty, and practice controls',
+            'Sangfroid interview profile showing CV analysis, extracted skills, projects, and professional context',
         },
+
         {
-          id: 'build-answer',
+          id: 'practice',
           stepNumber: 2,
           image: answerEditor,
-          title: 'Build the Answer',
+          title: 'Practice',
           description:
-            'A focused editor supports typed and spoken answers, automatic draft persistence, historical attempts, reusable revisions, and an optional ideal-answer guide that appears as lighter continuation text without replacing the candidate’s own response.',
+            'Answer recommended or saved interview questions using text or voice. Drafts persist locally and each submitted answer becomes a separate attempt.',
           alt:
-            'Sangfroid answer editor with recording controls, answer input, and ideal-answer guidance',
+            'Sangfroid voice interview practice screen with recording controls and an active interview question',
         },
+
         {
-          id: 'review-feedback',
+          id: 'improve',
           stepNumber: 3,
           image: progress,
-          title: 'Turn Practice Into Progress',
+          title: 'Improve',
           description:
-            'Submitted attempts become structured evidence. Sangfroid tracks evaluated answers, saved revisions, feedback coverage, recent score movement, question-category performance, and CV-based practice coverage.',
+            'Use structured feedback, saved revisions, previous attempts, score trends, feedback coverage, and CV insights to decide what to practise next.',
           alt:
-            'Sangfroid progress dashboard showing practice statistics, score trends, feedback coverage, and CV insights',
+            'Sangfroid progress dashboard showing interview readiness, attempts, revisions, evaluation coverage, and CV insights',
         },
       ],
     },
+
+    /*
+     * =========================================================
+     * PERSONALIZED EXPERIENCE
+     * =========================================================
+     */
+
     {
       id: 'personalized-practice',
       type: 'features',
       layout: 'alternating',
       delays: [0.2, 0.4, 0.6],
-      heading: 'A Practice System That Learns From the Candidate',
+
+      heading:
+        'Practice Built Around the Candidate',
+
       description:
-        'Sangfroid connects profile evidence, generated questions, repeated attempts, AI evaluation, and saved improvements into one continuous interview-preparation loop.',
+        'Instead of treating interview preparation as a static question bank, Sangfroid connects professional evidence, question recommendations, repeated attempts, feedback, and progress into one practice system.',
+
       imageOptions: {
         width: 473,
         height: 1024,
       },
-      imageSizes: '(max-width: 768px) 85vw, 40vw',
+
+      imageSizes:
+        '(max-width: 768px) 85vw, 40vw',
+
       items: [
         {
-          id: 'cv-personalization',
+          id: 'question-feed',
           featureNumber: 4,
-          image: profile,
-          title: 'CV-Grounded Personalization',
+          image: feed,
+          title:
+            'Questions With a Reason',
+
           description:
-            'Candidates can import CV evidence and maintain a structured skills profile. Projects, achievements, work highlights, certifications, target roles, and weak-skill signals give question generation concrete material instead of relying on generic interview templates.',
+            'The feed recommends questions using category, difficulty, CV evidence, saved skills, target-role context, and previous practice. Each question also explains why an interviewer may ask it.',
+
           alt:
-            'Sangfroid profile showing interview preferences, saved skills, weak skills, and CV-derived evidence',
+            'Sangfroid personalized interview question feed showing a recommended technical question and practice controls',
         },
+
         {
           id: 'saved-practice',
           featureNumber: 5,
           image: savedQuestions,
-          title: 'A Reusable Practice Library',
+          title:
+            'A Reusable Practice Library',
+
           description:
-            'Questions can be saved for later and organized without creating a separate practice system. Saved questions continue through the same answer, attempt-history, feedback, revision, and progress workflows as generated questions.',
+            'Saved questions preserve category, previous attempts, latest scores, revisions, history, and why the question matters. Saved and generated questions use the same practice workflow.',
+
           alt:
-            'Sangfroid saved questions screen with categorized interview questions and practice actions',
+            'Sangfroid saved questions screen showing interview categories, scores, attempts, revisions, practice actions, and question explanations',
         },
+
         {
           id: 'progress-intelligence',
           featureNumber: 6,
           image: progress,
-          title: 'Progress Backed by Practice Evidence',
+          title:
+            'Progress Backed by Evidence',
+
           description:
-            'The progress experience combines attempt volume with evaluation coverage, average scores, recent changes, revision activity, category performance, and CV coverage. The result explains both how much the candidate practiced and where the next session should focus.',
+            'Progress combines attempts, completed evaluations, saved revisions, feedback coverage, score movement, question performance, and CV-based practice instead of reducing progress to a simple streak.',
+
           alt:
-            'Sangfroid progress screen displaying practice snapshot, performance trends, and CV-based question insights',
+            'Sangfroid progress screen showing interview readiness, practice statistics, evaluation coverage, and CV-based questions',
         },
       ],
     },
+
+    /*
+     * =========================================================
+     * ANSWER WORKSPACE
+     * =========================================================
+     */
+
     {
       id: 'answer-workspace',
       type: 'image-text',
-      heading: 'Guidance Without Replacing the Candidate',
+
+      heading:
+        'Guidance Without Replacing the Candidate',
+
       paragraphs: [
-        'The answer editor was designed as a workspace rather than a single-use form. Candidates can type, dictate an answer with offline speech recognition, revisit earlier attempts, reuse an answer as a new draft, and move between question and attempt tabs without leaving the practice flow.',
-        'An AI-generated ideal answer can be used as a lightweight guide. Remaining suggested words appear inside the editor as subdued continuation text, while the candidate keeps control of the real answer. Refreshing the guide preserves editor focus, keyboard state, and the visible editing position.',
-        'Drafts persist automatically, and each submitted answer becomes a separate attempt. This creates a history of practice rather than overwriting the candidate’s earlier work.',
+        'The answer editor works as a persistent practice workspace. Candidates can type, answer by voice, revisit previous attempts, and reuse earlier answers without leaving the question.',
+
+        'An optional Qwen-generated ideal answer appears as lightweight continuation guidance rather than replacing the candidate’s response. The editor remains usable while new guidance is generated.',
+
+        'Drafts persist automatically and every submission becomes its own attempt, preserving practice history instead of overwriting previous work.',
       ],
+
       imageOffsets: [7, -7],
+
       imageOptions: {
         width: 473,
         height: 1024,
       },
-      imageSizes: '(max-width: 768px) 82vw, 36vw',
+
+      imageSizes:
+        '(max-width: 768px) 82vw, 36vw',
+
       images: [
         {
           src: answerEditor,
           alt:
-            'Sangfroid answer editor showing the focused writing and voice-practice workspace',
+            'Sangfroid answer workspace showing voice recording controls and active interview practice',
         },
+
         {
           src: feed,
           alt:
-            'Sangfroid interview-question feed used to enter the guided practice flow',
+            'Sangfroid question feed used to enter the personalized interview practice workflow',
         },
       ],
     },
-    {
-      id: 'ai-feedback',
-      type: 'text',
-      heading: 'Structured AI Feedback Behind a Secured API',
-      paragraphs: [
-        'Sangfroid sends interview evaluations through a Java 21 Spring Boot backend instead of embedding the Qwen credential in the Android application. The backend builds a constrained evaluation prompt, calls Qwen, parses the returned JSON, validates the response contract, and returns a typed evaluation payload to Android.',
-        'Each evaluation can include a concise summary, strengths, missing points, suggestions, an improved outline, an improved answer example, follow-up questions, and rubric scores. Scores use a fixed five-point maximum so results remain comparable across attempts.',
-        'The response parser cleans text, limits field lengths, removes duplicate list entries, constrains oversized arrays, validates required minimums, and rejects malformed responses. This adds a deterministic boundary around model output rather than trusting generated JSON directly.',
-      ],
-    },
-    {
-      id: 'feedback-experience',
-      type: 'text',
-      heading: 'A Loading Experience Designed Around Real AI Latency',
-      paragraphs: [
-        'Fast evaluations transition directly into the full feedback screen. When evaluation lasts longer than three seconds, the loading experience minimizes into a compact status surface near the bottom of the screen instead of occupying the entire interface.',
-        'The compact state keeps the submitted question visible, communicates that Qwen is reviewing structure, evidence, and clarity, and tracks elapsed time. As soon as the evaluation arrives, the complete feedback experience expands automatically.',
-        'Generated answer revisions can be saved as multiple versions rather than replacing one another. Candidates can inspect older revisions, reuse a selected version as an answer guide, and delete individual versions without removing the original attempt.',
-      ],
-    },
+
+    /*
+     * =========================================================
+     * ARCHITECTURE
+     * =========================================================
+     */
+
     {
       id: 'android-architecture',
-      type: 'text',
-      heading: 'Offline-First Android Architecture',
+      type: 'image-text',
+
+      heading:
+        'Offline-First Android Architecture',
+
       paragraphs: [
-        'The Android application is built with Kotlin, Jetpack Compose, Material 3, Room, Hilt, coroutines, and StateFlow. UI state is exposed from feature ViewModels while Room-backed repositories preserve questions, attempts, drafts, feedback, profile skills, CV evidence, revisions, saved questions, and progress data.',
-        'Local state remains useful even when AI services are unavailable. Candidates can browse questions, edit drafts, review saved content, inspect practice history, and use supported offline speech recognition without requiring a continuous network connection.',
-        'Reusable design-system tokens centralize spacing, typography, shapes, colors, alpha values, and screen structure. Feature components consume those tokens so the feed, practice editor, attempt folder, feedback experience, saved library, profile, and progress dashboard feel like one product.',
+        'The Android client uses Kotlin and Jetpack Compose with an MVVM-style layered architecture. ViewModels expose UI state through StateFlow, use cases contain focused application operations, and repositories separate the domain layer from persistence and networking.',
+
+        'Room provides local persistence for questions, drafts, attempts, evaluations, revisions, profile data, CV evidence, saved questions, and progress. Retrofit handles remote operations through the Spring Boot API, while Hilt provides dependencies across the Android layers.',
+      ],
+
+      imageOffsets: [0],
+
+      imageSizes:
+        '(max-width: 768px) 94vw, 52vw',
+
+      images: [
+        {
+          src: architecture,
+          alt:
+            'Sangfroid architecture showing Jetpack Compose, ViewModel and StateFlow, use cases, repositories, Room, Retrofit, Spring Boot, and Qwen',
+        },
       ],
     },
+
+    /*
+     * =========================================================
+     * TECHNOLOGY STACK
+     * =========================================================
+     */
+
+    {
+      id: 'technology-stack',
+      type: 'image-text',
+
+      heading:
+        'Built End to End',
+
+      paragraphs: [
+        'Sangfroid spans the native Android experience, local persistence, REST networking, backend development, generative AI integration, containerization, and AWS deployment.',
+
+        'The client uses Kotlin, Jetpack Compose, Room, Hilt, StateFlow, coroutines, and Retrofit. The backend uses Java 21, Spring Boot, Spring Security, Jackson, and Qwen, with AWS providing the production runtime and operational infrastructure.',
+      ],
+
+      imageOffsets: [0],
+
+      imageSizes:
+        '(max-width: 768px) 94vw, 52vw',
+
+      images: [
+        {
+          src: techStack,
+          alt:
+            'Sangfroid technology stack covering Android, application architecture, local data, Spring Boot, Qwen, and AWS',
+        },
+      ],
+    },
+
+    /*
+     * =========================================================
+     * AI PIPELINE
+     * =========================================================
+     */
+
+    {
+      id: 'ai-feedback',
+      type: 'image-text',
+
+      heading:
+        'AI Behind a Controlled Backend Boundary',
+
+      paragraphs: [
+        'The Android application never talks directly to Qwen. Retrofit sends the interview context to a Java 21 Spring Boot API, which builds the prompt, calls Qwen, and controls the response before sending typed data back to Android.',
+
+        'Generated output is parsed, cleaned, normalized, and validated rather than trusted directly. The parser handles malformed JSON, blank or duplicate values, unexpected list sizes, and rubric scores outside the application contract.',
+
+        'Valid evaluations can contain a summary, strengths, missing points, suggestions, an improved outline, an improved answer example, follow-up questions, and rubric scores.',
+      ],
+
+      imageOffsets: [0],
+
+      imageSizes:
+        '(max-width: 768px) 94vw, 52vw',
+
+      images: [
+        {
+          src: aiFeedbackPipeline,
+          alt:
+            'Sangfroid AI feedback pipeline from Android and Retrofit through Spring Boot, Qwen, validation, and structured feedback',
+        },
+      ],
+    },
+
+    /*
+     * =========================================================
+     * AWS
+     * =========================================================
+     */
+
+    {
+      id: 'aws-deployment',
+      type: 'image-text',
+
+      heading:
+        'Containerized and Deployed on AWS',
+
+      paragraphs: [
+        'The Spring Boot backend is containerized so deployment remains separate from the Android application. Amazon ECR stores the container image and ECS Fargate runs it without requiring a manually managed server instance.',
+
+        'AWS Secrets Manager provides sensitive backend configuration such as the Qwen API credential, keeping secrets outside the Android application and container source. CloudWatch provides runtime logs for application behavior and troubleshooting.',
+      ],
+
+      imageOffsets: [0],
+
+      imageSizes:
+        '(max-width: 768px) 94vw, 52vw',
+
+      images: [
+        {
+          src: awsDeployment,
+          alt:
+            'Sangfroid AWS deployment showing the Android client, Spring Boot on ECS Fargate, ECR, Secrets Manager, CloudWatch, and Qwen',
+        },
+      ],
+    },
+
+    /*
+     * =========================================================
+     * ATTEMPTS AND REVISIONS
+     * =========================================================
+     */
+
     {
       id: 'practice-history',
       type: 'text',
-      heading: 'Attempts as a First-Class Product Model',
+
+      heading:
+        'Practice History, Not Disposable Answers',
+
       paragraphs: [
-        'Sangfroid keeps every submitted answer as its own attempt. The practice card behaves like a folder: the question occupies the first tab, while previous attempts appear as ordered tabs with evaluation status, submission time, input method, word count, duration, feedback access, reuse, and deletion controls.',
-        'The newest attempt appears first while the earliest attempt remains available at the end of the tab history. Horizontal scrolling, automatic selected-tab positioning, swipe navigation, and connected folder geometry keep larger attempt histories usable on phone-sized screens.',
-        'Deleting an attempt removes the associated answer, evaluation, and saved revisions without affecting the current draft or unrelated attempts. Confirmation and error states make destructive actions explicit.',
+        'Every submitted answer is stored as its own attempt. Candidates can move between the question and previous attempts, inspect evaluation status, reopen feedback, reuse an earlier answer as a new draft, or delete an individual attempt.',
+
+        'Improved answers are versioned separately from attempts. Multiple AI-assisted revisions can therefore be saved for the same response without replacing earlier versions, making improvement visible over time.',
       ],
     },
+
+    /*
+     * =========================================================
+     * CV PERSONALIZATION
+     * =========================================================
+     */
+
     {
       id: 'personalization-pipeline',
-      type: 'text',
-      heading: 'From CV Evidence to the Next Question',
+      type: 'image-text',
+
+      heading:
+        'From CV Evidence to the Next Question',
+
       paragraphs: [
-        'Question generation can use structured CV evidence, manually saved skills, target-role preferences, weak-skill signals, and practice progress. This allows Sangfroid to rotate toward underused evidence and weaker areas rather than repeatedly generating similar generic questions.',
-        'CV insights expose how much of the question library came from the candidate’s own evidence, which evidence items have been practiced, how those answers score compared with general questions, and which CV items have not yet produced a question.',
-        'Custom questions imported from pasted text enter the same Question, Practice, Feedback, Revision, and Progress architecture. Imported content is not isolated in a parallel workflow, so every question benefits from the same tracking and practice tools.',
+        'CV import uses semantic extraction rather than a hardcoded list of technical skills. This allows Sangfroid to identify useful professional evidence across technical and non-technical backgrounds.',
+
+        'Structured CV evidence, profile skills, target-role preferences, weaker practice areas, and previous progress can influence future questions. CV insights also show which evidence has already shaped practice and what has not yet been explored.',
+      ],
+
+      imageOffsets: [0],
+
+      imageOptions: {
+        width: 473,
+        height: 1024,
+      },
+
+      imageSizes:
+        '(max-width: 768px) 82vw, 36vw',
+
+      images: [
+        {
+          src: profile,
+          alt:
+            'Sangfroid interview profile showing CV-derived role information, extracted skills, and project evidence',
+        },
       ],
     },
+
+    /*
+     * =========================================================
+     * ENGINEERING
+     * =========================================================
+     */
+
     {
       id: 'engineering',
       type: 'text',
-      heading: 'Engineering the Edges of the Experience',
+
+      heading:
+        'Engineering Beyond the Happy Path',
+
       paragraphs: [
-        'The project required handling details that become visible only during sustained use: preserving editor focus while an ideal answer refreshes, maintaining scroll position during asynchronous generation, constraining model-generated arrays, reconnecting the final attempt tab to the folder body, and adapting long-running feedback loading without interrupting the candidate.',
-        'Physical Android-device testing shaped networking and interaction decisions. Local backend development used Android Debug Bridge port reversal where appropriate, while cloud deployment moved backend credentials and Qwen access out of the device build.',
-        'The result is not a collection of independent screens. Questions, answers, speech input, attempts, evaluations, revisions, CV evidence, saved skills, recommendations, and progress all share one data and interaction model.',
+        'Building Sangfroid meant solving interaction and reliability problems that appear during real use: keeping editor focus while an ideal answer generates, preserving the visible editing position during asynchronous updates, handling non-deterministic Qwen output, and keeping long attempt histories usable on a phone.',
+
+        'The interface also evolved around those edge cases. Attempt tabs scroll and reposition automatically, the trailing folder tab connects cleanly with the practice card, long-running feedback reduces to a compact loading state, and completed AI results expand back into the full feedback experience.',
+
+        'The result is one connected product model: CV evidence informs questions, questions create attempts, attempts create feedback and revisions, and those outcomes feed progress and future practice.',
+      ],
+    },
+
+    /*
+     * =========================================================
+     * SOURCE
+     * =========================================================
+     */
+
+    {
+      id: 'source',
+      type: 'text',
+
+      heading:
+        'Explore the Source',
+
+      blocks: [
+        {
+          type: 'paragraph',
+          content: [
+            'The Android source code, project history, and implementation details are available on ',
+            {
+              text: 'GitHub',
+              href: 'https://github.com/julesmeister/sangfroid',
+            },
+            '.',
+          ],
+        },
       ],
     },
   ],

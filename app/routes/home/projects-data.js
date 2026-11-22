@@ -118,6 +118,46 @@ export const projectsData = [
       ],
     },
   },
+   {
+    id: 'deutschcraftchat',
+    title: 'DeutschCraft Chat',
+    description:
+      'Offline-first Android language learning through natural conversations with an AI companion. Persistent chats, contextual corrections, CEFR progress, and realistic missions make practice part of the conversation.',
+    technologies: ['Kotlin', 'Jetpack Compose', 'Room', 'Qwen'],
+    image: deutschcraftChatThreads,
+    link: '/projects/deutschcraftchat',
+    featured: true,
+    scrollView: {
+      modelType: 'phone',
+      alt: 'DeutschCraft Chat conversations and German-learning missions on Android',
+      textures: [
+        {
+          srcSet: `${deutschcraftChatThreads} 473w, ${deutschcraftChatThreads} 946w`,
+          placeholder: deutschcraftChatThreads,
+        },
+        {
+          srcSet: `${deutschcraftChatConversation} 473w, ${deutschcraftChatConversation} 946w`,
+          placeholder: deutschcraftChatConversation,
+        },
+        {
+          srcSet: `${deutschcraftChatMission} 473w, ${deutschcraftChatMission} 946w`,
+          placeholder: deutschcraftChatMission,
+        },
+        {
+          srcSet: `${deutschcraftChatProgress} 473w, ${deutschcraftChatProgress} 946w`,
+          placeholder: deutschcraftChatProgress,
+        },
+        {
+          srcSet: `${deutschcraftChatGuidance} 473w, ${deutschcraftChatGuidance} 946w`,
+          placeholder: deutschcraftChatGuidance,
+        },
+        {
+          srcSet: `${deutschcraftChatSettings} 473w, ${deutschcraftChatSettings} 946w`,
+          placeholder: deutschcraftChatSettings,
+        },
+      ],
+    },
+  },
   {
   id: 'rent-a-friend',
   title: 'Rent-a-Friend',
@@ -194,46 +234,7 @@ export const projectsData = [
       ],
     },
   },
-  {
-    id: 'deutschcraftchat',
-    title: 'DeutschCraft Chat',
-    description:
-      'Offline-first Android language learning through natural conversations with an AI companion. Persistent chats, contextual corrections, CEFR progress, and realistic missions make practice part of the conversation.',
-    technologies: ['Kotlin', 'Jetpack Compose', 'Room', 'Qwen'],
-    image: deutschcraftChatThreads,
-    link: '/projects/deutschcraftchat',
-    featured: true,
-    scrollView: {
-      modelType: 'phone',
-      alt: 'DeutschCraft Chat conversations and German-learning missions on Android',
-      textures: [
-        {
-          srcSet: `${deutschcraftChatThreads} 473w, ${deutschcraftChatThreads} 946w`,
-          placeholder: deutschcraftChatThreads,
-        },
-        {
-          srcSet: `${deutschcraftChatConversation} 473w, ${deutschcraftChatConversation} 946w`,
-          placeholder: deutschcraftChatConversation,
-        },
-        {
-          srcSet: `${deutschcraftChatMission} 473w, ${deutschcraftChatMission} 946w`,
-          placeholder: deutschcraftChatMission,
-        },
-        {
-          srcSet: `${deutschcraftChatProgress} 473w, ${deutschcraftChatProgress} 946w`,
-          placeholder: deutschcraftChatProgress,
-        },
-        {
-          srcSet: `${deutschcraftChatGuidance} 473w, ${deutschcraftChatGuidance} 946w`,
-          placeholder: deutschcraftChatGuidance,
-        },
-        {
-          srcSet: `${deutschcraftChatSettings} 473w, ${deutschcraftChatSettings} 946w`,
-          placeholder: deutschcraftChatSettings,
-        },
-      ],
-    },
-  },
+ 
   {
     id: 'orbitandchillmobile',
     title: 'Orbit and Chill Mobile',
