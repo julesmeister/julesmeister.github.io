@@ -158,6 +158,58 @@ export const projectsData = [
       ],
     },
   },
+  
+  {
+    id: 'orbitandchillmobile',
+    title: 'Orbit and Chill Mobile',
+    description:
+      'Professional-grade Android astrology app built with Jetpack Compose and Kotlin. Features natal charts with transit navigation, synastry compatibility, Matrix of Destiny, Human Design bodygraph, annual profections, planetary hours, electional astrology, and moon phase tracking.',
+    technologies: ['Jetpack Compose', 'Kotlin', 'Android'],
+    image: orbitAndChillMobileScreenShot,
+    link: '/projects/orbitandchillmobile',
+    featured: true,
+    scrollView: {
+      modelType: 'phone',
+      alt: 'Orbit and Chill Mobile astrology app',
+      textures: [
+        {
+          srcSet: `${orbitAndChillMobileScreenShot} 375w, ${orbitAndChillMobileScreenShot} 750w`,
+          placeholder: orbitAndChillMobileScreenShot,
+        },
+        {
+          srcSet: `${orbitAndChillMobileScreenShot2} 375w, ${orbitAndChillMobileScreenShot2} 750w`,
+          placeholder: orbitAndChillMobileScreenShot2,
+        },
+      ],
+    },
+  },
+  {
+    id: 'blueprintjs-flutter',
+    title: 'Blueprint Flutter Components',
+    description:
+      'A comprehensive Flutter implementation of the Blueprint.js design system with 26+ components. Features pixel-perfect design fidelity, complete color palette, and faithful Blueprint.js interactions.',
+    technologies: ['Flutter', 'Dart', 'Custom Components'],
+    image: blueprintFlutterScreenShot,
+    link: '/projects/blueprintjs_flutter',
+    featured: false,
+    // Scroll view specific properties
+    scrollView: {
+      modelType: 'laptop',
+      alt: 'Blueprint Flutter Components library',
+      textures: [
+        {
+          srcSet: `${blueprintFlutterScreenShot} 1280w, ${blueprintFlutterScreenShot} 2560w`,
+          placeholder: blueprintFlutterScreenShot,
+          sizes: '(max-width: 768px) 80vw, 50vw',
+        },
+        {
+          srcSet: `${blueprintFlutterScreenShotCards} 1280w, ${blueprintFlutterScreenShotCards} 2560w`,
+          placeholder: blueprintFlutterScreenShotCards,
+          sizes: '(max-width: 768px) 80vw, 50vw',
+        },
+      ],
+    },
+  },
   {
   id: 'rent-a-friend',
   title: 'Rent-a-Friend',
@@ -235,57 +287,6 @@ export const projectsData = [
     },
   },
  
-  {
-    id: 'orbitandchillmobile',
-    title: 'Orbit and Chill Mobile',
-    description:
-      'Professional-grade Android astrology app built with Jetpack Compose and Kotlin. Features natal charts with transit navigation, synastry compatibility, Matrix of Destiny, Human Design bodygraph, annual profections, planetary hours, electional astrology, and moon phase tracking.',
-    technologies: ['Jetpack Compose', 'Kotlin', 'Android'],
-    image: orbitAndChillMobileScreenShot,
-    link: '/projects/orbitandchillmobile',
-    featured: true,
-    scrollView: {
-      modelType: 'phone',
-      alt: 'Orbit and Chill Mobile astrology app',
-      textures: [
-        {
-          srcSet: `${orbitAndChillMobileScreenShot} 375w, ${orbitAndChillMobileScreenShot} 750w`,
-          placeholder: orbitAndChillMobileScreenShot,
-        },
-        {
-          srcSet: `${orbitAndChillMobileScreenShot2} 375w, ${orbitAndChillMobileScreenShot2} 750w`,
-          placeholder: orbitAndChillMobileScreenShot2,
-        },
-      ],
-    },
-  },
-  {
-    id: 'blueprintjs-flutter',
-    title: 'Blueprint Flutter Components',
-    description:
-      'A comprehensive Flutter implementation of the Blueprint.js design system with 26+ components. Features pixel-perfect design fidelity, complete color palette, and faithful Blueprint.js interactions.',
-    technologies: ['Flutter', 'Dart', 'Custom Components'],
-    image: blueprintFlutterScreenShot,
-    link: '/projects/blueprintjs_flutter',
-    featured: false,
-    // Scroll view specific properties
-    scrollView: {
-      modelType: 'laptop',
-      alt: 'Blueprint Flutter Components library',
-      textures: [
-        {
-          srcSet: `${blueprintFlutterScreenShot} 1280w, ${blueprintFlutterScreenShot} 2560w`,
-          placeholder: blueprintFlutterScreenShot,
-          sizes: '(max-width: 768px) 80vw, 50vw',
-        },
-        {
-          srcSet: `${blueprintFlutterScreenShotCards} 1280w, ${blueprintFlutterScreenShotCards} 2560w`,
-          placeholder: blueprintFlutterScreenShotCards,
-          sizes: '(max-width: 768px) 80vw, 50vw',
-        },
-      ],
-    },
-  },
   {
     id: 'orbitandchill',
     title: 'Orbit and Chill',
