@@ -160,20 +160,23 @@
 }
 
 .name {
-  text-transform: uppercase;
-  font-size: var(--fontSizeH1);
-  letter-spacing: 0.04em;
+  width: 100%;
+  height: clamp(90px, 12vw, 130px);
+  margin: 0 0 var(--spaceL);
   color: var(--textTitle);
   font-family: var(--fontStack);
-  margin-bottom: var(--spaceL);
-  margin-top: 0;
   font-weight: var(--fontWeightBold);
   line-height: 1;
-  @media (--mediaMobile) {
-    font-size: var(--fontSizeH3);
-    letter-spacing: 0;
-  }
 
+  @media (--mediaMobile) {
+    height: 72px;
+    margin-bottom: var(--spaceM);
+  }
+}
+
+.techName {
+  width: 100%;
+  height: 100%;
 }
 
 .title {

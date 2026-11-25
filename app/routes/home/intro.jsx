@@ -1,4 +1,4 @@
-import { DecoderText } from '~/components/decoder-text';
+import TechText from '~/components/tech-text/TechText';
 import { Heading } from '~/components/heading';
 import { Section } from '~/components/section';
 import { Link as RouterLink } from '@remix-run/react';
@@ -51,8 +51,34 @@ export function Intro({ id, sectionRef, ...rest }) {
           </span>
         </a>
         <h1 className={styles.name} id={titleId}>
-          <DecoderText text={config.name} delay={500} />
-        </h1>
+  <TechText
+    className={styles.techName}
+    text={config.name}
+    fontWeight={700}
+    fontSize={120}
+    letterSpacing={0.04}
+    reveal="letter"
+    dashLength={4}
+    dashGap={2}
+    specks={15}
+    intro="none"
+    clickKick
+    guides={false}
+    accentColor="currentColor"
+    reach={160}
+    softness={0.7}
+    lineStyle="dashed"
+    strokeWidth={1.5}
+    speed={1}
+    bounce={0.4}
+    selection
+    labels={false}
+    color="currentColor"
+    align="center"
+    draggable
+    sweep
+  />
+</h1>
         <Heading level={0} as="h2" className={styles.title}>
           {config.role}
         </Heading>
