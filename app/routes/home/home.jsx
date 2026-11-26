@@ -61,7 +61,7 @@ const SectionHeading = ({ id, eyebrow, title, description }) => (
 
 const experienceItems = [
   {
-    title: 'Angular Developer',
+    title: 'Android Developer',
     organization: 'Accenture, Mandaluyong City',
     dates: 'July 2026 - Present',
     details: [
