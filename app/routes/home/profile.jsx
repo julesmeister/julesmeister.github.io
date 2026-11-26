@@ -172,7 +172,7 @@ const ProfileText = ({ visible, titleId }) => (
 
       <div>
         <dt>Role</dt>
-        <dd>Angular Developer</dd>
+        <dd>Android Developer</dd>
       </div>
 
       <div>
